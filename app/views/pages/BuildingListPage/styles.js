@@ -15,7 +15,9 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   listView: {
-    paddingTop: 15,
+    paddingVertical: 15,
+    width: commonStyles.screenWidth,
+    paddingHorizontal: commonStyles.padding,
   },
   listItem: {
     width: commonStyles.screenSubWidth,

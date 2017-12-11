@@ -39,7 +39,12 @@ export const styles = StyleSheet.create({
   },
   menuTitle: {
     fontSize: 25,
-    fontWeight: 'bold',
+    textAlign: 'center',
+    color: 'white',
+  },
+  menuTitle_support: {
+    fontSize: 18,
+    textAlign: 'center',
     color: 'white',
   },
   menuItemIcon: {

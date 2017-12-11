@@ -37,11 +37,20 @@ class Sidebar extends Component {
         case '1':
           Actions.MyWishList();
           break;
+        case '4':
+          Actions.MyLocation();
+          break;
+        case '5':
+          Actions.Area();
+          break;
         case '6':
           Actions.Package();
           break;
         case '7':
           Actions.ProfileEdit();
+          break;
+        case '8':
+          Actions.SupportAdvertisement();
           break;
         default: 
           break;

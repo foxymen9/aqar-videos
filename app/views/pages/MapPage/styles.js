@@ -6,7 +6,7 @@ import * as commonColors from '../../../common/styles/commonColors';
 
 export const styles = StyleSheet.create({
   container: {
-    height: commonStyles.screenSubHeight,
+    height: commonStyles.screenHeight - commonStyles.tabBarHieght,
     width: commonStyles.screenWidth,
   },
   mapView: {

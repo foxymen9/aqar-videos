@@ -88,6 +88,38 @@ export default class MyAdsPage extends Component {
         viewCount: '500',
         favorite: false,
       },
+      {
+        image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
+        title: 'Apartment for Rent',
+        price: '23.000',
+        capacity: '80M',
+        viewCount: '500',
+        favorite: true,
+      },
+      {
+        image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
+        title: 'Apartment for Rent',
+        price: '32.000',
+        capacity: '120M',
+        viewCount: '500',
+        favorite: false,
+      },
+      {
+        image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
+        title: 'Apartment for Rent',
+        price: '23.000',
+        capacity: '80M',
+        viewCount: '500',
+        favorite: true,
+      },
+      {
+        image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
+        title: 'Apartment for Rent',
+        price: '32.000',
+        capacity: '120M',
+        viewCount: '500',
+        favorite: false,
+      },
     ]
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     const dataSource = ds.cloneWithRows(listData);

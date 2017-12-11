@@ -5,21 +5,13 @@ import * as commonStyles from '../../../common/styles/commonStyles';
 import * as commonColors from '../../../common/styles/commonColors';
 
 export const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'white',
-    height: commonStyles.screenHeight - commonStyles.tabBarHieght,
-    width: commonStyles.screenWidth
-  },
   btn: {
     position: 'absolute',
     right: 15,
     zIndex: 99,
   },
-  btnView: {
-    bottom: 100,
-  },
   btnPlus: {
-    bottom: 20,
+    bottom: 40,
   },
   btnIcon: {
     width: 80,

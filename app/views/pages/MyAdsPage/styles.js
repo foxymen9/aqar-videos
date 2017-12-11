@@ -9,7 +9,7 @@ const listItemWidth = (commonStyles.screenWidth - commonStyles.padding * 2 - 10)
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    height: '100%',
+    height: commonStyles.screenHeight - commonStyles.tabBarHieght,
     width: '100%',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
   listView: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    paddingTop: 15,
+    paddingVertical: 15,
     paddingHorizontal: commonStyles.padding - 5,
   },
   listItem: {

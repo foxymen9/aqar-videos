@@ -68,7 +68,7 @@ class Navigation extends Component {
           <TouchableOpacity onPress={()=>this.onSearch()}>
             <Image source={icon_search} style={styles.menuIcon} />
           </TouchableOpacity>
-          <Text style={styles.menuTitle}>{title}</Text>
+          <Text style={type == 'support' ? styles.menuTitle_support : styles.menuTitle}>{title}</Text>
           <TouchableOpacity onPress={()=>this.props.menuState()}>
             <Image source={icon_menu} style={styles.menuIcon} />
           </TouchableOpacity>

@@ -7,7 +7,7 @@ import * as commonColors from '../../../common/styles/commonColors';
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    height: commonStyles.screenHeight - commonStyles.tabBarHieght,
+    height: commonStyles.screenSubHeight,
     width: commonStyles.screenWidth
   },
   btn: {
@@ -16,10 +16,7 @@ export const styles = StyleSheet.create({
     zIndex: 99,
   },
   btnView: {
-    bottom: 100,
-  },
-  btnPlus: {
-    bottom: 20,
+    bottom: 120,
   },
   btnIcon: {
     width: 80,

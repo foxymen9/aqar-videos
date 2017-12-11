@@ -9,18 +9,18 @@ import {
 } from 'react-native';
 
 import Container from '../../layout/Container';
-import TabView from '../../layout/TabView';
+import MapPage from '../MapPage';
+import BuildingListPage from '../BuildingListPage';
 import ButtonPlusComponent from '../../components/ButtonPlusComponent';
 import MapButtonListComponent from '../../components/MapButtonListComponent';
 
 import { styles } from './styles';
 
-export default class MainPage extends Component {
+export default class MyLocationPage extends Component {
   constructor(props) {
     super(props);
     this.state ={
       isBtnList: false,
-      tabIndex: 0,
       btnItem: null,
       btnStatus: 'map',
     }
@@ -49,18 +49,17 @@ export default class MainPage extends Component {
     this.setState({isBtnList: !this.state.isBtnList});
   }
 
-  changeTab(index) {
-    this.setState({btnStatus: 'map'})
-  }
-
   render() {
-    const {tabIndex, isBtnList, btnItem, btnStatus} = this.state;
-    const title = btnStatus == 'list' ? 'LIST' : 'MAP';
+    const {isBtnList, btnItem, btnStatus} = this.state;
+    const title = btnStatus == 'list' ? 'LIST' : 'MY LOCATION';
 
     return (
       <Container title={title}>
         <View style={styles.container}>
-          <TabView btnStatus={btnStatus} changeTab={(index)=>this.changeTab(index)}/>
+          {btnStatus == 'list'
+          ? <BuildingListPage />
+          : <MapPage page="building" />
+          }
           {isBtnList && (
             <MapButtonListComponent  onSelectItem={(value)=>this.onSelectItem(value)} />
           )}
