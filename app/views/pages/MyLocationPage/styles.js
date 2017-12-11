@@ -7,7 +7,7 @@ import * as commonColors from '../../../common/styles/commonColors';
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    height: commonStyles.screenHeight - commonStyles.tabBarHieght,
+    height: commonStyles.screenNormalHeight,
     width: commonStyles.screenWidth
   },
   btn: {

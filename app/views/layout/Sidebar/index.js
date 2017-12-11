@@ -23,7 +23,7 @@ class Sidebar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedIn: true,
+      loggedIn: false,
     }
   }
 
@@ -61,8 +61,11 @@ class Sidebar extends Component {
         case '0':
           Actions.Register();
           break;
-        case '6':
+        case '2':
           Actions.Package();
+          break;
+        case '3':
+          Actions.SupportAdvertisement();
           break;
         default: 
           break;

@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     zIndex: 99,
   },
   btnView: {
-    bottom: 120,
+    bottom: 100,
   },
   btnIcon: {
     width: 80,

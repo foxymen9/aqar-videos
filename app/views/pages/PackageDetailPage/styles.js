@@ -8,7 +8,7 @@ import { tabBarHieght } from '../../../common/styles/commonStyles';
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    height: commonStyles.screenHeight - commonStyles.tabBarHieght,
+    height: commonStyles.screenNormalHeight,
     width: '100%',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     height: 40,
     backgroundColor: '#EB0089',
     position: 'absolute',
-    bottom: 60,
+    bottom: commonStyles.buttonBottomHeight,
   },
   btnWrapper: {
     width: '100%',
@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
   },
   description: {
     marginTop: 20,
-    height: commonStyles.screenHeight - commonStyles.tabBarHieght - 320,
+    height: commonStyles.screenNormalHeight - 320,
   },
   descriptionScrollView: {
     width: '100%',

@@ -48,7 +48,7 @@ export default class PackagePage extends Component {
     return (
       <View
           key={`${sectionID}-${rowID}`}
-          style={{ height: 10, backgroundColor: 'transparent', flex:1}}
+          style={{ height: 15, backgroundColor: 'transparent', flex:1}}
       />
     );
   }

@@ -23,6 +23,10 @@ export default class SupportAdvertisementPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      message: '',
+      email: '',
+      fullName: '',
+      mobileNumber: '',
     }
   }
 
@@ -87,51 +91,31 @@ export default class SupportAdvertisementPage extends Component {
                   keyboardType="numbers-and-punctuation"
                   value={ this.state.email }
                   onChangeText={ (text) => this.setState({ email: text }) }
-                  onSubmitEditing={ () => this.refs.password.focus() }
                 />
                 <View style={styles.iconView}>
                   <Icon name='envelope' style={styles.inputIcon}></Icon>
                 </View>
               </View>
-              <View style={styles.inputView}>
-                <TextInput
-                  ref="password"
-                  autoCapitalize="none"
-                  autoCorrect={ false }
-                  placeholder="Password"
-                  placeholderTextColor={ commonColors.placeholderText }
-                  textAlign="right"
-                  style={styles.input}
-                  underlineColorAndroid="transparent"
-                  returnKeyType={ 'next' }
-                  secureTextEntry={true}
-                  value={ this.state.password }
-                  onChangeText={ (text) => this.setState({ password: text }) }
-                  onSubmitEditing={ () => this.refs.confirmPassword.focus() }
-                />
-                <View style={styles.iconView}>
-                  <Icon name='lock' style={styles.inputIcon}></Icon>
-                </View>
+              <View style={[styles.inputView, {marginTop: 20}]}>
+                <Text>Subject</Text>
               </View>
               <View style={styles.inputView}>
                 <TextInput
-                  ref="confirmPassword"
+                  ref="message"
+                  multiline={true}
                   autoCapitalize="none"
                   autoCorrect={ false }
-                  placeholder="Confirm Password"
+                  placeholder="Type your message here"
                   placeholderTextColor={ commonColors.placeholderText }
                   textAlign="right"
                   style={styles.input}
                   underlineColorAndroid="transparent"
                   returnKeyType={ 'next' }
-                  secureTextEntry={true}
-                  value={ this.state.confirmPassword }
-                  onChangeText={ (text) => this.setState({ confirmPassword: text }) }
+                  keyboardType="numbers-and-punctuation"
+                  value={ this.state.message }
+                  onChangeText={ (text) => this.setState({ message: text }) }
                 />
-                <View style={styles.iconView}>
-                  <Icon name='lock' style={styles.inputIcon}></Icon>
-                </View>
-              </View>     
+              </View>
             </View>
           </KeyboardAwareScrollView>
           <View style={styles.btnView}>

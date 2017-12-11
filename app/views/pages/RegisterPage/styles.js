@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
     height: 40,
     backgroundColor: '#88AC40',
     position: 'absolute',
-    bottom: 60,
+    bottom: commonStyles.buttonBottomHeight,
   },
   btnWrapper: {
     width: '100%',

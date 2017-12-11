@@ -10,7 +10,7 @@ const listItemHeight = 100;
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    height: commonStyles.screenHeight - commonStyles.tabBarHieght,
+    height: commonStyles.screenNormalHeight,
     width: '100%',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
   },
   listView: {
     paddingHorizontal: commonStyles.padding,
-    paddingVertical: 15,
+    paddingTop: 15,
   },
   listItem: {
     width: listItemWidth,

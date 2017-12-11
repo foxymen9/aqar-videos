@@ -34,10 +34,15 @@ function getScreenWidth() {
 
 export let screenHeight = getScreenHeight();
 export let screenWidth = getScreenWidth();
+
 export const menuHeight = 60 + statusbarHeight;
 export const tabBarHieght = 45;
+
+export const screenNormalHeight = screenHeight - menuHeight;
 export const screenSubHeight = screenHeight - menuHeight - tabBarHieght;
 export const screenSubWidth = screenWidth * 0.9;
+
 export const padding = screenWidth * 0.05;
 
+export const buttonBottomHeight = 40;
 export const normalFontSize = 16;

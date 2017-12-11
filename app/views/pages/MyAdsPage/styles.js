@@ -4,12 +4,12 @@ import {
 import * as commonStyles from '../../../common/styles/commonStyles';
 import * as commonColors from '../../../common/styles/commonColors';
 
-const listItemWidth = (commonStyles.screenWidth - commonStyles.padding * 2 - 10) / 2;
+const listItemWidth = (commonStyles.screenWidth - commonStyles.padding * 2 - 15) / 2;
 
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    height: commonStyles.screenHeight - commonStyles.tabBarHieght,
+    height: commonStyles.screenNormalHeight,
     width: '100%',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -18,14 +18,14 @@ export const styles = StyleSheet.create({
   listView: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    paddingVertical: 15,
-    paddingHorizontal: commonStyles.padding - 5,
+    paddingTop: 15,
+    paddingHorizontal: commonStyles.padding - 7.5,
   },
   listItem: {
     width: listItemWidth,
-    marginHorizontal: 5,
+    marginHorizontal: 7.5,
     height: listItemWidth + 10,
-    marginBottom: 10,
+    marginBottom: 15,
   },
   imageView: {
     width: '100%',
