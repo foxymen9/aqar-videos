@@ -9,16 +9,19 @@ import {
   Image,
 } from 'react-native';
 
+import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
+
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import { styles } from './styles';
 
-export default class BuildingListPage extends Component {
+export default class ProductListPage extends Component {
   constructor(props) {
     super(props);
   }
 
   onItemSelect(rowData, rowID) {
-
+    Actions.ProductDetail();
   }
 
   _renderRow (rowData, sectionID, rowID, highlightRow) {

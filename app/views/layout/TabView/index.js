@@ -19,14 +19,8 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { styles } from './styles';
 
-const icon_building = require('../../../common/assets/images/tab/building.png');
-const icon_apartment = require('../../../common/assets/images/tab/flat.png');
-const icon_room = require('../../../common/assets/images/tab/room.png');
-const icon_home = require('../../../common/assets/images/tab/office.png');
-const icon_gallery = require('../../../common/assets/images/tab/galleries_and_shops.png');
-
 import MapPage from '../../pages/MapPage';
-import BuildingListPage from '../../pages/BuildingListPage';
+import ProductListPage from '../../pages/ProductListPage';
 
 class TabView extends Component {
   constructor(props) {
@@ -62,7 +56,7 @@ class TabView extends Component {
               <MapPage page="building" />
             )}
             {btnStatus == 'list' && (
-              <BuildingListPage />
+              <ProductListPage />
             )}
           </ScrollView>
           <ScrollView tabLabel="Apartment">
@@ -70,7 +64,7 @@ class TabView extends Component {
               <MapPage page="apartment" />
             )}
             {btnStatus == 'list' && (
-              <BuildingListPage />
+              <ProductListPage />
             )}
           </ScrollView>
           <ScrollView tabLabel="Room"></ScrollView>

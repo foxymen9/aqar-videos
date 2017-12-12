@@ -24,6 +24,8 @@ import ProfileEditPage from './views/pages/ProfileEditPage';
 import AreaPage from './views/pages/AreaPage';
 import MyLocationPage from './views/pages/MyLocationPage';
 import SupportAdvertisementPage from './views/pages/SupportAdvertisementPage';
+import ProductListPage from './views/pages/ProductListPage';
+import ProductDetailPage from './views/pages/ProductDetailPage';
 
 export default class App extends Component {
   constructor(props) {
@@ -33,7 +35,7 @@ export default class App extends Component {
   render() {
     const scenes = Actions.create(
       <Scene key="root">
-        <Scene key="Main" component={ MainPage } initial={ true } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="Main" component={ MainPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="Register" component={ RegisterPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyAds" component={ MyAdsPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyWishList" component={ MyWishListPage } hideNavBar={ true } panHandlers={null}/>
@@ -43,6 +45,8 @@ export default class App extends Component {
         <Scene key="Area" component={ AreaPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyLocation" component={ MyLocationPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="SupportAdvertisement" component={ SupportAdvertisementPage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="ProductList" component={ ProductListPage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="ProductDetail" initial={ true } component={ ProductDetailPage } hideNavBar={ true } panHandlers={null}/>
       </Scene>
     );
 

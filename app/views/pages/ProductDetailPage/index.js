@@ -1,0 +1,131 @@
+import React, { Component } from 'react';
+import {
+  View,
+  Text,
+  Dimensions,
+  ScrollView,
+  ListView,
+  TouchableOpacity,
+  Image,
+  Modal,
+  TouchableWithoutFeedback
+} from 'react-native';
+
+import FontAwesome, {Icons} from 'react-native-fontawesome';
+import Icon from 'react-native-vector-icons/Feather';
+import IconEntypo from 'react-native-vector-icons/Entypo';
+
+import Container from '../../layout/Container';
+import { styles } from './styles';
+import ModalShare from '../../components/ModalShare';
+
+const icon_office = require('../../../common/assets/images/tab/office.png');
+
+export default class ProductDetailPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showShareModal: false,
+    }
+  }
+
+  onFavorite() {
+
+  }
+
+  onShare() {
+    this.setState({showShareModal : true});
+  }
+
+  onSendMessage() {
+
+  }
+
+  render() {
+
+    return (
+      <Container title='' type='detail'>
+        <View style={styles.container}>
+          <ScrollView>
+            <Image source={{ uri: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg'}} style={ styles.thumbnail } />    
+            <View style={styles.titleView}>
+              <Text style={styles.textTitle}>
+                Office in the city center for rent
+              </Text>
+            </View>
+            <View style={styles.description}>
+              <Text style={styles.textDescription}>he following * Begin with the words **ROR Engineer** * Include links to your Github, Stack Overflow and Linked In profiles * Include a link to your blog (if you have one)</Text>
+            </View>
+            <View style={styles.titleView}>
+              <Text style={styles.textPhone}>
+                + 123 567 45 45 90
+              </Text>
+            </View>
+            <View style={styles.separate} />
+            <View style={styles.itemView}>
+              <Text style={styles.textTitle}>
+                5.000 SAR
+              </Text>
+            </View>
+            <View style={styles.itemView}>
+              <Text style={styles.textDescription}>
+                Ar Riyadh
+              </Text>
+            </View>
+            <View style={styles.itemView}>
+              <Text style={styles.textDescription}>
+                Riyadg
+              </Text>
+            </View>
+            <View style={styles.itemView}>
+              <Text style={styles.textDescription}>
+                North - East
+              </Text>
+            </View>
+            <View style={styles.itemView}>
+              <Text style={styles.textTitle}>
+                Rent
+              </Text>
+            </View>
+            <View style={styles.titleView}>
+              <Image source={icon_office} style={styles.iconOffice} resizeMode="cover" />
+              <Text style={styles.textDescription}>
+                Office
+              </Text>
+            </View>
+            <View style={styles.btnView}>
+              <TouchableOpacity onPress={()=>this.onFavorite()} activeOpacity={0.5}>
+                <View style={styles.btnFavorite}>
+                  <FontAwesome style={styles.icon}>{Icons.star}</FontAwesome>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>this.onShare()} activeOpacity={0.5}>
+                <View style={styles.btnShare}>
+                  <IconEntypo name='share' style={styles.icon}></IconEntypo>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>this.onSendMessage()} activeOpacity={0.5}>
+                <View style={styles.btnSend}>
+                  <View style={styles.sendTextWrapper}>
+                    <Text style={styles.textSend}>SEND</Text>
+                    <Text style={styles.textSend}>MESSAGE</Text>
+                  </View>
+                  <FontAwesome style={styles.icon}>{Icons.envelopeO}</FontAwesome>
+                </View>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.btnView}>
+              <TouchableOpacity onPress={()=>this.onTry()} activeOpacity={0.5}>
+                <View style={styles.btnAd}>
+                  <Text style={[styles.textDescription, {fontStyle: 'italic'}]}>Report Ad</Text>
+                  <Icon name='flag' style={styles.iconAd} />
+                </View>
+              </TouchableOpacity>
+            </View>
+            <ModalShare showShareModal={this.state.showShareModal} hideShareModal={()=>this.setState({showShareModal: false})} />
+          </ScrollView>
+        </View>
+      </Container>
+    );
+  }
+}

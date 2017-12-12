@@ -19,7 +19,7 @@ const WINDOW_WIDTH = Dimensions.get('window').width;
 const icon_building = require('../../../../common/assets/images/tab/building.png');
 const icon_apartment = require('../../../../common/assets/images/tab/flat.png');
 const icon_room = require('../../../../common/assets/images/tab/room.png');
-const icon_home = require('../../../../common/assets/images/tab/office.png');
+const icon_office = require('../../../../common/assets/images/tab/office.png');
 const icon_gallery = require('../../../../common/assets/images/tab/galleries_and_shops.png');
 
 import * as commonStyles from '../../../../common/styles/commonStyles';
@@ -28,7 +28,7 @@ const icons = [
   icon_building,
   icon_apartment,
   icon_room,
-  icon_home,
+  icon_office,
   icon_gallery
 ];
 

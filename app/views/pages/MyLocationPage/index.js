@@ -10,7 +10,7 @@ import {
 
 import Container from '../../layout/Container';
 import MapPage from '../MapPage';
-import BuildingListPage from '../BuildingListPage';
+import ProductListPage from '../ProductListPage';
 import ButtonPlusComponent from '../../components/ButtonPlusComponent';
 import MapButtonListComponent from '../../components/MapButtonListComponent';
 
@@ -57,7 +57,7 @@ export default class MyLocationPage extends Component {
       <Container title={title}>
         <View style={styles.container}>
           {btnStatus == 'list'
-          ? <BuildingListPage />
+          ? <ProductListPage />
           : <MapPage page="building" />
           }
           {isBtnList && (
