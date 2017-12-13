@@ -4,7 +4,7 @@ import {
 import * as commonStyles from '../../../common/styles/commonStyles';
 import * as commonColors from '../../../common/styles/commonColors';
 
-const listItemHeight = (commonStyles.screenSubHeight - 30) / 2;
+const listItemHeight = 250;
 
 export const styles = StyleSheet.create({
   container: {

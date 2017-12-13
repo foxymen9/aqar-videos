@@ -46,10 +46,12 @@ export const styles = StyleSheet.create({
     color: commonColors.darkGrayColor,
     fontSize: 15,
     fontWeight: 'bold',
+    textAlign: 'right',
   },
   textPrice: {
     color: commonColors.darkGrayColor,
     fontSize: 14,
+    textAlign: 'right',
   },
   viewWrapper: {
     flexDirection: 'row',
@@ -58,6 +60,7 @@ export const styles = StyleSheet.create({
     color: commonColors.darkGrayColor,
     fontSize: 11,
     fontStyle: 'italic',
+    textAlign: 'right',
   },
   eye: {
     fontSize: 14,

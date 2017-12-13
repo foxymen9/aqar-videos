@@ -160,7 +160,7 @@ const ScrollableTabBar = createReactClass({
     >
       <View style={[styles.tab, this.props.tabStyle ]}>
         <Image source={icons[page]} style={styles.tabItemIcon} />
-        <Text style={[{color: textColor, fontWeight, fontSize: 16}, textStyle]}>
+        <Text style={[{color: textColor, fontWeight, fontSize: 18}, textStyle]}>
           {name}
         </Text>
       </View>
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingLeft: commonStyles.padding,
+    paddingLeft: commonStyles.padding/2,
     paddingRight: commonStyles.padding/2,
     flexDirection: 'row',
     justifyContent: 'center',
@@ -261,11 +261,11 @@ const styles = StyleSheet.create({
   tabs: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    paddingRight: commonStyles.padding/2,
+    padding: commonStyles.padding/2,
   },
   tabItemIcon: {
-    width: 16,
-    height: 16,
+    width: 18,
+    height: 18,
     marginRight: commonStyles.padding/2,
   }
 });

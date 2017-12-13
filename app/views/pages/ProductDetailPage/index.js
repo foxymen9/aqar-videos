@@ -19,7 +19,8 @@ import Container from '../../layout/Container';
 import { styles } from './styles';
 import ModalShare from '../../components/ModalShare';
 
-const icon_office = require('../../../common/assets/images/tab/office.png');
+const icon_office = require('../../../common/assets/images/product_detail/office2.png');
+const icon_report = require('../../../common/assets/images/product_detail/report_ad.png');
 
 export default class ProductDetailPage extends Component {
   constructor(props) {
@@ -38,6 +39,10 @@ export default class ProductDetailPage extends Component {
   }
 
   onSendMessage() {
+
+  }
+
+  onReportAD() {
 
   }
 
@@ -115,10 +120,11 @@ export default class ProductDetailPage extends Component {
               </TouchableOpacity>
             </View>
             <View style={styles.btnView}>
-              <TouchableOpacity onPress={()=>this.onTry()} activeOpacity={0.5}>
+              <TouchableOpacity onPress={()=>this.onReportAD()} activeOpacity={0.5}>
                 <View style={styles.btnAd}>
                   <Text style={[styles.textDescription, {fontStyle: 'italic'}]}>Report Ad</Text>
-                  <Icon name='flag' style={styles.iconAd} />
+                  {/* <Icon name='flag' style={styles.iconAd} /> */}
+                  <Image source={icon_report} style={styles.iconAd} />
                 </View>
               </TouchableOpacity>
             </View>

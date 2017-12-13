@@ -18,6 +18,14 @@ const icon_login = require('../../../common/assets/images/menu/login_signup.png'
 const icon_offer = require('../../../common/assets/images/menu/special_offer.png');
 const icon_package = require('../../../common/assets/images/menu/package.png');
 const icon_support = require('../../../common/assets/images/menu/advertising_support.png');
+const icon_area = require('../../../common/assets/images/menu/area.png');
+const icon_message = require('../../../common/assets/images/menu/messages.png');
+const icon_location = require('../../../common/assets/images/menu/my_location.png');
+const icon_myad = require('../../../common/assets/images/menu/my_ads.png');
+const icon_newad = require('../../../common/assets/images/menu/post_new_ad.png');
+const icon_signout = require('../../../common/assets/images/menu/sign_out.png');
+const icon_pen = require('../../../common/assets/images/menu/pen.png');
+const icon_wishlist = require('../../../common/assets/images/menu/my_wishlist.png');
 
 class Sidebar extends Component {
   constructor(props) {
@@ -36,6 +44,9 @@ class Sidebar extends Component {
           break;
         case '1':
           Actions.MyWishList();
+          break;
+        case '3':
+          Actions.MyMessage();
           break;
         case '4':
           Actions.MyLocation();
@@ -79,7 +90,9 @@ class Sidebar extends Component {
       <TouchableOpacity onPress={()=>{highlightRow(sectionID, rowID); this.onItemSelect(rowData, rowID)}}>
         <View style={styles.menuItem}>
           <Text style={styles.menuItemTitle}>{rowData.title}</Text>
-          <Image source={rowData.icon} style={styles.menuItemIcon} />
+          <View style={styles.iconView}>
+            <Image source={rowData.icon} style={styles.menuItemIcon} />
+          </View>
         </View>
       </TouchableOpacity>
     )
@@ -99,35 +112,35 @@ class Sidebar extends Component {
       menuItems = [
         {
           title: 'My Ads (' + 3 + ')',
-          icon: icon_login
+          icon: icon_myad
         },
         {
           title: 'My Wish List (' + 4 + ')',
-          icon: icon_offer
+          icon: icon_wishlist
         },
         {
           title: 'Post New Ad',
-          icon: icon_package
+          icon: icon_newad
         },
         {
           title: 'My Messages',
-          icon: icon_support
+          icon: icon_message
         },
         {
           title: 'My Location',
-          icon: icon_support
+          icon: icon_location
         },
         {
           title: 'Area',
-          icon: icon_support
+          icon: icon_area
         },
         {
           title: 'Packages',
-          icon: icon_support
+          icon: icon_package
         },
         {
           title: 'Edit Profile',
-          icon: icon_support
+          icon: icon_pen
         },
         {
           title: 'Support & Advertisement',
@@ -135,7 +148,7 @@ class Sidebar extends Component {
         },
         {
           title: 'Sign Out',
-          icon: icon_support
+          icon: icon_signout
         },
       ];
     }

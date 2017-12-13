@@ -21,6 +21,8 @@ export const styles = StyleSheet.create({
     marginVertical: 20,
     paddingHorizontal: commonStyles.padding,
     width: '100%',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end'
   },
   textTitle: {
     fontSize: commonStyles.normalFontSize,
@@ -56,8 +58,8 @@ export const styles = StyleSheet.create({
     height: 50,
   },
   iconOffice: {
-    width: 50,
-    height: 50,
+    width: 45,
+    height: 45,
     marginTop: 20,
     marginBottom: 10,
   },
@@ -69,27 +71,27 @@ export const styles = StyleSheet.create({
   },
   btnView: {
     width: '100%',
-    height: 60,
+    height: 70,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
   btnFavorite: {
     backgroundColor: '#D6D6D6',
-    width: 80,
+    width: 90,
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
   },
   btnShare: {
-    backgroundColor: '#EB0089',
-    width: 80,
+    backgroundColor: commonColors.pinkColor,
+    width: 90,
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
   },
   btnSend: {
-    width: commonStyles.screenWidth - 160,
+    width: commonStyles.screenWidth - 180,
     backgroundColor: '#88AC40',
     height: '100%',
     alignItems: 'center',
@@ -115,8 +117,6 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   iconAd: {
-    color: '#AAA',
-    fontSize: 25,
-    marginLeft: 5,
+    marginLeft: 10,
   },
 });

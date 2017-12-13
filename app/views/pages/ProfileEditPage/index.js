@@ -26,6 +26,10 @@ export default class ProfileEditPage extends Component {
     }
   }
 
+  onUpdate() {
+    
+  }
+
   render() {
     const {tabIndex} = this.state;
     return (
@@ -135,7 +139,7 @@ export default class ProfileEditPage extends Component {
             </View>
           </KeyboardAwareScrollView>
           <View style={styles.btnView}>
-            <TouchableOpacity onPress={()=>this.onSignUp()} activeOpacity={0.5}>
+            <TouchableOpacity onPress={()=>this.onUpdate()} activeOpacity={0.5}>
               <View style={styles.btnWrapper}>
                 <Text style={styles.btnText}>UPDATE</Text>
               </View>

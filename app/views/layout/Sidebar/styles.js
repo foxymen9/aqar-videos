@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 50,
     width: '100%',
-    paddingHorizontal: commonStyles.padding,
+    paddingHorizontal: commonStyles.padding/2,
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
@@ -24,9 +24,10 @@ export const styles = StyleSheet.create({
     fontSize: commonStyles.normalFontSize,
     color: '#868686',
   },
+  iconView: {
+    width: 40,
+    alignItems: 'flex-end'
+  },
   menuItemIcon: {
-    marginLeft: 10,
-    width: 20,
-    height: 20,
   },
 });

@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     padding: commonStyles.padding,
   },
   modalHeader: {
-    marginBottom: 30,
+    marginBottom: 20,
   },
   headerText: {
     fontSize: commonStyles.normalFontSize,
@@ -31,25 +31,21 @@ export const styles = StyleSheet.create({
     width: '50%',
     alignItems: 'center',
   },
+  icon: {
+    fontSize: 80,
+    marginBottom: 5,
+  },
   iconFacebook: {
     color: '#3B589E',
-    fontSize: 70,
-    marginBottom: 10,
   },
   iconTwitter: {
     color: '#56CCF4',
-    fontSize: 70,
-    marginBottom: 10,
   },
   iconLinkedin: {
     color: '#007BB6',
-    fontSize: 70,
-    marginBottom: 10,
   },
   iconWhatsapp: {
     color: '#14990A',
-    fontSize: 70,
-    marginBottom: 10,
   },
   socialText: {
     fontSize: commonStyles.normalFontSize,

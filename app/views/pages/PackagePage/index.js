@@ -14,6 +14,8 @@ import { Actions } from 'react-native-router-flux';
 
 import Container from '../../layout/Container';
 import { styles } from './styles';
+import * as commonStyles from '../../../common/styles/commonStyles';
+import * as commonColors from '../../../common/styles/commonColors';
 
 export default class PackagePage extends Component {
   constructor(props) {
@@ -73,7 +75,7 @@ export default class PackagePage extends Component {
       {
         number: 365,
         title: '599.SAR',
-        color: '#EB0089'
+        color: commonColors.pinkColor
       },
       
     ]

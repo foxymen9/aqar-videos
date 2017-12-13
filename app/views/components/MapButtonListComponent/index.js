@@ -8,6 +8,9 @@ import {
   Image,
 } from 'react-native';
 
+import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
+
 import { styles } from './styles';
 
 const icon_list = require('../../../common/assets/images/map/list.png');
@@ -15,6 +18,10 @@ const icon_video = require('../../../common/assets/images/map/add_video.png');
 const icon_mail = require('../../../common/assets/images/map/mailbox.png');
 
 export default class MapButtonListComponent extends Component {
+  onNewVideo() {
+    Actions.PostNewVideo();
+  }
+
   render() {
     return (
       <View style={[styles.btn, styles.btnView]}>
@@ -29,7 +36,7 @@ export default class MapButtonListComponent extends Component {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity onPress={()=>this.props.onSelectItem('video')} activeOpacity={0.8}>
+          <TouchableOpacity onPress={()=>this.onNewVideo()} activeOpacity={0.8}>
             <Image source={icon_video} style={styles.btnIcon} />
           </TouchableOpacity>
         </View>

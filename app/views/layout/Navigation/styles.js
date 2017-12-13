@@ -4,12 +4,14 @@ import {
 import * as commonStyles from '../../../common/styles/commonStyles';
 import * as commonColors from '../../../common/styles/commonColors';
 
+const titlePadding = 15;
+
 export const styles = StyleSheet.create({
   container: {
     height: commonStyles.menuHeight,
     width: commonStyles.screenWidth,
-    backgroundColor: '#EB0089',
-    paddingTop: 15,
+    backgroundColor: commonColors.pinkColor,
+    paddingTop: titlePadding,
     borderBottomWidth: 2,
     borderColor: 'rgba(179, 33, 118, 0.5)',
   },
@@ -17,14 +19,14 @@ export const styles = StyleSheet.create({
     height: commonStyles.menuHeight,
     width: commonStyles.screenWidth,
     backgroundColor: 'white',
-    paddingTop: 15,
+    paddingTop: titlePadding,
     borderColor: 'rgba(179, 33, 118, 0.5)',
   },
   container_detail: {
     height: commonStyles.menuHeight,
     width: commonStyles.screenWidth,
-    backgroundColor: '#EB0089',
-    paddingTop: 15,
+    backgroundColor: commonColors.pinkColor,
+    paddingTop: titlePadding,
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: 'rgba(179, 33, 118, 0.5)',

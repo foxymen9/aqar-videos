@@ -50,13 +50,13 @@ export default class ModalShare extends Component {
           <View style={styles.iconList}>
             <View style={styles.iconView}>
               <TouchableOpacity activeOpacity={0.5} onPress={()=>this.onFacebook()}>
-                <IconSocial name='logo-facebook' style={styles.iconFacebook} />
+                <IconSocial name='logo-facebook' style={[styles.icon, styles.iconFacebook]} />
               </TouchableOpacity>
               <Text style={styles.socialText}>Facebook</Text>
             </View>
             <View style={styles.iconView}>
               <TouchableOpacity activeOpacity={0.5} onPress={()=>this.onTwitter()}>
-                <IconTwitter name='twitter-circle' style={styles.iconTwitter} />
+                <IconTwitter name='twitter-circle' style={[styles.icon, styles.iconTwitter]} />
               </TouchableOpacity>
               <Text style={styles.socialText}>Twitter</Text>
             </View>
@@ -64,13 +64,13 @@ export default class ModalShare extends Component {
           <View style={styles.iconList}>
             <View style={styles.iconView}>
               <TouchableOpacity activeOpacity={0.5} onPress={()=>this.onWhatsapp()}>
-                <IconSocial name='logo-whatsapp' style={styles.iconWhatsapp} />
+                <IconSocial name='logo-whatsapp' style={[styles.icon, styles.iconWhatsapp]} />
               </TouchableOpacity>
               <Text style={styles.socialText}>Whatsapp</Text>
             </View>
             <View style={styles.iconView}>
               <TouchableOpacity activeOpacity={0.5} onPress={()=>this.onLinkedin()}>
-                <IconSocial name='logo-linkedin' style={styles.iconLinkedin} />
+                <IconSocial name='logo-linkedin' style={[styles.icon, styles.iconLinkedin]} />
               </TouchableOpacity>
               <Text style={styles.socialText}>Linkedin</Text>
             </View>
