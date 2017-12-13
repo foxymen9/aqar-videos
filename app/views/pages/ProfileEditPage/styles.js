@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
   },
   fieldContainer: {
     width: '100%',
-    height: commonStyles.screenSubHeight - 100,
+    height: commonStyles.screenNormalHeight - 100,
     justifyContent:'center',
     alignItems: 'center',
   },

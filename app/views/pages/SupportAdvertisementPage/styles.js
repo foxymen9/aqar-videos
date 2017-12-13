@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
   },
   fieldContainer: {
     width: '100%',
-    height: commonStyles.screenSubHeight - 100,
+    height: commonStyles.screenNormalHeight - 100,
     justifyContent:'center',
     alignItems: 'center',
   },
@@ -45,9 +45,21 @@ export const styles = StyleSheet.create({
     paddingHorizontal: commonStyles.padding,
     height: 50,
   },
+  itemView: {
+    width: commonStyles.screenWidth,
+    borderBottomWidth: 0.5,
+    borderColor: '#C3C3C3',
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+    paddingHorizontal: commonStyles.padding,
+    marginVertical: 5,
+    paddingVertical: 10,
+    marginTop: 20,
+  },
   input: {
-    width: commonStyles.screenWidth - 80,
+    width: '100%',
     fontSize: commonStyles.normalFontSize,
+    color: commonColors.placeholderText,
   },
   iconView: {
     width: 50,
@@ -70,5 +82,12 @@ export const styles = StyleSheet.create({
     color: commonColors.placeholderText,
     fontSize: commonStyles.normalFontSize,
     fontStyle: 'italic',
-  }
+  },
+  textTitle: {
+    fontSize: commonStyles.normalFontSize,
+    fontWeight: 'bold',
+    textAlign: 'right',
+    color: commonColors.placeholderText,
+    marginBottom: 3,
+  },
 });

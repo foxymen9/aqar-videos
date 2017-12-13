@@ -15,6 +15,8 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 import Container from '../../layout/Container';
+import DropdownComponent from '../../components/DropdownComponent';
+
 import { styles } from './styles';
 import * as commonStyles from '../../../common/styles/commonStyles';
 import * as commonColors from '../../../common/styles/commonColors';
@@ -27,11 +29,22 @@ export default class SupportAdvertisementPage extends Component {
       email: '',
       fullName: '',
       mobileNumber: '',
+      subject: '',
     }
+  }
+
+  onUpdate() {
+    
   }
 
   render() {
     const {tabIndex} = this.state;
+    const subjectData = [
+      { value: 'Subject1' },
+      { value: 'Subject2' },
+      { value: 'Subject3' }
+    ];
+
     return (
       <Container title={'SUPPORT & ADVERTISEMENT'} type='support'>
         <View style={styles.container}>
@@ -96,10 +109,12 @@ export default class SupportAdvertisementPage extends Component {
                   <Icon name='envelope' style={styles.inputIcon}></Icon>
                 </View>
               </View>
-              <View style={[styles.inputView, {marginTop: 20}]}>
-                <Text>Subject</Text>
+              <View style={styles.itemView}>
+                <Text style={styles.textTitle}>Subject</Text>
+                <DropdownComponent selectItem={(value)=>this.setState({subject: value})} item={this.state.subject} data={subjectData} />
               </View>
-              <View style={styles.inputView}>
+              <View style={styles.itemView}>
+                <Text style={styles.textTitle}>Message</Text>
                 <TextInput
                   ref="message"
                   multiline={true}
@@ -119,7 +134,7 @@ export default class SupportAdvertisementPage extends Component {
             </View>
           </KeyboardAwareScrollView>
           <View style={styles.btnView}>
-            <TouchableOpacity onPress={()=>this.onSignUp()} activeOpacity={0.5}>
+            <TouchableOpacity onPress={()=>this.onUpdate()} activeOpacity={0.5}>
               <View style={styles.btnWrapper}>
                 <Text style={styles.btnText}>UPDATE</Text>
               </View>

@@ -20,17 +20,18 @@ export const styles = StyleSheet.create({
     height: 200,
   },
   titleView: {
-    marginVertical: 20,
+    marginVertical: 10,
     paddingHorizontal: commonStyles.padding,
     width: '100%',
     justifyContent: 'flex-end',
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
   },
   textTitle: {
     fontSize: commonStyles.normalFontSize,
     fontWeight: 'bold',
     textAlign: 'right',
     color: commonColors.placeholderText,
+    marginBottom: 3,
   },
   textPhone: {
     fontSize: commonStyles.normalFontSize,
@@ -50,21 +51,28 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   itemView: {
-    width: '100%',
+    width: commonStyles.screenWidth,
     borderBottomWidth: 0.5,
     borderColor: '#C3C3C3',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    justifyContent: 'center',
     paddingHorizontal: commonStyles.padding,
-    height: 50,
+    marginVertical: 5,
+    paddingVertical: 10,
   },
-  iconOffice: {
-    width: 45,
-    height: 45,
-    marginTop: 20,
-    marginBottom: 10,
-    backgroundColor: '#f00'
+  productOptionView: {
+    width: commonStyles.screenWidth,
+    borderBottomWidth: 0.5,
+    borderColor: '#C3C3C3',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: commonStyles.padding,
+    marginVertical: 5,
+    paddingVertical: 10,
+    flexDirection: 'row',
+  },
+  radioGroup: {
+    flexDirection: 'row',
   },
   categoryScrollView: {
     width: commonStyles.screenWidth,
@@ -99,5 +107,23 @@ export const styles = StyleSheet.create({
   textPreview: {
     fontSize: commonStyles.normalFontSize,
     color: 'white',
-  }
+  },
+  input: {
+    width: '100%',
+    fontSize: commonStyles.normalFontSize,
+    color: commonColors.placeholderText,
+  },
+  icon: {
+    marginBottom: 10,
+  },
+  textCategory: {
+    fontSize: commonStyles.normalFontSize,
+    color: commonColors.placeholderText,
+    textAlign: 'right'
+  },
+  textCategorySelect: {
+    fontSize: commonStyles.normalFontSize,
+    color: 'white',
+    textAlign: 'right'
+  },
 });
