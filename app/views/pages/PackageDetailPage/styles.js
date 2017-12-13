@@ -59,5 +59,10 @@ export const styles = StyleSheet.create({
   },
   bold: {
     fontWeight: 'bold',
+  },
+  imgClose: {
+    marginTop: 30,
+    width: 50,
+    height: 50,
   }
 });

@@ -10,8 +10,9 @@ import {
 } from 'react-native';
 
 import Container from '../../layout/Container';
-
 import { styles } from './styles';
+
+const icon_close = require('../../../common/assets/images/product_detail/close.png');
 
 export default class PackageDetailPage extends Component {
   constructor(props) {
@@ -35,6 +36,7 @@ export default class PackageDetailPage extends Component {
             <View style={styles.successTextWrapper}>
               <Text style={styles.textSuccess}>CONGRATULATIONS YOU HAVE SUCCESSFULLY UPDATED YOUR <Text style={[styles.textSuccess, styles.bold]}>{data.number + ' DAYS FREE'}</Text> TRIAL VERSION</Text>
             </View>
+            <Image source={icon_close} style={styles.imgClose} />
           </View>
         </Container>
       )

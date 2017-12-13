@@ -12,6 +12,7 @@ import {
   TextInput
 } from 'react-native';
 
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/Feather';
 import IconEntypo from 'react-native-vector-icons/Entypo';
@@ -24,6 +25,7 @@ import DropdownComponent from '../../components/DropdownComponent';
 import { styles } from './styles';
 import * as commonStyles from '../../../common/styles/commonStyles';
 import * as commonColors from '../../../common/styles/commonColors';
+import { Actions } from 'react-native-router-flux';
 
 const icon_building = require('../../../common/assets/images/product_detail/building.png');
 const icon_building_select = require('../../../common/assets/images/product_detail/building2.png');
@@ -62,7 +64,7 @@ export default class PostNewVideoPage extends Component {
   }
 
   onPreview() {
-
+    Actions.PostNewVideoPreview();
   }
 
   onSelectProductOption(index, value) {
@@ -92,7 +94,7 @@ export default class PostNewVideoPage extends Component {
     return (
       <Container title='POST A NEW AD'>
         <View style={styles.container}>
-          <ScrollView>
+          <KeyboardAwareScrollView>
             <Image source={{ uri: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg'}} style={ styles.thumbnail } />    
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
@@ -257,7 +259,7 @@ export default class PostNewVideoPage extends Component {
                 <Text style={styles.textPreview}>PREVIEW</Text>
               </View>
             </TouchableOpacity>
-          </ScrollView>
+          </KeyboardAwareScrollView>
         </View>
       </Container>
     );

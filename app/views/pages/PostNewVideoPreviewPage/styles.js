@@ -67,55 +67,28 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderColor: commonColors.borderColor,
     height: 1,
-  },
-  btnView: {
-    width: '100%',
-    height: 70,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-  },
-  btnFavorite: {
-    backgroundColor: '#D6D6D6',
-    width: 90,
-    height: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  btnShare: {
-    backgroundColor: commonColors.pinkColor,
-    width: 90,
-    height: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  btnSend: {
-    width: commonStyles.screenWidth - 180,
-    backgroundColor: commonColors.greenColor,
-    height: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    paddingHorizontal: commonStyles.padding,
-  },
-  sendTextWrapper: {
-    marginRight: 20,
-  },
-  textSend: {
-    fontSize: commonStyles.normalFontSize,
-    color: 'white',
-    textAlign: 'right',
+    marginTop: 20,
   },
   icon: {
     color: 'white',
     fontSize: 40,
   },
-  btnAd: {
-    flexDirection: 'row',
-    paddingHorizontal: commonStyles.padding,
+  editBtnView: {
+    height: 40,
+    backgroundColor: commonColors.pinkColor,
+    justifyContent: 'center',
     alignItems: 'center',
   },
-  iconAd: {
-    marginLeft: 10,
+  postBtnView: {
+    marginVertical: 10,
+    height: 40,
+    backgroundColor: commonColors.greenColor,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 40,
+  },
+  textEdit: {
+    fontSize: commonStyles.normalFontSize,
+    color: 'white',
   },
 });
