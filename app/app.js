@@ -28,6 +28,8 @@ import ProductListPage from './views/pages/ProductListPage';
 import ProductDetailPage from './views/pages/ProductDetailPage';
 import PostNewVideoPage from './views/pages/PostNewVideoPage';
 import MyMessagePage from './views/pages/MyMessagePage';
+import DirectMessagePage from './views/pages/DirectMessagePage';
+import SearchPage from './views/pages/SearchPage';
 
 export default class App extends Component {
   constructor(props) {
@@ -49,8 +51,10 @@ export default class App extends Component {
         <Scene key="SupportAdvertisement" component={ SupportAdvertisementPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="ProductList" component={ ProductListPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="ProductDetail" component={ ProductDetailPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="PostNewVideo" initial={ true } component={ PostNewVideoPage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="PostNewVideo" component={ PostNewVideoPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyMessage" component={ MyMessagePage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="DirectMessage" component={ DirectMessagePage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="Search" initial={ true } component={ SearchPage } hideNavBar={ true } panHandlers={null}/>
       </Scene>
     );
 

@@ -61,7 +61,7 @@ export default class Login extends Component {
             </View>
             <View style={styles.inputView}>
               <TextInput
-                ref="mobileNumber"
+                ref="Password"
                 autoCapitalize="none"
                 autoCorrect={ false }
                 placeholder="Password"

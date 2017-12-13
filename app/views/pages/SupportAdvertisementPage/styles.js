@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   btnView: {
     width: '100%',
     height: 40,
-    backgroundColor: '#88AC40',
+    backgroundColor: commonColors.greenColor,
     position: 'absolute',
     bottom: commonStyles.buttonBottomHeight,
   },
@@ -38,7 +38,7 @@ export const styles = StyleSheet.create({
   inputView: {
     width: '100%',
     borderBottomWidth: 0.5,
-    borderColor: '#C3C3C3',
+    borderColor: commonColors.borderColor,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',
@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
   itemView: {
     width: commonStyles.screenWidth,
     borderBottomWidth: 0.5,
-    borderColor: '#C3C3C3',
+    borderColor: commonColors.borderColor,
     alignItems: 'flex-end',
     justifyContent: 'center',
     paddingHorizontal: commonStyles.padding,

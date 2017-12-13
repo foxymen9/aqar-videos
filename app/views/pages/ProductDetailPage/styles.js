@@ -50,7 +50,7 @@ export const styles = StyleSheet.create({
   itemView: {
     width: '100%',
     borderBottomWidth: 0.5,
-    borderColor: '#C3C3C3',
+    borderColor: commonColors.borderColor,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',
@@ -66,7 +66,7 @@ export const styles = StyleSheet.create({
   separate: {
     width: '100%',
     borderBottomWidth: 0.5,
-    borderColor: '#C3C3C3',
+    borderColor: commonColors.borderColor,
     height: 1,
   },
   btnView: {
@@ -92,7 +92,7 @@ export const styles = StyleSheet.create({
   },
   btnSend: {
     width: commonStyles.screenWidth - 180,
-    backgroundColor: '#88AC40',
+    backgroundColor: commonColors.greenColor,
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',

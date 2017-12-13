@@ -24,5 +24,8 @@ export const styles = StyleSheet.create({
   arrowDown: {
     fontSize: 30,
     color: commonColors.placeholderText,
+  },
+  pickerStyle: {
+    paddingHorizontal: commonStyles.padding,
   }
 });

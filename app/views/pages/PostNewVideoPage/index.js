@@ -254,7 +254,7 @@ export default class PostNewVideoPage extends Component {
             </ScrollView>
             <TouchableOpacity onPress={()=>this.onPreview()} activeOpacity={0.5}>
               <View style={styles.previewBtnView}>
-                <Text style={styles.textPreview}>Preview</Text>
+                <Text style={styles.textPreview}>PREVIEW</Text>
               </View>
             </TouchableOpacity>
           </ScrollView>

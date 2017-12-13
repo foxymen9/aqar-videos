@@ -22,6 +22,10 @@ export default class MapButtonListComponent extends Component {
     Actions.PostNewVideo();
   }
 
+  onDirectMessage() {
+    Actions.DirectMessage();
+  }
+
   render() {
     return (
       <View style={[styles.btn, styles.btnView]}>
@@ -31,7 +35,7 @@ export default class MapButtonListComponent extends Component {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity onPress={()=>this.props.onSelectItem('mail')} activeOpacity={0.8}>
+          <TouchableOpacity onPress={()=>this.onDirectMessage()}  activeOpacity={0.8}>
             <Image source={icon_mail} style={styles.btnIcon} />
           </TouchableOpacity>
         </View>

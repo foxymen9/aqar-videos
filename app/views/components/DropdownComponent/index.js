@@ -23,6 +23,7 @@ export default class DropdownComponent extends Component {
           textColor='#7D7D7D'
           selectedItemColor='#222'
           itemTextStyle={styles.dropdownItemStyle}
+          pickerStyle={styles.pickerStyle}
           itemCount={10}
           onChangeText={(value)=>this.props.selectItem(value)}
           renderBase={()=>(

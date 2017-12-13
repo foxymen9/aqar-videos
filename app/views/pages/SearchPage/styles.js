@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
     height: 200,
   },
   titleView: {
-    marginVertical: 10,
+    marginVertical: 15,
     paddingHorizontal: commonStyles.padding,
     width: '100%',
     justifyContent: 'flex-end',
@@ -32,11 +32,6 @@ export const styles = StyleSheet.create({
     textAlign: 'right',
     color: commonColors.placeholderText,
     marginBottom: 3,
-  },
-  textPhone: {
-    fontSize: commonStyles.normalFontSize,
-    textAlign: 'right',
-    color: '#88AC40',
   },
   description: {
     width: '100%',
@@ -97,21 +92,16 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  previewBtnView: {
+  sendBtnView: {
     marginVertical: 40,
     height: 40,
-    backgroundColor: commonColors.pinkColor,
+    backgroundColor: commonColors.greenColor,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  textPreview: {
+  textSend: {
     fontSize: commonStyles.normalFontSize,
     color: 'white',
-  },
-  input: {
-    width: '100%',
-    fontSize: commonStyles.normalFontSize,
-    color: commonColors.placeholderText,
   },
   icon: {
     marginBottom: 10,
@@ -126,4 +116,30 @@ export const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'right'
   },
+  priceView: {
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginTop: 30,
+  },
+  priceBox: {
+    width: 120,
+    borderWidth: 2,
+    borderColor: commonColors.placeholderText,
+    height: 45,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  input: {
+    width: 110,
+    fontSize: 17,
+    fontWeight: 'bold',
+    color: commonColors.placeholderText,
+    textAlign: 'center',
+  },
+  linebar: {
+    marginHorizontal: 10,
+    fontSize: 30,
+  }
 });

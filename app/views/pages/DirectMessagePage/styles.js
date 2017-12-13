@@ -7,33 +7,10 @@ import * as commonColors from '../../../common/styles/commonColors';
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    height: '100%',
+    height: commonStyles.screenNormalHeight,
     width: '100%',
     justifyContent: 'flex-start',
     alignItems: 'center',
-  },
-  tabBar: {
-    width: commonStyles.screenWidth,
-    height: commonStyles.tabBarHieght,
-    flexDirection: 'row',
-    backgroundColor: 'white',
-  },
-  tbnWrapper: {
-    width: '50%',
-  },
-  tabBtn: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
-  },
-  tabText: {
-    color: 'white',
-    fontSize: commonStyles.normalFontSize,
-  },
-  loginContainer: {
-    height: commonStyles.screenSubHeight,
-    width: '100%',
   },
   btnView: {
     width: '100%',
@@ -54,7 +31,7 @@ export const styles = StyleSheet.create({
   },
   fieldContainer: {
     width: '100%',
-    height: commonStyles.screenSubHeight - 100,
+    height: commonStyles.screenNormalHeight - 100,
     justifyContent:'center',
     alignItems: 'center',
   },
@@ -68,9 +45,20 @@ export const styles = StyleSheet.create({
     paddingHorizontal: commonStyles.padding,
     height: 50,
   },
+  itemView: {
+    width: commonStyles.screenWidth,
+    borderBottomWidth: 0.5,
+    borderColor: commonColors.borderColor,
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+    paddingHorizontal: commonStyles.padding,
+    marginVertical: 5,
+    paddingVertical: 10,
+  },
   input: {
-    width: commonStyles.screenWidth - 80,
+    width: '100%',
     fontSize: commonStyles.normalFontSize,
+    color: commonColors.placeholderText,
   },
   iconView: {
     width: 50,
@@ -93,5 +81,12 @@ export const styles = StyleSheet.create({
     color: commonColors.placeholderText,
     fontSize: commonStyles.normalFontSize,
     fontStyle: 'italic',
-  }
+  },
+  textTitle: {
+    fontSize: commonStyles.normalFontSize,
+    fontWeight: 'bold',
+    textAlign: 'right',
+    color: commonColors.placeholderText,
+    marginBottom: 3,
+  },
 });

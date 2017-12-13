@@ -21,19 +21,17 @@ import { styles } from './styles';
 import * as commonStyles from '../../../common/styles/commonStyles';
 import * as commonColors from '../../../common/styles/commonColors';
 
-export default class SupportAdvertisementPage extends Component {
+export default class DirectMessagePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       message: '',
-      email: '',
       fullName: '',
-      mobileNumber: '',
       subject: '',
     }
   }
 
-  onUpdate() {
+  onSend() {
     
   }
 
@@ -46,7 +44,7 @@ export default class SupportAdvertisementPage extends Component {
     ];
 
     return (
-      <Container title={'SUPPORT & ADVERTISEMENT'} type='support'>
+      <Container title={'DIRECT MESSAGE'} type='detail'>
         <View style={styles.container}>
           <KeyboardAwareScrollView>
             <View style={styles.fieldContainer}>
@@ -63,50 +61,10 @@ export default class SupportAdvertisementPage extends Component {
                   returnKeyType={ 'next' }
                   value={ this.state.fullName }
                   onChangeText={ (text) => this.setState({ fullName: text }) }
-                  onSubmitEditing={ () => this.refs.mobileNumber.focus() }
-                />
-                <View style={styles.iconView}>
-                  <Icon name='user' style={styles.inputIcon}></Icon>
-                </View>
-              </View>
-              <View style={styles.inputView}>
-                <TextInput
-                  ref="mobileNumber"
-                  autoCapitalize="none"
-                  autoCorrect={ false }
-                  placeholder="Mobile Number"
-                  placeholderTextColor={ commonColors.placeholderText }
-                  textAlign="right"
-                  style={styles.input}
-                  underlineColorAndroid="transparent"
-                  returnKeyType={ 'next' }
-                  keyboardType="numbers-and-punctuation"
-                  value={ this.state.mobile }
-                  onChangeText={ (text) => this.setState({ mobile: text }) }
-                  onSubmitEditing={ () => this.refs.email.focus() }
-                />
-                <View style={styles.iconView}>
-                  <Icon name='screen-tablet' style={styles.inputIcon}></Icon>
-                </View>
-              </View>
-              <View style={styles.inputView}>
-                <TextInput
-                  ref="email"
-                  autoCapitalize="none"
-                  autoCorrect={ false }
-                  placeholder="E-mail (Optional)"
-                  placeholderTextColor={ commonColors.placeholderText }
-                  textAlign="right"
-                  style={styles.input}
-                  underlineColorAndroid="transparent"
-                  returnKeyType={ 'next' }
-                  keyboardType="email-address"
-                  value={ this.state.email }
-                  onChangeText={ (text) => this.setState({ email: text }) }
                   onSubmitEditing={ () => this.refs.message.focus() }
                 />
                 <View style={styles.iconView}>
-                  <Icon name='envelope' style={styles.inputIcon}></Icon>
+                  <Icon name='user' style={styles.inputIcon}></Icon>
                 </View>
               </View>
               <View style={styles.itemView}>
@@ -133,9 +91,9 @@ export default class SupportAdvertisementPage extends Component {
             </View>
           </KeyboardAwareScrollView>
           <View style={styles.btnView}>
-            <TouchableOpacity onPress={()=>this.onUpdate()} activeOpacity={0.5}>
+            <TouchableOpacity onPress={()=>this.onSend()} activeOpacity={0.5}>
               <View style={styles.btnWrapper}>
-                <Text style={styles.btnText}>UPDATE</Text>
+                <Text style={styles.btnText}>SEND</Text>
               </View>
             </TouchableOpacity>
           </View>

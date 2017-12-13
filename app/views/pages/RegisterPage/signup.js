@@ -50,10 +50,9 @@ export default class Login extends Component {
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
-                keyboardType="numbers-and-punctuation"
-                value={ this.state.mobile }
+                value={ this.state.fullName }
                 onChangeText={ (text) => this.setState({ fullName: text }) }
-                onSubmitEditing={ () => this.refs.fullName.focus() }
+                onSubmitEditing={ () => this.refs.mobileNumber.focus() }
               />
               <View style={styles.iconView}>
                 <Icon name='user' style={styles.inputIcon}></Icon>
@@ -90,7 +89,7 @@ export default class Login extends Component {
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
-                keyboardType="numbers-and-punctuation"
+                keyboardType="email-address"
                 value={ this.state.email }
                 onChangeText={ (text) => this.setState({ email: text }) }
                 onSubmitEditing={ () => this.refs.password.focus() }
