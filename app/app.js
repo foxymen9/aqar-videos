@@ -29,6 +29,7 @@ import ProductDetailPage from './views/pages/ProductDetailPage';
 import PostNewVideoPage from './views/pages/PostNewVideoPage';
 import PostNewVideoPreviewPage from './views/pages/PostNewVideoPreviewPage';
 import MyMessagePage from './views/pages/MyMessagePage';
+import ChatRoomPage from './views/pages/ChatRoomPage';
 import DirectMessagePage from './views/pages/DirectMessagePage';
 import SearchPage from './views/pages/SearchPage';
 
@@ -53,8 +54,9 @@ export default class App extends Component {
         <Scene key="ProductList" component={ ProductListPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="ProductDetail" component={ ProductDetailPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="PostNewVideo" component={ PostNewVideoPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="PostNewVideoPreview" initial={ true } component={ PostNewVideoPreviewPage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="PostNewVideoPreview" component={ PostNewVideoPreviewPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyMessage" component={ MyMessagePage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="ChatRoom" component={ ChatRoomPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="DirectMessage" component={ DirectMessagePage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="Search" component={ SearchPage } hideNavBar={ true } panHandlers={null}/>
       </Scene>

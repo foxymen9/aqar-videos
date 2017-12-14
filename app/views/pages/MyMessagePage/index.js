@@ -9,6 +9,8 @@ import {
   Image,
 } from 'react-native';
 
+import { Actions } from 'react-native-router-flux';
+
 import Container from '../../layout/Container';
 import { styles } from './styles';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
@@ -20,7 +22,7 @@ export default class MyMessagePage extends Component {
   }
 
   onItemSelect(rowData, rowID) {
-
+    Actions.ChatRoom({data: rowData})
   }
 
   _renderRow (rowData, sectionID, rowID, highlightRow) {

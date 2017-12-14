@@ -30,20 +30,12 @@ export default class PostNewVideoPreviewPage extends Component {
     }
   }
 
-  onFavorite() {
+  onEdit() {
 
   }
 
-  onShare() {
-    this.setState({showShareModal : true});
-  }
-
-  onSendMessage() {
-
-  }
-
-  onReportAD() {
-
+  OnPost() {
+    
   }
 
   render() {
