@@ -65,5 +65,18 @@
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Data will be registered in librbary</string>
+
+	<!-- Include this only if you are planning to use the camera roll -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Data will be registered in librbary</string>
+
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Data will be registered in librbary</string>
+
+	<!-- Include this only if you are planning to use the microphone for video recording -->
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Data will be registered in librbary</string>
 </dict>
 </plist>
