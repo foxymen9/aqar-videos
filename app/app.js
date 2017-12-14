@@ -32,6 +32,7 @@ import MyMessagePage from './views/pages/MyMessagePage';
 import ChatRoomPage from './views/pages/ChatRoomPage';
 import DirectMessagePage from './views/pages/DirectMessagePage';
 import SearchPage from './views/pages/SearchPage';
+import VideoRecordPage from './views/pages/VideoRecordPage';
 
 export default class App extends Component {
   constructor(props) {
@@ -59,6 +60,7 @@ export default class App extends Component {
         <Scene key="ChatRoom" component={ ChatRoomPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="DirectMessage" component={ DirectMessagePage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="Search" component={ SearchPage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="VideoRecord" initial={ true } component={ VideoRecordPage } hideNavBar={ true } panHandlers={null}/>
       </Scene>
     );
 
