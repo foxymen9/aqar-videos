@@ -19,7 +19,7 @@ const icon_mail = require('../../../common/assets/images/map/mailbox.png');
 
 export default class MapButtonListComponent extends Component {
   onNewVideo() {
-    Actions.PostNewVideo();
+    Actions.VideoRecord();
   }
 
   onDirectMessage() {

@@ -15,8 +15,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
-  thumbnail: {
-    width: '100%',
+  videoThumbnail: {
+    width: commonStyles.screenWidth,
     height: 200,
   },
   titleView: {
@@ -99,7 +99,7 @@ export const styles = StyleSheet.create({
   },
   previewBtnView: {
     marginVertical: 40,
-    height: 40,
+    height: commonStyles.buttonHeight,
     backgroundColor: commonColors.pinkColor,
     justifyContent: 'center',
     alignItems: 'center',

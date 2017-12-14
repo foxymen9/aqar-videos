@@ -9,7 +9,7 @@ import {
   Image,
   Modal,
   TouchableWithoutFeedback,
-  TextInput
+  TextInput,
 } from 'react-native';
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -17,6 +17,8 @@ import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/Feather';
 import IconEntypo from 'react-native-vector-icons/Entypo';
 import {RadioGroup, RadioButton} from 'react-native-flexi-radio-button';
+import { Actions } from 'react-native-router-flux';
+import Video from 'react-native-video';
 
 import Container from '../../layout/Container';
 import ModalShare from '../../components/ModalShare';
@@ -25,7 +27,6 @@ import DropdownComponent from '../../components/DropdownComponent';
 import { styles } from './styles';
 import * as commonStyles from '../../../common/styles/commonStyles';
 import * as commonColors from '../../../common/styles/commonColors';
-import { Actions } from 'react-native-router-flux';
 
 const icon_building = require('../../../common/assets/images/product_detail/building.png');
 const icon_building_select = require('../../../common/assets/images/product_detail/building2.png');
@@ -72,7 +73,10 @@ export default class PostNewVideoPage extends Component {
   }
 
   render() {
+    const {videoData} = this.props;
     const {category} = this.state;
+    console.log('PPPPPPP', videoData.path);
+
     const regionData = [
       { value: 'Saudi Arabia' },
       { value: 'China' },
@@ -95,7 +99,10 @@ export default class PostNewVideoPage extends Component {
       <Container title='POST A NEW AD'>
         <View style={styles.container}>
           <KeyboardAwareScrollView>
-            <Image source={{ uri: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg'}} style={ styles.thumbnail } />    
+            <Video
+              source={{uri: videoData.path}}
+              style={styles.videoThumbnail}
+            />
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
                 Title

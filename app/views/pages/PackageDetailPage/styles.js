@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   },
   btnView: {
     width: '100%',
-    height: 40,
+    height: commonStyles.buttonHeight,
     backgroundColor: commonColors.pinkColor,
     position: 'absolute',
     bottom: commonStyles.buttonBottomHeight,

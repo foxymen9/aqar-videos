@@ -94,7 +94,7 @@ export const styles = StyleSheet.create({
   },
   sendBtnView: {
     marginVertical: 40,
-    height: 40,
+    height: commonStyles.buttonHeight,
     backgroundColor: commonColors.greenColor,
     justifyContent: 'center',
     alignItems: 'center',

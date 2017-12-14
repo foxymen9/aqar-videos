@@ -11,6 +11,7 @@ import {
 import { styles } from './styles';
 import Container from '../../layout/Container';
 
+import { Actions } from 'react-native-router-flux';
 import Camera from 'react-native-camera';
 import { Stopwatch, Timer } from 'react-native-stopwatch-timer'
 
@@ -34,12 +35,12 @@ export default class VideoRecordPage extends Component {
   
   startRecording = () => {
     this.setState({isStart: true});
-    console.log('START');
 
     if (this.camera) {
       this.camera.capture({mode: Camera.constants.CaptureMode.video})
           .then((data) => {
             console.log('captured_data', data)
+            Actions.PostNewVideo({videoData: data});
           })
           .catch(err => console.error(err));
 
@@ -51,7 +52,6 @@ export default class VideoRecordPage extends Component {
 
   stopRecording = () => {
     this.setState({isStart: false});
-    console.log('STOP');
 
     if (this.camera) {
       this.camera.stopCapture();

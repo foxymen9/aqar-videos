@@ -60,7 +60,7 @@ export default class App extends Component {
         <Scene key="ChatRoom" component={ ChatRoomPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="DirectMessage" component={ DirectMessagePage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="Search" component={ SearchPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="VideoRecord" initial={ true } component={ VideoRecordPage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="VideoRecord" component={ VideoRecordPage } hideNavBar={ true } panHandlers={null}/>
       </Scene>
     );
 

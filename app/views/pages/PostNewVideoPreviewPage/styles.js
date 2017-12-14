@@ -74,14 +74,14 @@ export const styles = StyleSheet.create({
     fontSize: 40,
   },
   editBtnView: {
-    height: 40,
+    height: commonStyles.buttonHeight,
     backgroundColor: commonColors.pinkColor,
     justifyContent: 'center',
     alignItems: 'center',
   },
   postBtnView: {
     marginVertical: 10,
-    height: 40,
+    height: commonStyles.buttonHeight,
     backgroundColor: commonColors.greenColor,
     justifyContent: 'center',
     alignItems: 'center',
