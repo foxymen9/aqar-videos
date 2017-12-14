@@ -5,13 +5,12 @@ import * as commonStyles from '../../../common/styles/commonStyles';
 import * as commonColors from '../../../common/styles/commonColors';
 
 export const styles = StyleSheet.create({
-  container: {
+  videoContainer: {
     backgroundColor: 'white',
     height: commonStyles.screenNormalHeight,
     width: '100%',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: '#EFEFEF',
   },
   preview: {
     width: '100%',
@@ -55,13 +54,11 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     top: 20,
     backgroundColor: 'transparent',
-    alignItems: 'center',
-    justifyContent: 'center',
     zIndex: 99,
   },
-  textTime: {
+  text: {
     color: 'white',
-    fontSize: 14,
-    backgroundColor: 'transparent'
+    fontSize: 20,
+    margin: 0,
   }
 });

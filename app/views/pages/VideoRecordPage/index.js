@@ -12,6 +12,7 @@ import { styles } from './styles';
 import Container from '../../layout/Container';
 
 import Camera from 'react-native-camera';
+import { Stopwatch, Timer } from 'react-native-stopwatch-timer'
 
 export default class VideoRecordPage extends Component {
   constructor(props) {
@@ -26,6 +27,8 @@ export default class VideoRecordPage extends Component {
       orientation: Camera.constants.Orientation.auto,
       isRecording: false,
       isStart: false,
+
+      recordTime: '',
     }
   }
   
@@ -58,13 +61,21 @@ export default class VideoRecordPage extends Component {
     }
   }
 
+  handleTimerComplete(time) {
+    this.setState({recordTime: time})
+  }
+
   render() {
     const {isStart} = this.state;
     return (
       <Container title='VIDEO'>
-        <View style={styles.container}>
+        <View style={styles.videoContainer}>
           <View style={styles.timeView}>
-            <Text style={styles.textTime}></Text>
+            <Stopwatch laps start={this.state.isStart}
+              // reset={!this.state.isStart}
+              options={styles}
+              handleFinish={()=>this.handleTimerComplete()}
+            />
           </View>
           <View style={styles.btnView}>
             {!isStart
