@@ -11,6 +11,7 @@ import {
   TouchableWithoutFeedback
 } from 'react-native';
 
+import Video from 'react-native-video';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/Feather';
 import IconEntypo from 'react-native-vector-icons/Entypo';
@@ -19,8 +20,11 @@ import Container from '../../layout/Container';
 import { styles } from './styles';
 import ModalShare from '../../components/ModalShare';
 
+const icon_building = require('../../../common/assets/images/product_detail/building.png');
+const icon_flat = require('../../../common/assets/images/product_detail/flat.png');
 const icon_office = require('../../../common/assets/images/product_detail/office2.png');
-const icon_report = require('../../../common/assets/images/product_detail/report_ad.png');
+const icon_room = require('../../../common/assets/images/product_detail/room.png');
+const icon_shop = require('../../../common/assets/images/product_detail/shop.png');
 
 export default class PostNewVideoPreviewPage extends Component {
   constructor(props) {
@@ -38,52 +42,87 @@ export default class PostNewVideoPreviewPage extends Component {
     
   }
 
+  onCamera() {
+    this.player.presentFullscreenPlayer();
+    this.player.seek(0);
+  }
+
   render() {
+    const {title, description, price, productOption, region, city, district, category, videoUri} = this.props.data;  
+    const icon = '';
+    if (category == 'building') {
+      icon =  icon_building;
+    }
+    else if (category == 'flat') {
+      icon =  icon_flat;
+    }
+    else if (category == 'office') {
+      icon =  icon_office;
+    }
+    else if (category == 'room') {
+      icon =  icon_room;
+    }
+    else if (category == 'shop') {
+      icon =  icon_shop;
+    }
 
     return (
       <Container title='PREVIEW'>
         <View style={styles.container}>
           <ScrollView>
-            <Image source={{ uri: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg'}} style={ styles.thumbnail } />    
+            <TouchableOpacity onPress={()=>this.onCamera()}>
+              <View style={styles.videoView}>
+                <Video
+                  ref={(ref)=> {this.player = ref}}
+                  source={{uri: videoUri}}
+                  style={styles.videoThumbnail}
+                  resizeMode='cover'
+                  autoplay={false}
+                  onLoadStart={()=>this.player.presentFullscreenPlayer}
+                />
+              </View>
+            </TouchableOpacity>
             <View style={styles.titleView}>
               <Text style={styles.textTitle}>
-                Office in the city center for rent
+                {title}
               </Text>
             </View>
             <View style={styles.description}>
-              <Text style={styles.textDescription}>he following * Begin with the words **ROR Engineer** * Include links to your Github, Stack Overflow and Linked In profiles * Include a link to your blog (if you have one)</Text>
+              <Text style={styles.textDescription}>{description}</Text>
             </View>
             <View style={styles.separate} />
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
-                5.000 SAR
+                {price}
               </Text>
             </View>
             <View style={styles.itemView}>
               <Text style={styles.textDescription}>
-                Ar Riyadh
+                {region}
               </Text>
             </View>
             <View style={styles.itemView}>
               <Text style={styles.textDescription}>
-                Riyadg
+                {city}
               </Text>
             </View>
             <View style={styles.itemView}>
               <Text style={styles.textDescription}>
-                North - East
+                {district}
               </Text>
             </View>
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
-                Rent
+                {productOption}
               </Text>
             </View>
             <View style={styles.titleView}>
-              <Image source={icon_office} style={styles.iconOffice} resizeMode="cover" />
-              <Text style={styles.textDescription}>
-                Office
-              </Text>
+              <View style={styles.iconView}>
+                <Image source={icon} style={styles.iconOffice} resizeMode="cover" />
+                <Text style={styles.textDescription}>
+                  {category}
+                </Text>
+              </View>
             </View>
             <TouchableOpacity onPress={()=>this.onEdit()} activeOpacity={0.5}>
               <View style={styles.editBtnView}>

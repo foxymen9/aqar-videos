@@ -13,8 +13,15 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
-  thumbnail: {
-    width: '100%',
+  videoView: {
+    width: commonStyles.screenWidth,
+    height: 200,
+    backgroundColor: commonColors.darkGrayColor,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  videoThumbnail: {
+    width: commonStyles.screenWidth,
     height: 200,
   },
   titleView: {
@@ -23,6 +30,10 @@ export const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'flex-end',
     alignItems: 'flex-end'
+  },
+  iconView: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   textTitle: {
     fontSize: commonStyles.normalFontSize,

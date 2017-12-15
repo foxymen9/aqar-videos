@@ -66,17 +66,17 @@
 		<string>Zocial.ttf</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
-	<string>Data will be registered in librbary</string>
+	<string>AqarVideos would like to use your camera</string>
 
 	<!-- Include this only if you are planning to use the camera roll -->
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Data will be registered in librbary</string>
+	<string>AqarVideos would like access to your photo gallery</string>
 
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Data will be registered in librbary</string>
+	<string>AqarVideos would like to save photos to your gallery</string>
 
 	<!-- Include this only if you are planning to use the microphone for video recording -->
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Data will be registered in librbary</string>
+	<string>AqarVideos would like to your microphone for videos</string>
 </dict>
 </plist>

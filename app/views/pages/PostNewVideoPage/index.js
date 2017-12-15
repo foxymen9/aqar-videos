@@ -14,12 +14,13 @@ import {
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
-import Icon from 'react-native-vector-icons/Feather';
-import IconEntypo from 'react-native-vector-icons/Entypo';
 import {RadioGroup, RadioButton} from 'react-native-flexi-radio-button';
 import { Actions } from 'react-native-router-flux';
 import Video from 'react-native-video';
 
+import ImagePicker from 'react-native-image-picker';
+
+import Icon from 'react-native-vector-icons/Feather';
 import Container from '../../layout/Container';
 import ModalShare from '../../components/ModalShare';
 import DropdownComponent from '../../components/DropdownComponent';
@@ -50,8 +51,10 @@ export default class PostNewVideoPage extends Component {
       productOption: 'Sale',
       region: '',
       city: '',
-      district: ''
+      district: '',
+      videoUri: null,
     }
+    this.player = null;
   }
 
   onSelectCategory(item, index) {
@@ -65,7 +68,10 @@ export default class PostNewVideoPage extends Component {
   }
 
   onPreview() {
-    Actions.PostNewVideoPreview();
+    const propsData = this.state;
+    if (propsData.videoUri != null) {
+      Actions.PostNewVideoPreview({data: propsData});
+    }
   }
 
   onSelectProductOption(index, value) {
@@ -73,12 +79,45 @@ export default class PostNewVideoPage extends Component {
   }
 
   onCamera() {
-    
+    if (this.state.videoUri == null) {
+      const options = {
+        title: 'Record or Choose the Video',
+        takePhotoButtonTitle: 'Record Video',
+        chooseFromLibraryButtonTitle: 'Choose from Library',
+        mediaType: 'video',
+        // noData: true,
+        storageOptions: {
+          skipBackup: true,
+          path: 'videos',
+          cameraRoll: true,
+          waitUntilSaved: true,
+        }
+      }
+      ImagePicker.showImagePicker(options, (response) => {
+        if (response.didCancel) {
+          console.log('user cancelled');
+        }
+        else if (response.error) {
+          console.log('ERROR' + response.error);
+        }
+        else if (response.customButton) {
+          console.log('uer tapped' + response.customButton);
+        }
+        else {
+          console.log('DATA', response);
+          this.setState({videoUri: response.uri});
+        }
+      })
+    }
+    else {
+      this.player.presentFullscreenPlayer();
+      this.player.seek(0);
+    }
   }
 
   render() {
     // const {videoData} = this.props;
-    const {category} = this.state;  
+    const {title, description, price, productOption, region, city, district, category, videoUri} = this.state;  
 
     const regionData = [
       { value: 'Saudi Arabia' },
@@ -98,18 +137,23 @@ export default class PostNewVideoPage extends Component {
       { value: 'Distrcit3' }
     ];
 
-    const videoUri = 'aaa';
-
     return (
       <Container title='POST A NEW AD'>
         <View style={styles.container}>
           <KeyboardAwareScrollView>
             <TouchableOpacity onPress={()=>this.onCamera()}>
               <View style={styles.videoView}>
-                {/* <Video
+              {videoUri != null 
+              ?  <Video
+                  ref={(ref)=> {this.player = ref}}
                   source={{uri: videoUri}}
                   style={styles.videoThumbnail}
-                /> */}
+                  resizeMode='cover'
+                  autoplay={false}
+                  onLoadStart={()=>this.player.presentFullscreenPlayer}
+                />
+              : <Icon name='video' style={styles.cameraIcon} />
+              }
               </View>
             </TouchableOpacity>
             <View style={styles.itemView}>
@@ -126,8 +170,7 @@ export default class PostNewVideoPage extends Component {
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
-                keyboardType="numbers-and-punctuation"
-                value={ this.state.title }
+                value={ title }
                 onChangeText={ (text) => this.setState({ title: text }) }
                 onSubmitEditing={ () => this.refs.description.focus() }
               />
@@ -147,8 +190,7 @@ export default class PostNewVideoPage extends Component {
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
-                keyboardType="numbers-and-punctuation"
-                value={ this.state.description }
+                value={ description }
                 onChangeText={ (text) => this.setState({ description: text }) }
                 onSubmitEditing={ () => this.refs.price.focus() }
               />
@@ -168,7 +210,7 @@ export default class PostNewVideoPage extends Component {
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
                 keyboardType="number-pad"
-                value={ this.state.price }
+                value={ price }
                 onChangeText={ (text) => this.setState({ price: text }) }
                 onSubmitEditing={ () => this.refs.password.focus() }
               />
@@ -177,19 +219,19 @@ export default class PostNewVideoPage extends Component {
               <Text style={styles.textTitle}>
                 Region
               </Text>
-              <DropdownComponent selectItem={(value)=>this.setState({region: value})} item={this.state.region} data={regionData} />
+              <DropdownComponent selectItem={(value)=>this.setState({region: value})} item={region} data={regionData} />
             </View>
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
                 City
               </Text>
-              <DropdownComponent selectItem={(value)=>this.setState({city: value})} item={this.state.city} data={cityData} />
+              <DropdownComponent selectItem={(value)=>this.setState({city: value})} item={city} data={cityData} />
             </View>
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
                 District
               </Text>
-              <DropdownComponent selectItem={(value)=>this.setState({district: value})} item={this.state.district} data={districtData} />
+              <DropdownComponent selectItem={(value)=>this.setState({district: value})} item={district} data={districtData} />
             </View>
             <View style={styles.productOptionView}>
               <RadioGroup 

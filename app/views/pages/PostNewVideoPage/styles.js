@@ -19,10 +19,16 @@ export const styles = StyleSheet.create({
     width: commonStyles.screenWidth,
     height: 200,
     backgroundColor: commonColors.darkGrayColor,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  cameraIcon: {
+    fontSize: 50,
+    color: 'white',
   },
   videoThumbnail: {
-    width: '100%',
-    height: '100',
+    width: commonStyles.screenWidth,
+    height: 200,
   },
   titleView: {
     marginVertical: 10,
