@@ -15,9 +15,14 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
-  videoThumbnail: {
+  videoView: {
     width: commonStyles.screenWidth,
     height: 200,
+    backgroundColor: commonColors.darkGrayColor,
+  },
+  videoThumbnail: {
+    width: '100%',
+    height: '100',
   },
   titleView: {
     marginVertical: 10,

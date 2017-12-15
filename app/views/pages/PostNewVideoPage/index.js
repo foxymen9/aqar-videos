@@ -72,10 +72,13 @@ export default class PostNewVideoPage extends Component {
     this.setState({productOption: value})
   }
 
+  onCamera() {
+    
+  }
+
   render() {
-    const {videoData} = this.props;
-    const {category} = this.state;
-    console.log('PPPPPPP', videoData.path);
+    // const {videoData} = this.props;
+    const {category} = this.state;  
 
     const regionData = [
       { value: 'Saudi Arabia' },
@@ -95,14 +98,20 @@ export default class PostNewVideoPage extends Component {
       { value: 'Distrcit3' }
     ];
 
+    const videoUri = 'aaa';
+
     return (
       <Container title='POST A NEW AD'>
         <View style={styles.container}>
           <KeyboardAwareScrollView>
-            <Video
-              source={{uri: videoData.path}}
-              style={styles.videoThumbnail}
-            />
+            <TouchableOpacity onPress={()=>this.onCamera()}>
+              <View style={styles.videoView}>
+                {/* <Video
+                  source={{uri: videoUri}}
+                  style={styles.videoThumbnail}
+                /> */}
+              </View>
+            </TouchableOpacity>
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
                 Title

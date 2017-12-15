@@ -28,7 +28,7 @@ class Navigation extends Component {
   }
 
   onSearch() {
-
+    Actions.Search();
   }
 
   onBack() {

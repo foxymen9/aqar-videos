@@ -46,7 +46,8 @@ class Sidebar extends Component {
           Actions.MyWishList();
           break;
         case '2':
-          Actions.VideoRecord();
+          // Actions.VideoRecord();
+          Actions.PostNewVideo();
           break;
         case '3':
           Actions.MyMessage();

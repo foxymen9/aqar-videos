@@ -133,7 +133,6 @@ export default class ChatRoomPage extends Component {
                   style={styles.input}
                   underlineColorAndroid="transparent"
                   returnKeyType={ 'next' }
-                  keyboardType="number-pad"
                   value={ this.state.message }
                   onChangeText={ (text) => this.setState({ message: text }) }
                 />
