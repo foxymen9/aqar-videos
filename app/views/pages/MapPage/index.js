@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 
 import MapView from 'react-native-maps';
+import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 
 import { styles } from './styles';
 import * as commonStyles from '../../../common/styles/commonStyles';
@@ -35,7 +37,6 @@ export default class MapPage extends Component {
         latitude: LATITUDE,
         longitude: LONGITUDE
       },
-      coordinates: LONGITUDE,
     }
   }
 
@@ -46,10 +47,50 @@ export default class MapPage extends Component {
     navigator.geolocation.clearWatch(this.watchID);
   }
 
+  gotoDetailPage(data) {
+    Actions.ProductDetail();
+  }
+
   render() {
-    const { coordinates, region, currentLocation, isBtnList } = this.state;
+    const { region, currentLocation, isBtnList } = this.state;
     // if (coordinates == null || currentLocation == null || region == null)
     //   return null;
+
+    let locationData = [
+      {
+        coordinates: {
+          latitude: 37.788780,
+          longitude: -122.442753
+        },
+        data: {
+          price: '100K',
+          image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
+          title: 'Test Title1'
+        }
+      },
+      {
+        coordinates: {
+          latitude: 37.798781,
+          longitude: -122.422753
+        },
+        data: {
+          price: '90K',
+          image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
+          title: 'Test Title2'
+        }
+      },
+      {
+        coordinates: {
+          latitude: 37.778780,
+          longitude: -122.452724
+        },
+        data: {
+          price: '80K',
+          image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
+          title: 'Test Title3'
+        }
+      }
+    ];
 
     return (
       <View style={styles.container}>
@@ -57,25 +98,28 @@ export default class MapPage extends Component {
           style={ styles.mapView }
           initialRegion={ region }
         >
-          <MapView.Marker
-            coordinate={currentLocation}
-            title="Curernt location"
-          >
-            <View style={styles.marker}>
-              <Image source={icon_bubble} resizeMode="cover">
-              </Image>
-              <Text style={styles.markerText}>100k</Text>
-            </View>
-          </MapView.Marker>
-          {/* {coordinates.map((marker, index) => (
+          {locationData.map((marker, index) => (
             <MapView.Marker
               key={index}
-              coordinate={marker}
-              title="Maker"
+              coordinate={marker.coordinates}
+              zIndex={9}
             >
-              <Text>{index}</Text>
+              <View style={styles.marker}>
+                <Image source={icon_bubble} resizeMode="cover">
+                </Image>
+                <Text style={styles.markerText}>{marker.data.price}</Text>
+              </View>
+              <MapView.Callout>
+                <TouchableOpacity onPress={()=>this.gotoDetailPage(marker)}>
+                  <View style={styles.markerDetailView}>
+                    <Image source={{uri: marker.data.image}} style={styles.markerDetailImage} resizeMode="cover">
+                    </Image>
+                    <Text style={styles.markerDetailText}>{marker.data.title}</Text>
+                  </View>
+                </TouchableOpacity>
+              </MapView.Callout>
             </MapView.Marker>
-          ))} */}
+          ))}
         </MapView>
       </View>
     );

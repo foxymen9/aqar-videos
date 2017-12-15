@@ -23,4 +23,20 @@ export const styles = StyleSheet.create({
     color: 'white',
     top: 3,
   },
+  markerDetailView: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 150,
+    height: 100,
+  },
+  markerDetailImage: {
+    marginBottom: 10,
+    width: '100%',
+    height: 70,
+  },
+  markerDetailText: {
+    fontSize: commonStyles.normalFontSize,
+    color: commonColors.darkGrayColor,
+    textAlign: 'right',
+  }
 });

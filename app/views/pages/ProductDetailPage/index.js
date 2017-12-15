@@ -11,6 +11,9 @@ import {
   TouchableWithoutFeedback
 } from 'react-native';
 
+import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
+
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/Feather';
 import IconEntypo from 'react-native-vector-icons/Entypo';
