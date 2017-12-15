@@ -15,6 +15,7 @@ import Video from 'react-native-video';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/Feather';
 import IconEntypo from 'react-native-vector-icons/Entypo';
+import { Actions } from 'react-native-router-flux';
 
 import Container from '../../layout/Container';
 import { styles } from './styles';
@@ -35,10 +36,10 @@ export default class PostNewVideoPreviewPage extends Component {
   }
 
   onEdit() {
-
+    Actions.PostNewVideo();
   }
 
-  OnPost() {
+  onPost() {
     
   }
 
@@ -49,7 +50,7 @@ export default class PostNewVideoPreviewPage extends Component {
 
   render() {
     const {title, description, price, productOption, region, city, district, category, videoUri} = this.props.data;  
-    const icon = '';
+    let icon = icon_building;
     if (category == 'building') {
       icon =  icon_building;
     }

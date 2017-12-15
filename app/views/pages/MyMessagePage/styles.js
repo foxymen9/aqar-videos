@@ -64,9 +64,9 @@ export const styles = StyleSheet.create({
   countView: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: 16,
-    height: 16,
-    borderRadius: 8,
+    width: 18,
+    height: 18,
+    borderRadius: 9,
     backgroundColor: '#88AB43',
     marginBottom: 5,
   },

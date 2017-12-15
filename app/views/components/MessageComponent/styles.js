@@ -42,24 +42,26 @@ export const styles = StyleSheet.create({
   sendMessage: {
     textAlign: 'right',
     color: commonColors.placeholderText,
-    fontSize: 15,
+    fontSize: 16,
   },
   receiveMessage: {
     textAlign: 'right',
     color: 'white',
-    fontSize: 15,
+    fontSize: 16,
   },
   name: {
     textAlign: 'right',
     color: commonColors.placeholderText,
     fontSize: commonStyles.normalFontSize,
     fontWeight: 'bold',
+    paddingHorizontal: 15,
   },
   date: {
     textAlign: 'right',
     color: commonColors.placeholderText,
     fontSize: 12,
     fontStyle: 'italic',
+    paddingHorizontal: 15,
   },
   body: {
     flexDirection: 'row',

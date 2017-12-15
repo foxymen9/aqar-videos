@@ -30,9 +30,30 @@ export const styles = StyleSheet.create({
     color: 'white',
     fontSize: commonStyles.normalFontSize,
   },
-  thumbnail: {
+  thumbnailView: {
     width: '100%',
     height: 200,
+  },
+  thumbnail: {
+    height: '100%',
+    width:'100%'
+  },
+  titleView: {
+    position: 'absolute',
+    right: commonStyles.padding,
+    bottom: 30,
+    backgroundColor: 'transparent',
+  },
+  titleDay: {
+    color: 'white',
+    fontSize: 30,
+    fontWeight: 'bold',
+    textAlign: 'right'
+  },
+  titleDesc: {
+    color: 'white',
+    fontSize: 30,
+    textAlign: 'right'
   },
   description: {
     marginTop: 20,
