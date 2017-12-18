@@ -21,6 +21,8 @@ import { Actions } from 'react-native-router-flux';
 import { styles } from './styles';
 import * as commonStyles from '../../../common/styles/commonStyles';
 
+import { saveMyLocation } from '../../../redux/Map/actions';
+
 import MapPage from '../../pages/MapPage';
 import ProductListPage from '../../pages/ProductListPage';
 
@@ -58,7 +60,12 @@ class TabView extends Component {
       this.setState({
         region: region,
         currentLocation: currentLocation
-      })
+      });
+
+      this.props.saveMyLocation({
+        region: region,
+        currentLocation: currentLocation
+      });
     })
   }
 
@@ -188,4 +195,5 @@ class TabView extends Component {
   }
 }
 
-export default TabView;
+export default connect(state => ({
+}),{ saveMyLocation })(TabView);

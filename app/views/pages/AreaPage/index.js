@@ -8,6 +8,9 @@ import {
   Image,
 } from 'react-native';
 
+import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
+
 import Container from '../../layout/Container';
 import MapPage from '../MapPage';
 import ProductListPage from '../ProductListPage';
@@ -16,14 +19,24 @@ import MapButtonListComponent from '../../components/MapButtonListComponent';
 
 import { styles } from './styles';
 
-export default class AreaPage extends Component {
+class AreaPage extends Component {
   constructor(props) {
     super(props);
     this.state ={
       isBtnList: false,
       btnItem: null,
       btnStatus: 'map',
+      region: null,
+      currentLocation: null,
     }
+  }
+
+  componentDidMount() {
+    const {myLocation} = this.props;
+    this.setState({
+      region: myLocation.region,
+      currentLocation: myLocation.currentLocation
+    })
   }
 
   onSelectItem(index) {
@@ -50,15 +63,22 @@ export default class AreaPage extends Component {
   }
 
   render() {
+    const { region, currentLocation } = this.state;
     const {isBtnList, btnItem, btnStatus} = this.state;
     const title = btnStatus == 'list' ? 'LIST' : 'AREA';
+
+    if (currentLocation == null || region == null) {
+      return null;
+    }
+
+    let buildingData = [];
 
     return (
       <Container title={title}>
         <View style={styles.container}>
           {btnStatus == 'list'
           ? <ProductListPage />
-          : <MapPage page="building" />
+          : <MapPage page="area" locationData={buildingData} region={region} />
           }
           {isBtnList && (
             <MapButtonListComponent  onSelectItem={(value)=>this.onSelectItem(value)} />
@@ -69,3 +89,7 @@ export default class AreaPage extends Component {
     );
   }
 }
+
+export default connect(state => ({
+  myLocation: state.map.myLocation
+}),{ })(AreaPage);

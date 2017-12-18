@@ -1,4 +1,4 @@
-import main from './redux/MainPage/reducer';
+import map from './redux/Map/reducer';
 export {
-  main
+  map
 };
