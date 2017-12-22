@@ -79,7 +79,7 @@ export default class MyMessagePage extends Component {
     const dataSource = ds.cloneWithRows(listData);
 
     return (
-      <Container title='MY MESSAGES' type='detail'>
+      <Container title='MY MESSAGES'>
         <View style={styles.container}>
           <ListView
               ref='listview'

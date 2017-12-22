@@ -12,7 +12,9 @@ import {
 
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
+
 import { styles } from './styles';
+import { userSignOut } from '../../../redux/User/actions';
 
 const icon_login = require('../../../common/assets/images/menu/login_signup.png');
 const icon_offer = require('../../../common/assets/images/menu/special_offer.png');
@@ -31,32 +33,37 @@ class Sidebar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedIn: true,
+      userLogin: true,
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const {userLogin} = this.props;
+    this.setState({userLogin: userLogin});
   }
 
   onItemSelect(data, rowID) {
     this.props.menuState();
-    if (this.state.loggedIn) {
+    if (this.state.userLogin) {
       switch(rowID) {
         case '0':
-          Actions.MyAds();
+          Actions.Main();
           break;
         case '1':
-          Actions.MyWishList();
+          Actions.MyAds();
           break;
         case '2':
+          Actions.MyWishList();
+          break;
+        case '3':
           // Actions.VideoRecord();
           Actions.PostNewVideo();
           break;
-        case '3':
+        case '4':
           Actions.MyMessage();
           break;
-        case '4':
-          Actions.MyLocation();
-          break;
         case '5':
-          Actions.Area();
+          Actions.MyLocation();
           break;
         case '6':
           Actions.Package();
@@ -67,6 +74,8 @@ class Sidebar extends Component {
         case '8':
           Actions.SupportAdvertisement();
           break;
+        case '9':
+          this.props.userSignOut();
         default: 
           break;
       }
@@ -74,6 +83,9 @@ class Sidebar extends Component {
     else {
       switch(rowID) {
         case '0':
+          Actions.Main();
+          break;
+        case '1':
           Actions.Register();
           break;
         case '2':
@@ -112,8 +124,12 @@ class Sidebar extends Component {
 
   render() {
     let menuItems = [];
-    if (this.state.loggedIn) {
+    if (this.state.userLogin) {
       menuItems = [
+        {
+          title: 'Home',
+          icon: icon_area
+        },
         {
           title: 'My Ads (' + 3 + ')',
           icon: icon_myad
@@ -133,10 +149,6 @@ class Sidebar extends Component {
         {
           title: 'My Location',
           icon: icon_location
-        },
-        {
-          title: 'Area',
-          icon: icon_area
         },
         {
           title: 'Packages',
@@ -159,13 +171,17 @@ class Sidebar extends Component {
     else {
       menuItems = [
         {
+          title: 'Area',
+          icon: icon_area
+        },
+        {
           title: 'Log in/Sign Up',
           icon: icon_login
         },
-        {
-          title: 'Special offers',
-          icon: icon_offer
-        },
+        // {
+        //   title: 'Special offers',
+        //   icon: icon_offer
+        // },
         {
           title: 'Package',
           icon: icon_package
@@ -195,4 +211,6 @@ class Sidebar extends Component {
   }
 }
 
-export default Sidebar;
+export default connect(state => ({
+  userLogin: state.user.userLogin,
+}),{ userSignOut })(Sidebar);

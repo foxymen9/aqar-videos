@@ -9,6 +9,9 @@ import {
   Image,
 } from 'react-native';
 
+import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
+
 import Container from '../../layout/Container';
 import { styles } from './styles';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
@@ -19,7 +22,7 @@ export default class MyAdsPage extends Component {
   }
 
   onItemSelect(rowData, rowID) {
-
+    // Actions.ProductDetail();
   }
 
   _renderRow (rowData, sectionID, rowID, highlightRow) {

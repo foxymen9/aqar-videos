@@ -62,7 +62,7 @@ export default class MainPage extends Component {
         <View style={styles.container}>
           <TabView btnStatus={btnStatus} changeTab={(index)=>this.changeTab(index)}/>
           {isBtnList && (
-            <MapButtonListComponent  onSelectItem={(value)=>this.onSelectItem(value)} />
+            <MapButtonListComponent  onSelectItem={(value)=>this.onSelectItem(value)} btnStatus={btnStatus} />
           )}
           <ButtonPlusComponent isBtnList={isBtnList} onSelectItem={(value)=>this.onSelectItem(value) }/>
         </View>

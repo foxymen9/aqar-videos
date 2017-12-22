@@ -14,6 +14,7 @@ import { Actions } from 'react-native-router-flux';
 import { styles } from './styles';
 
 const icon_list = require('../../../common/assets/images/map/list.png');
+const icon_map = require('../../../common/assets/images/map/map.png');
 const icon_video = require('../../../common/assets/images/map/add_video.png');
 const icon_mail = require('../../../common/assets/images/map/mailbox.png');
 
@@ -28,11 +29,13 @@ export default class MapButtonListComponent extends Component {
   }
 
   render() {
+    const {btnStatus} = this.props;
+
     return (
       <View style={[styles.btn, styles.btnView]}>
         <View>
           <TouchableOpacity onPress={()=>this.props.onSelectItem('list')} activeOpacity={0.8}>
-            <Image source={icon_list} style={styles.btnIcon} />
+            <Image source={btnStatus=='list' ? icon_map: icon_list} style={styles.btnIcon} />
           </TouchableOpacity>
         </View>
         <View>

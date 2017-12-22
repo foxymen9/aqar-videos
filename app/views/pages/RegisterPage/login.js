@@ -10,6 +10,9 @@ import {
   TextInput,
 } from 'react-native';
 
+import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
+
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
@@ -17,8 +20,9 @@ import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import * as commonStyles from '../../../common/styles/commonStyles';
 import * as commonColors from '../../../common/styles/commonColors';
 import { styles } from './styles';
+import { userSignIn } from '../../../redux/User/actions';
 
-export default class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,7 +31,8 @@ export default class Login extends Component {
   }
 
   onLogin() {
-
+    this.props.userSignIn();
+    Actions.Main();
   }
 
   onForgotPassword() {
@@ -96,3 +101,6 @@ export default class Login extends Component {
     );
   }
 }
+
+export default connect(state => ({
+}),{ userSignIn })(Login);

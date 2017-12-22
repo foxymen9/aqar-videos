@@ -44,29 +44,38 @@ class TabView extends Component {
 
   componentDidMount() {
     const {region} = this.state;
-    
-    this.watchID = navigator.geolocation.watchPosition((position) => {
-      let region = {
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude,
-        latitudeDelta: LATITUDE_DELTA,
-        longitudeDelta: LONGITUDE_DELTA,
-      }
-      let currentLocation = {
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude,
-      }
+    const {myLocation} = this.props;
 
+    if (myLocation == null) {
+      this.watchID = navigator.geolocation.watchPosition((position) => {
+        let region = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          latitudeDelta: LATITUDE_DELTA,
+          longitudeDelta: LONGITUDE_DELTA,
+        }
+        let currentLocation = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        }
+
+        this.setState({
+          region: region,
+          currentLocation: currentLocation
+        });
+
+        this.props.saveMyLocation({
+          region: region,
+          currentLocation: currentLocation
+        });
+      })
+    }
+    else {
       this.setState({
-        region: region,
-        currentLocation: currentLocation
-      });
-
-      this.props.saveMyLocation({
-        region: region,
-        currentLocation: currentLocation
-      });
-    })
+        region: myLocation.region,
+        currentLocation: myLocation.currentLocation
+      })
+    }
   }
 
   componentWillUnmount() {
@@ -186,9 +195,30 @@ class TabView extends Component {
               <ProductListPage />
             )}
           </ScrollView>
-          <ScrollView tabLabel="Room"></ScrollView>
-          <ScrollView tabLabel="Home"></ScrollView>
-          <ScrollView tabLabel="Gallery"></ScrollView>
+          <ScrollView tabLabel="Room">
+            {btnStatus == 'map' && (
+              <MapPage page="room" locationData={buildingData} region={region} />
+            )}
+            {btnStatus == 'list' && (
+              <ProductListPage />
+            )}
+          </ScrollView>
+          <ScrollView tabLabel="Home">
+            {btnStatus == 'map' && (
+              <MapPage page="home" locationData={buildingData} region={region} />
+            )}
+            {btnStatus == 'list' && (
+              <ProductListPage />
+            )}
+          </ScrollView>
+          <ScrollView tabLabel="Gallery">
+            {btnStatus == 'map' && (
+              <MapPage page="gallery" locationData={buildingData} region={region} />
+            )}
+            {btnStatus == 'list' && (
+              <ProductListPage />
+            )}
+          </ScrollView>
         </ScrollableTabView>
       </View>
     );
@@ -196,4 +226,5 @@ class TabView extends Component {
 }
 
 export default connect(state => ({
+  myLocation: state.map.myLocation
 }),{ saveMyLocation })(TabView);

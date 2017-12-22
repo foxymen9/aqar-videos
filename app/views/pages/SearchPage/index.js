@@ -88,7 +88,7 @@ export default class SearchPage extends Component {
 		];
 
 		return (
-			<Container title='SEARCH'>
+			<Container title='SEARCH' type='detail'>
 				<View style={styles.container}>
           <KeyboardAwareScrollView>
             <View style={styles.titleView}>
@@ -191,6 +191,24 @@ export default class SearchPage extends Component {
             <View style={styles.priceView}>
               <View style={styles.priceBox}>
                 <TextInput
+                  ref="maxPrice"
+                  autoCapitalize="none"
+                  autoCorrect={ false }
+                  multiline={true}
+                  placeholder="Max.Price"
+                  placeholderTextColor={ commonColors.placeholderText }
+                  textAlign="right"
+                  style={styles.input}
+                  underlineColorAndroid="transparent"
+                  returnKeyType={ 'done' }
+                  keyboardType="numbers-and-punctuation"
+                  value={ this.state.maxPrice }
+                  onChangeText={ (text) => this.setState({ maxPrice: text }) }
+                />
+              </View>
+              <Text style={styles.linebar}>-</Text>
+              <View style={styles.priceBox}>
+                <TextInput
                   ref="minPrice"
                   autoCapitalize="none"
                   autoCorrect={ false }
@@ -207,28 +225,10 @@ export default class SearchPage extends Component {
                   onSubmitEditing={ () => this.refs.maxPrice.focus() }
                 />
               </View>
-              <Text style={styles.linebar}>-</Text>
-              <View style={styles.priceBox}>
-                <TextInput
-                  ref="maxPrice"
-                  autoCapitalize="none"
-                  autoCorrect={ false }
-                  multiline={true}
-                  placeholder="Max.Price"
-                  placeholderTextColor={ commonColors.placeholderText }
-                  textAlign="right"
-                  style={styles.input}
-                  underlineColorAndroid="transparent"
-                  returnKeyType={ 'done' }
-                  keyboardType="numbers-and-punctuation"
-                  value={ this.state.maxPrice }
-                  onChangeText={ (text) => this.setState({ maxPrice: text }) }
-                />
-              </View>
             </View>
             <TouchableOpacity onPress={()=>this.onSend()} activeOpacity={0.5}>
               <View style={styles.sendBtnView}>
-                <Text style={styles.textSend}>SEND</Text>
+                <Text style={styles.textSend}>SEARCH</Text>
               </View>
             </TouchableOpacity>
           </KeyboardAwareScrollView>

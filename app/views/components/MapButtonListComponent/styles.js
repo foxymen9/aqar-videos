@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
     height: commonStyles.screenSubHeight,
-    width: commonStyles.screenWidth
+    width: commonStyles.screenWidth,
   },
   btn: {
     position: 'absolute',

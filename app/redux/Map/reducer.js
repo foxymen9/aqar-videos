@@ -1,6 +1,7 @@
 import * as types from './actionTypes';
 
 const initialState = {
+  myLocation: null
 };
 
 export default function map(state = initialState, action = {}) {

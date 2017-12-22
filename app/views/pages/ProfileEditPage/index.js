@@ -33,7 +33,7 @@ export default class ProfileEditPage extends Component {
   render() {
     const {tabIndex} = this.state;
     return (
-      <Container title={'EDIT PROFILE'}  type='detail'>
+      <Container title={'EDIT PROFILE'}>
         <View style={styles.container}>
           <KeyboardAwareScrollView>
             <View style={styles.fieldContainer}>
