@@ -110,6 +110,10 @@ export const styles = StyleSheet.create({
     color: 'white',
     fontSize: 40,
   },
+  icon_select: {
+    color: commonColors.darkGrayColor,
+    fontSize: 40,
+  },
   btnAd: {
     flexDirection: 'row',
     paddingHorizontal: commonStyles.padding,

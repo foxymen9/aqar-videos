@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#FBFBFB',
     position: 'absolute',
     bottom: 0,
-    height: 300,
+    bottom: -25,
     left: -commonStyles.padding,
     padding: commonStyles.padding,
   },

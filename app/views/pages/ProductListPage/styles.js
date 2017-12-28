@@ -4,7 +4,7 @@ import {
 import * as commonStyles from '../../../common/styles/commonStyles';
 import * as commonColors from '../../../common/styles/commonColors';
 
-const listItemHeight = 250;
+const listItemHeight = 200;
 
 export const styles = StyleSheet.create({
   container: {
@@ -21,11 +21,13 @@ export const styles = StyleSheet.create({
   },
   listItem: {
     width: commonStyles.screenSubWidth,
-    height: listItemHeight,
+    shadowOffset: { width:0, height:2 },
+    shadowOpacity: 0.4,
+    shadowColor: 'black',
   },
   imageView: {
     width: commonStyles.screenSubWidth,
-    height: listItemHeight - 50,
+    height: listItemHeight
   },
   image: {
     width: '100%',

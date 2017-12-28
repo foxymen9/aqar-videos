@@ -257,6 +257,9 @@ const styles = StyleSheet.create({
     borderLeftWidth: 0,
     borderRightWidth: 0,
     borderColor: '#ccc',
+    shadowOffset: { width:0, height:2 },
+    shadowOpacity: 0.4,
+    shadowColor: 'black',
   },
   tabs: {
     flexDirection: 'row',

@@ -37,10 +37,10 @@ export default class ModalShare extends Component {
   render() {
     return (
       <Modal
-        // animationType="slide"
-        // transparent={true}
+        animationType="slide"
+        transparent={true}
         isVisible={this.props.showShareModal}
-        backdropColor='transparent'
+        backdropColor='rgba(0, 0, 0, 0.3)'
         onBackdropPress={()=>this.props.hideShareModal()}
       >
         <View style={styles.container}>

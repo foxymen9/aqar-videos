@@ -30,11 +30,12 @@ export default class ProductDetailPage extends Component {
     super(props);
     this.state = {
       showShareModal: false,
+      favorite: false,
     }
   }
 
   onFavorite() {
-
+    this.setState({ favorite: !this.state.favorite })
   }
 
   onShare() {
@@ -42,7 +43,7 @@ export default class ProductDetailPage extends Component {
   }
 
   onSendMessage() {
-
+    Actions.DirectMessage();
   }
 
   onReportAD() {
@@ -105,7 +106,7 @@ export default class ProductDetailPage extends Component {
             <View style={styles.btnView}>
               <TouchableOpacity onPress={()=>this.onFavorite()} activeOpacity={0.5}>
                 <View style={styles.btnFavorite}>
-                  <FontAwesome style={styles.icon}>{Icons.star}</FontAwesome>
+                  <FontAwesome style={ this.state.favorite ? styles.icon_select : styles.icon }>{Icons.star}</FontAwesome>
                 </View>
               </TouchableOpacity>
               <TouchableOpacity onPress={()=>this.onShare()} activeOpacity={0.5}>

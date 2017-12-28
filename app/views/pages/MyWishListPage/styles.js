@@ -24,6 +24,9 @@ export const styles = StyleSheet.create({
     width: listItemWidth,
     height: listItemHeight,
     flexDirection: 'row',
+    shadowOffset: { width:0, height:2 },
+    shadowOpacity: 0.4,
+    shadowColor: 'black',
   },
   imageView: {
     width: 120,
