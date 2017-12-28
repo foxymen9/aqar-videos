@@ -43,11 +43,12 @@ class TabView extends Component {
   }
 
   componentDidMount() {
-    const {region} = this.state;
     const {myLocation} = this.props;
 
     if (myLocation == null) {
+      console.log('PPPPP', navigator.geolocation.watchPosition);
       this.watchID = navigator.geolocation.watchPosition((position) => {
+        console.log('position', position);
         let region = {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,

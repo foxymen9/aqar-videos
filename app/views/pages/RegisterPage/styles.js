@@ -69,6 +69,7 @@ export const styles = StyleSheet.create({
     height: 50,
   },
   input: {
+    color: commonColors.placeholderText,
     width: commonStyles.screenWidth - 80,
     fontSize: commonStyles.normalFontSize,
   },

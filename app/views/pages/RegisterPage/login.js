@@ -27,6 +27,7 @@ class Login extends Component {
     super(props);
     this.state = {
       mobile: '',
+      password: '',
     }
   }
 
@@ -66,7 +67,7 @@ class Login extends Component {
             </View>
             <View style={styles.inputView}>
               <TextInput
-                ref="Password"
+                ref="password"
                 autoCapitalize="none"
                 autoCorrect={ false }
                 placeholder="Password"

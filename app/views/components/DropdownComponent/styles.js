@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
   },
   dropdownPlaceholderView: {
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     flexDirection: 'row',
   },
   dropdownPlaceholderText: {
@@ -22,6 +22,7 @@ export const styles = StyleSheet.create({
     textAlign: 'right'
   },
   arrowDown: {
+    marginLeft: 25,
     fontSize: 30,
     color: commonColors.placeholderText,
   },

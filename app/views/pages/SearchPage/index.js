@@ -15,12 +15,12 @@ import {
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/Feather';
 import IconEntypo from 'react-native-vector-icons/Entypo';
-import {RadioGroup, RadioButton} from 'react-native-flexi-radio-button';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 import Container from '../../layout/Container';
 import ModalShare from '../../components/ModalShare';
 import DropdownComponent from '../../components/DropdownComponent';
+import { RadioGroup, RadioButton } from '../../components/RadioButtonGroup';
 
 import { styles } from './styles';
 import * as commonStyles from '../../../common/styles/commonStyles';

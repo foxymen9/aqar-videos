@@ -76,6 +76,7 @@ class Sidebar extends Component {
           break;
         case '9':
           this.props.userSignOut();
+          Actions.Main();
         default: 
           break;
       }
@@ -171,7 +172,7 @@ class Sidebar extends Component {
     else {
       menuItems = [
         {
-          title: 'Area',
+          title: 'Home',
           icon: icon_area
         },
         {

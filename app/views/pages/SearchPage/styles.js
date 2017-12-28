@@ -139,6 +139,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   },
   linebar: {
+    color: commonColors.placeholderText,
     marginHorizontal: 10,
     fontSize: 30,
   }

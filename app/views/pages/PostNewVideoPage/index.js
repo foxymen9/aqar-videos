@@ -14,7 +14,7 @@ import {
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
-import {RadioGroup, RadioButton} from 'react-native-flexi-radio-button';
+import {RadioGroup, RadioButton} from '../../components/RadioButtonGroup';
 import { Actions } from 'react-native-router-flux';
 import Video from 'react-native-video';
 

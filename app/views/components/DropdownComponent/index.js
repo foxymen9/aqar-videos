@@ -28,12 +28,12 @@ export default class DropdownComponent extends Component {
           onChangeText={(value)=>this.props.selectItem(value)}
           renderBase={()=>(
             <View style={styles.dropdownPlaceholderView}>
-              <Text style={styles.dropdownPlaceholderText}>{this.props.item}</Text>
               <IconEntypo name='chevron-down' style={styles.arrowDown} />
             </View>
           )}
           underlineColorAndroid='transparent'
         />
+        <Text style={styles.dropdownPlaceholderText}>{this.props.item}</Text>
       </View>
     )
   }

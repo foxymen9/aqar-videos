@@ -23,6 +23,11 @@ export default class ProfileEditPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      mobile: '',
+      password: '',
+      confirmPassword: '',
+      email: '',  
+      fullName: '',
     }
   }
 
@@ -49,9 +54,9 @@ export default class ProfileEditPage extends Component {
                   underlineColorAndroid="transparent"
                   returnKeyType={ 'next' }
                   keyboardType="numbers-and-punctuation"
-                  value={ this.state.mobile }
+                  value={ this.state.fullName }
                   onChangeText={ (text) => this.setState({ fullName: text }) }
-                  onSubmitEditing={ () => this.refs.fullName.focus() }
+                  onSubmitEditing={ () => this.refs.mobileNumber.focus() }
                 />
                 <View style={styles.iconView}>
                   <Icon name='user' style={styles.inputIcon}></Icon>
