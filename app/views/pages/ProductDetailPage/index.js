@@ -50,9 +50,10 @@ export default class ProductDetailPage extends Component {
   }
 
   render() {
-
+    const { data } = this.props;
+    
     return (
-      <Container title='' type='detail'>
+      <Container title={data.title} type='detail'>
         <View style={styles.container}>
           <ScrollView>
             <Image source={{ uri: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg'}} style={ styles.thumbnail } />    

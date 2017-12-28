@@ -23,7 +23,7 @@ export default class MapPage extends Component {
   }
 
   gotoDetailPage(data) {
-    Actions.ProductDetail();
+    Actions.ProductDetail({data: data.data});
   }
 
   render() {

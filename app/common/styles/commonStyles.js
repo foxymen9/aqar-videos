@@ -4,6 +4,8 @@ import {
   Platform,
 } from 'react-native';
 
+import { ifIphoneX } from 'react-native-iphone-x-helper';
+
 import ExtraDimensions from 'react-native-extra-dimensions-android';
 
 export const { width: screenWidthIOS, height: screenHeightIOS } = Dimensions.get('window');
@@ -13,6 +15,8 @@ export const RealHeight = ExtraDimensions.get('REAL_WINDOW_HEIGHT');
 export const softMenubarHeight = ExtraDimensions.get('SOFT_MENU_BAR_HEIGHT');
 export const statusbarHeight = ExtraDimensions.get('STATUS_BAR_HEIGHT');
 export const smartbarHeight = ExtraDimensions.get('SMART_BAR_HEIGHT');
+
+const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? ifIphoneX(44, 30) : 0;
 
 function getScreenHeight() {
   if (Platform.OS === "ios") {
@@ -35,7 +39,7 @@ function getScreenWidth() {
 export let screenHeight = getScreenHeight();
 export let screenWidth = getScreenWidth();
 
-export const menuHeight = 60 + statusbarHeight;
+export const menuHeight = 30 + STATUSBAR_HEIGHT;
 export const tabBarHieght = 45;
 
 export const screenNormalHeight = screenHeight - menuHeight;

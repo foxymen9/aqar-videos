@@ -50,6 +50,7 @@ export default class PostNewVideoPreviewPage extends Component {
 
   render() {
     const {title, description, price, productOption, region, city, district, category, videoUri} = this.props.data;  
+    console.log('category', category);
     let icon = icon_building;
     if (category == 'building') {
       icon =  icon_building;
@@ -73,6 +74,7 @@ export default class PostNewVideoPreviewPage extends Component {
           <ScrollView>
             <TouchableOpacity onPress={()=>this.onCamera()}>
               <View style={styles.videoView}>
+                {videoUri != null && (
                 <Video
                   ref={(ref)=> {this.player = ref}}
                   source={{uri: videoUri}}
@@ -80,7 +82,7 @@ export default class PostNewVideoPreviewPage extends Component {
                   resizeMode='cover'
                   autoplay={false}
                   onLoadStart={()=>this.player.presentFullscreenPlayer}
-                />
+                />)}
               </View>
             </TouchableOpacity>
             <View style={styles.titleView}>

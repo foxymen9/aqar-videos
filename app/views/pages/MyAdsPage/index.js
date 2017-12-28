@@ -22,7 +22,17 @@ export default class MyAdsPage extends Component {
   }
 
   onItemSelect(rowData, rowID) {
-    // Actions.ProductDetail();
+    Actions.PostNewVideoPreview({data: {
+      category: 'building',
+      title: 'Test',
+      description: 'This is test',
+      price: '100',
+      productOption: 'Sale',
+      region: 'region1',
+      city: 'city1',
+      district: 'district1',
+      videoUri: null
+    }});
   }
 
   _renderRow (rowData, sectionID, rowID, highlightRow) {

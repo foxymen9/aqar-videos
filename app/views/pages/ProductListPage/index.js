@@ -21,7 +21,7 @@ export default class ProductListPage extends Component {
   }
 
   onItemSelect(rowData, rowID) {
-    Actions.ProductDetail();
+    Actions.ProductDetail({data: rowData});
   }
 
   _renderRow (rowData, sectionID, rowID, highlightRow) {

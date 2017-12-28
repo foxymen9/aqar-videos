@@ -4,10 +4,12 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
+  StatusBar,
   View,
   Text,
   Image,
   ListView,
+  Platform,
 } from 'react-native';
 
 import { connect } from 'react-redux';

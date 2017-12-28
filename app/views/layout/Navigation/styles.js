@@ -1,38 +1,42 @@
 import {
   StyleSheet,
+  Platform,
 } from 'react-native';
+import { ifIphoneX } from 'react-native-iphone-x-helper';
+
+const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? ifIphoneX(44, 20) : 0;
+
 import * as commonStyles from '../../../common/styles/commonStyles';
 import * as commonColors from '../../../common/styles/commonColors';
-
-const titlePadding = 15;
 
 export const styles = StyleSheet.create({
   container: {
     height: commonStyles.menuHeight,
     width: commonStyles.screenWidth,
     backgroundColor: commonColors.pinkColor,
-    paddingTop: titlePadding,
+    paddingTop: STATUSBAR_HEIGHT - 10,
     borderBottomWidth: 2,
     borderColor: 'rgba(179, 33, 118, 0.5)',
+    justifyContent: 'center',
   },
   container_register: {
     height: commonStyles.menuHeight,
     width: commonStyles.screenWidth,
     backgroundColor: 'white',
-    paddingTop: titlePadding,
+    paddingTop: STATUSBAR_HEIGHT - 10,
     borderColor: 'rgba(179, 33, 118, 0.5)',
   },
   container_detail: {
     height: commonStyles.menuHeight,
     width: commonStyles.screenWidth,
     backgroundColor: commonColors.pinkColor,
-    paddingTop: titlePadding,
+    paddingTop: STATUSBAR_HEIGHT - 10,
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: 'rgba(179, 33, 118, 0.5)',
   },
   subContainer:{
-    height: commonStyles.menuHeight - 15,
+    height: 30,
     paddingHorizontal: commonStyles.padding,
     width: '100%',
     flexDirection: 'row',
@@ -61,8 +65,8 @@ export const styles = StyleSheet.create({
   backIconWrapper: {
     position: 'absolute',
     left: commonStyles.padding,
-    width: 40,
-    top: 25,
+    width: 30,
+    bottom: 10,
   },
   backIcon_detail: {
     fontSize: 25,
