@@ -43,6 +43,8 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   input: {
+    fontFamily: commonStyles.normalFont,
+    fontFamily: commonStyles.normalFont,
     width: inputWidth - 55,
   },
   iconPen: {

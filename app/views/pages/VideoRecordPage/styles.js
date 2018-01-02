@@ -57,6 +57,7 @@ export const styles = StyleSheet.create({
     zIndex: 99,
   },
   text: {
+    fontFamily: commonStyles.normalFont,
     color: 'white',
     fontSize: 20,
     margin: 0,

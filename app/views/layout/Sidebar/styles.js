@@ -21,6 +21,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   menuItemTitle: {
+    fontFamily: commonStyles.normalFont,
     fontSize: commonStyles.normalFontSize,
     color: '#868686',
   },

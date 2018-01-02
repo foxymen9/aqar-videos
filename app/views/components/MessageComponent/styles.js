@@ -40,16 +40,19 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   sendMessage: {
+    fontFamily: commonStyles.normalFont,
     textAlign: 'right',
     color: commonColors.placeholderText,
     fontSize: 16,
   },
   receiveMessage: {
+    fontFamily: commonStyles.normalFont,
     textAlign: 'right',
     color: 'white',
     fontSize: 16,
   },
   name: {
+    fontFamily: commonStyles.normalFont,
     textAlign: 'right',
     color: commonColors.placeholderText,
     fontSize: commonStyles.normalFontSize,
@@ -57,6 +60,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   date: {
+    fontFamily: commonStyles.normalFont,
     textAlign: 'right',
     color: commonColors.placeholderText,
     fontSize: 12,

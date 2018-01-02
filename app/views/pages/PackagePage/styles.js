@@ -41,6 +41,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   number: {
+    fontFamily: commonStyles.normalFont,
     fontSize: 40,
     color: 'white',
     fontStyle: 'italic',
@@ -48,6 +49,7 @@ export const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   day: {
+    fontFamily: commonStyles.normalFont,
     fontSize: 25,
     color: 'white',
     fontStyle: 'italic',
@@ -62,6 +64,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#747474',
   },
   textTitle: {
+    fontFamily: commonStyles.normalFont,
     color: 'white',
     fontSize: 25,
     fontWeight: 'bold',

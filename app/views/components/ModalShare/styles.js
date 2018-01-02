@@ -18,6 +18,7 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
   },
   headerText: {
+    fontFamily: commonStyles.normalFont,
     fontSize: commonStyles.normalFontSize,
     color: commonColors.placeholderText,
     fontWeight: 'bold',
@@ -48,6 +49,7 @@ export const styles = StyleSheet.create({
     color: '#14990A',
   },
   socialText: {
+    fontFamily: commonStyles.normalFont,
     fontSize: commonStyles.normalFontSize,
     color: commonColors.placeholderText
   }

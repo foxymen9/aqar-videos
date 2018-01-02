@@ -50,6 +50,7 @@ export const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   textName: {
+    fontFamily: commonStyles.normalFont,
     color: commonColors.placeholderText,
     fontSize: commonStyles.normalFontSize,
     fontWeight: 'bold',
@@ -57,6 +58,7 @@ export const styles = StyleSheet.create({
     marginBottom: 5,
   },
   textMessage: {
+    fontFamily: commonStyles.normalFont,
     color: commonColors.placeholderText,
     fontSize: 13,
     textAlign: 'right',
@@ -71,6 +73,7 @@ export const styles = StyleSheet.create({
     marginBottom: 5,
   },
   textCount: {
+    fontFamily: commonStyles.normalFont,
     color: 'white',
     fontWeight: 'bold',
     fontSize: 11,

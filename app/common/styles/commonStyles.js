@@ -51,3 +51,6 @@ export const padding = screenWidth * 0.05;
 export const buttonBottomHeight = 40;
 export const normalFontSize = 16;
 export const buttonHeight = 50;
+
+// export const normalFont = 'Swissra-Normal';
+export const normalFont = 'ProximaNova-Regular';

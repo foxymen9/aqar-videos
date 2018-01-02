@@ -27,6 +27,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   btnText: {
+    fontFamily: commonStyles.normalFont,
     color: 'white',
     fontSize: commonStyles.normalFontSize,
   },
@@ -45,12 +46,14 @@ export const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   titleDay: {
+    fontFamily: commonStyles.normalFont,
     color: 'white',
     fontSize: 30,
     fontWeight: 'bold',
     textAlign: 'right'
   },
   titleDesc: {
+    fontFamily: commonStyles.normalFont,
     color: 'white',
     fontSize: 30,
     textAlign: 'right'
@@ -64,6 +67,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: commonStyles.padding,
   },
   textDescription: {
+    fontFamily: commonStyles.normalFont,
     fontSize: 14,
     color: commonColors.placeholderText,
     textAlign: 'right'
@@ -73,6 +77,7 @@ export const styles = StyleSheet.create({
     padding: 30,
   },
   textSuccess: {
+    fontFamily: commonStyles.normalFont,
     fontSize: 20,
     textAlign: 'center',
     color: commonColors.darkGrayColor,

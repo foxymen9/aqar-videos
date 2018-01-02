@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   markerText: {
+    fontFamily: commonStyles.normalFont,
     position: 'absolute',
     color: 'white',
     top: 3,
@@ -35,6 +36,7 @@ export const styles = StyleSheet.create({
     height: 70,
   },
   markerDetailText: {
+    fontFamily: commonStyles.normalFont,
     fontSize: commonStyles.normalFontSize,
     color: commonColors.darkGrayColor,
     textAlign: 'right',

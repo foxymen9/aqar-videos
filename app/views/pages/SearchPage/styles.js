@@ -27,6 +27,7 @@ export const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   textTitle: {
+    fontFamily: commonStyles.normalFont,
     fontSize: commonStyles.normalFontSize,
     fontWeight: 'bold',
     textAlign: 'right',
@@ -38,6 +39,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: commonStyles.padding,
   },
   textDescription: {
+    fontFamily: commonStyles.normalFont,
     fontSize: commonStyles.normalFontSize,
     color: commonColors.placeholderText,
     textAlign: 'right'
@@ -100,6 +102,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textSend: {
+    fontFamily: commonStyles.normalFont,
     fontSize: commonStyles.normalFontSize,
     color: 'white',
   },
@@ -107,11 +110,13 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
   },
   textCategory: {
+    fontFamily: commonStyles.normalFont,
     fontSize: commonStyles.normalFontSize,
     color: commonColors.placeholderText,
     textAlign: 'right'
   },
   textCategorySelect: {
+    fontFamily: commonStyles.normalFont,
     fontSize: commonStyles.normalFontSize,
     color: 'white',
     textAlign: 'right'
@@ -132,6 +137,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   input: {
+    fontFamily: commonStyles.normalFont,
     width: 110,
     fontSize: 17,
     fontWeight: 'bold',

@@ -36,12 +36,14 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textTitle: {
+    fontFamily: commonStyles.normalFont,
     fontSize: commonStyles.normalFontSize,
     fontWeight: 'bold',
     textAlign: 'right',
     color: commonColors.placeholderText,
   },
   textPhone: {
+    fontFamily: commonStyles.normalFont,
     fontSize: commonStyles.normalFontSize,
     textAlign: 'right',
     color: '#88AC40',
@@ -51,6 +53,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: commonStyles.padding,
   },
   textDescription: {
+    fontFamily: commonStyles.normalFont,
     fontSize: commonStyles.normalFontSize,
     color: commonColors.placeholderText,
     textAlign: 'right'
@@ -99,6 +102,7 @@ export const styles = StyleSheet.create({
     marginBottom: 40,
   },
   textEdit: {
+    fontFamily: commonStyles.normalFont,
     fontSize: commonStyles.normalFontSize,
     color: 'white',
   },

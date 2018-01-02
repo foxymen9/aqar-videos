@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   dropdownPlaceholderText: {
+    fontFamily: commonStyles.normalFont,
     color: commonColors.placeholderText,
     fontSize: commonStyles.normalFontSize,
     textAlign: 'right'

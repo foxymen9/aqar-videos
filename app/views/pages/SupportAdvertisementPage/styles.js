@@ -26,6 +26,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   btnText: {
+    fontFamily: commonStyles.normalFont,
     color: 'white',
     fontSize: commonStyles.normalFontSize,
   },
@@ -57,6 +58,7 @@ export const styles = StyleSheet.create({
     marginTop: 20,
   },
   input: {
+    fontFamily: commonStyles.normalFont,
     width: '100%',
     fontSize: commonStyles.normalFontSize,
     color: commonColors.placeholderText,
@@ -79,11 +81,13 @@ export const styles = StyleSheet.create({
     height: 50,
   },
   forgotPasswordText: {
+    fontFamily: commonStyles.normalFont,
     color: commonColors.placeholderText,
     fontSize: commonStyles.normalFontSize,
     fontStyle: 'italic',
   },
   textTitle: {
+    fontFamily: commonStyles.normalFont,
     fontSize: commonStyles.normalFontSize,
     fontWeight: 'bold',
     textAlign: 'right',

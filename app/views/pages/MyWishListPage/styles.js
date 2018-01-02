@@ -46,12 +46,14 @@ export const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.1)',
   },
   textTitle: {
+    fontFamily: commonStyles.normalFont,
     color: commonColors.darkGrayColor,
     fontSize: 15,
     fontWeight: 'bold',
     textAlign: 'right',
   },
   textPrice: {
+    fontFamily: commonStyles.normalFont,
     color: commonColors.darkGrayColor,
     fontSize: 14,
     textAlign: 'right',
@@ -60,6 +62,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   textViewCount: {
+    fontFamily: commonStyles.normalFont,
     color: commonColors.darkGrayColor,
     fontSize: 11,
     fontStyle: 'italic',

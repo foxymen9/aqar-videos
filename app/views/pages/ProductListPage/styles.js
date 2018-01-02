@@ -45,6 +45,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   textPrice: {
+    fontFamily: commonStyles.normalFont,
     fontSize: 13,
     color: commonColors.darkGrayColor,
     fontWeight: 'bold',
@@ -67,6 +68,7 @@ export const styles = StyleSheet.create({
     color: commonColors.darkGrayColor,
   },
   textTitle: {
+    fontFamily: commonStyles.normalFont,
     color: 'white',
     fontSize: 15,
     fontWeight: 'bold',
@@ -75,6 +77,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   textViewCount: {
+    fontFamily: commonStyles.normalFont,
     color: commonColors.darkGrayColor,
     fontSize: 11,
     fontStyle: 'italic',
