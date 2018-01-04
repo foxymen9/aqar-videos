@@ -1,4 +1,4 @@
-package com.aqarvideos;
+package com.videoaqar;
 
 import android.app.Application;
 

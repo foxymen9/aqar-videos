@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>AqarVideos</string>
+	<string>Video Aqar</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -36,15 +36,15 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>AqarVideos would like to use your camera</string>
+	<string>Video Aqar would like to use your camera</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string/>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>AqarVideos would like to your microphone for videos</string>
+	<string>Video Aqar would like to your microphone for videos</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>AqarVideos would like to save photos to your gallery</string>
+	<string>Video Aqar would like to save photos to your gallery</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>AqarVideos would like access to your photo gallery</string>
+	<string>Video Aqar would like access to your photo gallery</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Entypo.ttf</string>
