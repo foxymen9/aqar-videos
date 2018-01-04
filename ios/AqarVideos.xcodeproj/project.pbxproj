@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -21,7 +22,10 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		1CD1FBBF7CF7425A8386687D /* Swissra Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AB4DB648496A49658A19C0AD /* Swissra Medium.otf */; };
+		24B859124B9548039971C3F4 /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27571859FDE54BA1864952DA /* Proxima Nova Bold.otf */; };
 		25492BF874EE4B518BB56A0A /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDB4E84DCA954DADBF4CE15E /* Octicons.ttf */; };
+		2A542DBBC6E942608F811BCE /* Proxima Nova Thin Italic_0.otf in Resources */ = {isa = PBXBuildFile; fileRef = FED3D6B28DBA4A44991136DE /* Proxima Nova Thin Italic_0.otf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -34,40 +38,37 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* AqarVideosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AqarVideosTests.m */; };
+		32DAA341F1344A84AF51E19C /* ProximaNova-Regular_0.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8CCC095B1D948B0B8C6BC12 /* ProximaNova-Regular_0.otf */; };
 		33A8644ECA45450BAC676118 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45967D68E2574CEE9ABCDF50 /* libAirMaps.a */; };
 		420DF547BC9C47BBBA5C57EC /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18B3805EFE8A48B694DCD401 /* Ionicons.ttf */; };
+		43E657C3F56747499E0D00D8 /* Swissra Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2262C5B61C364A7EA00944D3 /* Swissra Bold.otf */; };
+		4DAD1E540A4348A898FA8F26 /* Proxima Nova Semibold Italic_0.otf in Resources */ = {isa = PBXBuildFile; fileRef = 79FB5CC16CEA41E9AB3CD66F /* Proxima Nova Semibold Italic_0.otf */; };
 		4E46BD69429440D396389BEC /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4963E6676587478C881B25AE /* SimpleLineIcons.ttf */; };
+		4F0FDEC407E047B19FC9D233 /* Swissra Normal.otf in Resources */ = {isa = PBXBuildFile; fileRef = A81D212AD86A46C1850EED1D /* Swissra Normal.otf */; };
 		532BAE4D7D5344A8999AAE2D /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49E347F85371430BBC32BB5A /* Foundation.ttf */; };
 		5684AE96C3EC4E9FBAF1B20C /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 815032DBAF5E4AACACBEB3D1 /* Zocial.ttf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		70F9255546F248979B4024E3 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA0698F3E91E4AA3B6A86106 /* Feather.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		90EB3EE2CC0B421E925B3E44 /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F982F92996174BA08DAF1BE7 /* libRCTCamera.a */; };
+		9DB5FD0DB744471FBBFA054B /* Proxima Nova Extra Condensed Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C60CD46B2EB44E9AC519294 /* Proxima Nova Extra Condensed Bold.otf */; };
 		9EC3981ED77646D897B58CEC /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF02CBC839744630AD2C3EF6 /* libRNVectorIcons.a */; };
 		AD12AD87159A42F9894DE6E3 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D37B0C137DC944F2B1D938F5 /* Entypo.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		B311D67CBA4E4C5F8D45BF13 /* Swissra Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78739855550F4B378AE7A3E5 /* Swissra Black.otf */; };
 		B53D89901FE3CBDC00E4A562 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B53D898E1FE3CAAC00E4A562 /* libRNImagePicker.a */; };
 		B7355C5FB944485189AA70E9 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54E4DFBD39974DE2990D289B /* MaterialCommunityIcons.ttf */; };
-		C7D9937B4B104F8DA8052DD1 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB2B457D1E3B4EBE93D3BBE7 /* MaterialIcons.ttf */; };
-		E85FB948A11B468B92A470EE /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9DD094E64A9EB370A5D4 /* FontAwesome.ttf */; };
-		F8C55FF239474799892EC162 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C69A65EBA4746A68A06EFCB /* EvilIcons.ttf */; };
-		FB5E2A2C8B1041F7BD83C810 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97807049B9784867959E6529 /* libRCTVideo.a */; };
-		B311D67CBA4E4C5F8D45BF13 /* Swissra Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78739855550F4B378AE7A3E5 /* Swissra Black.otf */; };
-		43E657C3F56747499E0D00D8 /* Swissra Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2262C5B61C364A7EA00944D3 /* Swissra Bold.otf */; };
-		D5659EA020074037AB7A4F3D /* Swissra Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 404BB35F934343C7ABA97C82 /* Swissra Heavy.otf */; };
-		D7262A2943FB4C039C790A43 /* Swissra Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5EC8E3724E7444C7831B12CE /* Swissra Light.otf */; };
-		1CD1FBBF7CF7425A8386687D /* Swissra Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AB4DB648496A49658A19C0AD /* Swissra Medium.otf */; };
-		4F0FDEC407E047B19FC9D233 /* Swissra Normal.otf in Resources */ = {isa = PBXBuildFile; fileRef = A81D212AD86A46C1850EED1D /* Swissra Normal.otf */; };
-		EF079F4AE3DA44068ECBDC53 /* Swissra Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2BDF20B92815409FAAF8A245 /* Swissra Thin.otf */; };
-		F22B2FE3176D41FE8EB71554 /* Swissra Ultra Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F7C4CEC896334615BD216BB4 /* Swissra Ultra Light.otf */; };
 		B9A87AAE7FD048ED92A4E37D /* Proxima Nova Black Italic_0.otf in Resources */ = {isa = PBXBuildFile; fileRef = F31B69C949A549C4B02D2ED4 /* Proxima Nova Black Italic_0.otf */; };
 		C61C37A718814B3F9914E4CD /* Proxima Nova Bold Italic_0.otf in Resources */ = {isa = PBXBuildFile; fileRef = F987E63D9FFC4691AD173322 /* Proxima Nova Bold Italic_0.otf */; };
-		24B859124B9548039971C3F4 /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27571859FDE54BA1864952DA /* Proxima Nova Bold.otf */; };
+		C7D9937B4B104F8DA8052DD1 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB2B457D1E3B4EBE93D3BBE7 /* MaterialIcons.ttf */; };
+		D5659EA020074037AB7A4F3D /* Swissra Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 404BB35F934343C7ABA97C82 /* Swissra Heavy.otf */; };
+		D7262A2943FB4C039C790A43 /* Swissra Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5EC8E3724E7444C7831B12CE /* Swissra Light.otf */; };
+		E85FB948A11B468B92A470EE /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9DD094E64A9EB370A5D4 /* FontAwesome.ttf */; };
 		EA6A8179FBC24B99AF2B3C13 /* Proxima Nova Condensed Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C28D05B01FE4288B3FD1306 /* Proxima Nova Condensed Bold.otf */; };
-		9DB5FD0DB744471FBBFA054B /* Proxima Nova Extra Condensed Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C60CD46B2EB44E9AC519294 /* Proxima Nova Extra Condensed Bold.otf */; };
-		4DAD1E540A4348A898FA8F26 /* Proxima Nova Semibold Italic_0.otf in Resources */ = {isa = PBXBuildFile; fileRef = 79FB5CC16CEA41E9AB3CD66F /* Proxima Nova Semibold Italic_0.otf */; };
-		2A542DBBC6E942608F811BCE /* Proxima Nova Thin Italic_0.otf in Resources */ = {isa = PBXBuildFile; fileRef = FED3D6B28DBA4A44991136DE /* Proxima Nova Thin Italic_0.otf */; };
-		32DAA341F1344A84AF51E19C /* ProximaNova-Regular_0.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8CCC095B1D948B0B8C6BC12 /* ProximaNova-Regular_0.otf */; };
+		EF079F4AE3DA44068ECBDC53 /* Swissra Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2BDF20B92815409FAAF8A245 /* Swissra Thin.otf */; };
+		F22B2FE3176D41FE8EB71554 /* Swissra Ultra Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F7C4CEC896334615BD216BB4 /* Swissra Ultra Light.otf */; };
+		F8C55FF239474799892EC162 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C69A65EBA4746A68A06EFCB /* EvilIcons.ttf */; };
+		FB5E2A2C8B1041F7BD83C810 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97807049B9784867959E6529 /* libRCTVideo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -397,46 +398,46 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		152CFAB22BCE4D4C97431849 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		18B3805EFE8A48B694DCD401 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		1C60CD46B2EB44E9AC519294 /* Proxima Nova Extra Condensed Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Proxima Nova Extra Condensed Bold.otf"; path = "../app/common/assets/fonts/Proxima Nova Extra Condensed Bold.otf"; sourceTree = "<group>"; };
+		2262C5B61C364A7EA00944D3 /* Swissra Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Swissra Bold.otf"; path = "../app/common/assets/fonts/Swissra Bold.otf"; sourceTree = "<group>"; };
+		27571859FDE54BA1864952DA /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Proxima Nova Bold.otf"; path = "../app/common/assets/fonts/Proxima Nova Bold.otf"; sourceTree = "<group>"; };
+		2BDF20B92815409FAAF8A245 /* Swissra Thin.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Swissra Thin.otf"; path = "../app/common/assets/fonts/Swissra Thin.otf"; sourceTree = "<group>"; };
 		2C69A65EBA4746A68A06EFCB /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* AqarVideos-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AqarVideos-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* AqarVideos-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AqarVideos-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DECC421FA874B6DA6C5C9EC /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
+		404BB35F934343C7ABA97C82 /* Swissra Heavy.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Swissra Heavy.otf"; path = "../app/common/assets/fonts/Swissra Heavy.otf"; sourceTree = "<group>"; };
 		45967D68E2574CEE9ABCDF50 /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
 		4963E6676587478C881B25AE /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		49E347F85371430BBC32BB5A /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		4C28D05B01FE4288B3FD1306 /* Proxima Nova Condensed Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Proxima Nova Condensed Bold.otf"; path = "../app/common/assets/fonts/Proxima Nova Condensed Bold.otf"; sourceTree = "<group>"; };
 		54E4DFBD39974DE2990D289B /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		5EC8E3724E7444C7831B12CE /* Swissra Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Swissra Light.otf"; path = "../app/common/assets/fonts/Swissra Light.otf"; sourceTree = "<group>"; };
 		634ACA959CCA4D07A13B9275 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
+		78739855550F4B378AE7A3E5 /* Swissra Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Swissra Black.otf"; path = "../app/common/assets/fonts/Swissra Black.otf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		79FB5CC16CEA41E9AB3CD66F /* Proxima Nova Semibold Italic_0.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Proxima Nova Semibold Italic_0.otf"; path = "../app/common/assets/fonts/Proxima Nova Semibold Italic_0.otf"; sourceTree = "<group>"; };
 		815032DBAF5E4AACACBEB3D1 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		97807049B9784867959E6529 /* libRCTVideo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTVideo.a; sourceTree = "<group>"; };
 		9B82785E667B4619878FDCA0 /* AirMaps.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
+		A81D212AD86A46C1850EED1D /* Swissra Normal.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Swissra Normal.otf"; path = "../app/common/assets/fonts/Swissra Normal.otf"; sourceTree = "<group>"; };
 		AA0698F3E91E4AA3B6A86106 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		AB2B457D1E3B4EBE93D3BBE7 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		AB4DB648496A49658A19C0AD /* Swissra Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Swissra Medium.otf"; path = "../app/common/assets/fonts/Swissra Medium.otf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B582F98F1C0543A3A9A07BCD /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		CDB4E84DCA954DADBF4CE15E /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		CF02CBC839744630AD2C3EF6 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		D37B0C137DC944F2B1D938F5 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		D585F2A7BC6440CD9CC10D6D /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "../node_modules/react-native-video/ios/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
+		F31B69C949A549C4B02D2ED4 /* Proxima Nova Black Italic_0.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Proxima Nova Black Italic_0.otf"; path = "../app/common/assets/fonts/Proxima Nova Black Italic_0.otf"; sourceTree = "<group>"; };
+		F7C4CEC896334615BD216BB4 /* Swissra Ultra Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Swissra Ultra Light.otf"; path = "../app/common/assets/fonts/Swissra Ultra Light.otf"; sourceTree = "<group>"; };
+		F8CCC095B1D948B0B8C6BC12 /* ProximaNova-Regular_0.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ProximaNova-Regular_0.otf"; path = "../app/common/assets/fonts/ProximaNova-Regular_0.otf"; sourceTree = "<group>"; };
 		F982F92996174BA08DAF1BE7 /* libRCTCamera.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTCamera.a; sourceTree = "<group>"; };
-		78739855550F4B378AE7A3E5 /* Swissra Black.otf */ = {isa = PBXFileReference; name = "Swissra Black.otf"; path = "../app/common/assets/fonts/Swissra Black.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2262C5B61C364A7EA00944D3 /* Swissra Bold.otf */ = {isa = PBXFileReference; name = "Swissra Bold.otf"; path = "../app/common/assets/fonts/Swissra Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		404BB35F934343C7ABA97C82 /* Swissra Heavy.otf */ = {isa = PBXFileReference; name = "Swissra Heavy.otf"; path = "../app/common/assets/fonts/Swissra Heavy.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		5EC8E3724E7444C7831B12CE /* Swissra Light.otf */ = {isa = PBXFileReference; name = "Swissra Light.otf"; path = "../app/common/assets/fonts/Swissra Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		AB4DB648496A49658A19C0AD /* Swissra Medium.otf */ = {isa = PBXFileReference; name = "Swissra Medium.otf"; path = "../app/common/assets/fonts/Swissra Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A81D212AD86A46C1850EED1D /* Swissra Normal.otf */ = {isa = PBXFileReference; name = "Swissra Normal.otf"; path = "../app/common/assets/fonts/Swissra Normal.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2BDF20B92815409FAAF8A245 /* Swissra Thin.otf */ = {isa = PBXFileReference; name = "Swissra Thin.otf"; path = "../app/common/assets/fonts/Swissra Thin.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F7C4CEC896334615BD216BB4 /* Swissra Ultra Light.otf */ = {isa = PBXFileReference; name = "Swissra Ultra Light.otf"; path = "../app/common/assets/fonts/Swissra Ultra Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F31B69C949A549C4B02D2ED4 /* Proxima Nova Black Italic_0.otf */ = {isa = PBXFileReference; name = "Proxima Nova Black Italic_0.otf"; path = "../app/common/assets/fonts/Proxima Nova Black Italic_0.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F987E63D9FFC4691AD173322 /* Proxima Nova Bold Italic_0.otf */ = {isa = PBXFileReference; name = "Proxima Nova Bold Italic_0.otf"; path = "../app/common/assets/fonts/Proxima Nova Bold Italic_0.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		27571859FDE54BA1864952DA /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; name = "Proxima Nova Bold.otf"; path = "../app/common/assets/fonts/Proxima Nova Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4C28D05B01FE4288B3FD1306 /* Proxima Nova Condensed Bold.otf */ = {isa = PBXFileReference; name = "Proxima Nova Condensed Bold.otf"; path = "../app/common/assets/fonts/Proxima Nova Condensed Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		1C60CD46B2EB44E9AC519294 /* Proxima Nova Extra Condensed Bold.otf */ = {isa = PBXFileReference; name = "Proxima Nova Extra Condensed Bold.otf"; path = "../app/common/assets/fonts/Proxima Nova Extra Condensed Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		79FB5CC16CEA41E9AB3CD66F /* Proxima Nova Semibold Italic_0.otf */ = {isa = PBXFileReference; name = "Proxima Nova Semibold Italic_0.otf"; path = "../app/common/assets/fonts/Proxima Nova Semibold Italic_0.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		FED3D6B28DBA4A44991136DE /* Proxima Nova Thin Italic_0.otf */ = {isa = PBXFileReference; name = "Proxima Nova Thin Italic_0.otf"; path = "../app/common/assets/fonts/Proxima Nova Thin Italic_0.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F8CCC095B1D948B0B8C6BC12 /* ProximaNova-Regular_0.otf */ = {isa = PBXFileReference; name = "ProximaNova-Regular_0.otf"; path = "../app/common/assets/fonts/ProximaNova-Regular_0.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F987E63D9FFC4691AD173322 /* Proxima Nova Bold Italic_0.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Proxima Nova Bold Italic_0.otf"; path = "../app/common/assets/fonts/Proxima Nova Bold Italic_0.otf"; sourceTree = "<group>"; };
+		FED3D6B28DBA4A44991136DE /* Proxima Nova Thin Italic_0.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Proxima Nova Thin Italic_0.otf"; path = "../app/common/assets/fonts/Proxima Nova Thin Italic_0.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1540,7 +1541,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZQ8TGSV466;
@@ -1561,7 +1562,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aqar.app;
 				PRODUCT_NAME = AqarVideos;
-				PROVISIONING_PROFILE = "9728ddd4-9df3-4ec9-96a0-b3a0e72abba7";
+				PROVISIONING_PROFILE = "0dda94a2-d014-4f4e-9372-5dd08c84ad07";
 				PROVISIONING_PROFILE_SPECIFIER = "Aqar Dist";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
