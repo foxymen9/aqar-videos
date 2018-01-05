@@ -45,7 +45,7 @@ export default class App extends Component {
         <Scene key="Main" initial={ true } component={ MainPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="Register" component={ RegisterPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyAds" component={ MyAdsPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="MyWishList" component={ MyWishListPage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="MyWishList" initial={ true } component={ MyWishListPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="Package" component={ PackagePage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="PackageDetail" component={ PackageDetailPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="ProfileEdit" component={ ProfileEditPage } hideNavBar={ true } panHandlers={null}/>

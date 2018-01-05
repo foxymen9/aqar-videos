@@ -46,6 +46,7 @@ export default class MyWishListPage extends Component {
       </TouchableOpacity>
     )
   }
+  
   _renderSeparator (sectionID, rowID, adjacentRowHighlighted) {
     return (
       <View
@@ -129,12 +130,12 @@ export default class MyWishListPage extends Component {
       <Container title='MY WISH LIST (4)'>
         <View style={styles.container}>
           <ListView
-              ref='listview'
-              dataSource={dataSource}
-              renderRow={this._renderRow.bind(this)}
-              renderSeparator={this._renderSeparator}
-              contentContainerStyle={styles.listView}
-            />
+            ref='listview'
+            dataSource={dataSource}
+            renderRow={this._renderRow.bind(this)}
+            renderSeparator={this._renderSeparator}
+            contentContainerStyle={styles.listView}
+          />
         </View>
       </Container>
     );
