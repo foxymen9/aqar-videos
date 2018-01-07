@@ -25,6 +25,7 @@
     "react-native-scrollable-tab-view": "^0.8.0",
     "react-native-side-menu": "^1.1.3",
     "react-native-stopwatch-timer": "0.0.20",
+    "react-native-swipe-list-view": "^1.0.3",
     "react-native-triangle": "0.0.9",
     "react-native-vector-icons": "^4.4.2",
     "react-native-video": "^2.0.0",
@@ -39,7 +40,9 @@
     "react-test-renderer": "16.0.0"
   },
   "rnpm": {
-    "assets": ["./app/common/assets/fonts"]
+    "assets": [
+      "./app/common/assets/fonts"
+    ]
   },
   "jest": {
     "preset": "react-native"

@@ -9,6 +9,8 @@ import {
   Image,
 } from 'react-native';
 
+import { SwipeListView, SwipeRow } from 'react-native-swipe-list-view';
+
 import Container from '../../layout/Container';
 import { styles } from './styles';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
@@ -16,47 +18,12 @@ import FontAwesome, {Icons} from 'react-native-fontawesome';
 export default class MyWishListPage extends Component {
   constructor(props) {
     super(props);
+    state = {
+      listData: [],
+    }
   }
 
-  onItemSelect(rowData, rowID) {
-
-  }
-
-  _renderRow (rowData, sectionID, rowID, highlightRow) {
-    return (
-      <TouchableOpacity 
-        activeOpacity={0.6}
-        onPress={()=>{this.onItemSelect(rowData, rowID)}}
-      >
-        <View style={styles.listItem}>
-          <View style={styles.imageView}>
-            <Image source={{ uri: rowData.image}} style={ styles.image } />
-          </View>
-          <View style={styles.footerView}>
-            <Text style={styles.textTitle}>{rowData.title}</Text>
-            <View style={styles.bottomWrapper}>
-              <Text  style={styles.textPrice}>{rowData.price} SAR</Text>
-              <View style={styles.viewWrapper}>
-                <Text  style={styles.textViewCount}>number of view {rowData.viewCount}</Text>
-                <FontAwesome style={styles.eye}>{Icons.eye}</FontAwesome>
-              </View>
-            </View>
-          </View>
-        </View>
-      </TouchableOpacity>
-    )
-  }
-  
-  _renderSeparator (sectionID, rowID, adjacentRowHighlighted) {
-    return (
-      <View
-          key={`${sectionID}-${rowID}`}
-          style={{ height: 15, backgroundColor: 'transparent', flex:1}}
-      />
-    );
-  }
-
-  render() {
+  componentWillMount() {
     let listData = [
       {
         image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
@@ -68,7 +35,7 @@ export default class MyWishListPage extends Component {
       },
       {
         image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
-        title: 'Apartment for Rent',
+        title: 'Apartment for Rent1',
         price: '15.000',
         capacity: '170M',
         viewCount: '500',
@@ -76,7 +43,7 @@ export default class MyWishListPage extends Component {
       },
       {
         image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
-        title: 'Apartment for Rent',
+        title: 'Apartment for Rent2',
         price: '23.000',
         capacity: '80M',
         viewCount: '500',
@@ -84,7 +51,7 @@ export default class MyWishListPage extends Component {
       },
       {
         image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
-        title: 'Apartment for Rent',
+        title: 'Apartment for Rent3',
         price: '32.000',
         capacity: '120M',
         viewCount: '500',
@@ -92,7 +59,7 @@ export default class MyWishListPage extends Component {
       },
       {
         image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
-        title: 'Apartment for Rent',
+        title: 'Apartment for Rent4',
         price: '23.000',
         capacity: '80M',
         viewCount: '500',
@@ -100,7 +67,7 @@ export default class MyWishListPage extends Component {
       },
       {
         image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
-        title: 'Apartment for Rent',
+        title: 'Apartment for Rent5',
         price: '32.000',
         capacity: '120M',
         viewCount: '500',
@@ -108,7 +75,7 @@ export default class MyWishListPage extends Component {
       },
       {
         image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
-        title: 'Apartment for Rent',
+        title: 'Apartment for Rent6',
         price: '23.000',
         capacity: '80M',
         viewCount: '500',
@@ -116,25 +83,74 @@ export default class MyWishListPage extends Component {
       },
       {
         image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
-        title: 'Apartment for Rent',
+        title: 'Apartment for Rent7',
         price: '32.000',
         capacity: '120M',
         viewCount: '500',
         favorite: false,
       },
-    ]
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    const dataSource = ds.cloneWithRows(listData);
+    ];
+    this.setState({listData: listData});
+  }
 
+  onItemSelect(rowData, rowID) {
+
+  }
+
+  onItemDelete(rowData, secId, rowId, rowMap) {
+    if (rowMap[`${secId}${rowId}`]) {
+			rowMap[`${secId}${rowId}`].closeRow();
+		}
+    const {listData} = this.state;
+    let data = listData.splice(rowId, 1);
+    this.setState({listData: listData});
+  }
+
+  render() {
+    
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    const dataSource = ds.cloneWithRows(this.state.listData);
+    
     return (
       <Container title='MY WISH LIST (4)'>
         <View style={styles.container}>
-          <ListView
-            ref='listview'
+          <SwipeListView
             dataSource={dataSource}
-            renderRow={this._renderRow.bind(this)}
-            renderSeparator={this._renderSeparator}
-            contentContainerStyle={styles.listView}
+            renderRow={ (rowData, secId, rowId, rowMap) => (
+              <SwipeRow
+                disableRightSwipe={true}
+                rightOpenValue={-50}
+              >
+                <View style={styles.listRightView}>
+                  <TouchableOpacity
+                    style={styles.btnDeleteView}
+                    activeOpacity={0.9}
+                    onPress={()=> {
+                      this.onItemDelete(rowData, secId, rowId, rowMap);
+                    }}
+                  >
+                    <FontAwesome style={styles.iconDelete}>{Icons.trash}</FontAwesome>
+                  </TouchableOpacity>
+                </View>
+                <View style={styles.listStyle}>
+                  <View style={styles.listItem}>
+                    <View style={styles.imageView}>
+                      <Image source={{ uri: rowData.image}} style={ styles.image } />
+                    </View>
+                    <View style={styles.footerView}>
+                      <Text style={styles.textTitle}>{rowData.title}</Text>
+                      <View style={styles.bottomWrapper}> 
+                        <Text  style={styles.textPrice}>{rowData.price} SAR</Text>
+                        <View style={styles.viewWrapper}>
+                          <Text  style={styles.textViewCount}>number of view {rowData.viewCount}</Text>
+                          <FontAwesome style={styles.eye}>{Icons.eye}</FontAwesome>
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </SwipeRow>
+            )}
           />
         </View>
       </Container>
