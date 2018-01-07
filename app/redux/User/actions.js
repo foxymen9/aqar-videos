@@ -20,3 +20,10 @@ export function userSignUp() {
     type: types.USER_SIGN_UP,
   };
 }
+
+export function changeMenu(index) {
+  return {
+    type: types.CHANGE_MENU,
+    data: index,
+  }
+}

@@ -14,7 +14,7 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
 import { styles } from './styles';
-import { userSignOut } from '../../../redux/User/actions';
+import { userSignOut, changeMenu } from '../../../redux/User/actions';
 
 const icon_login = require('../../../common/assets/images/menu/login_signup.png');
 const icon_offer = require('../../../common/assets/images/menu/special_offer.png');
@@ -43,8 +43,8 @@ class Sidebar extends Component {
   }
 
   onItemSelect(data, rowID) {
-    this.props.menuState();
     if (this.state.userLogin) {
+      this.props.changeMenu(rowID);
       switch(rowID) {
         case '0':
           Actions.Main();
@@ -76,6 +76,7 @@ class Sidebar extends Component {
           break;
         case '9':
           this.props.userSignOut();
+          this.props.changeMenu(0);
           Actions.Main();
         default: 
           break;
@@ -85,14 +86,17 @@ class Sidebar extends Component {
       switch(rowID) {
         case '0':
           Actions.Main();
+          this.props.changeMenu(0);
           break;
         case '1':
           Actions.Register();
           break;
         case '2':
+          this.props.changeMenu(2);
           Actions.Package();
           break;
         case '3':
+          this.props.changeMenu(3);
           Actions.SupportAdvertisement();
           break;
         default: 
@@ -105,7 +109,7 @@ class Sidebar extends Component {
    const { menuSelectedID } = this.props;
     return (
       <TouchableOpacity onPress={()=>{highlightRow(sectionID, rowID); this.onItemSelect(rowData, rowID)}}>
-        <View style={styles.menuItem}>
+        <View style={this.props.menuIndex == rowID ? styles.selectedMenuItem : styles.menuItem}>
           <Text style={styles.menuItemTitle}>{rowData.title}</Text>
           <View style={styles.iconView}>
             <Image source={rowData.icon} style={styles.menuItemIcon} />
@@ -214,4 +218,5 @@ class Sidebar extends Component {
 
 export default connect(state => ({
   userLogin: state.user.userLogin,
-}),{ userSignOut })(Sidebar);
+  menuIndex: state.user.menuIndex,
+}),{ userSignOut, changeMenu })(Sidebar);

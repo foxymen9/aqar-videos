@@ -25,6 +25,11 @@ export const styles = StyleSheet.create({
     width: listItemWidth,
     marginHorizontal: 7.5,
     marginBottom: 15,
+    shadowOffset: { width:0, height:2 },
+    shadowOpacity: 0.4,
+    shadowRadius: 2,
+    elevation: 1,
+    shadowColor: 'black',
   },
   imageView: {
     width: '100%',

@@ -20,7 +20,7 @@ import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import * as commonStyles from '../../../common/styles/commonStyles';
 import * as commonColors from '../../../common/styles/commonColors';
 import { styles } from './styles';
-import { userSignIn } from '../../../redux/User/actions';
+import { userSignIn, changeMenu } from '../../../redux/User/actions';
 
 class Login extends Component {
   constructor(props) {
@@ -33,6 +33,7 @@ class Login extends Component {
 
   onLogin() {
     this.props.userSignIn();
+    this.props.changeMenu(0);
     Actions.Main();
   }
 
@@ -104,4 +105,4 @@ class Login extends Component {
 }
 
 export default connect(state => ({
-}),{ userSignIn })(Login);
+}),{ userSignIn, changeMenu })(Login);

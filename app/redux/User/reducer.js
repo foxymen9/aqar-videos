@@ -2,6 +2,7 @@ import * as types from './actionTypes';
 
 const initialState = {
   userLogin: true,
+  menuIndex: 0,
 };
 
 export default function user(state = initialState, action = {}) {
@@ -24,6 +25,11 @@ export default function user(state = initialState, action = {}) {
         ...state,
         userLogin: true,
       };
+    case types.CHANGE_MENU:
+      return {
+        ...state,
+        menuIndex: action.data
+      }
     default:
       return state;
   }
