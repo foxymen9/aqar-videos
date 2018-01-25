@@ -38,7 +38,7 @@ export default class ProfileEditPage extends Component {
   render() {
     const {tabIndex} = this.state;
     return (
-      <Container title={'EDIT PROFILE'}>
+      <Container title={'MY PROFILE'}>
         <View style={styles.container}>
           <KeyboardAwareScrollView>
             <View style={styles.fieldContainer}>
@@ -46,7 +46,7 @@ export default class ProfileEditPage extends Component {
                 <TextInput
                   ref="fullName"
                   autoCapitalize="none"
-                  autoCorrect={ false }
+                  autoCorrect={ true }
                   placeholder="Fullname"
                   placeholderTextColor={ commonColors.placeholderText }
                   textAlign="right"

@@ -7,6 +7,7 @@ import {
   ListView,
   TouchableOpacity,
   Image,
+  RefreshControl,
 } from 'react-native';
 
 import Container from '../../layout/Container';
@@ -20,6 +21,7 @@ export default class PackageDetailPage extends Component {
     super(props);
     this.state = {
       isSuccess: false,
+      refreshing: false,
     }
   }
 
@@ -27,8 +29,16 @@ export default class PackageDetailPage extends Component {
     this.setState({isSuccess : true});
   }
 
+  onRefresh() {
+    this.setState({ refreshing: false });
+  }
+
   render() {
     const {data} = this.props;
+
+    const refreshControl = (
+      <RefreshControl onRefresh={()=>this.onRefresh()} refreshing={this.state.refreshing} />
+    );
 
     if (this.state.isSuccess) {
       return (
@@ -59,7 +69,7 @@ export default class PackageDetailPage extends Component {
             </View>
           </View>
           <View style={styles.description}>
-            <ScrollView style={styles.descriptionScrollView}>
+            <ScrollView style={styles.descriptionScrollView} refreshControl={refreshControl}>
               <Text style={styles.textDescription}>We are hiring a Senior Full Stack Ruby on Rails engineer toWe are hiring a Senior Full Stack Ruby on Rails engineer to work on a product that helps our customers manage brick and mortar businesses, with various evaluation and assignment tools Our code is a Rails with some Javascript, we're also adopting React components. D3 is used for visualization, and mobile apps for iOS and android in the progress. The app runs on rails 5.1 on AWS uses bootstrap 3 for frontend. For testing we using rspec with 80% code coverage. Responsibilities: - refactor/rearchitect code to allow for efficient implentation of new features/requirements. - implementation of new features/requirements - bugfixing, troubleshooting and post mortem analysis - improve deployment infrastructure and setup - improve our software development life cycle tools and processes Required skills: Strong ruby, rails and SQL is a requirement. Knowledge of React, D3, AWS is a plus. Please Note: In your cover letter include the following * Begin with the words **ROR Engineer** * Include links to your Github, Stack Overflow and Linked In profiles * Include a link to your blog (if you have one)</Text>
             </ScrollView>
           </View>

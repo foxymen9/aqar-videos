@@ -18,30 +18,19 @@ import IconEntypo from 'react-native-vector-icons/Entypo';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 import Container from '../../layout/Container';
-import ModalShare from '../../components/ModalShare';
-import DropdownComponent from '../../components/DropdownComponent';
-import { RadioGroup, RadioButton } from '../../components/RadioButtonGroup';
+import ModalShare from '@components/ModalShare';
+import DropdownComponent from '@components/DropdownComponent';
+import CategoryComponent from '@components/CategoryComponent';
+import { RadioGroup, RadioButton } from '@components/RadioButtonGroup';
 
 import { styles } from './styles';
-import * as commonStyles from '../../../common/styles/commonStyles';
-import * as commonColors from '../../../common/styles/commonColors';
-
-const icon_building = require('../../../common/assets/images/product_detail/building.png');
-const icon_building_select = require('../../../common/assets/images/product_detail/building2.png');
-const icon_flat = require('../../../common/assets/images/product_detail/flat.png');
-const icon_flat_select = require('../../../common/assets/images/product_detail/flat2.png');
-const icon_office = require('../../../common/assets/images/product_detail/office2.png');
-const icon_office_select = require('../../../common/assets/images/product_detail/office.png');
-const icon_room = require('../../../common/assets/images/product_detail/room.png');
-const icon_room_select = require('../../../common/assets/images/product_detail/room2.png');
-const icon_shop = require('../../../common/assets/images/product_detail/shop.png');
-const icon_shop_select = require('../../../common/assets/images/product_detail/shop2.png');
+import * as commonStyles from '@common/styles/commonStyles';
+import * as commonColors from '@common/styles/commonColors';
 
 export default class SearchPage extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			category: 'building',
 			productOption: 'Sale',
 			region: '',
 			city: '',
@@ -51,12 +40,13 @@ export default class SearchPage extends Component {
 
 	onSelectCategory(item, index) {
 		this.setState({category: item});
-		if (index == 3 || index == 4) {
-			this.refs.catoryScroll.scrollToEnd();
-		}
-		if (index == 0 || index == 1) {
-			this.refs.catoryScroll.scrollTo({x: 0, y: 0, animated: true});
-		}
+
+    if (index == 6 || index == 3) {
+      this.refs.catoryScroll.scrollToEnd();
+    }
+    if (index == 0 || index == 4) {
+      this.refs.catoryScroll.scrollTo({x: 0, y: 0, animated: true});
+    }
 	}
 
 	onSend() {
@@ -96,61 +86,9 @@ export default class SearchPage extends Component {
                 Category
               </Text>
             </View>
-            <ScrollView 
-              ref='catoryScroll'
-              style={styles.categoryScrollView} 
-              horizontal={true}
-              alwaysBounceHorizontal={false}
-              showsHorizontalScrollIndicator={false}
-            >
-              <View style={styles.categoryView}>
-                <TouchableOpacity onPress={()=>this.onSelectCategory('building', 0)} activeOpacity={0.5}>
-                  <View style={[styles.btnCategory, category=='building' && styles.categoryBack]}>
-                    {category == 'building'
-                      ? <Image source={icon_building_select} style={styles.icon} />
-                      : <Image source={icon_building} style={styles.icon} />
-                    }
-                    <Text style={category == 'building' ? styles.textCategorySelect : styles.textCategory}>Building</Text>
-                  </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>this.onSelectCategory('flat', 1)} activeOpacity={0.5}>
-                  <View style={[styles.btnCategory, category=='flat' && styles.categoryBack]}>
-                    {category == 'flat'
-                      ? <Image source={icon_flat_select} style={styles.icon} />
-                      : <Image source={icon_flat} style={styles.icon} />
-                    }
-                    <Text style={category == 'flat' ? styles.textCategorySelect : styles.textCategory}>Flat</Text>
-                  </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>this.onSelectCategory('office', 2)} activeOpacity={0.5}>
-                  <View style={[styles.btnCategory, category=='office' && styles.categoryBack]}>
-                    {category == 'office'
-                      ? <Image source={icon_office_select} style={styles.icon} />
-                      : <Image source={icon_office} style={styles.icon} />
-                    }
-                    <Text style={category == 'office' ? styles.textCategorySelect : styles.textCategory}>Office</Text>
-                  </View> 
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>this.onSelectCategory('room', 3)} activeOpacity={0.5}>
-                  <View style={[styles.btnCategory, category=='room' && styles.categoryBack]}>
-                    {category == 'room'
-                      ? <Image source={icon_room_select} style={styles.icon} />
-                      : <Image source={icon_room} style={styles.icon} />
-                    }
-                    <Text style={category == 'room' ? styles.textCategorySelect : styles.textCategory}>Room</Text>
-                  </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>this.onSelectCategory('shop', 4)} activeOpacity={0.5}>
-                  <View style={[styles.btnCategory, category=='shop' && styles.categoryBack]}>
-                    {category == 'shop'
-                      ? <Image source={icon_shop_select} style={styles.icon} />
-                      : <Image source={icon_shop} style={styles.icon} />
-                    }
-                    <Text style={category == 'shop' ? styles.textCategorySelect : styles.textCategory}>Shop</Text>
-                  </View>
-                </TouchableOpacity>
-              </View>
-            </ScrollView>
+            
+            <CategoryComponent category={(item)=>this.setState({category: item})} />
+
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
                 Region

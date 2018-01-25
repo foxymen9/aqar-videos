@@ -31,7 +31,12 @@ class Signup extends Component {
       confirmPassword: '',
       email: '',  
       fullName: '',
+      code: '',
+      confirmCode: false,
     }
+  }
+  onConfirmPhoneNumber() {
+    this.setState({confirmCode: true});
   }
 
   onSignUp() {
@@ -41,15 +46,19 @@ class Signup extends Component {
   }
 
   render() {
+    const { confirmCode } = this.state;
+    
     return (
       <View style={styles.container}>
         <KeyboardAwareScrollView>
+          {confirmCode
+          ?
           <View style={styles.fieldContainer}>
             <View style={styles.inputView}>
               <TextInput
                 ref="fullName"
                 autoCapitalize="none"
-                autoCorrect={ false }
+                autoCorrect={ true }
                 placeholder="Fullname"
                 placeholderTextColor={ commonColors.placeholderText }
                 textAlign="right"
@@ -66,24 +75,24 @@ class Signup extends Component {
             </View>
             <View style={styles.inputView}>
               <TextInput
-                ref="mobileNumber"
+                ref="confirmCode"
                 autoCapitalize="none"
                 autoCorrect={ false }
-                placeholder="Mobile Number"
+                placeholder="Confirm Code"
                 placeholderTextColor={ commonColors.placeholderText }
                 textAlign="right"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
                 keyboardType="numbers-and-punctuation"
-                value={ this.state.mobile }
-                onChangeText={ (text) => this.setState({ mobile: text }) }
+                value={ this.state.code }
+                onChangeText={ (text) => this.setState({ code: text }) }
                 onSubmitEditing={ () => this.refs.email.focus() }
               />
               <View style={styles.iconView}>
-                <Icon name='screen-tablet' style={styles.inputIcon}></Icon>
+                <Icon name='eye' style={styles.inputIcon}></Icon>
               </View>
-            </View>
+            </View>  
             <View style={styles.inputView}>
               <TextInput
                 ref="email"
@@ -142,9 +151,34 @@ class Signup extends Component {
               <View style={styles.iconView}>
                 <Icon name='lock' style={styles.inputIcon}></Icon>
               </View>
-            </View>     
+            </View> 
           </View>
+          :
+          <View style={styles.fieldContainer}>
+            <View style={styles.inputView}>
+              <TextInput
+                ref="mobileNumber"
+                autoCapitalize="none"
+                autoCorrect={ false }
+                placeholder="Mobile Number"
+                placeholderTextColor={ commonColors.placeholderText }
+                textAlign="right"
+                style={styles.input}
+                underlineColorAndroid="transparent"
+                returnKeyType={ 'next' }
+                keyboardType="numbers-and-punctuation"
+                value={ this.state.mobile }
+                onChangeText={ (text) => this.setState({ mobile: text }) }
+              />
+              <View style={styles.iconView}>
+                <Icon name='screen-tablet' style={styles.inputIcon}></Icon>
+              </View>
+            </View>    
+          </View>
+          }
         </KeyboardAwareScrollView>
+        {confirmCode
+        ?
         <View style={styles.btnView}>
           <TouchableOpacity onPress={()=>this.onSignUp()} activeOpacity={0.5}>
             <View style={styles.btnWrapper}>
@@ -152,6 +186,15 @@ class Signup extends Component {
             </View>
           </TouchableOpacity>
         </View>
+        :
+        <View style={styles.btnView}>
+          <TouchableOpacity onPress={()=>this.onConfirmPhoneNumber()} activeOpacity={0.5}>
+            <View style={styles.btnWrapper}>
+              <Text style={styles.btnText}>Confirm PhoneNumber</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        }
       </View>
     );
   }

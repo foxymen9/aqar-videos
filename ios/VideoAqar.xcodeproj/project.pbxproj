@@ -1531,7 +1531,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aqar.app;
 				PRODUCT_NAME = VideoAqar;
-				PROVISIONING_PROFILE = "dc551cd7-1bda-4812-8576-c5cf2a2c8b76";
+				PROVISIONING_PROFILE = "ef34f6e0-da19-4f48-a377-e81d38752e46";
 				PROVISIONING_PROFILE_SPECIFIER = "Aqar Dev";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1562,7 +1562,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aqar.app;
 				PRODUCT_NAME = VideoAqar;
-				PROVISIONING_PROFILE = "0dda94a2-d014-4f4e-9372-5dd08c84ad07";
+				PROVISIONING_PROFILE = "ecbf8fd3-9993-430b-8a12-23b15a368e5f";
 				PROVISIONING_PROFILE_SPECIFIER = "Aqar Dist";
 				VERSIONING_SYSTEM = "apple-generic";
 			};

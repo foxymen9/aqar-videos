@@ -77,7 +77,7 @@ export default class DirectMessagePage extends Component {
                   ref="message"
                   multiline={true}
                   autoCapitalize="none"
-                  autoCorrect={ false }
+                  autoCorrect={ true }
                   placeholder="Type your message here"
                   placeholderTextColor={ commonColors.placeholderText }
                   textAlign="right"

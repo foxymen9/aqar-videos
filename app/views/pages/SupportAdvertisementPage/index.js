@@ -54,7 +54,7 @@ export default class SupportAdvertisementPage extends Component {
                 <TextInput
                   ref="fullName"
                   autoCapitalize="none"
-                  autoCorrect={ false }
+                  autoCorrect={ true }
                   placeholder="Fullname"
                   placeholderTextColor={ commonColors.placeholderText }
                   textAlign="right"
@@ -119,7 +119,7 @@ export default class SupportAdvertisementPage extends Component {
                   ref="message"
                   multiline={true}
                   autoCapitalize="none"
-                  autoCorrect={ false }
+                  autoCorrect={ true }
                   placeholder="Type your message here"
                   placeholderTextColor={ commonColors.placeholderText }
                   textAlign="right"

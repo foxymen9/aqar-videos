@@ -16,22 +16,25 @@ import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/Feather';
 import IconEntypo from 'react-native-vector-icons/Entypo';
 import { Actions } from 'react-native-router-flux';
+import CheckBox from 'react-native-modest-checkbox';
 
 import Container from '../../layout/Container';
 import { styles } from './styles';
 import ModalShare from '../../components/ModalShare';
 
-const icon_building = require('../../../common/assets/images/product_detail/building.png');
-const icon_flat = require('../../../common/assets/images/product_detail/flat.png');
-const icon_office = require('../../../common/assets/images/product_detail/office2.png');
-const icon_room = require('../../../common/assets/images/product_detail/room.png');
-const icon_shop = require('../../../common/assets/images/product_detail/shop.png');
+import * as commonColors from '@common/styles/commonColors';
+const icon_building = require('@common/assets/images/product_detail/building.png');
+const icon_flat = require('@common/assets/images/product_detail/flat.png');
+const icon_office = require('@common/assets/images/product_detail/office2.png');
+const icon_room = require('@common/assets/images/product_detail/room.png');
+const icon_shop = require('@common/assets/images/product_detail/shop.png');
 
 export default class PostNewVideoPreviewPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showShareModal: false,
+      terms: false,
     }
   }
 
@@ -41,6 +44,10 @@ export default class PostNewVideoPreviewPage extends Component {
 
   onPost() {
     
+  }
+
+  onDelete() {
+
   }
 
   onCamera() {
@@ -127,14 +134,28 @@ export default class PostNewVideoPreviewPage extends Component {
                 </Text>
               </View>
             </View>
+            <View style={styles.itemView}>
+              <CheckBox
+                label="Terms and conditions"
+                labelBefore={true}
+                labelStyle={{color: commonColors.placeholderText}}
+                onChange={(checked) => this.setState({terms: checked})}
+              />
+            </View>
+
             <TouchableOpacity onPress={()=>this.onEdit()} activeOpacity={0.5}>
-              <View style={styles.editBtnView}>
+              <View style={[styles.buttonStyle, styles.editBtnView]}>
                 <Text style={styles.textEdit}>EDIT</Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={()=>this.onPost()} activeOpacity={0.5}>
-              <View style={styles.postBtnView}>
+              <View style={[styles.buttonStyle, styles.postBtnView]}>
                 <Text style={styles.textEdit}>POST</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>this.onDelete()} activeOpacity={0.5}>
+              <View style={[styles.buttonStyle, styles.deleteBtnView]}>
+                <Text style={styles.textEdit}>DELETE</Text>
               </View>
             </TouchableOpacity>
           </ScrollView>

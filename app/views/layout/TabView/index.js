@@ -186,6 +186,14 @@ class TabView extends Component {
               <ProductListPage />
             )}
           </ScrollView>
+          <ScrollView tabLabel="Villa">
+            {btnStatus == 'map' && (
+              <MapPage page="villa" locationData={apartmentData} region={region} />
+            )}
+            {btnStatus == 'list' && (
+              <ProductListPage />
+            )}
+          </ScrollView>
           <ScrollView tabLabel="Apartment">
             {btnStatus == 'map' && (
               <MapPage page="apartment" locationData={apartmentData} region={region} />
@@ -194,25 +202,41 @@ class TabView extends Component {
               <ProductListPage />
             )}
           </ScrollView>
-          <ScrollView tabLabel="Room">
+          <ScrollView tabLabel="Office">
             {btnStatus == 'map' && (
-              <MapPage page="room" locationData={buildingData} region={region} />
+              <MapPage page="office" locationData={buildingData} region={region} />
             )}
             {btnStatus == 'list' && (
               <ProductListPage />
             )}
           </ScrollView>
-          <ScrollView tabLabel="Home">
-            {btnStatus == 'map' && (
-              <MapPage page="home" locationData={buildingData} region={region} />
-            )}
-            {btnStatus == 'list' && (
-              <ProductListPage />
-            )}
-          </ScrollView>
-          <ScrollView tabLabel="Gallery">
+          <ScrollView tabLabel="Galleries & Shops">
             {btnStatus == 'map' && (
               <MapPage page="gallery" locationData={buildingData} region={region} />
+            )}
+            {btnStatus == 'list' && (
+              <ProductListPage />
+            )}
+          </ScrollView>
+          <ScrollView tabLabel="Land">
+            {btnStatus == 'map' && (
+              <MapPage page="land" locationData={buildingData} region={region} />
+            )}
+            {btnStatus == 'list' && (
+              <ProductListPage />
+            )}
+          </ScrollView>
+          <ScrollView tabLabel="Chalets">
+            {btnStatus == 'map' && (
+              <MapPage page="chalets" locationData={buildingData} region={region} />
+            )}
+            {btnStatus == 'list' && (
+              <ProductListPage />
+            )}
+          </ScrollView>
+          <ScrollView tabLabel="Real Estate">
+            {btnStatus == 'map' && (
+              <MapPage page="real_estate" locationData={buildingData} region={region} />
             )}
             {btnStatus == 'list' && (
               <ProductListPage />

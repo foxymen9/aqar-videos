@@ -1,9 +1,9 @@
 import {
   StyleSheet,
 } from 'react-native';
-import * as commonStyles from '../../../common/styles/commonStyles';
-import * as commonColors from '../../../common/styles/commonColors';
-import { tabBarHieght } from '../../../common/styles/commonStyles';
+import * as commonStyles from '@common/styles/commonStyles';
+import * as commonColors from '@common/styles/commonColors';
+import { tabBarHieght } from '@common/styles/commonStyles';
 
 export const styles = StyleSheet.create({
   container: {
@@ -87,18 +87,20 @@ export const styles = StyleSheet.create({
     color: 'white',
     fontSize: 40,
   },
-  editBtnView: {
+  buttonStyle: {
+    marginVertical: 10,
     height: commonStyles.buttonHeight,
-    backgroundColor: commonColors.pinkColor,
     justifyContent: 'center',
     alignItems: 'center',
   },
+  editBtnView: {
+    backgroundColor: commonColors.pinkColor,
+  },
   postBtnView: {
-    marginVertical: 10,
-    height: commonStyles.buttonHeight,
     backgroundColor: commonColors.greenColor,
-    justifyContent: 'center',
-    alignItems: 'center',
+  },
+  deleteBtnView: {
+    backgroundColor: commonColors.darkGrayColor,
     marginBottom: 40,
   },
   textEdit: {

@@ -125,7 +125,7 @@ export default class ChatRoomPage extends Component {
               <View style={styles.inputView}>
                 <TextInput
                   autoCapitalize="none"
-                  autoCorrect={ false }
+                  autoCorrect={ true }
                   multiline={true}
                   placeholder="Type message here"
                   placeholderTextColor={ commonColors.placeholderText }

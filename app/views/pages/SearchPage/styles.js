@@ -5,8 +5,6 @@ import * as commonStyles from '../../../common/styles/commonStyles';
 import * as commonColors from '../../../common/styles/commonColors';
 import { tabBarHieght } from '../../../common/styles/commonStyles';
 
-const categoryHeight = 100;
-
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
@@ -71,29 +69,6 @@ export const styles = StyleSheet.create({
   radioGroup: {
     flexDirection: 'row',
   },
-  categoryScrollView: {
-    width: commonStyles.screenWidth,
-    backgroundColor: '#D6D6D6',
-  },
-  categoryView: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-  },
-  btnCategory: {
-    backgroundColor: '#D6D6D6',
-    height: categoryHeight,  
-    width: categoryHeight,  
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  categoryBack: {
-    backgroundColor: commonColors.pinkColor,
-    height: categoryHeight,  
-    width: categoryHeight,  
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   sendBtnView: {
     marginVertical: 40,
     height: commonStyles.buttonHeight,
@@ -108,18 +83,6 @@ export const styles = StyleSheet.create({
   },
   icon: {
     marginBottom: 10,
-  },
-  textCategory: {
-    fontFamily: commonStyles.normalFont,
-    fontSize: commonStyles.normalFontSize,
-    color: commonColors.placeholderText,
-    textAlign: 'right'
-  },
-  textCategorySelect: {
-    fontFamily: commonStyles.normalFont,
-    fontSize: commonStyles.normalFontSize,
-    color: 'white',
-    textAlign: 'right'
   },
   priceView: {
     width: '100%',
