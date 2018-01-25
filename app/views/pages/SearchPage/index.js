@@ -17,7 +17,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import IconEntypo from 'react-native-vector-icons/Entypo';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-import Container from '../../layout/Container';
+import Container from '@layout/Container';
 import ModalShare from '@components/ModalShare';
 import DropdownComponent from '@components/DropdownComponent';
 import CategoryComponent from '@components/CategoryComponent';
@@ -31,6 +31,7 @@ export default class SearchPage extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+      category: 'building',
 			productOption: 'Sale',
 			region: '',
 			city: '',

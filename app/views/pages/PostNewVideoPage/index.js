@@ -14,15 +14,15 @@ import {
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
-import {RadioGroup, RadioButton} from '../../components/RadioButtonGroup';
 import { Actions } from 'react-native-router-flux';
 import Video from 'react-native-video';
 
 import ImagePicker from 'react-native-image-picker';
 
 import Icon from 'react-native-vector-icons/Feather';
-import Container from '../../layout/Container';
+import Container from '@layout/Container';
 import ModalShare from '@components/ModalShare';
+import {RadioGroup, RadioButton} from '@components/RadioButtonGroup';
 import DropdownComponent from '@components/DropdownComponent';
 import CategoryComponent from '@components/CategoryComponent';
 
@@ -34,6 +34,7 @@ export default class PostNewVideoPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      category: 'building',
       title: '',
       description: '',
       price: '',
@@ -42,12 +43,14 @@ export default class PostNewVideoPage extends Component {
       city: '',
       district: '',
       videoUri: null,
+      minSquareMeter: '1000',
     }
     this.player = null;
   }
 
   onPreview() {
     const propsData = this.state;
+    alert(this.state.category);
     if (propsData.videoUri != null) {
       Actions.PostNewVideoPreview({data: propsData});
     }
@@ -96,7 +99,7 @@ export default class PostNewVideoPage extends Component {
 
   render() {
     // const {videoData} = this.props;
-    const {title, description, price, productOption, region, city, district, videoUri} = this.state;  
+    const {category, title, description, price, productOption, region, city, district, videoUri} = this.state;  
 
     const regionData = [
       { value: 'Saudi Arabia' },
@@ -212,6 +215,7 @@ export default class PostNewVideoPage extends Component {
               </Text>
               <DropdownComponent selectItem={(value)=>this.setState({district: value})} item={district} data={districtData} />
             </View>
+
             <View style={styles.productOptionView}>
               <RadioGroup 
                 color='#7D7D7D' 
@@ -231,12 +235,91 @@ export default class PostNewVideoPage extends Component {
                 Product Option
               </Text>
             </View>
+            {(category == 'building' || category == 'villa') && (
+            <View style={styles.priceView}>
+              <View style={styles.priceBox}>
+                <TextInput
+                  ref="maxPrice"
+                  autoCapitalize="none"
+                  autoCorrect={ false }
+                  multiline={true}
+                  placeholder="Max.Price"
+                  placeholderTextColor={ commonColors.placeholderText }
+                  textAlign="right"
+                  style={styles.inputPrice}
+                  underlineColorAndroid="transparent"
+                  returnKeyType={ 'done' }
+                  keyboardType="numbers-and-punctuation"
+                  value={ this.state.maxPrice }
+                  onChangeText={ (text) => this.setState({ maxPrice: text }) }
+                />
+              </View>
+              <Text style={styles.linebar}>-</Text>
+              <View style={styles.priceBox}>
+                <TextInput
+                  ref="minPrice"
+                  autoCapitalize="none"
+                  autoCorrect={ false }
+                  multiline={true}
+                  placeholder="Min.Price"
+                  placeholderTextColor={ commonColors.placeholderText }
+                  textAlign="right"
+                  style={styles.inputPrice}
+                  underlineColorAndroid="transparent"
+                  returnKeyType={ 'next' }
+                  keyboardType="numbers-and-punctuation"
+                  value={ this.state.minPrice }
+                  onChangeText={ (text) => this.setState({ minPrice: text }) }
+                  onSubmitEditing={ () => this.refs.maxPrice.focus() }
+                />
+              </View>
+            </View>)}
+
+            {category == 'villa' && (
+            <View style={styles.priceView}>
+              <View style={styles.squareMeterBox}>
+                <TextInput
+                  ref="maxSquareMeter"
+                  autoCapitalize="none"
+                  autoCorrect={ false }
+                  multiline={true}
+                  placeholder="Max.SquareMeter"
+                  placeholderTextColor={ commonColors.placeholderText }
+                  textAlign="right"
+                  style={styles.inputPrice}
+                  underlineColorAndroid="transparent"
+                  returnKeyType={ 'done' }
+                  keyboardType="numbers-and-punctuation"
+                  value={ this.state.maxSquareMeter }
+                  onChangeText={ (text) => this.setState({ maxSquareMeter: text }) }
+                />
+              </View>
+              <Text style={styles.linebar}>-</Text>
+              <View style={styles.squareMeterBox}>
+                <TextInput
+                  ref="minSquareMeter"
+                  autoCapitalize="none"
+                  autoCorrect={ false }
+                  multiline={true}
+                  placeholder="Min.SquareMeter"
+                  placeholderTextColor={ commonColors.placeholderText }
+                  textAlign="right"
+                  style={styles.inputPrice}
+                  underlineColorAndroid="transparent"
+                  returnKeyType={ 'next' }
+                  keyboardType="numbers-and-punctuation"
+                  value={ this.state.minSquareMeter }
+                  onChangeText={ (text) => this.setState({ minSquareMeter: text }) }
+                  onSubmitEditing={ () => this.refs.maxPrice.focus() }
+                />
+              </View>
+            </View>)}
+
             <View style={styles.titleView}>
               <Text style={styles.textTitle}>
                 Category
               </Text>
             </View>
-
             <CategoryComponent category={(item)=>this.setState({category: item})} />
 
             <TouchableOpacity onPress={()=>this.onPreview()} activeOpacity={0.5}>

@@ -98,10 +98,11 @@ export const styles = StyleSheet.create({
     height: 45,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: 5,
   },
   input: {
     fontFamily: commonStyles.normalFont,
-    width: 110,
+    width: '100%',
     fontSize: 17,
     fontWeight: 'bold',
     color: commonColors.placeholderText,
