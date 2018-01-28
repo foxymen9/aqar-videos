@@ -16,6 +16,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import { Actions } from 'react-native-router-flux';
 import Video from 'react-native-video';
+import CheckBox from 'react-native-modest-checkbox';
 
 import ImagePicker from 'react-native-image-picker';
 
@@ -42,6 +43,8 @@ export default class PostNewVideoPage extends Component {
       region: '',
       city: '',
       district: '',
+      period: '',
+      buildingType: '',
       videoUri: null,
       minSquareMeter: '1000',
     }
@@ -58,6 +61,11 @@ export default class PostNewVideoPage extends Component {
 
   onSelectProductOption(index, value) {
     this.setState({productOption: value})
+  }
+
+  selectCategory(item) {
+    this.setState({category: item});
+    this.refs.scrollContainer.scrollToEnd();
   }
 
   onCamera() {
@@ -99,7 +107,10 @@ export default class PostNewVideoPage extends Component {
 
   render() {
     // const {videoData} = this.props;
-    const {category, title, description, price, productOption, region, city, district, videoUri} = this.state;  
+    const {
+      category, 
+      videoUri
+    } = this.state;  
 
     const regionData = [
       { value: 'Saudi Arabia' },
@@ -119,10 +130,26 @@ export default class PostNewVideoPage extends Component {
       { value: 'Distrcit3' }
     ];
 
+    const periodData = [
+      { value: 'Daily' },
+      { value: 'Monthly' },
+      { value: 'Yearly' }
+    ];
+
+    const buildingTypeData = [
+      { value: 'Residential' },
+      { value: 'Commercial' }
+    ];
+
+    const apartmentRoomType = [
+      { value: 'Singular' },
+      { value: 'Familiar' }
+    ];
+
     return (
       <Container title='POST A NEW AD'>
         <View style={styles.container}>
-          <KeyboardAwareScrollView>
+          <KeyboardAwareScrollView ref="scrollContainer">
             <TouchableOpacity onPress={()=>this.onCamera()}>
               <View style={styles.videoView}>
               {videoUri != null 
@@ -147,12 +174,12 @@ export default class PostNewVideoPage extends Component {
                 autoCapitalize="none"
                 autoCorrect={ true }
                 placeholder="Please name of your video"
-                placeholderTextColor={ commonColors.placeholderText }
+                placeholderTextColor={ commonColors.placeholderSubText }
                 textAlign="right"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
-                value={ title }
+                value={ this.state.title }
                 onChangeText={ (text) => this.setState({ title: text }) }
                 onSubmitEditing={ () => this.refs.description.focus() }
               />
@@ -167,12 +194,12 @@ export default class PostNewVideoPage extends Component {
                 autoCorrect={ true }
                 multiline={true}
                 placeholder="Please add short description to your video"
-                placeholderTextColor={ commonColors.placeholderText }
+                placeholderTextColor={ commonColors.placeholderSubText }
                 textAlign="right"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
-                value={ description }
+                value={ this.state.description }
                 onChangeText={ (text) => this.setState({ description: text }) }
                 onSubmitEditing={ () => this.refs.price.focus() }
               />
@@ -186,13 +213,13 @@ export default class PostNewVideoPage extends Component {
                 autoCapitalize="none"
                 autoCorrect={ false }
                 placeholder="SAR"
-                placeholderTextColor={ commonColors.placeholderText }
+                placeholderTextColor={ commonColors.placeholderSubText }
                 textAlign="right"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
                 keyboardType="number-pad"
-                value={ price }
+                value={ this.state.price }
                 onChangeText={ (text) => this.setState({ price: text }) }
                 onSubmitEditing={ () => this.refs.password.focus() }
               />
@@ -201,19 +228,19 @@ export default class PostNewVideoPage extends Component {
               <Text style={styles.textTitle}>
                 Region
               </Text>
-              <DropdownComponent selectItem={(value)=>this.setState({region: value})} item={region} data={regionData} />
+              <DropdownComponent selectItem={(value)=>this.setState({region: value})} item={this.state.region} data={regionData} />
             </View>
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
                 City
               </Text>
-              <DropdownComponent selectItem={(value)=>this.setState({city: value})} item={city} data={cityData} />
+              <DropdownComponent selectItem={(value)=>this.setState({city: value})} item={this.state.city} data={cityData} />
             </View>
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
                 District
               </Text>
-              <DropdownComponent selectItem={(value)=>this.setState({district: value})} item={district} data={districtData} />
+              <DropdownComponent selectItem={(value)=>this.setState({district: value})} item={this.state.district} data={districtData} />
             </View>
 
             <View style={styles.productOptionView}>
@@ -235,6 +262,14 @@ export default class PostNewVideoPage extends Component {
                 Product Option
               </Text>
             </View>
+            {(category == 'building' || category == 'land') && (
+              <View style={styles.itemView}>
+                <Text style={styles.textTitle}>
+                  Type
+                </Text>
+                <DropdownComponent selectItem={(value)=>this.setState({buildingType: value})} item={this.state.buildingType} data={buildingTypeData} />
+              </View>
+            )}
             {(category == 'building' || category == 'villa') && (
             <View style={styles.priceView}>
               <View style={styles.priceBox}>
@@ -244,7 +279,7 @@ export default class PostNewVideoPage extends Component {
                   autoCorrect={ false }
                   multiline={true}
                   placeholder="Max.Price"
-                  placeholderTextColor={ commonColors.placeholderText }
+                  placeholderTextColor={ commonColors.placeholderSubText }
                   textAlign="right"
                   style={styles.inputPrice}
                   underlineColorAndroid="transparent"
@@ -262,7 +297,7 @@ export default class PostNewVideoPage extends Component {
                   autoCorrect={ false }
                   multiline={true}
                   placeholder="Min.Price"
-                  placeholderTextColor={ commonColors.placeholderText }
+                  placeholderTextColor={ commonColors.placeholderSubText }
                   textAlign="right"
                   style={styles.inputPrice}
                   underlineColorAndroid="transparent"
@@ -284,7 +319,7 @@ export default class PostNewVideoPage extends Component {
                   autoCorrect={ false }
                   multiline={true}
                   placeholder="Max.SquareMeter"
-                  placeholderTextColor={ commonColors.placeholderText }
+                  placeholderTextColor={ commonColors.placeholderSubText }
                   textAlign="right"
                   style={styles.inputPrice}
                   underlineColorAndroid="transparent"
@@ -302,7 +337,7 @@ export default class PostNewVideoPage extends Component {
                   autoCorrect={ false }
                   multiline={true}
                   placeholder="Min.SquareMeter"
-                  placeholderTextColor={ commonColors.placeholderText }
+                  placeholderTextColor={ commonColors.placeholderSubText }
                   textAlign="right"
                   style={styles.inputPrice}
                   underlineColorAndroid="transparent"
@@ -314,13 +349,143 @@ export default class PostNewVideoPage extends Component {
                 />
               </View>
             </View>)}
+            {(category == 'apartment' || category == 'chalet') && (
+              <View style={styles.itemView}>
+                <Text style={styles.textTitle}>
+                  Period
+                </Text>
+                <DropdownComponent selectItem={(value)=>this.setState({period: value})} item={this.state.period} data={periodData} />
+              </View>
+            )}
+            {(category == 'apartment') && (
+              <View>
+                <View style={styles.itemView}>
+                  <Text style={styles.textTitle}>
+                    Location
+                  </Text>
+                  <TextInput
+                    ref="location"
+                    autoCapitalize="none"
+                    autoCorrect={ true }
+                    placeholder="Please input location of aprtment"
+                    placeholderTextColor={ commonColors.placeholderSubText }
+                    textAlign="right"
+                    style={styles.input}
+                    underlineColorAndroid="transparent"
+                    returnKeyType={ 'next' }
+                    value={ this.state.location }
+                    onChangeText={ (text) => this.setState({ location: text }) }
+                  />
+                </View>
+                <View style={styles.itemView}>
+                  <CheckBox
+                    label="Furniture"
+                    labelBefore={true}
+                    labelStyle={{color: commonColors.placeholderText, fontWeight: 'bold'}}
+                    onChange={(checked) => this.setState({furniture: checked})}
+                  />
+                </View>
+                <View style={styles.itemView}>
+                  <Text style={styles.textTitle}>
+                    Room Type
+                  </Text>
+                  <DropdownComponent selectItem={(value)=>this.setState({roomType: value})} item={this.state.roomType} data={apartmentRoomType} />
+                </View>
+                <View style={styles.itemView}>
+                  <Text style={styles.textTitle}>
+                    Room Count
+                  </Text>
+                  <TextInput
+                    ref="roomCount"
+                    autoCapitalize="none"
+                    autoCorrect={ true }
+                    placeholder="Please input room count"
+                    placeholderTextColor={ commonColors.placeholderSubText }
+                    textAlign="right"
+                    style={styles.input}
+                    underlineColorAndroid="transparent"
+                    returnKeyType={ 'next' }
+                    value={ this.state.roomCount }
+                    onChangeText={ (text) => this.setState({ roomCount: text }) }
+                  />
+                </View>
+                <View style={styles.itemView}>
+                  <CheckBox
+                    label="Ownership"
+                    labelBefore={true}
+                    labelStyle={{color: commonColors.placeholderText, fontWeight: 'bold'}}
+                    onChange={(checked) => this.setState({ownership: checked})}
+                  />
+                </View>
+              </View>
+            )}
+            {(category == 'office') && (
+              <View style={styles.itemView}>
+                <Text style={styles.textTitle}>
+                  Area Space
+                </Text>
+                <TextInput
+                  ref="areaSpace"
+                  autoCapitalize="none"
+                  autoCorrect={ true }
+                  placeholder="Please input area space"
+                  placeholderTextColor={ commonColors.placeholderSubText }
+                  textAlign="right"
+                  style={styles.input}
+                  underlineColorAndroid="transparent"
+                  returnKeyType={ 'next' }
+                  value={ this.state.areaSpace }
+                  onChangeText={ (text) => this.setState({ areaSpace: text }) }
+                />
+              </View>
+            )}
+            {(category == 'gallery') && (
+              <View>
+                <View style={styles.itemView}>
+                  <Text style={styles.textTitle}>
+                    Street Size
+                  </Text>
+                  <TextInput
+                    ref="streetSize"
+                    autoCapitalize="none"
+                    autoCorrect={ true }
+                    placeholder="Input meters (15, 30, ...)"
+                    placeholderTextColor={ commonColors.placeholderSubText }
+                    textAlign="right"
+                    style={styles.input}
+                    underlineColorAndroid="transparent"
+                    returnKeyType={ 'next' }
+                    value={ this.state.street_size }
+                    onChangeText={ (text) => this.setState({ street_size: text }) }
+                  />
+                </View>
+                <View style={styles.itemView}>
+                  <Text style={styles.textTitle}>
+                    Galleries & Shops Number
+                  </Text>
+                  <TextInput
+                    ref="galleryNumber"
+                    autoCapitalize="none"
+                    autoCorrect={ true }
+                    placeholder="Please input number"
+                    placeholderTextColor={ commonColors.placeholderSubText }
+                    textAlign="right"
+                    style={styles.input}
+                    underlineColorAndroid="transparent"
+                    returnKeyType={ 'next' }
+                    value={ this.state.galleryNumber }
+                    onChangeText={ (text) => this.setState({ galleryNumber: text }) }
+                  />
+                </View>
+              </View>
+            )}
 
             <View style={styles.titleView}>
               <Text style={styles.textTitle}>
                 Category
               </Text>
             </View>
-            <CategoryComponent category={(item)=>this.setState({category: item})} />
+            <CategoryComponent category={(item)=>this.selectCategory(item)} />
 
             <TouchableOpacity onPress={()=>this.onPreview()} activeOpacity={0.5}>
               <View style={styles.previewBtnView}>

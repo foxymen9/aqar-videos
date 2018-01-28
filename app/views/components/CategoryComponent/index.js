@@ -45,12 +45,12 @@ export default class CategoryComponent extends Component {
     this.setState({category: item});
     this.props.category(item);
 
-    if (index == 6 || index == 3) {
-      this.refs.catoryScroll.scrollToEnd();
-    }
-    if (index == 0 || index == 4) {
-      this.refs.catoryScroll.scrollTo({x: 0, y: 0, animated: true});
-    }
+    // if (index == 6 || index == 3) {
+    //   this.refs.catoryScroll.scrollToEnd();
+    // }
+    // if (index == 0 || index == 4) {
+    //   this.refs.catoryScroll.scrollTo({x: 0, y: 0, animated: true});
+    // }
   }
 
   render() {
