@@ -7,7 +7,7 @@ import * as commonColors from '../../../common/styles/commonColors';
 export const styles = StyleSheet.create({
   btn: {
     position: 'absolute',
-    right: 15,
+    left: 15,
     zIndex: 99,
   },
   btnPlus: {

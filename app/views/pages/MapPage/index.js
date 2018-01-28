@@ -33,8 +33,13 @@ export default class MapPage extends Component {
       <View style={styles.container}>
         <MapView
           style={ styles.mapView }
-          initialRegion={ region }
+          // provider="google"
           showsUserLocation={true}
+          showsMyLocationButton={true}
+          showsCompass={true}
+          loadingEnabled={true}
+          toolbarEnabled={true}
+          initialRegion={ region }
         >
           {locationData.map((marker, index) => (
             <MapView.Marker

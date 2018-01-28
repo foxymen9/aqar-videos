@@ -10,19 +10,4 @@ export const styles = StyleSheet.create({
     height: commonStyles.screenNormalHeight,
     width: commonStyles.screenWidth
   },
-  btn: {
-    position: 'absolute',
-    right: 15,
-    zIndex: 99,
-  },
-  btnView: {
-    bottom: 100,
-  },
-  btnPlus: {
-    bottom: 20,
-  },
-  btnIcon: {
-    width: 80,
-    height: 80,
-  }
 });
