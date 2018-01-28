@@ -160,7 +160,7 @@ class Sidebar extends Component {
           icon: icon_package
         },
         {
-          title: 'Edit Profile',
+          title: 'My Profile',
           icon: icon_pen
         },
         {

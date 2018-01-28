@@ -12,6 +12,8 @@ import {
 	TextInput
 } from 'react-native';
 
+import CheckBox from 'react-native-modest-checkbox';
+
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/Feather';
 import IconEntypo from 'react-native-vector-icons/Entypo';
@@ -59,24 +61,43 @@ export default class SearchPage extends Component {
 	}
 
 	render() {
-		const {category} = this.state;
-		const regionData = [
-			{ value: 'Saudi Arabia' },
-			{ value: 'China' },
-			{ value: 'Japan' }
-		];
+    const {
+      category
+    } = this.state;  
 
-		const cityData = [
-			{ value: 'City1' },
-			{ value: 'City2' },
-			{ value: 'City3' }
-		];
+    const regionData = [
+      { value: 'Saudi Arabia' },
+      { value: 'China' },
+      { value: 'Japan' }
+    ];
 
-		const districtData = [
-			{ value: 'Distrcit1' },
-			{ value: 'Distrcit2' },
-			{ value: 'Distrcit3' }
-		];
+    const cityData = [
+      { value: 'City1' },
+      { value: 'City2' },
+      { value: 'City3' }
+    ];
+
+    const districtData = [
+      { value: 'Distrcit1' },
+      { value: 'Distrcit2' },
+      { value: 'Distrcit3' }
+    ];
+
+    const periodData = [
+      { value: 'Daily' },
+      { value: 'Monthly' },
+      { value: 'Yearly' }
+    ];
+
+    const buildingTypeData = [
+      { value: 'Residential' },
+      { value: 'Commercial' }
+    ];
+
+    const apartmentRoomType = [
+      { value: 'Singular' },
+      { value: 'Familiar' }
+    ];
 
 		return (
 			<Container title='SEARCH' type='detail'>
@@ -90,6 +111,26 @@ export default class SearchPage extends Component {
             
             <CategoryComponent category={(item)=>this.setState({category: item})} />
 
+            <View style={styles.itemView}>
+              <Text style={styles.textTitle}>
+                Price
+              </Text>
+              <TextInput
+                ref="price"
+                autoCapitalize="none"
+                autoCorrect={ false }
+                placeholder="SAR"
+                placeholderTextColor={ commonColors.placeholderSubText }
+                textAlign="right"
+                style={styles.input}
+                underlineColorAndroid="transparent"
+                returnKeyType={ 'next' }
+                keyboardType="number-pad"
+                value={ this.state.price }
+                onChangeText={ (text) => this.setState({ price: text }) }
+                onSubmitEditing={ () => this.refs.password.focus() }
+              />
+            </View>
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
                 Region
@@ -108,6 +149,7 @@ export default class SearchPage extends Component {
               </Text>
               <DropdownComponent selectItem={(value)=>this.setState({district: value})} item={this.state.district} data={districtData} />
             </View>
+
             <View style={styles.productOptionView}>
               <RadioGroup 
                 color='#7D7D7D' 
@@ -127,6 +169,15 @@ export default class SearchPage extends Component {
                 Product Option
               </Text>
             </View>
+            {(category == 'building' || category == 'land') && (
+              <View style={styles.itemView}>
+                <Text style={styles.textTitle}>
+                  Type
+                </Text>
+                <DropdownComponent selectItem={(value)=>this.setState({buildingType: value})} item={this.state.buildingType} data={buildingTypeData} />
+              </View>
+            )}
+            {(category == 'building' || category == 'villa') && (
             <View style={styles.priceView}>
               <View style={styles.priceBox}>
                 <TextInput
@@ -135,9 +186,9 @@ export default class SearchPage extends Component {
                   autoCorrect={ false }
                   multiline={true}
                   placeholder="Max.Price"
-                  placeholderTextColor={ commonColors.placeholderText }
+                  placeholderTextColor={ commonColors.placeholderSubText }
                   textAlign="right"
-                  style={styles.input}
+                  style={styles.inputPrice}
                   underlineColorAndroid="transparent"
                   returnKeyType={ 'done' }
                   keyboardType="numbers-and-punctuation"
@@ -153,9 +204,9 @@ export default class SearchPage extends Component {
                   autoCorrect={ false }
                   multiline={true}
                   placeholder="Min.Price"
-                  placeholderTextColor={ commonColors.placeholderText }
+                  placeholderTextColor={ commonColors.placeholderSubText }
                   textAlign="right"
-                  style={styles.input}
+                  style={styles.inputPrice}
                   underlineColorAndroid="transparent"
                   returnKeyType={ 'next' }
                   keyboardType="numbers-and-punctuation"
@@ -164,7 +215,177 @@ export default class SearchPage extends Component {
                   onSubmitEditing={ () => this.refs.maxPrice.focus() }
                 />
               </View>
-            </View>
+            </View>)}
+
+            {category == 'villa' && (
+            <View style={styles.priceView}>
+              <View style={styles.squareMeterBox}>
+                <TextInput
+                  ref="maxSquareMeter"
+                  autoCapitalize="none"
+                  autoCorrect={ false }
+                  multiline={true}
+                  placeholder="Max.SquareMeter"
+                  placeholderTextColor={ commonColors.placeholderSubText }
+                  textAlign="right"
+                  style={styles.inputPrice}
+                  underlineColorAndroid="transparent"
+                  returnKeyType={ 'done' }
+                  keyboardType="numbers-and-punctuation"
+                  value={ this.state.maxSquareMeter }
+                  onChangeText={ (text) => this.setState({ maxSquareMeter: text }) }
+                />
+              </View>
+              <Text style={styles.linebar}>-</Text>
+              <View style={styles.squareMeterBox}>
+                <TextInput
+                  ref="minSquareMeter"
+                  autoCapitalize="none"
+                  autoCorrect={ false }
+                  multiline={true}
+                  placeholder="Min.SquareMeter"
+                  placeholderTextColor={ commonColors.placeholderSubText }
+                  textAlign="right"
+                  style={styles.inputPrice}
+                  underlineColorAndroid="transparent"
+                  returnKeyType={ 'next' }
+                  keyboardType="numbers-and-punctuation"
+                  value={ this.state.minSquareMeter }
+                  onChangeText={ (text) => this.setState({ minSquareMeter: text }) }
+                  onSubmitEditing={ () => this.refs.maxPrice.focus() }
+                />
+              </View>
+            </View>)}
+            {(category == 'apartment' || category == 'chalet') && (
+              <View style={styles.itemView}>
+                <Text style={styles.textTitle}>
+                  Period
+                </Text>
+                <DropdownComponent selectItem={(value)=>this.setState({period: value})} item={this.state.period} data={periodData} />
+              </View>
+            )}
+            {(category == 'apartment') && (
+              <View>
+                <View style={styles.itemView}>
+                  <Text style={styles.textTitle}>
+                    Location
+                  </Text>
+                  <TextInput
+                    ref="location"
+                    autoCapitalize="none"
+                    autoCorrect={ true }
+                    placeholder="Please input location of aprtment"
+                    placeholderTextColor={ commonColors.placeholderSubText }
+                    textAlign="right"
+                    style={styles.input}
+                    underlineColorAndroid="transparent"
+                    returnKeyType={ 'next' }
+                    value={ this.state.location }
+                    onChangeText={ (text) => this.setState({ location: text }) }
+                  />
+                </View>
+                <View style={styles.itemView}>
+                  <CheckBox
+                    label="Furniture"
+                    labelBefore={true}
+                    labelStyle={{color: commonColors.placeholderText, fontWeight: 'bold'}}
+                    onChange={(checked) => this.setState({furniture: checked})}
+                  />
+                </View>
+                <View style={styles.itemView}>
+                  <Text style={styles.textTitle}>
+                    Room Type
+                  </Text>
+                  <DropdownComponent selectItem={(value)=>this.setState({roomType: value})} item={this.state.roomType} data={apartmentRoomType} />
+                </View>
+                <View style={styles.itemView}>
+                  <Text style={styles.textTitle}>
+                    Room Count
+                  </Text>
+                  <TextInput
+                    ref="roomCount"
+                    autoCapitalize="none"
+                    autoCorrect={ true }
+                    placeholder="Please input room count"
+                    placeholderTextColor={ commonColors.placeholderSubText }
+                    textAlign="right"
+                    style={styles.input}
+                    underlineColorAndroid="transparent"
+                    returnKeyType={ 'next' }
+                    value={ this.state.roomCount }
+                    onChangeText={ (text) => this.setState({ roomCount: text }) }
+                  />
+                </View>
+                <View style={styles.itemView}>
+                  <CheckBox
+                    label="Ownership"
+                    labelBefore={true}
+                    labelStyle={{color: commonColors.placeholderText, fontWeight: 'bold'}}
+                    onChange={(checked) => this.setState({ownership: checked})}
+                  />
+                </View>
+              </View>
+            )}
+            {(category == 'office') && (
+              <View style={styles.itemView}>
+                <Text style={styles.textTitle}>
+                  Area Space
+                </Text>
+                <TextInput
+                  ref="areaSpace"
+                  autoCapitalize="none"
+                  autoCorrect={ true }
+                  placeholder="Please input area space"
+                  placeholderTextColor={ commonColors.placeholderSubText }
+                  textAlign="right"
+                  style={styles.input}
+                  underlineColorAndroid="transparent"
+                  returnKeyType={ 'next' }
+                  value={ this.state.areaSpace }
+                  onChangeText={ (text) => this.setState({ areaSpace: text }) }
+                />
+              </View>
+            )}
+            {(category == 'gallery') && (
+              <View>
+                <View style={styles.itemView}>
+                  <Text style={styles.textTitle}>
+                    Street Size
+                  </Text>
+                  <TextInput
+                    ref="streetSize"
+                    autoCapitalize="none"
+                    autoCorrect={ true }
+                    placeholder="Input meters (15, 30, ...)"
+                    placeholderTextColor={ commonColors.placeholderSubText }
+                    textAlign="right"
+                    style={styles.input}
+                    underlineColorAndroid="transparent"
+                    returnKeyType={ 'next' }
+                    value={ this.state.street_size }
+                    onChangeText={ (text) => this.setState({ street_size: text }) }
+                  />
+                </View>
+                <View style={styles.itemView}>
+                  <Text style={styles.textTitle}>
+                    Galleries & Shops Number
+                  </Text>
+                  <TextInput
+                    ref="galleryNumber"
+                    autoCapitalize="none"
+                    autoCorrect={ true }
+                    placeholder="Please input number"
+                    placeholderTextColor={ commonColors.placeholderSubText }
+                    textAlign="right"
+                    style={styles.input}
+                    underlineColorAndroid="transparent"
+                    returnKeyType={ 'next' }
+                    value={ this.state.galleryNumber }
+                    onChangeText={ (text) => this.setState({ galleryNumber: text }) }
+                  />
+                </View>
+              </View>
+            )}
             <TouchableOpacity onPress={()=>this.onSend()} activeOpacity={0.5}>
               <View style={styles.sendBtnView}>
                 <Text style={styles.textSend}>SEARCH</Text>

@@ -75,6 +75,8 @@ export default class PostNewVideoPage extends Component {
         takePhotoButtonTitle: 'Record Video',
         chooseFromLibraryButtonTitle: 'Choose from Library',
         mediaType: 'video',
+        allowsEditing: true,
+        durationLimit: 180, //limit 3mins
         // noData: true,
         storageOptions: {
           skipBackup: true,

@@ -17,13 +17,13 @@ const Button = require('./Button');
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
 const icon_building = require('@common/assets/images/tab/building.png');
-const icon_villa = require('@common/assets/images/tab/building.png');
+const icon_villa = require('@common/assets/images/tab/villa.png');
 const icon_apartment = require('@common/assets/images/tab/flat.png');
 const icon_office = require('@common/assets/images/tab/office.png');
 const icon_gallery = require('@common/assets/images/tab/galleries_and_shops.png');
-const icon_land = require('@common/assets/images/tab/room.png');
-const icon_chalet = require('@common/assets/images/tab/room.png');
-const icon_real_estate = require('@common/assets/images/tab/room.png');
+const icon_land = require('@common/assets/images/tab/area.png');
+const icon_chalet = require('@common/assets/images/tab/chalet.png');
+const icon_real_estate = require('@common/assets/images/tab/realestate.png');
 
 import * as commonStyles from '@common/styles/commonStyles';
 

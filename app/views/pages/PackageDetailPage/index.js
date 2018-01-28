@@ -22,6 +22,7 @@ export default class PackageDetailPage extends Component {
     this.state = {
       isSuccess: false,
       refreshing: false,
+      isSubscribed: true,
     }
   }
 
@@ -64,6 +65,9 @@ export default class PackageDetailPage extends Component {
           <View style={styles.thumbnailView}>
             <Image source={img_detail} style={ styles.thumbnail } />    
             <View style={styles.titleView}>
+              {this.state.isSubscribed && (
+                <Text style={styles.remainDay}>20 DAYS is left</Text>
+              )}
               <Text style={styles.titleDay}>{data.number} DAYS</Text>
               <Text style={styles.titleDesc}>{titleDesc}</Text>
             </View>
@@ -76,7 +80,7 @@ export default class PackageDetailPage extends Component {
           <View style={styles.btnView}>
             <TouchableOpacity onPress={()=>this.onTry()} activeOpacity={0.5}>
               <View style={styles.btnWrapper}>
-                <Text style={styles.btnText}>TRY</Text>
+                <Text style={styles.btnText}>{this.state.isSubscribed ? 'EXTEND' : 'TRY'}</Text>
               </View>
             </TouchableOpacity>
           </View>

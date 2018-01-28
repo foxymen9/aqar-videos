@@ -84,12 +84,15 @@ export const styles = StyleSheet.create({
   icon: {
     marginBottom: 10,
   },
+  //PriceView
   priceView: {
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    marginTop: 30,
+    paddingVertical: 20,
+    borderBottomWidth: 0.5,
+    borderColor: commonColors.borderColor,
   },
   priceBox: {
     width: 120,
@@ -100,13 +103,30 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 5,
   },
-  input: {
+  inputPrice: {
     fontFamily: commonStyles.normalFont,
     width: '100%',
     fontSize: 17,
     fontWeight: 'bold',
     color: commonColors.placeholderText,
     textAlign: 'center',
+  },
+  input: {
+    fontFamily: commonStyles.normalFont,
+    width: '100%',
+    fontSize: 17,
+    fontWeight: 'bold',
+    color: commonColors.placeholderText,
+    textAlign: 'right',
+  },
+  squareMeterBox: {
+    width: 160,
+    borderWidth: 2,
+    borderColor: commonColors.placeholderText,
+    height: 45,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 5,
   },
   linebar: {
     color: commonColors.placeholderText,

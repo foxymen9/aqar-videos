@@ -45,6 +45,14 @@ export const styles = StyleSheet.create({
     bottom: 30,
     backgroundColor: 'transparent',
   },
+  remainDay: {
+    fontFamily: commonStyles.normalFont,
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'right',
+    marginBottom: 40,
+  },
   titleDay: {
     fontFamily: commonStyles.normalFont,
     color: 'white',
