@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import MapView from 'react-native-maps';
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
@@ -33,7 +33,7 @@ export default class MapPage extends Component {
       <View style={styles.container}>
         <MapView
           style={ styles.mapView }
-          // provider="google"
+          provider="google"
           showsUserLocation={true}
           showsMyLocationButton={true}
           showsCompass={true}
