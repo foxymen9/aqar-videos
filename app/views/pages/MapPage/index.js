@@ -27,19 +27,25 @@ export default class MapPage extends Component {
   }
 
   render() {
-    const { locationData, region } = this.props;
+    const { locationData, region, page } = this.props;
 
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, page=='mylocation' ? {height: commonStyles.screenNormalHeight} : {height: commonStyles.screenSubHeight}]}>
         <MapView
           style={ styles.mapView }
-          provider="google"
+          provider={PROVIDER_GOOGLE}
+          showsScale={true}
+          showsPointsOfInterest={true}
+          showsBuildings={true}
           showsUserLocation={true}
           showsMyLocationButton={true}
           showsCompass={true}
           loadingEnabled={true}
           toolbarEnabled={true}
-          initialRegion={ region }
+          pitchEnabled={true}
+          zoomEnabled={true}
+          rotateEnabled={true}
+          region={ region }
         >
           {locationData.map((marker, index) => (
             <MapView.Marker
