@@ -18,20 +18,20 @@ import * as commonColors from '@common/styles/commonColors';
 
 const icon_building = require('@common/assets/images/product_detail/building.png');
 const icon_building_select = require('@common/assets/images/product_detail/building2.png');
-const icon_villa = require('@common/assets/images/product_detail/flat.png');
-const icon_villa_select = require('@common/assets/images/product_detail/flat2.png');
+const icon_villa = require('@common/assets/images/product_detail/villa2.png');
+const icon_villa_select = require('@common/assets/images/product_detail/villa.png');
 const icon_apartment = require('@common/assets/images/product_detail/flat.png');
 const icon_apartment_select = require('@common/assets/images/product_detail/flat2.png');
 const icon_office = require('@common/assets/images/product_detail/office2.png');
 const icon_office_select = require('@common/assets/images/product_detail/office.png');
 const icon_gallery = require('@common/assets/images/product_detail/shop.png');
 const icon_gallery_select = require('@common/assets/images/product_detail/shop2.png');
-const icon_land = require('@common/assets/images/product_detail/room.png');
-const icon_land_select = require('@common/assets/images/product_detail/room2.png');
-const icon_chalet = require('@common/assets/images/product_detail/room.png');
-const icon_chalet_select = require('@common/assets/images/product_detail/room2.png');
-const icon_real_estate = require('@common/assets/images/product_detail/room.png');
-const icon_real_estate_select = require('@common/assets/images/product_detail/room2.png');
+const icon_land = require('@common/assets/images/product_detail/area2.png');
+const icon_land_select = require('@common/assets/images/product_detail/area.png');
+const icon_chalet = require('@common/assets/images/product_detail/chalet2.png');
+const icon_chalet_select = require('@common/assets/images/product_detail/chalet.png');
+const icon_real_estate = require('@common/assets/images/product_detail/realestate2.png');
+const icon_real_estate_select = require('@common/assets/images/product_detail/realestate.png');
 
 export default class CategoryComponent extends Component {
   constructor(props) {

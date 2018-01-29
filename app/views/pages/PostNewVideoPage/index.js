@@ -54,9 +54,10 @@ export default class PostNewVideoPage extends Component {
   onPreview() {
     const propsData = this.state;
     
-    if (propsData.videoUri != null) {
-      Actions.PostNewVideoPreview({data: propsData});
-    }
+    Actions.PostNewVideoPreview({data: propsData});
+    // if (propsData.videoUri != null) {
+    //   Actions.PostNewVideoPreview({data: propsData});
+    // }
   }
 
   onSelectProductOption(index, value) {
@@ -65,7 +66,7 @@ export default class PostNewVideoPage extends Component {
 
   selectCategory(item) {
     this.setState({category: item});
-    this.refs.scrollContainer.scrollToEnd();
+    // this.refs.scrollContainer.scrollToEnd();
   }
 
   onCamera() {
@@ -457,8 +458,8 @@ export default class PostNewVideoPage extends Component {
                     style={styles.input}
                     underlineColorAndroid="transparent"
                     returnKeyType={ 'next' }
-                    value={ this.state.street_size }
-                    onChangeText={ (text) => this.setState({ street_size: text }) }
+                    value={ this.state.streetSize }
+                    onChangeText={ (text) => this.setState({ streetSize: text }) }
                   />
                 </View>
                 <View style={styles.itemView}>

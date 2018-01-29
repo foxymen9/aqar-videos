@@ -18,16 +18,19 @@ import IconEntypo from 'react-native-vector-icons/Entypo';
 import { Actions } from 'react-native-router-flux';
 import CheckBox from 'react-native-modest-checkbox';
 
-import Container from '../../layout/Container';
+import Container from '@layout/Container';
 import { styles } from './styles';
-import ModalShare from '../../components/ModalShare';
-
 import * as commonColors from '@common/styles/commonColors';
+import ModalShare from '@components/ModalShare';
+
 const icon_building = require('@common/assets/images/product_detail/building.png');
-const icon_flat = require('@common/assets/images/product_detail/flat.png');
+const icon_villa = require('@common/assets/images/product_detail/villa2.png');
+const icon_apartment = require('@common/assets/images/product_detail/flat.png');
 const icon_office = require('@common/assets/images/product_detail/office2.png');
-const icon_room = require('@common/assets/images/product_detail/room.png');
-const icon_shop = require('@common/assets/images/product_detail/shop.png');
+const icon_gallery = require('@common/assets/images/product_detail/shop.png');
+const icon_land = require('@common/assets/images/product_detail/area2.png');
+const icon_chalet = require('@common/assets/images/product_detail/chalet2.png');
+const icon_real_estate = require('@common/assets/images/product_detail/realestate2.png');
 
 export default class PostNewVideoPreviewPage extends Component {
   constructor(props) {
@@ -56,23 +59,32 @@ export default class PostNewVideoPreviewPage extends Component {
   }
 
   render() {
-    const {title, description, price, productOption, region, city, district, category, videoUri} = this.props.data;  
-    console.log('category', category);
+    const { data } = this.props;
+    
     let icon = icon_building;
-    if (category == 'building') {
+    if (data.category == 'building') {
       icon =  icon_building;
     }
-    else if (category == 'flat') {
-      icon =  icon_flat;
+    else if (data.category == 'villa') {
+      icon =  icon_villa;
     }
-    else if (category == 'office') {
+    else if (data.category == 'apartment') {
+      icon =  icon_apartment;
+    }
+    else if (data.category == 'office') {
       icon =  icon_office;
     }
-    else if (category == 'room') {
-      icon =  icon_room;
+    else if (data.category == 'gallery') {
+      icon =  icon_gallery;
     }
-    else if (category == 'shop') {
-      icon =  icon_shop;
+    else if (data.category == 'land') {
+      icon =  icon_land;
+    }
+    else if (data.category == 'chalet') {
+      icon =  icon_chalet;
+    }
+    else if (data.category == 'real_estate') {
+      icon =  icon_real_estate;
     }
 
     return (
@@ -81,10 +93,10 @@ export default class PostNewVideoPreviewPage extends Component {
           <ScrollView>
             <TouchableOpacity onPress={()=>this.onCamera()}>
               <View style={styles.videoView}>
-                {videoUri != null && (
+                {data.videoUri != null && (
                 <Video
                   ref={(ref)=> {this.player = ref}}
-                  source={{uri: videoUri}}
+                  source={{uri: data.videoUri}}
                   style={styles.videoThumbnail}
                   resizeMode='cover'
                   autoplay={false}
@@ -94,43 +106,124 @@ export default class PostNewVideoPreviewPage extends Component {
             </TouchableOpacity>
             <View style={styles.titleView}>
               <Text style={styles.textTitle}>
-                {title}
+                {data.title}
               </Text>
             </View>
             <View style={styles.description}>
-              <Text style={styles.textDescription}>{description}</Text>
+              <Text style={styles.textDescription}>
+                {data.description}
+              </Text>
             </View>
             <View style={styles.separate} />
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
-                {price}
+                {data.price}
               </Text>
             </View>
             <View style={styles.itemView}>
               <Text style={styles.textDescription}>
-                {region}
+                {data.region}
               </Text>
             </View>
             <View style={styles.itemView}>
               <Text style={styles.textDescription}>
-                {city}
+                {data.city}
               </Text>
             </View>
             <View style={styles.itemView}>
               <Text style={styles.textDescription}>
-                {district}
+                {data.district}
               </Text>
             </View>
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
-                {productOption}
+                {data.productOption}
               </Text>
             </View>
+            {data.category == 'building' && (
+              <View style={styles.itemView}>
+                <Text style={styles.textTitle}>
+                  {data.buildingType}
+                </Text>
+              </View>
+            )}
+            {(data.category == 'building' || data.category == 'villa') && (
+              <View style={styles.itemView}>
+                <Text style={styles.textTitle}>
+                  {data.price}
+                </Text>
+              </View>
+            )}
+            {data.category == 'villa' && (
+              <View style={styles.itemView}>
+                <Text style={styles.textTitle}>
+                  {data.minSquareMeter}
+                </Text>
+              </View>
+            )}
+            {(data.category == 'apartment' || data.category == 'period') && (
+              <View style={styles.itemView}>
+                <Text style={styles.textTitle}>
+                  {data.period}
+                </Text>
+              </View>
+            )}
+            {(data.category == 'apartment') && (
+              <View>
+                <View style={styles.itemView}>
+                  <Text style={styles.textTitle}>
+                    {data.location}
+                  </Text>
+                </View>
+                <View style={styles.itemView}>
+                  <Text style={styles.textTitle}>
+                    {data.furniture}
+                  </Text>
+                </View>
+                <View style={styles.itemView}>
+                  <Text style={styles.textTitle}>
+                    {data.roomType}
+                  </Text>
+                </View>
+                <View style={styles.itemView}>
+                  <Text style={styles.textTitle}>
+                    {data.roomCount}
+                  </Text>
+                </View>
+                <View style={styles.itemView}>
+                  <Text style={styles.textTitle}>
+                    {data.ownership}
+                  </Text>
+                </View>
+              </View>
+            )}
+            {(data.category == 'office') && (
+              <View style={styles.itemView}>
+                <Text style={styles.textTitle}>
+                  {data.areaSpace}
+                </Text>
+              </View>
+            )}
+            {(data.category == 'gallery') && (
+              <View>
+                <View style={styles.itemView}>
+                  <Text style={styles.textTitle}>
+                    {data.streetSize}
+                  </Text>
+                </View>
+                <View style={styles.itemView}>
+                  <Text style={styles.textTitle}>
+                    {data.galleryNumber}
+                  </Text>
+                </View>
+              </View>
+            )}
+
             <View style={styles.titleView}>
               <View style={styles.iconView}>
                 <Image source={icon} style={styles.iconOffice} resizeMode="cover" />
                 <Text style={styles.textDescription}>
-                  {category}
+                  {data.category}
                 </Text>
               </View>
             </View>
