@@ -54,7 +54,7 @@ export default class App extends Component {
         <Scene key="SupportAdvertisement" component={ SupportAdvertisementPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="ProductList" component={ ProductListPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="ProductDetail" component={ ProductDetailPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="PostNewVideo" initial={ true } component={ PostNewVideoPage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="PostNewVideo" component={ PostNewVideoPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="PostNewVideoPreview" component={ PostNewVideoPreviewPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyMessage" component={ MyMessagePage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="ChatRoom" component={ ChatRoomPage } hideNavBar={ true } panHandlers={null}/>

@@ -13,13 +13,15 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
 import { styles } from './styles';
-import * as commonStyles from '../../../common/styles/commonStyles';
+import * as commonStyles from '@common/styles/commonStyles';
 
-const icon_bubble = require('../../../common/assets/images/map/speech_bubble.png');
+const icon_bubble = require('@common/assets/images/map/speech_bubble.png');
 
 export default class MapPage extends Component {
   constructor(props) {
     super(props);
+    state = {
+    }
   }
 
   gotoDetailPage(data) {
