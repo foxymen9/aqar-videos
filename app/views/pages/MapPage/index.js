@@ -16,11 +16,14 @@ import { styles } from './styles';
 import * as commonStyles from '@common/styles/commonStyles';
 
 const icon_bubble = require('@common/assets/images/map/speech_bubble.png');
+const icon_satellite = require('@common/assets/images/map/satellite.png');
+const icon_standard = require('@common/assets/images/map/standard.png');
 
 export default class MapPage extends Component {
   constructor(props) {
     super(props);
-    state = {
+    this.state = {
+      mapType: 'standard',
     }
   }
 
@@ -28,11 +31,25 @@ export default class MapPage extends Component {
     Actions.ProductDetail({data: data.data});
   }
 
+  changeMapType(mapType) {
+    if (mapType == 'satellite')
+      this.setState({mapType: 'standard'});
+    else
+      this.setState({mapType: 'satellite'});
+  }
+
   render() {
+    const { mapType } = this.state;
     const { locationData, region, page } = this.props;
 
     return (
       <View style={[styles.container, page=='mylocation' ? {height: commonStyles.screenNormalHeight} : {height: commonStyles.screenSubHeight}]}>
+        <View style={styles.btnMapTypeView}>
+          <TouchableOpacity onPress={()=>this.changeMapType(mapType)}>
+            <Image source={mapType=='standard' ? icon_satellite : icon_standard} style={styles.btnMapType} />
+          </TouchableOpacity>
+        </View>
+        
         <MapView
           style={ styles.mapView }
           provider={PROVIDER_GOOGLE}
@@ -47,6 +64,7 @@ export default class MapPage extends Component {
           pitchEnabled={true}
           zoomEnabled={true}
           rotateEnabled={true}
+          mapType={mapType}
           region={ region }
         >
           {locationData.map((marker, index) => (

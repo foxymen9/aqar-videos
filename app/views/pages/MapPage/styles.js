@@ -1,8 +1,8 @@
 import {
   StyleSheet,
 } from 'react-native';
-import * as commonStyles from '../../../common/styles/commonStyles';
-import * as commonColors from '../../../common/styles/commonColors';
+import * as commonStyles from '@common/styles/commonStyles';
+import * as commonColors from '@common/styles/commonColors';
 
 export const styles = StyleSheet.create({
   container: {
@@ -40,5 +40,15 @@ export const styles = StyleSheet.create({
     fontSize: commonStyles.normalFontSize,
     color: commonColors.darkGrayColor,
     textAlign: 'right',
+  },
+  btnMapTypeView: {
+    zIndex: 99, 
+    position:'absolute', 
+    right: 2, 
+    bottom: 80,
+  },
+  btnMapType: {
+    width: 75,
+    height: 75,
   }
 });

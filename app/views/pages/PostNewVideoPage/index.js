@@ -54,10 +54,10 @@ export default class PostNewVideoPage extends Component {
   onPreview() {
     const propsData = this.state;
     
-    Actions.PostNewVideoPreview({data: propsData});
-    // if (propsData.videoUri != null) {
-    //   Actions.PostNewVideoPreview({data: propsData});
-    // }
+    // Actions.PostNewVideoPreview({data: propsData});
+    if (propsData.videoUri != null) {
+      Actions.PostNewVideoPreview({data: propsData});
+    }
   }
 
   onSelectProductOption(index, value) {

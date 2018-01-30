@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 
 import { styles } from './styles';
-const icon_close = require('../../../common/assets/images/map/twisted_plus.png');
-const icon_plus = require('../../../common/assets/images/map/plus.png');
+const icon_close = require('@common/assets/images/map/twisted_plus.png');
+const icon_plus = require('@common/assets/images/map/plus.png');
 
 export default class ButtonPlusComponent extends Component {
   render() {

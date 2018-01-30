@@ -8,10 +8,10 @@ import {
   Image,
 } from 'react-native';
 
-import Container from '../../layout/Container';
-import TabView from '../../layout/TabView';
-import ButtonPlusComponent from '../../components/ButtonPlusComponent';
-import MapButtonListComponent from '../../components/MapButtonListComponent';
+import Container from '@layout/Container';
+import TabView from '@layout/TabView';
+import ButtonPlusComponent from '@components/ButtonPlusComponent';
+import MapButtonListComponent from '@components/MapButtonListComponent';
 
 import { styles } from './styles';
 
