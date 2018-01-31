@@ -12,7 +12,7 @@ import {
 
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-
+import I18n from '@i18n';
 import { styles } from './styles';
 import { userSignOut, changeMenu } from '../../../redux/User/actions';
 
@@ -129,46 +129,49 @@ class Sidebar extends Component {
 
   render() {
     let menuItems = [];
+    let adsCount = 3;
+    let wishlistCount = 5;
+
     if (this.state.userLogin) {
       menuItems = [
         {
-          title: 'Home',
+          title: I18n.t('sidebar.home'),
           icon: icon_area
         },
         {
-          title: 'My Ads (' + 3 + ')',
+          title: I18n.t('sidebar.my_ads') + ' (' + adsCount + ')',
           icon: icon_myad
         },
         {
-          title: 'My Wish List (' + 4 + ')',
+          title: I18n.t('sidebar.my_wishlist') + ' (' + wishlistCount + ')',
           icon: icon_wishlist
         },
         {
-          title: 'Post New Ad',
+          title: I18n.t('sidebar.post_new_ads'),
           icon: icon_newad
         },
         {
-          title: 'My Messages',
+          title: I18n.t('sidebar.my_messages'),
           icon: icon_message
         },
         {
-          title: 'My Location',
+          title: I18n.t('sidebar.my_location'),
           icon: icon_location
         },
         {
-          title: 'Packages',
+          title: I18n.t('sidebar.packages'),
           icon: icon_package
         },
         {
-          title: 'My Profile',
+          title: I18n.t('sidebar.my_profile'),
           icon: icon_pen
         },
         {
-          title: 'Support & Advertisement',
+          title: I18n.t('sidebar.support_advertisement'),
           icon: icon_support
         },
         {
-          title: 'Sign Out',
+          title: I18n.t('sidebar.signout'),
           icon: icon_signout
         },
       ];
@@ -176,11 +179,11 @@ class Sidebar extends Component {
     else {
       menuItems = [
         {
-          title: 'Home',
+          title: I18n.t('sidebar.home'),
           icon: icon_area
         },
         {
-          title: 'Log in/Sign Up',
+          title: I18n.t('sidebar.login_signup'),
           icon: icon_login
         },
         // {
@@ -188,11 +191,11 @@ class Sidebar extends Component {
         //   icon: icon_offer
         // },
         {
-          title: 'Package',
+          title: I18n.t('sidebar.packages'),
           icon: icon_package
         },
         {
-          title: 'Support & Advertisement',
+          title: I18n.t('sidebar.support_advertisement'),
           icon: icon_support
         },
       ];

@@ -17,10 +17,11 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
-import * as commonStyles from '../../../common/styles/commonStyles';
-import * as commonColors from '../../../common/styles/commonColors';
+import I18n from '@i18n';
+import * as commonStyles from '@common/styles/commonStyles';
+import * as commonColors from '@common/styles/commonColors';
 import { styles } from './styles';
-import { userSignUp, changeMenu } from '../../../redux/User/actions';
+import { userSignUp, changeMenu } from '@redux/User/actions';
 
 class Signup extends Component {
   constructor(props) {
@@ -59,7 +60,7 @@ class Signup extends Component {
                 ref="fullName"
                 autoCapitalize="none"
                 autoCorrect={ true }
-                placeholder="Fullname"
+                placeholder={I18n.t('profile.ph_name')}
                 placeholderTextColor={ commonColors.placeholderText }
                 textAlign="right"
                 style={styles.input}
@@ -78,7 +79,7 @@ class Signup extends Component {
                 ref="confirmCode"
                 autoCapitalize="none"
                 autoCorrect={ false }
-                placeholder="Confirm Code"
+                placeholder={I18n.t('profile.ph_confirm_code')}
                 placeholderTextColor={ commonColors.placeholderText }
                 textAlign="right"
                 style={styles.input}
@@ -98,7 +99,7 @@ class Signup extends Component {
                 ref="email"
                 autoCapitalize="none"
                 autoCorrect={ false }
-                placeholder="E-mail (Optional)"
+                placeholder={I18n.t('profile.ph_email')}
                 placeholderTextColor={ commonColors.placeholderText }
                 textAlign="right"
                 style={styles.input}
@@ -118,7 +119,7 @@ class Signup extends Component {
                 ref="password"
                 autoCapitalize="none"
                 autoCorrect={ false }
-                placeholder="Password"
+                placeholder={I18n.t('profile.ph_password')}
                 placeholderTextColor={ commonColors.placeholderText }
                 textAlign="right"
                 style={styles.input}
@@ -138,7 +139,7 @@ class Signup extends Component {
                 ref="confirmPassword"
                 autoCapitalize="none"
                 autoCorrect={ false }
-                placeholder="Confirm Password"
+                placeholder={I18n.t('profile.ph_confirm_password')}
                 placeholderTextColor={ commonColors.placeholderText }
                 textAlign="right"
                 style={styles.input}
@@ -160,7 +161,7 @@ class Signup extends Component {
                 ref="mobileNumber"
                 autoCapitalize="none"
                 autoCorrect={ false }
-                placeholder="Mobile Number"
+                placeholder={I18n.t('profile.ph_mobile_number')}
                 placeholderTextColor={ commonColors.placeholderText }
                 textAlign="right"
                 style={styles.input}
@@ -182,7 +183,7 @@ class Signup extends Component {
         <View style={styles.btnView}>
           <TouchableOpacity onPress={()=>this.onSignUp()} activeOpacity={0.5}>
             <View style={styles.btnWrapper}>
-              <Text style={styles.btnText}>SIGN UP</Text>
+              <Text style={styles.btnText}>{I18n.t('signup')}</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -190,7 +191,7 @@ class Signup extends Component {
         <View style={styles.btnView}>
           <TouchableOpacity onPress={()=>this.onConfirmPhoneNumber()} activeOpacity={0.5}>
             <View style={styles.btnWrapper}>
-              <Text style={styles.btnText}>Confirm PhoneNumber</Text>
+              <Text style={styles.btnText}>{I18n.t('profile.confirm_phone')}</Text>
             </View>
           </TouchableOpacity>
         </View>

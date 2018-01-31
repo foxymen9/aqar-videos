@@ -18,6 +18,7 @@ import IconEntypo from 'react-native-vector-icons/Entypo';
 import { Actions } from 'react-native-router-flux';
 import CheckBox from 'react-native-modest-checkbox';
 
+import I18n from '@i18n';
 import Container from '@layout/Container';
 import { styles } from './styles';
 import * as commonColors from '@common/styles/commonColors';
@@ -88,7 +89,7 @@ export default class PostNewVideoPreviewPage extends Component {
     }
 
     return (
-      <Container title='PREVIEW'>
+      <Container title={I18n.t('sidebar.preview')}>
         <View style={styles.container}>
           <ScrollView>
             <TouchableOpacity onPress={()=>this.onCamera()}>
@@ -238,17 +239,17 @@ export default class PostNewVideoPreviewPage extends Component {
 
             <TouchableOpacity onPress={()=>this.onEdit()} activeOpacity={0.5}>
               <View style={[styles.buttonStyle, styles.editBtnView]}>
-                <Text style={styles.textEdit}>EDIT</Text>
+                <Text style={styles.textEdit}>{I18n.t('edit')}</Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={()=>this.onPost()} activeOpacity={0.5}>
               <View style={[styles.buttonStyle, styles.postBtnView]}>
-                <Text style={styles.textEdit}>POST</Text>
+                <Text style={styles.textEdit}>{I18n.t('post')}</Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={()=>this.onDelete()} activeOpacity={0.5}>
               <View style={[styles.buttonStyle, styles.deleteBtnView]}>
-                <Text style={styles.textEdit}>DELETE</Text>
+                <Text style={styles.textEdit}>{I18n.t('delete')}</Text>
               </View>
             </TouchableOpacity>
           </ScrollView>

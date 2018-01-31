@@ -17,10 +17,11 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
-import * as commonStyles from '../../../common/styles/commonStyles';
-import * as commonColors from '../../../common/styles/commonColors';
+import I18n from '@i18n';
+import * as commonStyles from '@common/styles/commonStyles';
+import * as commonColors from '@common/styles/commonColors';
 import { styles } from './styles';
-import { userSignIn, changeMenu } from '../../../redux/User/actions';
+import { userSignIn, changeMenu } from '@redux/User/actions';
 
 class Login extends Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class Login extends Component {
                 ref="mobileNumber"
                 autoCapitalize="none"
                 autoCorrect={ false }
-                placeholder="Mobile Number"
+                placeholder={I18n.t('profile.ph_mobile_number')}
                 placeholderTextColor={ commonColors.placeholderText }
                 textAlign="right"
                 style={styles.input}
@@ -71,7 +72,7 @@ class Login extends Component {
                 ref="password"
                 autoCapitalize="none"
                 autoCorrect={ false }
-                placeholder="Password"
+                placeholder={I18n.t('profile.ph_password')}
                 placeholderTextColor={ commonColors.placeholderText }
                 textAlign="right"
                 style={styles.input}
@@ -87,7 +88,7 @@ class Login extends Component {
             </View>   
             <View style={styles.forgotPasswordView}>
               <TouchableOpacity onPress={()=>this.onForgotPassword()}>
-                <Text style={styles.forgotPasswordText}>Forgot Password</Text>
+                <Text style={styles.forgotPasswordText}>{I18n.t('profile.forgot_password')}</Text>
               </TouchableOpacity>
             </View>       
           </View>
@@ -95,7 +96,7 @@ class Login extends Component {
         <View style={styles.btnView}>
           <TouchableOpacity onPress={()=>this.onLogin()} activeOpacity={0.5}>
             <View style={styles.btnWrapper}>
-              <Text style={styles.btnText}>LOG IN</Text>
+              <Text style={styles.btnText}>{I18n.t('login')}</Text>
             </View>
           </TouchableOpacity>
         </View>

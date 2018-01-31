@@ -10,11 +10,12 @@ import {
   RefreshControl,
 } from 'react-native';
 
-import Container from '../../layout/Container';
+import I18n from '@i18n';
+import Container from '@layout/Container';
 import { styles } from './styles';
 
-const icon_close = require('../../../common/assets/images/product_detail/close.png');
-const img_detail = require('../../../common/assets/images/my_message/picture.png');
+const icon_close = require('@common/assets/images/product_detail/close.png');
+const img_detail = require('@common/assets/images/my_message/picture.png');
 
 export default class PackageDetailPage extends Component {
   constructor(props) {
@@ -43,10 +44,10 @@ export default class PackageDetailPage extends Component {
 
     if (this.state.isSuccess) {
       return (
-        <Container title={data.number + ' DAYS'} type='detail'>
+        <Container title={data.number + I18n.t('packages.days')} type='detail'>
           <View style={styles.container}>
             <View style={styles.successTextWrapper}>
-              <Text style={styles.textSuccess}>CONGRATULATIONS YOU HAVE SUCCESSFULLY UPDATED YOUR <Text style={[styles.textSuccess, styles.bold]}>{data.number + ' DAYS FREE'}</Text> TRIAL VERSION</Text>
+              <Text style={styles.textSuccess}>{I18n.t(packages.congratulation)} <Text style={[styles.textSuccess, styles.bold]}>{data.number + I18n.t('packages.days_free')}</Text> {I18n.t('packages.trial_version')}</Text>
             </View>
             <Image source={icon_close} style={styles.imgClose} />
           </View>
@@ -55,12 +56,12 @@ export default class PackageDetailPage extends Component {
     }
 
     let titleDesc = data.title;
-    if (titleDesc == 'FREE') {
-      titleDesc = 'FREE TRIAL';
+    if (titleDesc == I18n.t('packages.trial')) {
+      titleDesc = I18n.t('packages.free_trial');
     }
 
     return (
-      <Container title={data.number + ' DAYS'} type='detail'>
+      <Container title={data.number + I18n.t('packages.days')} type='detail'>
         <View style={styles.container}>
           <View style={styles.thumbnailView}>
             <Image source={img_detail} style={ styles.thumbnail } />    
@@ -68,7 +69,7 @@ export default class PackageDetailPage extends Component {
               {this.state.isSubscribed && (
                 <Text style={styles.remainDay}>20 DAYS is left</Text>
               )}
-              <Text style={styles.titleDay}>{data.number} DAYS</Text>
+              <Text style={styles.titleDay}>{data.number} {I18n.t('packages.days')}</Text>
               <Text style={styles.titleDesc}>{titleDesc}</Text>
             </View>
           </View>
@@ -80,7 +81,7 @@ export default class PackageDetailPage extends Component {
           <View style={styles.btnView}>
             <TouchableOpacity onPress={()=>this.onTry()} activeOpacity={0.5}>
               <View style={styles.btnWrapper}>
-                <Text style={styles.btnText}>{this.state.isSubscribed ? 'EXTEND' : 'TRY'}</Text>
+                <Text style={styles.btnText}>{this.state.isSubscribed ? I18n.t('packages.extend') : I18n.t('packages.try')}</Text>
               </View>
             </TouchableOpacity>
           </View>

@@ -14,13 +14,14 @@ import FontAwesome, {Icons} from 'react-native-fontawesome';
 import { KeyboardAwareScrollView, KeyboardAwareListView } from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import Container from '../../layout/Container';
-import SendMessageComponent from '../../components/MessageComponent/SendMessageComponent';
-import ReceiveMessageComponent from '../../components/MessageComponent/ReceiveMessageComponent';
+import I18n from '@i18n';
+import Container from '@layout/Container';
+import SendMessageComponent from '@components/MessageComponent/SendMessageComponent';
+import ReceiveMessageComponent from '@components/MessageComponent/ReceiveMessageComponent';
 
 import { styles } from './styles';
-import * as commonStyles from '../../../common/styles/commonStyles';
-import * as commonColors from '../../../common/styles/commonColors';
+import * as commonStyles from '@common/styles/commonStyles';
+import * as commonColors from '@common/styles/commonColors';
 
 export default class ChatRoomPage extends Component {
   constructor(props) {
@@ -127,7 +128,7 @@ export default class ChatRoomPage extends Component {
                   autoCapitalize="none"
                   autoCorrect={ true }
                   multiline={true}
-                  placeholder="Type message here"
+                  placeholder={I18n.t('support.ph_message')}
                   placeholderTextColor={ commonColors.placeholderText }
                   textAlign="right"
                   style={styles.input}

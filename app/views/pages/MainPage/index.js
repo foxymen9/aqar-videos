@@ -12,7 +12,7 @@ import Container from '@layout/Container';
 import TabView from '@layout/TabView';
 import ButtonPlusComponent from '@components/ButtonPlusComponent';
 import MapButtonListComponent from '@components/MapButtonListComponent';
-
+import I18n from '@i18n';
 import { styles } from './styles';
 
 export default class MainPage extends Component {
@@ -55,7 +55,7 @@ export default class MainPage extends Component {
 
   render() {
     const {tabIndex, isBtnList, btnItem, btnStatus} = this.state;
-    const title = btnStatus == 'list' ? 'LIST' : 'MAP';
+    const title = btnStatus == 'list' ? I18n.t('main.list') : I18n.t('main.map');
 
     return (
       <Container title={title}>

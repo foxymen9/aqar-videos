@@ -16,6 +16,7 @@ import MapPage from '../MapPage';
 import ProductListPage from '../ProductListPage';
 import ButtonPlusComponent from '../../components/ButtonPlusComponent';
 import MapButtonListComponent from '../../components/MapButtonListComponent';
+import I18n from '@i18n';
 
 import { styles } from './styles';
 
@@ -68,7 +69,7 @@ class MyLocationPage extends Component {
   render() {
     const { region, currentLocation } = this.state;
     const {isBtnList, btnItem, btnStatus} = this.state;
-    const title = btnStatus == 'list' ? 'LIST' : 'MY LOCATION';
+    const title = btnStatus == 'list' ? I18n.t('main.list') : I18n.t('sidebar.my_location');
 
     if (currentLocation == null || region == null) {
       return null;

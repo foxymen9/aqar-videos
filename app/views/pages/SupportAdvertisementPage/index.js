@@ -14,12 +14,13 @@ import FontAwesome, {Icons} from 'react-native-fontawesome';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
-import Container from '../../layout/Container';
-import DropdownComponent from '../../components/DropdownComponent';
+import I18n from '@i18n';
+import Container from '@layout/Container';
+import DropdownComponent from '@components/DropdownComponent';
 
 import { styles } from './styles';
-import * as commonStyles from '../../../common/styles/commonStyles';
-import * as commonColors from '../../../common/styles/commonColors';
+import * as commonStyles from '@common/styles/commonStyles';
+import * as commonColors from '@common/styles/commonColors';
 
 export default class SupportAdvertisementPage extends Component {
   constructor(props) {
@@ -46,7 +47,7 @@ export default class SupportAdvertisementPage extends Component {
     ];
 
     return (
-      <Container title={'SUPPORT & ADVERTISEMENT'} type='support'>
+      <Container title={I18n.t('sidebar.support_advertisement')} type='support'>
         <View style={styles.container}>
           <KeyboardAwareScrollView>
             <View style={styles.fieldContainer}>
@@ -55,7 +56,7 @@ export default class SupportAdvertisementPage extends Component {
                   ref="fullName"
                   autoCapitalize="none"
                   autoCorrect={ true }
-                  placeholder="Fullname"
+                  placeholder={I18n.t('profile.ph_name')}
                   placeholderTextColor={ commonColors.placeholderText }
                   textAlign="right"
                   style={styles.input}
@@ -74,7 +75,7 @@ export default class SupportAdvertisementPage extends Component {
                   ref="mobileNumber"
                   autoCapitalize="none"
                   autoCorrect={ false }
-                  placeholder="Mobile Number"
+                  placeholder={I18n.t('profile.ph_mobile_number')}
                   placeholderTextColor={ commonColors.placeholderText }
                   textAlign="right"
                   style={styles.input}
@@ -94,7 +95,7 @@ export default class SupportAdvertisementPage extends Component {
                   ref="email"
                   autoCapitalize="none"
                   autoCorrect={ false }
-                  placeholder="E-mail (Optional)"
+                  placeholder={I18n.t('profile.ph_email')}
                   placeholderTextColor={ commonColors.placeholderText }
                   textAlign="right"
                   style={styles.input}
@@ -110,17 +111,17 @@ export default class SupportAdvertisementPage extends Component {
                 </View>
               </View>
               <View style={styles.itemView}>
-                <Text style={styles.textTitle}>Subject</Text>
+                <Text style={styles.textTitle}>{I18n.t('support.subject')}</Text>
                 <DropdownComponent selectItem={(value)=>this.setState({subject: value})} item={this.state.subject} data={subjectData} />
               </View>
               <View style={styles.itemView}>
-                <Text style={styles.textTitle}>Message</Text>
+                <Text style={styles.textTitle}>{I18n.t('support.message')}</Text>
                 <TextInput
                   ref="message"
                   multiline={true}
                   autoCapitalize="none"
                   autoCorrect={ true }
-                  placeholder="Type your message here"
+                  placeholder={I18n.t('support.ph_message')}
                   placeholderTextColor={ commonColors.placeholderText }
                   textAlign="right"
                   style={styles.input}
@@ -135,7 +136,7 @@ export default class SupportAdvertisementPage extends Component {
           <View style={styles.btnView}>
             <TouchableOpacity onPress={()=>this.onUpdate()} activeOpacity={0.5}>
               <View style={styles.btnWrapper}>
-                <Text style={styles.btnText}>UPDATE</Text>
+                <Text style={styles.btnText}>{I18n.t('update')}</Text>
               </View>
             </TouchableOpacity>
           </View>

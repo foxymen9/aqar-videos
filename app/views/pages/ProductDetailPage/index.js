@@ -18,12 +18,13 @@ import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/Feather';
 import IconEntypo from 'react-native-vector-icons/Entypo';
 
-import Container from '../../layout/Container';
+import I18n from '@i18n';
+import Container from '@layout/Container';
 import { styles } from './styles';
-import ModalShare from '../../components/ModalShare';
+import ModalShare from '@components/ModalShare';
 
-const icon_office = require('../../../common/assets/images/product_detail/office2.png');
-const icon_report = require('../../../common/assets/images/product_detail/report_ad.png');
+const icon_office = require('@common/assets/images/product_detail/office2.png');
+const icon_report = require('@common/assets/images/product_detail/report_ad.png');
 
 export default class ProductDetailPage extends Component {
   constructor(props) {
@@ -117,8 +118,8 @@ export default class ProductDetailPage extends Component {
               <TouchableOpacity onPress={()=>this.onSendMessage()} activeOpacity={0.5}>
                 <View style={styles.btnSend}>
                   <View style={styles.sendTextWrapper}>
-                    <Text style={styles.textSend}>SEND</Text>
-                    <Text style={styles.textSend}>MESSAGE</Text>
+                    <Text style={styles.textSend}>{I18n.t('send')}</Text>
+                    <Text style={styles.textSend}>{I18n.t('message')}</Text>
                   </View>
                   <FontAwesome style={styles.icon}>{Icons.envelopeO}</FontAwesome>
                 </View>
@@ -127,7 +128,7 @@ export default class ProductDetailPage extends Component {
             <View style={styles.btnView}>
               <TouchableOpacity onPress={()=>this.onReportAD()} activeOpacity={0.5}>
                 <View style={styles.btnAd}>
-                  <Text style={[styles.textDescription, {fontStyle: 'italic'}]}>Report Ad</Text>
+                  <Text style={[styles.textDescription, {fontStyle: 'italic'}]}>{I18n.t('report_ad')}</Text>
                   {/* <Icon name='flag' style={styles.iconAd} /> */}
                   <Image source={icon_report} style={styles.iconAd} />
                 </View>

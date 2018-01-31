@@ -12,6 +12,7 @@ import {
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
+import I18n from '@i18n';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import { styles } from './styles';
 
@@ -41,9 +42,9 @@ export default class ProductListPage extends Component {
         <View style={styles.footerView}>
           <FontAwesome style={styles.favorite}>{rowData.favorite ? Icons.star : Icons.starO}</FontAwesome>
           <View style={styles.footerRightView}>
-            <Text style={styles.textPrice}>{rowData.price} SAR</Text>
+            <Text style={styles.textPrice}>{rowData.price} {I18n.t('sar')}</Text>
             <View style={styles.viewWrapper}>
-              <Text  style={styles.textViewCount}>number of view {rowData.viewCount}</Text>
+              <Text  style={styles.textViewCount}>{I18n.t('number_of_view')} {rowData.viewCount}</Text>
               <FontAwesome style={styles.eye}>{Icons.eye}</FontAwesome>
             </View>
           </View>

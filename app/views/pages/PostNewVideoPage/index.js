@@ -17,10 +17,10 @@ import FontAwesome, {Icons} from 'react-native-fontawesome';
 import { Actions } from 'react-native-router-flux';
 import Video from 'react-native-video';
 import CheckBox from 'react-native-modest-checkbox';
-
 import ImagePicker from 'react-native-image-picker';
-
 import Icon from 'react-native-vector-icons/Feather';
+
+import I18n from '@i18n';
 import Container from '@layout/Container';
 import ModalShare from '@components/ModalShare';
 import {RadioGroup, RadioButton} from '@components/RadioButtonGroup';
@@ -54,10 +54,10 @@ export default class PostNewVideoPage extends Component {
   onPreview() {
     const propsData = this.state;
     
-    // Actions.PostNewVideoPreview({data: propsData});
-    if (propsData.videoUri != null) {
-      Actions.PostNewVideoPreview({data: propsData});
-    }
+    Actions.PostNewVideoPreview({data: propsData});
+    // if (propsData.videoUri != null) {
+    //   Actions.PostNewVideoPreview({data: propsData});
+    // }
   }
 
   onSelectProductOption(index, value) {
@@ -72,9 +72,9 @@ export default class PostNewVideoPage extends Component {
   onCamera() {
     if (this.state.videoUri == null) {
       const options = {
-        title: 'Record or Choose the Video',
-        takePhotoButtonTitle: 'Record Video',
-        chooseFromLibraryButtonTitle: 'Choose from Library',
+        title: I18n.t('post_video.record_choose_video'),
+        takePhotoButtonTitle: I18n.t('record_video'),
+        chooseFromLibraryButtonTitle: I18n.t('choose_library'),
         mediaType: 'video',
         allowsEditing: true,
         durationLimit: 180, //limit 3mins
@@ -150,7 +150,7 @@ export default class PostNewVideoPage extends Component {
     ];
 
     return (
-      <Container title='POST A NEW AD'>
+      <Container title={I18n.t('sidebar.post_new_ads')}>
         <View style={styles.container}>
           <KeyboardAwareScrollView ref="scrollContainer">
             <TouchableOpacity onPress={()=>this.onCamera()}>
@@ -170,13 +170,13 @@ export default class PostNewVideoPage extends Component {
             </TouchableOpacity>
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
-                Title
+                {I18n.t('post_video.title')}
               </Text>
               <TextInput
                 ref="title"
                 autoCapitalize="none"
                 autoCorrect={ true }
-                placeholder="Please name of your video"
+                placeholder={I18n.t('post_video.ph_video_name')}
                 placeholderTextColor={ commonColors.placeholderSubText }
                 textAlign="right"
                 style={styles.input}
@@ -189,14 +189,14 @@ export default class PostNewVideoPage extends Component {
             </View>
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
-                Description
+                {I18n.t('post_video.description')}
               </Text>
               <TextInput
                 ref="description"
                 autoCapitalize="none"
                 autoCorrect={ true }
                 multiline={true}
-                placeholder="Please add short description to your video"
+                placeholder={I18n.t('post_video.ph_video_desc')}
                 placeholderTextColor={ commonColors.placeholderSubText }
                 textAlign="right"
                 style={styles.input}
@@ -209,13 +209,13 @@ export default class PostNewVideoPage extends Component {
             </View>
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
-                Price
+                  {I18n.t('post_video.price')}
               </Text>
               <TextInput
                 ref="price"
                 autoCapitalize="none"
                 autoCorrect={ false }
-                placeholder="SAR"
+                placeholder={I18n.t('sar')}
                 placeholderTextColor={ commonColors.placeholderSubText }
                 textAlign="right"
                 style={styles.input}
@@ -229,19 +229,19 @@ export default class PostNewVideoPage extends Component {
             </View>
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
-                Region
+                {I18n.t('post_video.region')}
               </Text>
               <DropdownComponent selectItem={(value)=>this.setState({region: value})} item={this.state.region} data={regionData} />
             </View>
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
-                City
+              {I18n.t('post_video.city')}
               </Text>
               <DropdownComponent selectItem={(value)=>this.setState({city: value})} item={this.state.city} data={cityData} />
             </View>
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
-                District
+              {I18n.t('post_video.district')}
               </Text>
               <DropdownComponent selectItem={(value)=>this.setState({district: value})} item={this.state.district} data={districtData} />
             </View>
@@ -255,20 +255,20 @@ export default class PostNewVideoPage extends Component {
                 onSelect={(index, value)=> this.onSelectProductOption(index, value)}
               >
                 <RadioButton value={'Sale'}>
-                  <Text style={styles.textDescription}>Sale</Text>
+                  <Text style={styles.textDescription}>{I18n.t('post_video.sale')}</Text>
                 </RadioButton>
                 <RadioButton value={'Rent'}>
-                  <Text style={styles.textDescription}>Rent</Text>
+                  <Text style={styles.textDescription}>{I18n.t('post_video.rent')}</Text>
                 </RadioButton>
               </RadioGroup>
               <Text style={styles.textTitle}>
-                Product Option
+                {I18n.t('post_video.product_option')}
               </Text>
             </View>
             {(category == 'building' || category == 'land') && (
               <View style={styles.itemView}>
                 <Text style={styles.textTitle}>
-                  Type
+                  {I18n.t('post_video.type')}
                 </Text>
                 <DropdownComponent selectItem={(value)=>this.setState({buildingType: value})} item={this.state.buildingType} data={buildingTypeData} />
               </View>
@@ -281,7 +281,7 @@ export default class PostNewVideoPage extends Component {
                   autoCapitalize="none"
                   autoCorrect={ false }
                   multiline={true}
-                  placeholder="Max.Price"
+                  placeholder={I18n.t('post_video.max_price')}
                   placeholderTextColor={ commonColors.placeholderSubText }
                   textAlign="right"
                   style={styles.inputPrice}
@@ -299,7 +299,7 @@ export default class PostNewVideoPage extends Component {
                   autoCapitalize="none"
                   autoCorrect={ false }
                   multiline={true}
-                  placeholder="Min.Price"
+                  placeholder={I18n.t('post_video.min_price')}
                   placeholderTextColor={ commonColors.placeholderSubText }
                   textAlign="right"
                   style={styles.inputPrice}
@@ -321,7 +321,7 @@ export default class PostNewVideoPage extends Component {
                   autoCapitalize="none"
                   autoCorrect={ false }
                   multiline={true}
-                  placeholder="Max.SquareMeter"
+                  placeholder={I18n.t('post_video.max_squaremeter')}
                   placeholderTextColor={ commonColors.placeholderSubText }
                   textAlign="right"
                   style={styles.inputPrice}
@@ -339,7 +339,7 @@ export default class PostNewVideoPage extends Component {
                   autoCapitalize="none"
                   autoCorrect={ false }
                   multiline={true}
-                  placeholder="Min.SquareMeter"
+                  placeholder={I18n.t('post_video.min_squaremeter')}
                   placeholderTextColor={ commonColors.placeholderSubText }
                   textAlign="right"
                   style={styles.inputPrice}
@@ -355,7 +355,7 @@ export default class PostNewVideoPage extends Component {
             {(category == 'apartment' || category == 'chalet') && (
               <View style={styles.itemView}>
                 <Text style={styles.textTitle}>
-                  Period
+                  {I18n.t('post_video.period')}
                 </Text>
                 <DropdownComponent selectItem={(value)=>this.setState({period: value})} item={this.state.period} data={periodData} />
               </View>
@@ -364,13 +364,13 @@ export default class PostNewVideoPage extends Component {
               <View>
                 <View style={styles.itemView}>
                   <Text style={styles.textTitle}>
-                    Location
+                    {I18n.t('post_video.location')}
                   </Text>
                   <TextInput
                     ref="location"
                     autoCapitalize="none"
                     autoCorrect={ true }
-                    placeholder="Please input location of aprtment"
+                    placeholder={I18n.t('post_video.ph_apartment')}
                     placeholderTextColor={ commonColors.placeholderSubText }
                     textAlign="right"
                     style={styles.input}
@@ -382,7 +382,7 @@ export default class PostNewVideoPage extends Component {
                 </View>
                 <View style={styles.itemView}>
                   <CheckBox
-                    label="Furniture"
+                    label={I18n.t('post_video.furniture')}
                     labelBefore={true}
                     labelStyle={{color: commonColors.placeholderText, fontWeight: 'bold'}}
                     onChange={(checked) => this.setState({furniture: checked})}
@@ -390,19 +390,19 @@ export default class PostNewVideoPage extends Component {
                 </View>
                 <View style={styles.itemView}>
                   <Text style={styles.textTitle}>
-                    Room Type
+                    {I18n.t('post_video.room_type')}
                   </Text>
                   <DropdownComponent selectItem={(value)=>this.setState({roomType: value})} item={this.state.roomType} data={apartmentRoomType} />
                 </View>
                 <View style={styles.itemView}>
                   <Text style={styles.textTitle}>
-                    Room Count
+                    {I18n.t('post_video.room_count')}
                   </Text>
                   <TextInput
                     ref="roomCount"
                     autoCapitalize="none"
                     autoCorrect={ true }
-                    placeholder="Please input room count"
+                    placeholder={I18n.t('post_video.ph_room_count')}
                     placeholderTextColor={ commonColors.placeholderSubText }
                     textAlign="right"
                     style={styles.input}
@@ -414,7 +414,7 @@ export default class PostNewVideoPage extends Component {
                 </View>
                 <View style={styles.itemView}>
                   <CheckBox
-                    label="Ownership"
+                    label={I18n.t('post_video.ownership')}
                     labelBefore={true}
                     labelStyle={{color: commonColors.placeholderText, fontWeight: 'bold'}}
                     onChange={(checked) => this.setState({ownership: checked})}
@@ -425,13 +425,13 @@ export default class PostNewVideoPage extends Component {
             {(category == 'office') && (
               <View style={styles.itemView}>
                 <Text style={styles.textTitle}>
-                  Area Space
+                  {I18n.t('post_video.area_space')}
                 </Text>
                 <TextInput
                   ref="areaSpace"
                   autoCapitalize="none"
                   autoCorrect={ true }
-                  placeholder="Please input area space"
+                  placeholder={I18n.t('post_video.ph_area_space')}
                   placeholderTextColor={ commonColors.placeholderSubText }
                   textAlign="right"
                   style={styles.input}
@@ -446,13 +446,13 @@ export default class PostNewVideoPage extends Component {
               <View>
                 <View style={styles.itemView}>
                   <Text style={styles.textTitle}>
-                    Street Size
+                    {I18n.t('post_video.street_size')}
                   </Text>
                   <TextInput
                     ref="streetSize"
                     autoCapitalize="none"
                     autoCorrect={ true }
-                    placeholder="Input meters (15, 30, ...)"
+                    placeholder={I18n.t('post_video.ph_meter')}
                     placeholderTextColor={ commonColors.placeholderSubText }
                     textAlign="right"
                     style={styles.input}
@@ -464,13 +464,13 @@ export default class PostNewVideoPage extends Component {
                 </View>
                 <View style={styles.itemView}>
                   <Text style={styles.textTitle}>
-                    Galleries & Shops Number
+                    {I18n.t('post_video.gallery_shop')}
                   </Text>
                   <TextInput
                     ref="galleryNumber"
                     autoCapitalize="none"
                     autoCorrect={ true }
-                    placeholder="Please input number"
+                    placeholder={I18n.t('post_video.ph_gallery_number')}
                     placeholderTextColor={ commonColors.placeholderSubText }
                     textAlign="right"
                     style={styles.input}

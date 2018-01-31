@@ -10,8 +10,8 @@ import {
 } from 'react-native';
 
 import { SwipeListView, SwipeRow } from 'react-native-swipe-list-view';
-
-import Container from '../../layout/Container';
+import I18n from '@i18n';
+import Container from '@layout/Container';
 import { styles } from './styles';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 
@@ -112,7 +112,7 @@ export default class MyWishListPage extends Component {
     const dataSource = ds.cloneWithRows(this.state.listData);
     
     return (
-      <Container title='MY WISH LIST (4)'>
+      <Container title={I18n.t('sidebar.my_wishlist')}>
         <View style={styles.container}>
           <SwipeListView
             dataSource={dataSource}
@@ -140,9 +140,9 @@ export default class MyWishListPage extends Component {
                     <View style={styles.footerView}>
                       <Text style={styles.textTitle}>{rowData.title}</Text>
                       <View style={styles.bottomWrapper}> 
-                        <Text  style={styles.textPrice}>{rowData.price} SAR</Text>
+                        <Text  style={styles.textPrice}>{rowData.price} {I18n.t('sar')}</Text>
                         <View style={styles.viewWrapper}>
-                          <Text  style={styles.textViewCount}>number of view {rowData.viewCount}</Text>
+                          <Text  style={styles.textViewCount}>{I18n.t('number_of_view')} {rowData.viewCount}</Text>
                           <FontAwesome style={styles.eye}>{Icons.eye}</FontAwesome>
                         </View>
                       </View>

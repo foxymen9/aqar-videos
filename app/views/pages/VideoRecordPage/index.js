@@ -8,12 +8,13 @@ import {
   Image,
 } from 'react-native';
 
-import { styles } from './styles';
-import Container from '../../layout/Container';
-
 import { Actions } from 'react-native-router-flux';
 import Camera from 'react-native-camera';
 import { Stopwatch, Timer } from 'react-native-stopwatch-timer'
+
+import { styles } from './styles';
+import Container from '@layout/Container';
+import I18n from '@i18n';
 
 export default class VideoRecordPage extends Component {
   constructor(props) {

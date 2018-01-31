@@ -12,6 +12,8 @@ import {
   TextInput,
 } from 'react-native';
 
+import I18n from '@i18n';
+
 import { styles } from './styles';
 import * as commonStyles from '@common/styles/commonStyles';
 import * as commonColors from '@common/styles/commonColors';
@@ -70,7 +72,7 @@ export default class CategoryComponent extends Component {
                 ? <Image source={icon_building_select} style={styles.icon} />
                 : <Image source={icon_building} style={styles.icon} />
               }
-              <Text style={category == 'building' ? styles.textCategorySelect : styles.textCategory}>Building</Text>
+              <Text style={category == 'building' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.building')}</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>this.onSelectCategory('villa', 1)} activeOpacity={0.5}>
@@ -79,7 +81,7 @@ export default class CategoryComponent extends Component {
                 ? <Image source={icon_villa_select} style={styles.icon} />
                 : <Image source={icon_villa} style={styles.icon} />
               }
-              <Text style={category == 'villa' ? styles.textCategorySelect : styles.textCategory}>Villa</Text>
+              <Text style={category == 'villa' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.villa')}</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>this.onSelectCategory('apartment', 2)} activeOpacity={0.5}>
@@ -88,7 +90,7 @@ export default class CategoryComponent extends Component {
                 ? <Image source={icon_apartment_select} style={styles.icon} />
                 : <Image source={icon_apartment} style={styles.icon} />
               }
-              <Text style={category == 'apartment' ? styles.textCategorySelect : styles.textCategory}>Apartment</Text>
+              <Text style={category == 'apartment' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.apartment')}</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>this.onSelectCategory('office', 3)} activeOpacity={0.5}>
@@ -97,7 +99,7 @@ export default class CategoryComponent extends Component {
                 ? <Image source={icon_office_select} style={styles.icon} />
                 : <Image source={icon_office} style={styles.icon} />
               }
-              <Text style={category == 'office' ? styles.textCategorySelect : styles.textCategory}>Office</Text>
+              <Text style={category == 'office' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.office')}</Text>
             </View> 
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>this.onSelectCategory('gallery', 4)} activeOpacity={0.5}>
@@ -106,7 +108,7 @@ export default class CategoryComponent extends Component {
                 ? <Image source={icon_gallery_select} style={styles.icon} />
                 : <Image source={icon_gallery} style={styles.icon} />
               }
-              <Text style={category == 'gallery' ? styles.textCategorySelect : styles.textCategory}>Gallery</Text>
+              <Text style={category == 'gallery' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.gallery')}</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>this.onSelectCategory('land', 5)} activeOpacity={0.5}>
@@ -115,7 +117,7 @@ export default class CategoryComponent extends Component {
                 ? <Image source={icon_land_select} style={styles.icon} />
                 : <Image source={icon_land} style={styles.icon} />
               }
-              <Text style={category == 'land' ? styles.textCategorySelect : styles.textCategory}>Land</Text>
+              <Text style={category == 'land' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.land')}</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>this.onSelectCategory('chalet', 6)} activeOpacity={0.5}>
@@ -124,7 +126,7 @@ export default class CategoryComponent extends Component {
                 ? <Image source={icon_chalet_select} style={styles.icon} />
                 : <Image source={icon_chalet} style={styles.icon} />
               }
-              <Text style={category == 'chalet' ? styles.textCategorySelect : styles.textCategory}>Chalets</Text>
+              <Text style={category == 'chalet' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.chalet')}</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>this.onSelectCategory('real_estate', 7)} activeOpacity={0.5}>
@@ -133,7 +135,7 @@ export default class CategoryComponent extends Component {
                 ? <Image source={icon_real_estate_select} style={styles.icon} />
                 : <Image source={icon_real_estate} style={styles.icon} />
               }
-              <Text style={category == 'real_estate' ? styles.textCategorySelect : styles.textCategory}>Real Estate</Text>
+              <Text style={category == 'real_estate' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.real_estate')}</Text>
             </View>
           </TouchableOpacity>
         </View>

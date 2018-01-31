@@ -12,10 +12,11 @@ import {
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
-import Container from '../../layout/Container';
+import I18n from '@i18n';
+import Container from '@layout/Container';
 import { styles } from './styles';
-import * as commonStyles from '../../../common/styles/commonStyles';
-import * as commonColors from '../../../common/styles/commonColors';
+import * as commonStyles from '@common/styles/commonStyles';
+import * as commonColors from '@common/styles/commonColors';
 
 export default class PackagePage extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ export default class PackagePage extends Component {
           <View style={styles.imageView}>
             <View style={[styles.roundContent, {backgroundColor: rowData.color}]}>
                 <Text style={styles.number}>{rowData.number}</Text>
-                <Text style={styles.day}>DAYS</Text>
+                <Text style={styles.day}>{I18n.t('packages.days')}</Text>
             </View>
           </View>
           <View style={styles.footerView}>
@@ -83,7 +84,7 @@ export default class PackagePage extends Component {
     const dataSource = ds.cloneWithRows(listData);
 
     return (
-      <Container title='PACKAGE'>
+      <Container title={I18n.t('sidebar.packages')}>
         <View style={styles.container}>
           <ListView
               ref='listview'

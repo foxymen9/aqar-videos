@@ -10,11 +10,11 @@ import {
 } from 'react-native';
 
 import { Actions } from 'react-native-router-flux';
-
-import Container from '../../layout/Container';
+import I18n from '@i18n';
+import Container from '@layout/Container';
 import { styles } from './styles';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
-const icon_report = require('../../../common/assets/images/my_message/icon.png');
+const icon_report = require('@common/assets/images/my_message/icon.png');
 
 export default class MyMessagePage extends Component {
   constructor(props) {
@@ -79,7 +79,7 @@ export default class MyMessagePage extends Component {
     const dataSource = ds.cloneWithRows(listData);
 
     return (
-      <Container title='MY MESSAGES'>
+      <Container title={I18n.t('sidebar.my_messages')}>
         <View style={styles.container}>
           <ListView
               ref='listview'

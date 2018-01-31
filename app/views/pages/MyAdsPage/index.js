@@ -15,6 +15,7 @@ import { Actions } from 'react-native-router-flux';
 import Container from '../../layout/Container';
 import { styles } from './styles';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
+import I18n from '@i18n';
 
 export default class MyAdsPage extends Component {
   constructor(props) {
@@ -48,9 +49,9 @@ export default class MyAdsPage extends Component {
           </View>
           <View style={styles.footerView}>
             <Text  style={styles.textTitle}>{rowData.title}</Text>
-            <Text  style={styles.textPrice}>{rowData.price} SAR</Text>
+            <Text  style={styles.textPrice}>{rowData.price} {I18n.t('sar')}</Text>
             <View style={styles.viewWrapper}>
-              <Text  style={styles.textViewCount}>number of view {rowData.viewCount}</Text>
+              <Text  style={styles.textViewCount}>{I18n.t('number_of_view')} {rowData.viewCount}</Text>
               <FontAwesome style={styles.eye}>{Icons.eye}</FontAwesome>
             </View>
           </View>
@@ -138,7 +139,7 @@ export default class MyAdsPage extends Component {
     const dataSource = ds.cloneWithRows(listData);
 
     return (
-      <Container title='MY ADS (3)'>
+      <Container title={I18n.t('sidebar.my_ads')}>
         <View style={styles.container}>
           <ListView
               ref='listview'

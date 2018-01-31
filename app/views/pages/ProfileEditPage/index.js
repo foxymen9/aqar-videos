@@ -14,10 +14,11 @@ import FontAwesome, {Icons} from 'react-native-fontawesome';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
-import Container from '../../layout/Container';
+import I18n from '@i18n';
+import Container from '@layout/Container';
 import { styles } from './styles';
-import * as commonStyles from '../../../common/styles/commonStyles';
-import * as commonColors from '../../../common/styles/commonColors';
+import * as commonStyles from '@common/styles/commonStyles';
+import * as commonColors from '@common/styles/commonColors';
 
 export default class ProfileEditPage extends Component {
   constructor(props) {
@@ -38,7 +39,7 @@ export default class ProfileEditPage extends Component {
   render() {
     const {tabIndex} = this.state;
     return (
-      <Container title={'MY PROFILE'}>
+      <Container title={I18n.t('sidebar.my_profile')}>
         <View style={styles.container}>
           <KeyboardAwareScrollView>
             <View style={styles.fieldContainer}>
@@ -47,7 +48,7 @@ export default class ProfileEditPage extends Component {
                   ref="fullName"
                   autoCapitalize="none"
                   autoCorrect={ true }
-                  placeholder="Fullname"
+                  placeholder={I18n.t('profile.ph_name')}
                   placeholderTextColor={ commonColors.placeholderText }
                   textAlign="right"
                   style={styles.input}
@@ -67,7 +68,7 @@ export default class ProfileEditPage extends Component {
                   ref="mobileNumber"
                   autoCapitalize="none"
                   autoCorrect={ false }
-                  placeholder="Mobile Number"
+                  placeholder={I18n.t('profile.ph_mobile_number')}
                   placeholderTextColor={ commonColors.placeholderText }
                   textAlign="right"
                   style={styles.input}
@@ -87,7 +88,7 @@ export default class ProfileEditPage extends Component {
                   ref="email"
                   autoCapitalize="none"
                   autoCorrect={ false }
-                  placeholder="E-mail (Optional)"
+                  placeholder={I18n.t('profile.ph_email')}
                   placeholderTextColor={ commonColors.placeholderText }
                   textAlign="right"
                   style={styles.input}
@@ -107,7 +108,7 @@ export default class ProfileEditPage extends Component {
                   ref="password"
                   autoCapitalize="none"
                   autoCorrect={ false }
-                  placeholder="Password"
+                  placeholder={I18n.t('profile.ph_password')}
                   placeholderTextColor={ commonColors.placeholderText }
                   textAlign="right"
                   style={styles.input}
@@ -127,7 +128,7 @@ export default class ProfileEditPage extends Component {
                   ref="confirmPassword"
                   autoCapitalize="none"
                   autoCorrect={ false }
-                  placeholder="Confirm Password"
+                  placeholder={I18n.t('profile.ph_confirm_password')}
                   placeholderTextColor={ commonColors.placeholderText }
                   textAlign="right"
                   style={styles.input}
@@ -146,7 +147,7 @@ export default class ProfileEditPage extends Component {
           <View style={styles.btnView}>
             <TouchableOpacity onPress={()=>this.onUpdate()} activeOpacity={0.5}>
               <View style={styles.btnWrapper}>
-                <Text style={styles.btnText}>UPDATE</Text>
+                <Text style={styles.btnText}>{I18n.t('update')}</Text>
               </View>
             </TouchableOpacity>
           </View>

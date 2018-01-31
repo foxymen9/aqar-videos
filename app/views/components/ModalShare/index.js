@@ -8,6 +8,8 @@ import {
   Image,
 } from 'react-native';
 
+import I18n from '@i18n';
+
 import Modal from 'react-native-modal';
 import { styles } from './styles';
 
@@ -45,14 +47,14 @@ export default class ModalShare extends Component {
       >
         <View style={styles.container}>
           <View style={styles.modalHeader}>
-            <Text style={styles.headerText}>Complete action using</Text>
+            <Text style={styles.headerText}>{I18n.t('category.complete_action')}</Text>
           </View>
           <View style={styles.iconList}>
             <View style={styles.iconView}>
               <TouchableOpacity activeOpacity={0.5} onPress={()=>this.onFacebook()}>
                 <IconSocial name='logo-facebook' style={[styles.icon, styles.iconFacebook]} />
               </TouchableOpacity>
-              <Text style={styles.socialText}>Facebook</Text>
+              <Text style={styles.socialText}>{I18n.t('category.facebook')}</Text>
             </View>
             <View style={styles.iconView}>
               <TouchableOpacity activeOpacity={0.5} onPress={()=>this.onTwitter()}>
@@ -66,13 +68,13 @@ export default class ModalShare extends Component {
               <TouchableOpacity activeOpacity={0.5} onPress={()=>this.onWhatsapp()}>
                 <IconSocial name='logo-whatsapp' style={[styles.icon, styles.iconWhatsapp]} />
               </TouchableOpacity>
-              <Text style={styles.socialText}>Whatsapp</Text>
+              <Text style={styles.socialText}>{I18n.t('category.whatsapp')}</Text>
             </View>
             <View style={styles.iconView}>
               <TouchableOpacity activeOpacity={0.5} onPress={()=>this.onLinkedin()}>
                 <IconSocial name='logo-linkedin' style={[styles.icon, styles.iconLinkedin]} />
               </TouchableOpacity>
-              <Text style={styles.socialText}>Linkedin</Text>
+              <Text style={styles.socialText}>{I18n.t('category.linkedin')}</Text>
             </View>
           </View>
         </View>
