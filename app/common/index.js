@@ -1,0 +1,1 @@
+export const API_URL = "http://videoaqar.com/demo/index.php";

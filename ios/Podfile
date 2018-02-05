@@ -9,4 +9,8 @@ target 'VideoAqar' do
 
   pod 'GoogleMaps'
 
+  pod 'RNI18n', :path => '../node_modules/react-native-i18n'
+
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
 end

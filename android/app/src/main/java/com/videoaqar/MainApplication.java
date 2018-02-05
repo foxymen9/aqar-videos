@@ -3,6 +3,8 @@ package com.videoaqar;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.horcrux.svg.SvgPackage;
+import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.brentvatne.react.ReactVideoPackage;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
@@ -29,6 +31,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new SvgPackage(),
+            new RNI18nPackage(),
             new ImagePickerPackage(),
             new ReactVideoPackage(),
             new RCTCameraPackage(),

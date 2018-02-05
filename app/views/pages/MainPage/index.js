@@ -15,7 +15,10 @@ import MapButtonListComponent from '@components/MapButtonListComponent';
 import I18n from '@i18n';
 import { styles } from './styles';
 
-export default class MainPage extends Component {
+import { connect } from 'react-redux';
+import { getToken } from '@redux/Token/actions';
+
+class MainPage extends Component {
   constructor(props) {
     super(props);
     this.state ={
@@ -23,6 +26,18 @@ export default class MainPage extends Component {
       tabIndex: 0,
       btnItem: null,
       btnStatus: 'map',
+    }
+  }
+
+  componentWillMount() {
+    const { tokenInfo } = this.props;
+
+    //Check the token
+    if (tokenInfo == null) {
+      this.props.getToken();
+    }
+    else {
+      console.log('TOKEN', tokenInfo.token);
     }
   }
 
@@ -70,3 +85,8 @@ export default class MainPage extends Component {
     );
   }
 }
+
+
+export default connect(state => ({
+  tokenInfo: state.token.tokenInfo
+}),{ getToken })(MainPage);

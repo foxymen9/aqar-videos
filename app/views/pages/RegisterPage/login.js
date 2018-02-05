@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Image,
   TextInput,
+  Alert,
 } from 'react-native';
 
 import { connect } from 'react-redux';
@@ -16,6 +17,9 @@ import { Actions } from 'react-native-router-flux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
+
+import CustomAlert from '@components/CustomAlert';
+import LoadingSpinner from '@components/LoadingSpinner';
 
 import I18n from '@i18n';
 import * as commonStyles from '@common/styles/commonStyles';
@@ -29,13 +33,35 @@ class Login extends Component {
     this.state = {
       mobile: '',
       password: '',
+      loading: false,
+      isAlert: false,
     }
   }
 
   onLogin() {
-    this.props.userSignIn();
-    this.props.changeMenu(0);
-    Actions.Main();
+    let data = {
+      email: 'test@user.com',
+      password:  '@test1234'
+    };
+
+    this.setState({loading: true});
+    this.props.userSignIn(data, this.props.tokenInfo.token);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { userInfo, userLogin, loading } = nextProps;
+
+    if (userInfo != null) {
+      // console.log('USER_INFO', userInfo);
+      this.setState({loading: false});
+      if (userLogin) {
+        this.props.changeMenu(0);
+        Actions.Main();
+      }
+      else {
+        this.setState({isAlert: true});
+      }
+    }
   }
 
   onForgotPassword() {
@@ -43,8 +69,18 @@ class Login extends Component {
   }
 
   render() {
+    const { userInfo } = this.props;
     return (
       <View style={styles.container}>
+        <LoadingSpinner visible={this.state.loading } />
+        {userInfo && (
+          <CustomAlert 
+            message={userInfo.errors.email_exists} 
+            visible={this.state.isAlert} 
+            closeAlert={()=>this.setState({isAlert: false})}
+          />
+        )}
+
         <KeyboardAwareScrollView>
           <View style={styles.fieldContainer}>
             <View style={styles.inputView}>
@@ -106,4 +142,8 @@ class Login extends Component {
 }
 
 export default connect(state => ({
+  tokenInfo: state.token.tokenInfo,
+  userInfo: state.user.userInfo,
+  userLogin: state.user.userLogin,
+  loading: state.user.loading,
 }),{ userSignIn, changeMenu })(Login);

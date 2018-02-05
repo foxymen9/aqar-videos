@@ -1,6 +1,8 @@
 export const USER_SIGN_OUT = 'USER_SIGN_OUT';
 
-export const USER_SIGN_IN = 'USER_SIGN_IN';
+export const USER_SIGN_IN_REQUEST = 'USER_SIGN_IN_REQUEST';
+export const USER_SIGN_IN_SUCCESS = 'USER_SIGN_IN_SUCCESS';
+export const USER_SIGN_IN_FAILED = 'USER_SIGN_IN_FAILED';
 
 export const USER_SIGN_UP = 'USER_SIGN_UP';
 
