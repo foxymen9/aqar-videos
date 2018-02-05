@@ -17,7 +17,6 @@ export default class LoadingSpinner extends Component {
 
   render(){
     const { visible } = this.props;
-    console.log('VISIBLE', visible);
     return(
         <Modal
             animationType={'none'}

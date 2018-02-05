@@ -85,7 +85,11 @@ export default {
     ph_confirm_password: "Conform Password",
     forgot_password: "Forgot Password",
     ph_confirm_code: "Confirm Code",
-    confirm_phone: "CONFIRM PHONE NUMBER",
+    confirm_phone: "VERIFY PHONE NUMBER",
+    confirm_code: "VERIFY CODE",
+    wizard_phone: "verify phone",
+    wizard_code: "verify code",
+    wizard_signup: "signup",
   },
   support: {
     subject: "Subject",

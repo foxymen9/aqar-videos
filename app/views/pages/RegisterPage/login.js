@@ -17,6 +17,7 @@ import { Actions } from 'react-native-router-flux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import TextInputMask from 'react-native-text-input-mask';
 
 import CustomAlert from '@components/CustomAlert';
 import LoadingSpinner from '@components/LoadingSpinner';
@@ -84,7 +85,8 @@ class Login extends Component {
         <KeyboardAwareScrollView>
           <View style={styles.fieldContainer}>
             <View style={styles.inputView}>
-              <TextInput
+              <TextInputMask 
+                mask={"+[00000000000000]"}
                 ref="mobileNumber"
                 autoCapitalize="none"
                 autoCorrect={ false }
@@ -94,10 +96,9 @@ class Login extends Component {
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
-                keyboardType="numbers-and-punctuation"
+                keyboardType="phone-pad"
                 value={ this.state.mobile }
                 onChangeText={ (text) => this.setState({ mobile: text }) }
-                onSubmitEditing={ () => this.refs.password.focus() }
               />
               <View style={styles.iconView}>
                 <Icon name='screen-tablet' style={styles.inputIcon}></Icon>

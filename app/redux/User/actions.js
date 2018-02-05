@@ -24,8 +24,33 @@ export function userSignIn(data, token) {
   };
 }
 
+export function verifyPhone(data, token) {
+  return {
+    types: [types.VERIFY_PHONE_REQUEST, types.VERIFY_PHONE_SUCCESS, types.VERIFY_PHONE_FAILED],
+    promise:
+      axios({
+          method: 'post',
+          url: `${API_URL}?route=api/customer/validatePhone&api_token=${token}`,
+          headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+          data: data
+      })  
+  };
+}
+
+export function verifyCode(data, token) {
+  return {
+    types: [types.VERIFY_CODE_REQUEST, types.VERIFY_CODE_SUCCESS, types.VERIFY_CODE_FAILED],
+    promise:
+      axios({
+          method: 'post',
+          url: `${API_URL}?route=api/customer/validateCode&api_token=${token}`,
+          headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+          data: data
+      })  
+  };
+}
+
 export function userSignUp() {
-  //Save user's current location
   return {
     type: types.USER_SIGN_UP,
   };

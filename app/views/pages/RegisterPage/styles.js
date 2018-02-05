@@ -56,7 +56,7 @@ export const styles = StyleSheet.create({
   },
   fieldContainer: {
     width: '100%',
-    height: commonStyles.screenSubHeight - 100,
+    height: commonStyles.screenSubHeight - 200,
     justifyContent:'center',
     alignItems: 'center',
   },
@@ -98,5 +98,29 @@ export const styles = StyleSheet.create({
     color: commonColors.placeholderText,
     fontSize: commonStyles.normalFontSize,
     fontStyle: 'italic',
+  },
+  wizard: {
+    width: '100%',
+    marginVertical: 20,
   }
 });
+
+export const wizardStyle = {
+  stepIndicatorSize: 25,
+  currentStepIndicatorSize:30,
+  separatorStrokeWidth: 3,
+  currentStepStrokeWidth: 5,
+  separatorFinishedColor: '#4aae4f',
+  separatorUnFinishedColor: '#a4d4a5',
+  stepIndicatorFinishedColor: '#4aae4f',
+  stepIndicatorUnFinishedColor: '#a4d4a5',
+  stepIndicatorCurrentColor: '#ffffff',
+  stepIndicatorLabelFontSize: 15,
+  currentStepIndicatorLabelFontSize: 15,
+  stepIndicatorLabelCurrentColor: '#000000',
+  stepIndicatorLabelFinishedColor: '#ffffff',
+  stepIndicatorLabelUnFinishedColor: 'rgba(255,255,255,0.5)',
+  labelColor: '#666666',
+  labelSize: 12,
+  currentStepLabelColor: '#4aae4f'
+}

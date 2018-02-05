@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -54,9 +55,12 @@
 		9DB5FD0DB744471FBBFA054B /* Proxima Nova Extra Condensed Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C60CD46B2EB44E9AC519294 /* Proxima Nova Extra Condensed Bold.otf */; };
 		9EC3981ED77646D897B58CEC /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF02CBC839744630AD2C3EF6 /* libRNVectorIcons.a */; };
 		AD12AD87159A42F9894DE6E3 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D37B0C137DC944F2B1D938F5 /* Entypo.ttf */; };
+		AD92EB3BEE694DE480D6FFD7 /* libRNTextInputMask.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A83336B8F4470885212387 /* libRNTextInputMask.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B311D67CBA4E4C5F8D45BF13 /* Swissra Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78739855550F4B378AE7A3E5 /* Swissra Black.otf */; };
 		B53D89901FE3CBDC00E4A562 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B53D898E1FE3CAAC00E4A562 /* libRNImagePicker.a */; };
+		B5A0CFF12028B79B00014202 /* InputMask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A0CFF02028B79B00014202 /* InputMask.framework */; };
+		B5A0CFF22028B79B00014202 /* InputMask.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B5A0CFF02028B79B00014202 /* InputMask.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B5C7A133201E563400396BFA /* AIRGMSMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C7A0E5201E563400396BFA /* AIRGMSMarker.m */; };
 		B5C7A134201E563400396BFA /* AIRGMSPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C7A0E7201E563400396BFA /* AIRGMSPolygon.m */; };
 		B5C7A135201E563400396BFA /* AIRGMSPolyline.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C7A0E9201E563400396BFA /* AIRGMSPolyline.m */; };
@@ -392,7 +396,28 @@
 			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
 			remoteInfo = AirMaps;
 		};
+		B5A0CFEE2028B6A300014202 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DB71CE75FCA44CCBB5AC5C9 /* RNTextInputMask.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 00278A001F2F25CE0023E794;
+			remoteInfo = RNTextInputMask;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B5A0CFF32028B79B00014202 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B5A0CFF22028B79B00014202 /* InputMask.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
@@ -425,6 +450,7 @@
 		2D02E47B1E0B4A5D006451C7 /* VideoAqar-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VideoAqar-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* VideoAqar-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VideoAqar-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DECC421FA874B6DA6C5C9EC /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
+		3DB71CE75FCA44CCBB5AC5C9 /* RNTextInputMask.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNTextInputMask.xcodeproj; path = "../node_modules/react-native-text-input-mask/ios/RNTextInputMask/RNTextInputMask.xcodeproj"; sourceTree = "<group>"; };
 		404BB35F934343C7ABA97C82 /* Swissra Heavy.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Swissra Heavy.otf"; path = "../app/common/assets/fonts/Swissra Heavy.otf"; sourceTree = "<group>"; };
 		45967D68E2574CEE9ABCDF50 /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
 		4963E6676587478C881B25AE /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
@@ -447,6 +473,7 @@
 		AB4DB648496A49658A19C0AD /* Swissra Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Swissra Medium.otf"; path = "../app/common/assets/fonts/Swissra Medium.otf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B582F98F1C0543A3A9A07BCD /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
+		B5A0CFF02028B79B00014202 /* InputMask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = InputMask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C7A0E4201E563400396BFA /* AIRGMSMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGMSMarker.h; sourceTree = "<group>"; };
 		B5C7A0E5201E563400396BFA /* AIRGMSMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGMSMarker.m; sourceTree = "<group>"; };
 		B5C7A0E6201E563400396BFA /* AIRGMSPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGMSPolygon.h; sourceTree = "<group>"; };
@@ -491,6 +518,7 @@
 		D37B0C137DC944F2B1D938F5 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		D585F2A7BC6440CD9CC10D6D /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "../node_modules/react-native-video/ios/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
 		EDA3B992A600828757DCD408 /* Pods-VideoAqar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoAqar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoAqar/Pods-VideoAqar.debug.xcconfig"; sourceTree = "<group>"; };
+		F2A83336B8F4470885212387 /* libRNTextInputMask.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNTextInputMask.a; sourceTree = "<group>"; };
 		F31B69C949A549C4B02D2ED4 /* Proxima Nova Black Italic_0.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Proxima Nova Black Italic_0.otf"; path = "../app/common/assets/fonts/Proxima Nova Black Italic_0.otf"; sourceTree = "<group>"; };
 		F7C4CEC896334615BD216BB4 /* Swissra Ultra Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Swissra Ultra Light.otf"; path = "../app/common/assets/fonts/Swissra Ultra Light.otf"; sourceTree = "<group>"; };
 		F8CCC095B1D948B0B8C6BC12 /* ProximaNova-Regular_0.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ProximaNova-Regular_0.otf"; path = "../app/common/assets/fonts/ProximaNova-Regular_0.otf"; sourceTree = "<group>"; };
@@ -530,8 +558,10 @@
 				33A8644ECA45450BAC676118 /* libAirMaps.a in Frameworks */,
 				9EC3981ED77646D897B58CEC /* libRNVectorIcons.a in Frameworks */,
 				90EB3EE2CC0B421E925B3E44 /* libRCTCamera.a in Frameworks */,
+				B5A0CFF12028B79B00014202 /* InputMask.framework in Frameworks */,
 				FB5E2A2C8B1041F7BD83C810 /* libRCTVideo.a in Frameworks */,
 				245818B413F4C333EE415854 /* libPods-VideoAqar.a in Frameworks */,
+				AD92EB3BEE694DE480D6FFD7 /* libRNTextInputMask.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,6 +785,7 @@
 				2DECC421FA874B6DA6C5C9EC /* RCTCamera.xcodeproj */,
 				D585F2A7BC6440CD9CC10D6D /* RCTVideo.xcodeproj */,
 				152CFAB22BCE4D4C97431849 /* RNImagePicker.xcodeproj */,
+				3DB71CE75FCA44CCBB5AC5C9 /* RNTextInputMask.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -771,6 +802,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				B5A0CFF02028B79B00014202 /* InputMask.framework */,
 				B5C7A0E3201E563400396BFA /* AirGoogleMaps */,
 				13B07FAE1A68108700A75B9A /* VideoAqar */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -855,6 +887,7 @@
 				F982F92996174BA08DAF1BE7 /* libRCTCamera.a */,
 				97807049B9784867959E6529 /* libRCTVideo.a */,
 				B582F98F1C0543A3A9A07BCD /* libRNImagePicker.a */,
+				F2A83336B8F4470885212387 /* libRNTextInputMask.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -863,6 +896,14 @@
 			isa = PBXGroup;
 			children = (
 				B55039B61FDB2F6200F3DF29 /* libAirMaps.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B5A0CFEB2028B6A200014202 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B5A0CFEF2028B6A300014202 /* libRNTextInputMask.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -945,6 +986,7 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				2446E984B8801A59C704ED78 /* [CP] Embed Pods Frameworks */,
 				A021CEA61FC22C0374389077 /* [CP] Copy Pods Resources */,
+				B5A0CFF32028B79B00014202 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1095,6 +1137,10 @@
 				{
 					ProductGroup = B53D898A1FE3CAAC00E4A562 /* Products */;
 					ProjectRef = 152CFAB22BCE4D4C97431849 /* RNImagePicker.xcodeproj */;
+				},
+				{
+					ProductGroup = B5A0CFEB2028B6A200014202 /* Products */;
+					ProjectRef = 3DB71CE75FCA44CCBB5AC5C9 /* RNTextInputMask.xcodeproj */;
 				},
 				{
 					ProductGroup = B53D880A1FE2EAA500E4A562 /* Products */;
@@ -1399,6 +1445,13 @@
 			remoteRef = B55039B51FDB2F6200F3DF29 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		B5A0CFEF2028B6A300014202 /* libRNTextInputMask.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNTextInputMask.a;
+			remoteRef = B5A0CFEE2028B6A300014202 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1642,12 +1695,14 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-text-input-mask/ios/RNTextInputMask/RNTextInputMask/**",
 				);
 				INFOPLIST_FILE = VideoAqarTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1676,12 +1731,14 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-text-input-mask/ios/RNTextInputMask/RNTextInputMask/**",
 				);
 				INFOPLIST_FILE = VideoAqarTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1701,6 +1758,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EDA3B992A600828757DCD408 /* Pods-VideoAqar.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -1714,6 +1772,7 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-text-input-mask/ios/RNTextInputMask/RNTextInputMask/**",
 				);
 				INFOPLIST_FILE = VideoAqar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1734,6 +1793,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FD8ED782A262B3DDB7767EEE /* Pods-VideoAqar.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -1746,6 +1806,7 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-text-input-mask/ios/RNTextInputMask/RNTextInputMask/**",
 				);
 				INFOPLIST_FILE = VideoAqar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1781,11 +1842,13 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-text-input-mask/ios/RNTextInputMask/RNTextInputMask/**",
 				);
 				INFOPLIST_FILE = "VideoAqar-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1823,11 +1886,13 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-text-input-mask/ios/RNTextInputMask/RNTextInputMask/**",
 				);
 				INFOPLIST_FILE = "VideoAqar-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1866,6 +1931,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.VideoAqar-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1890,6 +1956,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
