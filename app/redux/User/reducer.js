@@ -10,8 +10,10 @@ const initialState = {
   
   verifyPhoneInfo: null,
   verifyCodeInfo: null,
-  
+
   userSignupInfo: null,
+  
+  forgotPasswordResult: null, 
 };
 
 export default function user(state = initialState, action = {}) {
@@ -103,6 +105,27 @@ export default function user(state = initialState, action = {}) {
         userSignupInfo: null,
       };
     
+    /**************************/
+    /* Forgo password
+    /**************************/
+    case types.FORGOT_PASSWORD_REQUEST:
+      return {
+        ...initialState,
+        loading: true,
+      };
+    case types.FORGOT_PASSWORD_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        forgotPasswordResult: action.result.data
+      }
+    case types.FORGOT_PASSWORD_FAILED:
+      return {
+        ...state,
+        loading: false,
+        forgotPasswordResult: null,
+      };
+
     /*
       Suer sign out
     */

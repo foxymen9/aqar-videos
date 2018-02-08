@@ -26,31 +26,23 @@ import I18n from '@i18n';
 import * as commonStyles from '@common/styles/commonStyles';
 import * as commonColors from '@common/styles/commonColors';
 import { styles } from './styles';
-import { userSignIn, changeMenu } from '@redux/User/actions';
+import { userSignIn, forgotPassword, changeMenu } from '@redux/User/actions';
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mobile: '',
-      password: '',
+      email: 'test@user.com',
+      password: '@test1234',
       loading: false,
-      isAlert: false,
+      isLoginAlert: false,    //show signin result
+      isForgotAlert: false,   //show if email is numm 
+      isForgotResultAlert: false,   //show forgot password reuslt
     }
   }
 
-  onLogin() {
-    let data = {
-      email: 'test@user.com',
-      password:  '@test1234'
-    };
-
-    this.setState({loading: true});
-    this.props.userSignIn(data, this.props.tokenInfo.token);
-  }
-
   componentWillReceiveProps(nextProps) {
-    const { userInfo, userLogin, loading } = nextProps;
+    const { userInfo, userLogin, forgotPasswordResult, loading } = nextProps;
 
     if (userInfo != null) {
       // console.log('USER_INFO', userInfo);
@@ -60,17 +52,44 @@ class Login extends Component {
         Actions.Main();
       }
       else {
-        this.setState({isAlert: true});
+        this.setState({isLoginAlert: true});
       }
+    }
+
+    if (forgotPasswordResult != null) {
+      console.log('LLLLLLL', forgotPasswordResult);
+      this.setState({loading: false});
+      this.setState({isForgotResultAlert: true});
     }
   }
 
-  onForgotPassword() {
+  onLogin() {
+    this.setState({loading: true});
+    
+    let data = {
+      email: this.state.email,
+      password:  this.state.password
+    };
+    this.props.userSignIn(data, this.props.tokenInfo.token);
+  }
 
+  onForgotPassword() {
+    if (this.state.email == '') {
+      this.setState({isForgotAlert: true});
+    }
+    else {
+      this.setState({loading: true});
+
+      let data = {
+        email: this.state.email
+      };
+      this.props.forgotPassword(data, this.props.tokenInfo.token);
+    }
   }
 
   render() {
-    const { userInfo } = this.props;
+    const { userInfo, forgotPasswordResult } = this.props;
+
     return (
       <View style={styles.container}>
         <LoadingSpinner visible={this.state.loading } />
@@ -78,31 +97,47 @@ class Login extends Component {
           <CustomAlert 
             title="Error"
             message={userInfo.errors.email_exists} 
-            visible={this.state.isAlert} 
-            closeAlert={()=>this.setState({isAlert: false})}
+            visible={this.state.isLoginAlert} 
+            closeAlert={()=>this.setState({isLoginAlert: false})}
           />
         )}
+
+        {forgotPasswordResult && (
+          <CustomAlert 
+            title="Error"
+            message={forgotPasswordResult.message} 
+            visible={this.state.isForgotResultAlert} 
+            closeAlert={()=>this.setState({isForgotResultAlert: false})}
+          />
+        )}
+        
+        <CustomAlert 
+          title="Warning"
+          message="Please input your email"
+          visible={this.state.isForgotAlert} 
+          closeAlert={()=>this.setState({isForgotAlert: false})}
+        />
 
         <KeyboardAwareScrollView>
           <View style={styles.fieldContainer}>
             <View style={styles.inputView}>
-              <TextInputMask 
-                mask={"+[00000000000000]"}
-                ref="mobileNumber"
+              <TextInput
+                ref="email"
                 autoCapitalize="none"
                 autoCorrect={ false }
-                placeholder={I18n.t('profile.ph_mobile_number')}
+                placeholder={I18n.t('profile.ph_email')}
                 placeholderTextColor={ commonColors.placeholderText }
                 textAlign="right"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
-                keyboardType="phone-pad"
-                value={ this.state.mobile }
-                onChangeText={ (text) => this.setState({ mobile: text }) }
+                keyboardType="email-address"
+                value={ this.state.email }
+                onChangeText={ (text) => this.setState({ email: text }) }
+                onSubmitEditing={ () => this.refs.password.focus() }
               />
               <View style={styles.iconView}>
-                <Icon name='screen-tablet' style={styles.inputIcon}></Icon>
+                <Icon name='envelope' style={styles.inputIcon}></Icon>
               </View>
             </View>
             <View style={styles.inputView}>
@@ -147,5 +182,6 @@ export default connect(state => ({
   tokenInfo: state.token.tokenInfo,
   userInfo: state.user.userInfo,
   userLogin: state.user.userLogin,
+  forgotPasswordResult: state.user.forgotPasswordResult,
   loading: state.user.loading,
-}),{ userSignIn, changeMenu })(Login);
+}),{ userSignIn, forgotPassword, changeMenu })(Login);

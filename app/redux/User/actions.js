@@ -3,15 +3,12 @@ import { API_URL } from '@common';
 import axios from 'axios';
 
 export function userSignOut() {
-  //Save user's current location
   return {
     type: types.USER_SIGN_OUT,
   };
 }
 
 export function userSignIn(data, token) {
-  //Save user's current location
-
   return {
     types: [types.USER_SIGN_IN_REQUEST, types.USER_SIGN_IN_SUCCESS, types.USER_SIGN_IN_FAILED],
     promise:
@@ -51,13 +48,25 @@ export function verifyCode(data, token) {
 }
 
 export function userSignUp(data, token) {
-  console.log('PARAM', data);
   return {
     types: [types.USER_SIGNUP_REQUEST, types.USER_SIGNUP_SUCCESS, types.USER_SIGNUP_FAILED],
     promise:
       axios({
           method: 'post',
           url: `${API_URL}?route=api/customer/register&api_token=${token}`,
+          headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+          data: data
+      })  
+  };
+}
+
+export function forgotPassword(data, token) {
+  return {
+    types: [types.FORGOT_PASSWORD_REQUEST, types.FORGOT_PASSWORD_SUCCESS, types.FORGOT_PASSWORD_FAILED],
+    promise:
+      axios({
+          method: 'post',
+          url: `${API_URL}?route=api/customer/forgetpassword&api_token=${token}`,
           headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
           data: data
       })  
