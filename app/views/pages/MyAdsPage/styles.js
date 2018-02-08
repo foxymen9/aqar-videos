@@ -1,8 +1,8 @@
 import {
   StyleSheet,
 } from 'react-native';
-import * as commonStyles from '../../../common/styles/commonStyles';
-import * as commonColors from '../../../common/styles/commonColors';
+import * as commonStyles from '@common/styles/commonStyles';
+import * as commonColors from '@common/styles/commonColors';
 
 const listItemWidth = (commonStyles.screenWidth - commonStyles.padding * 2 - 15) / 2;
 

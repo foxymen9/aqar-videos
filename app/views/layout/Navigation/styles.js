@@ -6,8 +6,8 @@ import { ifIphoneX } from 'react-native-iphone-x-helper';
 
 const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? ifIphoneX(44, 20) : 0;
 
-import * as commonStyles from '../../../common/styles/commonStyles';
-import * as commonColors from '../../../common/styles/commonColors';
+import * as commonStyles from '@common/styles/commonStyles';
+import * as commonColors from '@common/styles/commonColors';
 
 export const styles = StyleSheet.create({
   container: {

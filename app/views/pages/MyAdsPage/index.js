@@ -12,7 +12,7 @@ import {
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
-import Container from '../../layout/Container';
+import Container from '@layout/Container';
 import { styles } from './styles';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import I18n from '@i18n';

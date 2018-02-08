@@ -19,12 +19,12 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
 import { styles } from './styles';
-import * as commonStyles from '../../../common/styles/commonStyles';
+import * as commonStyles from '@common/styles/commonStyles';
 
-import { saveMyLocation } from '../../../redux/Map/actions';
+import { saveMyLocation } from '@redux/Map/actions';
 
-import MapPage from '../../pages/MapPage';
-import ProductListPage from '../../pages/ProductListPage';
+import MapPage from '@pages/MapPage';
+import ProductListPage from '@pages/ProductListPage';
 
 const ASPECT_RATIO = commonStyles.screenWidth / commonStyles.screenHeight
 const LATITUDE_DELTA = 0.0922;

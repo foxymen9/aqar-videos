@@ -14,20 +14,20 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import I18n from '@i18n';
 import { styles } from './styles';
-import { userSignOut, changeMenu } from '../../../redux/User/actions';
+import { userSignOut, changeMenu } from '@redux/User/actions';
 
-const icon_login = require('../../../common/assets/images/menu/login_signup.png');
-const icon_offer = require('../../../common/assets/images/menu/special_offer.png');
-const icon_package = require('../../../common/assets/images/menu/package.png');
-const icon_support = require('../../../common/assets/images/menu/advertising_support.png');
-const icon_area = require('../../../common/assets/images/menu/area.png');
-const icon_message = require('../../../common/assets/images/menu/messages.png');
-const icon_location = require('../../../common/assets/images/menu/my_location.png');
-const icon_myad = require('../../../common/assets/images/menu/my_ads.png');
-const icon_newad = require('../../../common/assets/images/menu/post_new_ad.png');
-const icon_signout = require('../../../common/assets/images/menu/sign_out.png');
-const icon_pen = require('../../../common/assets/images/menu/pen.png');
-const icon_wishlist = require('../../../common/assets/images/menu/my_wishlist.png');
+const icon_login = require('@common/assets/images/menu/login_signup.png');
+const icon_offer = require('@common/assets/images/menu/special_offer.png');
+const icon_package = require('@common/assets/images/menu/package.png');
+const icon_support = require('@common/assets/images/menu/advertising_support.png');
+const icon_area = require('@common/assets/images/menu/area.png');
+const icon_message = require('@common/assets/images/menu/messages.png');
+const icon_location = require('@common/assets/images/menu/my_location.png');
+const icon_myad = require('@common/assets/images/menu/my_ads.png');
+const icon_newad = require('@common/assets/images/menu/post_new_ad.png');
+const icon_signout = require('@common/assets/images/menu/sign_out.png');
+const icon_pen = require('@common/assets/images/menu/pen.png');
+const icon_wishlist = require('@common/assets/images/menu/my_wishlist.png');
 
 class Sidebar extends Component {
   constructor(props) {

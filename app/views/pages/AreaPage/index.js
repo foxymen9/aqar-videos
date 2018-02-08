@@ -11,11 +11,11 @@ import {
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
-import Container from '../../layout/Container';
+import Container from '@layout/Container';
 import MapPage from '../MapPage';
 import ProductListPage from '../ProductListPage';
-import ButtonPlusComponent from '../../components/ButtonPlusComponent';
-import MapButtonListComponent from '../../components/MapButtonListComponent';
+import ButtonPlusComponent from '@components/ButtonPlusComponent';
+import MapButtonListComponent from '@components/MapButtonListComponent';
 
 import { styles } from './styles';
 

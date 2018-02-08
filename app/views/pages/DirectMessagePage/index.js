@@ -14,12 +14,12 @@ import FontAwesome, {Icons} from 'react-native-fontawesome';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
-import Container from '../../layout/Container';
-import DropdownComponent from '../../components/DropdownComponent';
+import Container from '@layout/Container';
+import DropdownComponent from '@components/DropdownComponent';
 
 import { styles } from './styles';
-import * as commonStyles from '../../../common/styles/commonStyles';
-import * as commonColors from '../../../common/styles/commonColors';
+import * as commonStyles from '@common/styles/commonStyles';
+import * as commonColors from '@common/styles/commonColors';
 
 export default class DirectMessagePage extends Component {
   constructor(props) {

@@ -1,9 +1,9 @@
 import {
   StyleSheet,
 } from 'react-native';
-import * as commonStyles from '../../../common/styles/commonStyles';
-import * as commonColors from '../../../common/styles/commonColors';
-import { tabBarHieght } from '../../../common/styles/commonStyles';
+import * as commonStyles from '@common/styles/commonStyles';
+import * as commonColors from '@common/styles/commonColors';
+import { tabBarHieght } from '@common/styles/commonStyles';
 
 const categoryHeight = 100;
 

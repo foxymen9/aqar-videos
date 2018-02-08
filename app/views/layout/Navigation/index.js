@@ -19,8 +19,8 @@ import Icon from 'react-native-vector-icons/Feather';
 
 import { styles } from './styles';
 
-const icon_menu = require('../../../common/assets/images/navigation/menu.png');
-const icon_search = require('../../../common/assets/images/navigation/search.png');
+const icon_menu = require('@common/assets/images/navigation/menu.png');
+const icon_search = require('@common/assets/images/navigation/search.png');
 
 class Navigation extends Component {
   constructor(props) {
