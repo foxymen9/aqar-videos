@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
     bottom: 80,
   },
   btnMapType: {
-    width: 75,
-    height: 75,
+    width: 73,
+    height: 73,
   }
 });

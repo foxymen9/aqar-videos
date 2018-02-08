@@ -116,7 +116,7 @@ class Signup extends Component {
 
         {this.props.verifyCodeInfo && (
           <CustomAlert 
-            title="Error"
+            title={this.props.verifyCodeInfo == 200 ? 'Succeess' : 'Error'}
             message={this.props.verifyCodeInfo.message} 
             visible={this.state.isAlert} 
             closeAlert={()=>{ this.checkCodeResult() }}

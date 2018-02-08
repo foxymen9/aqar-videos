@@ -38,7 +38,6 @@ export function verifyPhone(data, token) {
 }
 
 export function verifyCode(data, token) {
-  console.log('PARAM', data);
   return {
     types: [types.VERIFY_CODE_REQUEST, types.VERIFY_CODE_SUCCESS, types.VERIFY_CODE_FAILED],
     promise:
@@ -52,6 +51,7 @@ export function verifyCode(data, token) {
 }
 
 export function userSignUp(data, token) {
+  console.log('PARAM', data);
   return {
     types: [types.USER_SIGNUP_REQUEST, types.USER_SIGNUP_SUCCESS, types.USER_SIGNUP_FAILED],
     promise:

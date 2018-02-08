@@ -13,8 +13,11 @@ export const styles = StyleSheet.create({
   btnPlus: {
     bottom: 170,
   },
+  btnPlusList: {
+    bottom: 0,
+  },
   btnIcon: {
-    width: 75,
-    height: 75,
+    width: 73,
+    height: 73,
   }
 });

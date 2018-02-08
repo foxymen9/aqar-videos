@@ -32,7 +32,7 @@ export default class MapButtonListComponent extends Component {
     const {btnStatus} = this.props;
 
     return (
-      <View style={[styles.btn, styles.btnView]}>
+      <View style={[styles.btn, this.props.btnStatus=='map' ? styles.btnView : styles.btnViewList]}>
         <View>
           <TouchableOpacity onPress={()=>this.props.onSelectItem('list')} activeOpacity={0.8}>
             <Image source={btnStatus=='list' ? icon_map: icon_list} style={styles.btnIcon} />

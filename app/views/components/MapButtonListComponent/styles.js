@@ -16,10 +16,13 @@ export const styles = StyleSheet.create({
     zIndex: 99,
   },
   btnView: {
-    bottom: 250,
+    bottom: 240,
+  },
+  btnViewList: {
+    bottom: 70,
   },
   btnIcon: {
-    width: 75,
-    height: 75,
+    width: 73,
+    height: 73,
   }
 });
