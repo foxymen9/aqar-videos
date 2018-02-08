@@ -3,28 +3,26 @@ import * as types from './actionTypes';
 const initialState = {
   loading: false,
   error:null,
+  menuIndex: 0,
+
   userInfo: null,
   userLogin: false,
-  menuIndex: 0,
+  
   verifyPhoneInfo: null,
   verifyCodeInfo: null,
+  
+  userSignupInfo: null,
 };
 
 export default function user(state = initialState, action = {}) {
   switch (action.type) {
     /**************************/
-    /* My Location Information
-    /**************************/
-
-
-    /**************************/
     /* Get API Token
     /**************************/
     case types.USER_SIGN_IN_REQUEST:
       return {
-        ...state,
+        ...initialState,
         loading: true,
-        userInfo: null,
       };
     case types.USER_SIGN_IN_SUCCESS:
       return {
@@ -46,10 +44,8 @@ export default function user(state = initialState, action = {}) {
     /**************************/
     case types.VERIFY_PHONE_REQUEST:
     return {
-      ...state,
+      ...initialState,
       loading: true,
-      veryfyPhoneInfo: null,
-      verifyCodeInfo: null,
     };
   case types.VERIFY_PHONE_SUCCESS:
     return {
@@ -68,37 +64,56 @@ export default function user(state = initialState, action = {}) {
     /* Verify phone code
     /**************************/
     case types.VERIFY_CODE_REQUEST:
-    return {
-      ...state,
-      loading: true,
-      verifyCodeInfo: null,
-      verifyPhoneInfo: null,
-    };
-  case types.VERIFY_CODE_SUCCESS:
-    return {
-      ...state,
-      loading: false,
-      verifyCodeInfo: action.result.data
-    }
-  case types.VERIFY_CODE_FAILED:
-    return {
-      ...state,
-      loading: false,
-      verifyCodeInfo: null,
-    };
-
+      return {
+        ...initialState,
+        loading: true,
+      };
+    case types.VERIFY_CODE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        verifyCodeInfo: action.result.data
+      }
+    case types.VERIFY_CODE_FAILED:
+      return {
+        ...state,
+        loading: false,
+        verifyCodeInfo: null,
+      };
+    
+    /*
+      User signup
+    */
+    case types.USER_SIGNUP_REQUEST:
+      return {
+        ...initialState,
+        loading: true,
+      };
+    case types.USER_SIGNUP_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        userSignupInfo: action.result.data
+      }
+    case types.USER_SIGNUP_FAILED:
+      return {
+        ...state,
+        loading: false,
+        userSignupInfo: null,
+      };
+    
+    /*
+      Suer sign out
+    */
     case types.USER_SIGN_OUT:
       return {
         ...state,
         userLogin: false,
       };
 
-    case types.USER_SIGN_UP:
-      return {
-        ...state,
-        userLogin: true,
-      };
-
+    /* 
+      Menu status for selected item
+    */
     case types.CHANGE_MENU:
       return {
         ...state,

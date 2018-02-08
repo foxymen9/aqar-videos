@@ -78,7 +78,8 @@ export default {
     title: "Title",
   },
   profile: {
-    ph_name: "Full Name",
+    ph_firstname: "First Name",
+    ph_lastname: "Last Name",
     ph_mobile_number: "Mobile Number",
     ph_email: "E-mail (optional)",
     ph_password: "Password",

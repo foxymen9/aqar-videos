@@ -76,6 +76,7 @@ class Login extends Component {
         <LoadingSpinner visible={this.state.loading } />
         {userInfo && (
           <CustomAlert 
+            title="Error"
             message={userInfo.errors.email_exists} 
             visible={this.state.isAlert} 
             closeAlert={()=>this.setState({isAlert: false})}

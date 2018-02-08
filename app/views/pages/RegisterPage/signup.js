@@ -33,25 +33,26 @@ class Signup extends Component {
     super(props);
     this.state = {
       loading: false,
-      mobile: '',
+      mobile: '+8618841565317',
+      code: '1234567',
       password: '',
       confirmPassword: '',
       email: '',  
-      fullName: '',
-      code: '',
+      firstName: '',
+      lastName: '',
       verifyStep: 0,
     }
   }
 
   componentWillReceiveProps(nextProps) {
     const { verifyPhoneInfo, verifyCodeInfo } = nextProps;
-    if (verifyPhoneInfo != null) {
+    if (verifyPhoneInfo) {
       console.log('PHONE_INFO', verifyPhoneInfo);
       this.setState({loading: false});
       this.setState({isAlert: true});
     }
-    if (verifyCodeInfo != null) {
-      console.log('CODE_INFO', verifyPhoneInfo);
+    if (verifyCodeInfo) {
+      console.log('CODE_INFO', verifyCodeInfo);
       this.setState({loading: false});
       this.setState({isAlert: true});
     }
@@ -60,8 +61,7 @@ class Signup extends Component {
   //Verify phone number (step 1)
   onVerifyPhone() {
     let data = {
-      // phone: this.state.mobile
-      phone: '+8618841565317'
+      phone: this.state.mobile
     }
     this.setState({loading: true});
     this.props.verifyPhone(data, this.props.tokenInfo.token);
@@ -70,22 +70,34 @@ class Signup extends Component {
   //Verify received code (step 2)
   onVerifyCode() {
     let data = {
-      // phone: this.state.mobile
-      phone: '+8618841565317',
-      code: '239885',
+      phone: this.state.mobile,
+      code: this.state.code,
     }
     this.setState({loading: true});
     this.props.verifyCode(data, this.props.tokenInfo.token);
   }
 
-  onSignUp() {
-    this.props.userSignUp();
-    this.props.changeMenu(0);
-    Actions.Main();
+  checkCodeResult() {
+    this.setState({isAlert: false});
+    if (this.props.verifyCodeInfo.message == 'Invalid Code!')
+      this.setState({verifyStep: 0});
+    else
+      this.setState({verifyStep: 2});
   }
 
-  changeStep(pos) {
-    this.setState({verifyStep: pos});
+  onSignUp() {
+    let data = {
+      firstname: this.state.firstName,
+      lastname: this.state.lastnName,
+      email: this.state.email,
+      password: this.state.password,
+      confirm: this.state.confirmPassword,
+      telephone: this.state.mobile
+    }
+    this.setState({loading: true});
+    this.props.userSignUp(data, this.props.tokenInfo.token);
+    this.props.changeMenu(0);
+    // Actions.Main();
   }
 
   render() {
@@ -96,6 +108,7 @@ class Signup extends Component {
 
         {this.props.verifyPhoneInfo && (
           <CustomAlert 
+            title="Success"
             message={this.props.verifyPhoneInfo.message} 
             visible={this.state.isAlert} 
             closeAlert={()=>{ this.setState({isAlert: false, verifyStep: 1}); }}
@@ -103,9 +116,10 @@ class Signup extends Component {
 
         {this.props.verifyCodeInfo && (
           <CustomAlert 
+            title="Error"
             message={this.props.verifyCodeInfo.message} 
             visible={this.state.isAlert} 
-            closeAlert={()=>{ this.setState({isAlert: false, verifyStep: 2}); }}
+            closeAlert={()=>{ this.checkCodeResult() }}
           />)}
 
         <View style={styles.wizard}>      
@@ -114,7 +128,6 @@ class Signup extends Component {
               currentPosition={this.state.verifyStep}
               labels={[I18n.t('profile.wizard_phone'), I18n.t('profile.wizard_code'), I18n.t('profile.wizard_signup')]}
               stepCount={3}
-              onPress={(pos)=>this.changeStep(pos)}
           />
         </View>
 
@@ -123,17 +136,36 @@ class Signup extends Component {
           <View style={styles.fieldContainer}>
             <View style={styles.inputView}>
               <TextInput
-                ref="fullName"
+                ref="firstName"
                 autoCapitalize="none"
                 autoCorrect={ true }
-                placeholder={I18n.t('profile.ph_name')}
+                placeholder={I18n.t('profile.ph_firstname')}
                 placeholderTextColor={ commonColors.placeholderText }
                 textAlign="right"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
-                value={ this.state.fullName }
-                onChangeText={ (text) => this.setState({ fullName: text }) }
+                value={ this.state.firstName }
+                onChangeText={ (text) => this.setState({ firstName: text }) }
+                onSubmitEditing={ () => this.refs.lastName.focus() }
+              />
+              <View style={styles.iconView}>
+                <Icon name='user' style={styles.inputIcon}></Icon>
+              </View>
+            </View>
+            <View style={styles.inputView}>
+              <TextInput
+                ref="Last Name"
+                autoCapitalize="none"
+                autoCorrect={ true }
+                placeholder={I18n.t('profile.ph_lasttname')}
+                placeholderTextColor={ commonColors.placeholderText }
+                textAlign="right"
+                style={styles.input}
+                underlineColorAndroid="transparent"
+                returnKeyType={ 'next' }
+                value={ this.state.lastName }
+                onChangeText={ (text) => this.setState({ lastName: text }) }
                 onSubmitEditing={ () => this.refs.mobileNumber.focus() }
               />
               <View style={styles.iconView}>

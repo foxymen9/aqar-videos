@@ -18,12 +18,12 @@ export default class CustomAlert extends Component {
   }
 
   render(){
-    const {message, visible} = this.props;
+    const {message, visible, title} = this.props;
     return (
       <AwesomeAlert
           show={visible}
           showProgress={false}
-          title="Error"
+          title={title}
           message={message}
           closeOnTouchOutside={true}
           closeOnHardwareBackPress={false}
