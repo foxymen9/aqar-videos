@@ -9,7 +9,7 @@ const listItemWidth = (commonStyles.screenWidth - commonStyles.padding * 2 - 15)
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    height: '100%',
+    height: commonStyles.screenNormalHeight,
     width: '100%',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -55,7 +55,7 @@ export const styles = StyleSheet.create({
   },
   day: {
     fontFamily: commonStyles.normalFont,
-    fontSize: 25,
+    fontSize: 20,
     color: 'white',
     fontStyle: 'italic',
     fontWeight: 'bold',

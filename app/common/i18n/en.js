@@ -38,7 +38,7 @@ export default {
     free_trial: 'FREE TRIAL',
     extend: 'EXTEND',
     try: 'TRY',
-    trial_version: 'TRIAL_VERSION',
+    trial_version: 'TRIAL VERSION',
     congratulation: 'CONGRATULATIONS YOU HAVE SUCCESSFULLY UPDATED YOUR',
   },
   post_video: {

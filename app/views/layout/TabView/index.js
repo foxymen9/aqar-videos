@@ -89,10 +89,21 @@ class TabView extends Component {
 
   render() {
     const {btnStatus} = this.props;
-    const { tabIndex, region, currentLocation } = this.state;
+    let { tabIndex, region, currentLocation } = this.state;
     
-    if (currentLocation == null || region == null) {
-      return null;
+    if (currentLocation == null) {
+      currentLocation = {
+        latitude: 37.78825,
+        longitude: -122.4324,
+      }
+    }
+    if (region == null) {
+      region = {
+        latitude: 37.78825,
+        longitude: -122.4324,
+        latitudeDelta: 0.05,
+        longitudeDelta: 0.05,
+      }
     }
     
     let buildingData = [
