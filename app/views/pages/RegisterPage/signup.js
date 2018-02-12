@@ -35,17 +35,17 @@ class Signup extends Component {
       loading: false,
       mobile: '+8618841565317',
       code: '1234567',
-      password: '',
-      confirmPassword: '',
-      email: '',  
-      firstName: '',
-      lastName: '',
+      password: '111111',
+      confirmPassword: '111111',
+      email: 'test1@test1.com',  
+      firstName: 'test1',
+      lastName: 'test2',
       verifyStep: 0,
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    const { verifyPhoneInfo, verifyCodeInfo } = nextProps;
+    const { verifyPhoneInfo, verifyCodeInfo, userSignupInfo } = nextProps;
     if (verifyPhoneInfo) {
       console.log('PHONE_INFO', verifyPhoneInfo);
       this.setState({loading: false});
@@ -53,6 +53,11 @@ class Signup extends Component {
     }
     if (verifyCodeInfo) {
       console.log('CODE_INFO', verifyCodeInfo);
+      this.setState({loading: false});
+      this.setState({isAlert: true});
+    }
+    if (userSignupInfo) {
+      console.log('USER_SIGNUP_INFO', userSignupInfo);
       this.setState({loading: false});
       this.setState({isAlert: true});
     }
@@ -67,6 +72,13 @@ class Signup extends Component {
     this.props.verifyPhone(data, this.props.tokenInfo.token);
   }
 
+  checkPhoneResult() {
+    this.setState({isAlert: false});
+    if (this.props.verifyPhoneInfo.status == 200) {
+      this.setState({verifyStep: 1});
+    }
+  }
+
   //Verify received code (step 2)
   onVerifyCode() {
     let data = {
@@ -79,7 +91,7 @@ class Signup extends Component {
 
   checkCodeResult() {
     this.setState({isAlert: false});
-    if (this.props.verifyCodeInfo.message == 'Invalid Code!')
+    if (this.props.verifyCodeInfo.status == 101)
       this.setState({verifyStep: 0});
     else
       this.setState({verifyStep: 2});
@@ -88,7 +100,7 @@ class Signup extends Component {
   onSignUp() {
     let data = {
       firstname: this.state.firstName,
-      lastname: this.state.lastnName,
+      lastname: this.state.lastName,
       email: this.state.email,
       password: this.state.password,
       confirm: this.state.confirmPassword,
@@ -100,6 +112,13 @@ class Signup extends Component {
     // Actions.Main();
   }
 
+  checkUserSignupResult() {
+    this.setState({isAlert: false});
+    if (this.props.userSignupInfo.status == 200) {
+      Actions.Main();
+    }
+  }
+
   render() {
 
     return (
@@ -108,18 +127,26 @@ class Signup extends Component {
 
         {this.props.verifyPhoneInfo && (
           <CustomAlert 
-            title="Success"
+            title={this.props.verifyPhoneInfo.status == 200 ? 'Success' : 'Error'}
             message={this.props.verifyPhoneInfo.message} 
             visible={this.state.isAlert} 
-            closeAlert={()=>{ this.setState({isAlert: false, verifyStep: 1}); }}
+            closeAlert={()=>{ this.checkPhoneResult(); }}
           />)}
 
         {this.props.verifyCodeInfo && (
           <CustomAlert 
-            title={this.props.verifyCodeInfo == 200 ? 'Succeess' : 'Error'}
+            title={this.props.verifyCodeInfo.status == 200 ? 'Success' : 'Error'}
             message={this.props.verifyCodeInfo.message} 
             visible={this.state.isAlert} 
-            closeAlert={()=>{ this.checkCodeResult() }}
+            closeAlert={()=>{ this.checkCodeResult(); }}
+          />)}
+        
+        {this.props.userSignupInfo && (
+          <CustomAlert 
+            title={this.props.userSignupInfo.status == 200 ? 'Success' : 'Error'}
+            message={this.props.userSignupInfo.message} 
+            visible={this.state.isAlert} 
+            closeAlert={()=>{ this.checkUserSignupResult(); }}
           />)}
 
         <View style={styles.wizard}>      
@@ -158,7 +185,7 @@ class Signup extends Component {
                 ref="Last Name"
                 autoCapitalize="none"
                 autoCorrect={ true }
-                placeholder={I18n.t('profile.ph_lasttname')}
+                placeholder={I18n.t('profile.ph_lastname')}
                 placeholderTextColor={ commonColors.placeholderText }
                 textAlign="right"
                 style={styles.input}
@@ -357,4 +384,5 @@ export default connect(state => ({
   tokenInfo: state.token.tokenInfo,
   verifyPhoneInfo: state.user.verifyPhoneInfo,
   verifyCodeInfo: state.user.verifyCodeInfo,
+  userSignupInfo: state.user.userSignupInfo,
 }),{ verifyPhone, verifyCode, userSignUp, changeMenu })(Signup);

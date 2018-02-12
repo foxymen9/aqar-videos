@@ -92,7 +92,6 @@ export default function user(state = initialState, action = {}) {
         loading: true,
       };
     case types.USER_SIGNUP_SUCCESS:
-      console.log('RESULT', action.result.data);
       return {
         ...state,
         loading: false,
