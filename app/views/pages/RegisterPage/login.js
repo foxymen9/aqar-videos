@@ -32,8 +32,8 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: 'test@user.com',
-      password: '@test1234',
+      email: 'test1@test1.com',
+      password: '111111',
       loading: false,
       isLoginAlert: false,    //show signin result
       isForgotAlert: false,   //show if email is numm 
@@ -42,22 +42,16 @@ class Login extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { userInfo, userLogin, forgotPasswordResult, loading } = nextProps;
+    const { userInfo, forgotPasswordResult } = nextProps;
 
     if (userInfo != null) {
-      // console.log('USER_INFO', userInfo);
+      console.log('USER_INFO', userInfo);
+      this.setState({isLoginAlert: true});
       this.setState({loading: false});
-      if (userLogin) {
-        this.props.changeMenu(0);
-        Actions.Main();
-      }
-      else {
-        this.setState({isLoginAlert: true});
-      }
     }
 
     if (forgotPasswordResult != null) {
-      console.log('LLLLLLL', forgotPasswordResult);
+      console.log('ForgotInfo', forgotPasswordResult);
       this.setState({loading: false});
       this.setState({isForgotResultAlert: true});
     }
@@ -71,6 +65,16 @@ class Login extends Component {
       password:  this.state.password
     };
     this.props.userSignIn(data, this.props.tokenInfo.token);
+  }
+
+  checkUserLoginResult() {
+    const { userLogin } = this.props;
+    
+    this.setState({isLoginAlert: false});
+    if (userLogin) {
+      this.props.changeMenu(0);
+      Actions.Main();
+    }
   }
 
   onForgotPassword() {
@@ -95,16 +99,16 @@ class Login extends Component {
         <LoadingSpinner visible={this.state.loading } />
         {userInfo && (
           <CustomAlert 
-            title="Error"
-            message={userInfo.errors.email_exists} 
+            title={userInfo.status == 200 ? 'Success' : 'Error'}
+            message={userInfo.status == 200 ? userInfo.message : userInfo.errors.email_exists} 
             visible={this.state.isLoginAlert} 
-            closeAlert={()=>this.setState({isLoginAlert: false})}
+            closeAlert={()=>{this.checkUserLoginResult();}}
           />
         )}
 
         {forgotPasswordResult && (
           <CustomAlert 
-            title="Error"
+            title={forgotPasswordResult.status == 200 ? 'Success' : 'Error'}
             message={forgotPasswordResult.message} 
             visible={this.state.isForgotResultAlert} 
             closeAlert={()=>this.setState({isForgotResultAlert: false})}

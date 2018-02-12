@@ -30,7 +30,7 @@ export default function user(state = initialState, action = {}) {
       return {
         ...state,
         loading: false,
-        userLogin: action.result.data.errors ? false : true,
+        userLogin: action.result.data.status == 200 ? true : false,
         userInfo: action.result.data,
       }
     case types.USER_SIGN_IN_FAILED:
@@ -130,7 +130,7 @@ export default function user(state = initialState, action = {}) {
     */
     case types.USER_SIGN_OUT:
       return {
-        ...state,
+        ...initialState,
         userLogin: false,
       };
 

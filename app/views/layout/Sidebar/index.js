@@ -78,6 +78,7 @@ class Sidebar extends Component {
           this.props.userSignOut();
           this.props.changeMenu(0);
           Actions.Main();
+          this.props.menuState();
         default: 
           break;
       }

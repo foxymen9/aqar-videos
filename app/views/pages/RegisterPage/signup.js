@@ -115,6 +115,7 @@ class Signup extends Component {
   checkUserSignupResult() {
     this.setState({isAlert: false});
     if (this.props.userSignupInfo.status == 200) {
+      this.props.changeMenu(0);
       Actions.Main();
     }
   }
