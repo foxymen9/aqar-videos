@@ -7,7 +7,8 @@ import {
   View,
   Text,
   Image,
-  ListView
+  ListView,
+  AsyncStorage
 } from 'react-native';
 
 import { connect } from 'react-redux';
@@ -76,6 +77,7 @@ class Sidebar extends Component {
           break;
         case '9':
           this.props.userSignOut();
+          AsyncStorage.removeItem('loginStatus');
           this.props.changeMenu(0);
           Actions.Main();
           this.props.menuState();

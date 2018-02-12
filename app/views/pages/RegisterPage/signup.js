@@ -46,18 +46,16 @@ class Signup extends Component {
 
   componentWillReceiveProps(nextProps) {
     const { verifyPhoneInfo, verifyCodeInfo, userSignupInfo } = nextProps;
+    
     if (verifyPhoneInfo) {
-      console.log('PHONE_INFO', verifyPhoneInfo);
       this.setState({loading: false});
       this.setState({isAlert: true});
     }
     if (verifyCodeInfo) {
-      console.log('CODE_INFO', verifyCodeInfo);
       this.setState({loading: false});
       this.setState({isAlert: true});
     }
     if (userSignupInfo) {
-      console.log('USER_SIGNUP_INFO', userSignupInfo);
       this.setState({loading: false});
       this.setState({isAlert: true});
     }

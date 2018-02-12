@@ -134,6 +134,14 @@ export default function user(state = initialState, action = {}) {
         userLogin: false,
       };
 
+    /*
+      Change login status
+    */
+    case types.SET_LOGIN_STATUS:
+      return {
+        userLogin: true,
+      }
+
     /* 
       Menu status for selected item
     */

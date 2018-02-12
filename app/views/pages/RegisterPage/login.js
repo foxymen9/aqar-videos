@@ -9,6 +9,7 @@ import {
   Image,
   TextInput,
   Alert,
+  AsyncStorage,
 } from 'react-native';
 
 import { connect } from 'react-redux';
@@ -72,6 +73,7 @@ class Login extends Component {
     
     this.setState({isLoginAlert: false});
     if (userLogin) {
+      AsyncStorage.setItem('loginStatus', JSON.stringify(true));
       this.props.changeMenu(0);
       Actions.Main();
     }
@@ -100,7 +102,7 @@ class Login extends Component {
         {userInfo && (
           <CustomAlert 
             title={userInfo.status == 200 ? 'Success' : 'Error'}
-            message={userInfo.status == 200 ? userInfo.message : userInfo.errors.email_exists} 
+            message={userInfo.status == 200 ? userInfo.message : userInfo.err} 
             visible={this.state.isLoginAlert} 
             closeAlert={()=>{this.checkUserLoginResult();}}
           />

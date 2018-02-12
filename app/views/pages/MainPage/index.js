@@ -6,8 +6,10 @@ import {
   ScrollView,
   TouchableOpacity,
   Image,
+  AsyncStorage
 } from 'react-native';
 
+import { Actions } from 'react-native-router-flux';
 import Container from '@layout/Container';
 import TabView from '@layout/TabView';
 import ButtonPlusComponent from '@components/ButtonPlusComponent';
@@ -17,6 +19,7 @@ import { styles } from './styles';
 
 import { connect } from 'react-redux';
 import { getToken } from '@redux/Token/actions';
+import { changeMenu, setLoginStatus } from '@redux/User/actions';
 
 class MainPage extends Component {
   constructor(props) {
@@ -30,7 +33,7 @@ class MainPage extends Component {
   }
 
   componentWillMount() {
-    const { tokenInfo } = this.props;
+    const { tokenInfo, userLogin } = this.props;
 
     //Check the token
     if (tokenInfo == null) {
@@ -38,6 +41,16 @@ class MainPage extends Component {
     }
     else {
       console.log('TOKEN', tokenInfo.token);
+    }
+
+    //Auto login
+    if (!userLogin) {
+      AsyncStorage.getItem('loginStatus').then((value) => {
+        if (value == 'true') {
+          this.props.setLoginStatus(true);
+          this.props.changeMenu(0);
+        }
+      }).done();
     }
   }
 
@@ -88,5 +101,6 @@ class MainPage extends Component {
 
 
 export default connect(state => ({
-  tokenInfo: state.token.tokenInfo
-}),{ getToken })(MainPage);
+  tokenInfo: state.token.tokenInfo,
+  userLogin: state.user.userLogin,
+}),{ getToken, changeMenu, setLoginStatus })(MainPage);

@@ -8,6 +8,12 @@ export function userSignOut() {
   };
 }
 
+export function setLoginStatus() {
+  return {
+    type: types.SET_LOGIN_STATUS,
+  };
+}
+
 export function userSignIn(data, token) {
   return {
     types: [types.USER_SIGN_IN_REQUEST, types.USER_SIGN_IN_SUCCESS, types.USER_SIGN_IN_FAILED],
