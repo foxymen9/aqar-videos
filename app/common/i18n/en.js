@@ -11,6 +11,7 @@ export default {
   login: "LOG IN",
   signup: "SIGN UP",
   search: "SEARCH",
+  terms_conditions: "Terms and conditions",
   sidebar: {
     home: "Home",
     my_ads: "My Ads",
@@ -78,6 +79,7 @@ export default {
     title: "Title",
   },
   profile: {
+    ph_name: 'User Name',
     ph_firstname: "First Name",
     ph_lastname: "Last Name",
     ph_mobile_number: "Mobile Number",

@@ -25,6 +25,7 @@ import { saveMyLocation } from '@redux/Map/actions';
 
 import MapPage from '@pages/MapPage';
 import ProductListPage from '@pages/ProductListPage';
+import I18n from '@i18n';
 
 const ASPECT_RATIO = commonStyles.screenWidth / commonStyles.screenHeight
 const LATITUDE_DELTA = 0.0922;
@@ -189,7 +190,7 @@ class TabView extends Component {
           onChangeTab = {(index)=>this.changeTab(index)}
           renderTabBar={() => <ScrollableTabBar/>}
         >
-          <ScrollView tabLabel="Building">
+          <ScrollView tabLabel={I18n.t('category.building')}>
             {btnStatus == 'map' && (
               <MapPage page="building" locationData={buildingData} region={region} />
             )}
@@ -197,7 +198,7 @@ class TabView extends Component {
               <ProductListPage />
             )}
           </ScrollView>
-          <ScrollView tabLabel="Villa">
+          <ScrollView tabLabel={I18n.t('category.villa')}>
             {btnStatus == 'map' && (
               <MapPage page="villa" locationData={apartmentData} region={region} />
             )}
@@ -205,7 +206,7 @@ class TabView extends Component {
               <ProductListPage />
             )}
           </ScrollView>
-          <ScrollView tabLabel="Apartment">
+          <ScrollView tabLabel={I18n.t('category.apartment')}>
             {btnStatus == 'map' && (
               <MapPage page="apartment" locationData={apartmentData} region={region} />
             )}
@@ -213,7 +214,7 @@ class TabView extends Component {
               <ProductListPage />
             )}
           </ScrollView>
-          <ScrollView tabLabel="Office">
+          <ScrollView tabLabel={I18n.t('category.office')}>
             {btnStatus == 'map' && (
               <MapPage page="office" locationData={buildingData} region={region} />
             )}
@@ -221,7 +222,7 @@ class TabView extends Component {
               <ProductListPage />
             )}
           </ScrollView>
-          <ScrollView tabLabel="Galleries & Shops">
+          <ScrollView tabLabel={I18n.t('category.gallery')}>
             {btnStatus == 'map' && (
               <MapPage page="gallery" locationData={buildingData} region={region} />
             )}
@@ -229,7 +230,7 @@ class TabView extends Component {
               <ProductListPage />
             )}
           </ScrollView>
-          <ScrollView tabLabel="Land">
+          <ScrollView tabLabel={I18n.t('category.land')}>
             {btnStatus == 'map' && (
               <MapPage page="land" locationData={buildingData} region={region} />
             )}
@@ -237,7 +238,7 @@ class TabView extends Component {
               <ProductListPage />
             )}
           </ScrollView>
-          <ScrollView tabLabel="Chalets">
+          <ScrollView tabLabel={I18n.t('category.chalet')}>
             {btnStatus == 'map' && (
               <MapPage page="chalets" locationData={buildingData} region={region} />
             )}
@@ -245,7 +246,7 @@ class TabView extends Component {
               <ProductListPage />
             )}
           </ScrollView>
-          <ScrollView tabLabel="Real Estate">
+          <ScrollView tabLabel={I18n.t('category.real_estate')}>
             {btnStatus == 'map' && (
               <MapPage page="real_estate" locationData={buildingData} region={region} />
             )}

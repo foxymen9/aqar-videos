@@ -485,14 +485,14 @@ export default class PostNewVideoPage extends Component {
 
             <View style={styles.titleView}>
               <Text style={styles.textTitle}>
-                Category
+                {I18n.t('post_video.category')}
               </Text>
             </View>
             <CategoryComponent category={(item)=>this.selectCategory(item)} />
 
             <TouchableOpacity onPress={()=>this.onPreview()} activeOpacity={0.5}>
               <View style={styles.previewBtnView}>
-                <Text style={styles.textPreview}>PREVIEW</Text>
+                <Text style={styles.textPreview}>{I18n.t('sidebar.preview')}</Text>
               </View>
             </TouchableOpacity>
           </KeyboardAwareScrollView>
