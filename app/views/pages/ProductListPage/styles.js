@@ -45,10 +45,9 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   textPrice: {
-    fontFamily: commonStyles.normalFont,
+    fontFamily: commonStyles.boldFont,
     fontSize: 13,
     color: commonColors.darkGrayColor,
-    fontWeight: 'bold',
   },
   footerView: {
     width: '100%',
@@ -68,10 +67,9 @@ export const styles = StyleSheet.create({
     color: commonColors.darkGrayColor,
   },
   textTitle: {
-    fontFamily: commonStyles.normalFont,
+    fontFamily: commonStyles.boldFont,
     color: 'white',
     fontSize: 15,
-    fontWeight: 'bold',
   },
   viewWrapper: {
     flexDirection: 'row',

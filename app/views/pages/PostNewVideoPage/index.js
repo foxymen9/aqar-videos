@@ -384,7 +384,7 @@ export default class PostNewVideoPage extends Component {
                   <CheckBox
                     label={I18n.t('post_video.furniture')}
                     labelBefore={true}
-                    labelStyle={{color: commonColors.placeholderText, fontWeight: 'bold'}}
+                    labelStyle={{color: commonColors.placeholderText, fontFamily: commonStyles.boldFont}}
                     onChange={(checked) => this.setState({furniture: checked})}
                   />
                 </View>
@@ -416,7 +416,7 @@ export default class PostNewVideoPage extends Component {
                   <CheckBox
                     label={I18n.t('post_video.ownership')}
                     labelBefore={true}
-                    labelStyle={{color: commonColors.placeholderText, fontWeight: 'bold'}}
+                    labelStyle={{color: commonColors.placeholderText, fontFamily: commonStyles.boldFont}}
                     onChange={(checked) => this.setState({ownership: checked})}
                   />
                 </View>

@@ -23,6 +23,8 @@ export default class PackageDetailPage extends Component {
     this.state = {
       isSuccess: false,
       refreshing: false,
+      isSubscribed: true,
+      leftDays: 20,
     }
   }
 
@@ -61,7 +63,7 @@ export default class PackageDetailPage extends Component {
               <Image source={img_detail} style={ styles.thumbnail } />    
               <View style={styles.titleView}>
                 {this.state.isSubscribed && (
-                  <Text style={styles.remainDay}>20 DAYS is left</Text>
+                  <Text style={styles.remainDay}>يتم ترك {this.state.leftDays} يوما</Text>
                 )}
                 <Text style={styles.titleDay}>{data.duration} {I18n.t('packages.days')}</Text>
                 <Text style={styles.titleDesc}>{data.price}</Text>

@@ -44,8 +44,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   menuTitle: {
-    fontFamily: commonStyles.normalFont,
-    fontFamily: commonStyles.normalFont,
+    fontFamily: commonStyles.boldFont,
     fontSize: 25,
     textAlign: 'center',
     color: 'white',
@@ -61,9 +60,8 @@ export const styles = StyleSheet.create({
     height: 20,
   },
   backIcon: {
-    fontFamily: commonStyles.normalFont,
+    fontFamily: commonStyles.boldFont,
     fontSize: 25,
-    fontWeight: 'bold',
     color: commonColors.darkGrayColor,
   },
   backIconWrapper: {
@@ -73,9 +71,8 @@ export const styles = StyleSheet.create({
     bottom: 10,
   },
   backIcon_detail: {
-    fontFamily: commonStyles.normalFont,
+    fontFamily: commonStyles.boldFont,
     fontSize: 25,
-    fontWeight: 'bold',
     color: 'white'
   },
 });

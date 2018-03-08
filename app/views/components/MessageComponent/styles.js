@@ -52,11 +52,10 @@ export const styles = StyleSheet.create({
     fontSize: 16,
   },
   name: {
-    fontFamily: commonStyles.normalFont,
+    fontFamily: commonStyles.boldFont,
     textAlign: 'right',
     color: commonColors.placeholderText,
     fontSize: commonStyles.normalFontSize,
-    fontWeight: 'bold',
     paddingHorizontal: 15,
   },
   date: {

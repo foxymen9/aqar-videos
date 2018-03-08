@@ -25,9 +25,8 @@ export const styles = StyleSheet.create({
     alignItems: 'flex-end'
   },
   textTitle: {
-    fontFamily: commonStyles.normalFont,
+    fontFamily: commonStyles.boldFont,
     fontSize: commonStyles.normalFontSize,
-    fontWeight: 'bold',
     textAlign: 'right',
     color: commonColors.placeholderText,
   },
@@ -48,7 +47,7 @@ export const styles = StyleSheet.create({
     textAlign: 'right'
   },
   bold: {
-    fontWeight: 'bold',
+    fontFamily: commonStyles.boldFont,
   },
   itemView: {
     width: '100%',

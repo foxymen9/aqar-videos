@@ -60,22 +60,24 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
-		<string>Swissra Black.otf</string>
-		<string>Swissra Bold.otf</string>
-		<string>Swissra Heavy.otf</string>
-		<string>Swissra Light.otf</string>
-		<string>Swissra Medium.otf</string>
-		<string>Swissra Normal.otf</string>
-		<string>Swissra Thin.otf</string>
-		<string>Swissra Ultra Light.otf</string>
-		<string>Proxima Nova Black Italic_0.otf</string>
-		<string>Proxima Nova Bold Italic_0.otf</string>
-		<string>Proxima Nova Bold.otf</string>
-		<string>Proxima Nova Condensed Bold.otf</string>
-		<string>Proxima Nova Extra Condensed Bold.otf</string>
-		<string>Proxima Nova Semibold Italic_0.otf</string>
-		<string>Proxima Nova Thin Italic_0.otf</string>
-		<string>ProximaNova-Regular_0.otf</string>
+		<string>Scheherazade-Bold.ttf</string>
+		<string>Scheherazade-Regular.ttf</string>
+		<string>Proxima Nova Black Italic_0 11.07.41 AM.otf</string>
+		<string>Proxima Nova Bold 11.07.41 AM.otf</string>
+		<string>Proxima Nova Bold Italic_0 11.07.41 AM.otf</string>
+		<string>Proxima Nova Condensed Bold 11.07.41 AM.otf</string>
+		<string>Proxima Nova Extra Condensed Bold 11.07.41 AM.otf</string>
+		<string>Proxima Nova Semibold Italic_0 11.07.41 AM.otf</string>
+		<string>Proxima Nova Thin Italic_0 11.07.41 AM.otf</string>
+		<string>ProximaNova-Regular_0 11.07.41 AM.otf</string>
+		<string>Swissra Black 11.07.50 AM.otf</string>
+		<string>Swissra Bold 11.07.50 AM.otf</string>
+		<string>Swissra Heavy 11.07.50 AM.otf</string>
+		<string>Swissra Light 11.07.50 AM.otf</string>
+		<string>Swissra Medium 11.07.50 AM.otf</string>
+		<string>Swissra Normal 11.07.50 AM.otf</string>
+		<string>Swissra Thin 11.07.50 AM.otf</string>
+		<string>Swissra Ultra Light 11.07.50 AM.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

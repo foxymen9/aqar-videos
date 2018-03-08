@@ -46,19 +46,17 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   number: {
-    fontFamily: commonStyles.normalFont,
+    fontFamily: commonStyles.boldFont,
     fontSize: 40,
     color: 'white',
     fontStyle: 'italic',
-    fontWeight: 'bold',
     backgroundColor: 'transparent',
   },
   day: {
-    fontFamily: commonStyles.normalFont,
+    fontFamily: commonStyles.boldFont,
     fontSize: 20,
     color: 'white',
     fontStyle: 'italic',
-    fontWeight: 'bold',
     backgroundColor: 'transparent',
   },
   footerView: {
@@ -69,9 +67,8 @@ export const styles = StyleSheet.create({
     backgroundColor: '#747474',
   },
   textTitle: {
-    fontFamily: commonStyles.normalFont,
+    fontFamily: commonStyles.boldFont,
     color: 'white',
     fontSize: 25,
-    fontWeight: 'bold',
   },
 });

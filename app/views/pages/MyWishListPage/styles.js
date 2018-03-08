@@ -55,10 +55,9 @@ export const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.1)',
   },
   textTitle: {
-    fontFamily: commonStyles.normalFont,
+    fontFamily: commonStyles.boldFont,
     color: commonColors.darkGrayColor,
     fontSize: 15,
-    fontWeight: 'bold',
     textAlign: 'right',
   },
   textPrice: {

@@ -86,9 +86,8 @@ export const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
   textTitle: {
-    fontFamily: commonStyles.normalFont,
+    fontFamily: commonStyles.boldFont,
     fontSize: commonStyles.normalFontSize,
-    fontWeight: 'bold',
     textAlign: 'right',
     color: commonColors.placeholderText,
     marginBottom: 3,

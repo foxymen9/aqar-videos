@@ -46,18 +46,16 @@ export const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   remainDay: {
-    fontFamily: commonStyles.normalFont,
+    fontFamily: commonStyles.boldFont,
     color: 'white',
     fontSize: 20,
-    fontWeight: 'bold',
     textAlign: 'right',
     marginBottom: 40,
   },
   titleDay: {
-    fontFamily: commonStyles.normalFont,
+    fontFamily: commonStyles.boldFont,
     color: 'white',
     fontSize: 30,
-    fontWeight: 'bold',
     textAlign: 'right'
   },
   titleDesc: {
@@ -92,7 +90,7 @@ export const styles = StyleSheet.create({
     lineHeight: 0.3,
   },
   bold: {
-    fontWeight: 'bold',
+    fontFamily: commonStyles.boldFont,
   },
   imgClose: {
     marginTop: 30,

@@ -18,10 +18,9 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
   },
   headerText: {
-    fontFamily: commonStyles.normalFont,
+    fontFamily: commonStyles.boldFont,
     fontSize: commonStyles.normalFontSize,
     color: commonColors.placeholderText,
-    fontWeight: 'bold',
     textAlign: 'right',
   },
   iconList: {

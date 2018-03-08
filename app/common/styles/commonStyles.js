@@ -52,5 +52,5 @@ export const buttonBottomHeight = 40;
 export const normalFontSize = 16;
 export const buttonHeight = 50;
 
-// export const normalFont = 'Swissra-Normal';
-export const normalFont = 'ProximaNova-Regular';
+export const normalFont = 'Scheherazade-Regular';
+export const boldFont = 'Scheherazade-Bold';
