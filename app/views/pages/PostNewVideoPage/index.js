@@ -26,6 +26,7 @@ import ModalShare from '@components/ModalShare';
 import {RadioGroup, RadioButton} from '@components/RadioButtonGroup';
 import DropdownComponent from '@components/DropdownComponent';
 import CategoryComponent from '@components/CategoryComponent';
+import AutoSuggestComponent from '@components/AutoSuggestComponent';
 
 import { styles } from './styles';
 import * as commonStyles from '@common/styles/commonStyles';
@@ -227,24 +228,18 @@ export default class PostNewVideoPage extends Component {
                 onSubmitEditing={ () => this.refs.password.focus() }
               />
             </View>
-            <View style={styles.itemView}>
-              <Text style={styles.textTitle}>
-                {I18n.t('post_video.region')}
-              </Text>
-              <DropdownComponent selectItem={(value)=>this.setState({region: value})} item={this.state.region} data={regionData} />
-            </View>
-            <View style={styles.itemView}>
-              <Text style={styles.textTitle}>
-              {I18n.t('post_video.city')}
-              </Text>
-              <DropdownComponent selectItem={(value)=>this.setState({city: value})} item={this.state.city} data={cityData} />
-            </View>
-            <View style={styles.itemView}>
-              <Text style={styles.textTitle}>
-              {I18n.t('post_video.district')}
-              </Text>
-              <DropdownComponent selectItem={(value)=>this.setState({district: value})} item={this.state.district} data={districtData} />
-            </View>
+            <AutoSuggestComponent
+              handleChange={text => this.setState({region: text})}
+              label={I18n.t('post_video.region')}
+            />
+            <AutoSuggestComponent
+              handleChange={text => this.setState({city: text})}
+              label={I18n.t('post_video.city')}
+            />
+            <AutoSuggestComponent
+              handleChange={text => this.setState({district: text})}
+              label={I18n.t('post_video.district')}
+            />
 
             <View style={styles.productOptionView}>
               <RadioGroup 

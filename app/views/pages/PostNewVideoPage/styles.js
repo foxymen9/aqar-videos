@@ -34,6 +34,7 @@ export const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
+    backgroundColor: 'transparent'
   },
   textTitle: {
     fontFamily: commonStyles.boldFont,
@@ -41,6 +42,7 @@ export const styles = StyleSheet.create({
     textAlign: 'right',
     color: commonColors.placeholderText,
     marginBottom: 3,
+    backgroundColor: 'transparent'
   },
   textPhone: {
     fontFamily: commonStyles.normalFont,
