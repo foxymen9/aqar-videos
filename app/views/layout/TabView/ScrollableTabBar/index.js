@@ -166,7 +166,7 @@ const ScrollableTabBar = createReactClass({
     >
       <View style={[styles.tab, this.props.tabStyle ]}>
         <Image source={icons[page]} style={styles.tabItemIcon} />
-        <Text style={[{color: textColor, fontWeight, fontSize: 18, fontFamily: commonStyles.normalFont}, textStyle]}>
+        <Text style={[{color: textColor, fontWeight, fontSize: 15, fontFamily: commonStyles.normalFont}, textStyle]}>
           {name}
         </Text>
       </View>

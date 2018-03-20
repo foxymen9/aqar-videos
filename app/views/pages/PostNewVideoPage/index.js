@@ -228,7 +228,7 @@ export default class PostNewVideoPage extends Component {
                 onSubmitEditing={ () => this.refs.password.focus() }
               />
             </View>
-            <AutoSuggestComponent
+            {/* <AutoSuggestComponent
               handleChange={text => this.setState({region: text})}
               label={I18n.t('post_video.region')}
             />
@@ -239,7 +239,25 @@ export default class PostNewVideoPage extends Component {
             <AutoSuggestComponent
               handleChange={text => this.setState({district: text})}
               label={I18n.t('post_video.district')}
-            />
+            /> */}
+            <View style={styles.itemView}>
+              <Text style={styles.textTitle}>
+                {I18n.t('post_video.region')}
+              </Text>
+              <DropdownComponent selectItem={(value)=>this.setState({region: value})} item={this.state.region} data={regionData} />
+            </View>
+            <View style={styles.itemView}>
+              <Text style={styles.textTitle}>
+                {I18n.t('post_video.city')}
+              </Text>
+              <DropdownComponent selectItem={(value)=>this.setState({city: value})} item={this.state.city} data={cityData} />
+            </View>
+            <View style={styles.itemView}>
+              <Text style={styles.textTitle}>
+                {I18n.t('post_video.district')}
+              </Text>
+              <DropdownComponent selectItem={(value)=>this.setState({district: value})} item={this.state.district} data={districtData} />
+            </View>
 
             <View style={styles.productOptionView}>
               <RadioGroup 
@@ -379,7 +397,7 @@ export default class PostNewVideoPage extends Component {
                   <CheckBox
                     label={I18n.t('post_video.furniture')}
                     labelBefore={true}
-                    labelStyle={{color: commonColors.placeholderText, fontFamily: commonStyles.boldFont}}
+                    labelStyle={{color: commonColors.placeholderText, fontFamily: commonStyles.normalFont, fontWeight: 'bold'}}
                     onChange={(checked) => this.setState({furniture: checked})}
                   />
                 </View>
@@ -411,7 +429,7 @@ export default class PostNewVideoPage extends Component {
                   <CheckBox
                     label={I18n.t('post_video.ownership')}
                     labelBefore={true}
-                    labelStyle={{color: commonColors.placeholderText, fontFamily: commonStyles.boldFont}}
+                    labelStyle={{color: commonColors.placeholderText, fontFamily: commonStyles.normalFont, fontWeight: 'bold'}}
                     onChange={(checked) => this.setState({ownership: checked})}
                   />
                 </View>

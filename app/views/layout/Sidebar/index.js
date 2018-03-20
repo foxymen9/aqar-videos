@@ -70,12 +70,15 @@ class Sidebar extends Component {
           Actions.Package();
           break;
         case '7':
-          Actions.ProfileEdit();
+          Actions.MyPackage();
           break;
         case '8':
-          Actions.SupportAdvertisement();
+          Actions.ProfileEdit();
           break;
         case '9':
+          Actions.SupportAdvertisement();
+          break;
+        case '10':
           this.props.userSignOut();
           AsyncStorage.removeItem('loginStatus');
           this.props.changeMenu(0);
@@ -163,6 +166,10 @@ class Sidebar extends Component {
         },
         {
           title: I18n.t('sidebar.packages'),
+          icon: icon_package
+        },
+        {
+          title: I18n.t('sidebar.my_packages'),
           icon: icon_package
         },
         {

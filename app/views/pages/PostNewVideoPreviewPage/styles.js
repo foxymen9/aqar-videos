@@ -36,7 +36,8 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textTitle: {
-    fontFamily: commonStyles.boldFont,
+    fontFamily: commonStyles.normalFont,
+    fontWeight: 'bold',
     fontSize: commonStyles.normalFontSize,
     textAlign: 'right',
     color: commonColors.placeholderText,
@@ -58,7 +59,8 @@ export const styles = StyleSheet.create({
     textAlign: 'right'
   },
   bold: {
-    fontFamily: commonStyles.boldFont,
+    fontFamily: commonStyles.normalFont,
+    fontWeight: 'bold',
   },
   itemView: {
     width: '100%',

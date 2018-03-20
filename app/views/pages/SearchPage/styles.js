@@ -26,6 +26,7 @@ export const styles = StyleSheet.create({
   },
   textTitle: {
     fontFamily: commonStyles.boldFont,
+    fontWeight: 'bold',
     fontSize: commonStyles.normalFontSize,
     textAlign: 'right',
     color: commonColors.placeholderText,
@@ -43,6 +44,7 @@ export const styles = StyleSheet.create({
   },
   bold: {
     fontFamily: commonStyles.boldFont,
+    fontWeight: 'bold',
   },
   itemView: {
     width: commonStyles.screenWidth,
@@ -104,6 +106,7 @@ export const styles = StyleSheet.create({
   },
   inputPrice: {
     fontFamily: commonStyles.boldFont,
+    fontWeight: 'bold',
     width: '100%',
     fontSize: 17,
     color: commonColors.placeholderText,
@@ -111,6 +114,7 @@ export const styles = StyleSheet.create({
   },
   input: {
     fontFamily: commonStyles.boldFont,
+    fontWeight: 'bold',
     width: '100%',
     fontSize: 17,
     color: commonColors.placeholderText,

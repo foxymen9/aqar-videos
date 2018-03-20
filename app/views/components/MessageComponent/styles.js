@@ -52,7 +52,8 @@ export const styles = StyleSheet.create({
     fontSize: 16,
   },
   name: {
-    fontFamily: commonStyles.boldFont,
+    fontFamily: commonStyles.normalFont,
+    fontWeight: 'bold',
     textAlign: 'right',
     color: commonColors.placeholderText,
     fontSize: commonStyles.normalFontSize,

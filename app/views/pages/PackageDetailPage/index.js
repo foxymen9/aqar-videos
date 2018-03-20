@@ -62,10 +62,11 @@ export default class PackageDetailPage extends Component {
             <View style={styles.thumbnailView}>
               <Image source={img_detail} style={ styles.thumbnail } />    
               <View style={styles.titleView}>
+                <Text style={styles.remainDay}>تاريخ البدء {data.detail['1']['start_date']}</Text>
+                <Text style={styles.remainDay}>تاريخ الانتهاء {data.detail['1']['end_date']}</Text>
                 {this.state.isSubscribed && (
-                  <Text style={styles.remainDay}>يتم ترك {this.state.leftDays} يوما</Text>
+                  <Text style={styles.remainDay}>يتم ترك {data.duration} يوما</Text>
                 )}
-                <Text style={styles.titleDay}>{data.duration} {I18n.t('packages.days')}</Text>
                 <Text style={styles.titleDesc}>{data.price}</Text>
               </View>
             </View>

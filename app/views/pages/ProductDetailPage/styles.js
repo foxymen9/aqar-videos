@@ -26,6 +26,7 @@ export const styles = StyleSheet.create({
   },
   textTitle: {
     fontFamily: commonStyles.boldFont,
+    fontWeight: 'bold',
     fontSize: commonStyles.normalFontSize,
     textAlign: 'right',
     color: commonColors.placeholderText,
@@ -48,6 +49,7 @@ export const styles = StyleSheet.create({
   },
   bold: {
     fontFamily: commonStyles.boldFont,
+    fontWeight: 'bold',
   },
   itemView: {
     width: '100%',

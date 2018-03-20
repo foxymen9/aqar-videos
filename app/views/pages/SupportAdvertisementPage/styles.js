@@ -88,6 +88,7 @@ export const styles = StyleSheet.create({
   },
   textTitle: {
     fontFamily: commonStyles.boldFont,
+    fontWeight: 'bold',
     fontSize: commonStyles.normalFontSize,
     textAlign: 'right',
     color: commonColors.placeholderText,

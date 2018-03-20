@@ -19,6 +19,7 @@ import RegisterPage from './views/pages/RegisterPage';
 import MyAdsPage from './views/pages/MyAdsPage';
 import MyWishListPage from './views/pages/MyWishListPage';
 import PackagePage from './views/pages/PackagePage';
+import MyPackagePage from './views/pages/MyPackagePage';
 import PackageDetailPage from './views/pages/PackageDetailPage';
 import ProfileEditPage from './views/pages/ProfileEditPage';
 import AreaPage from './views/pages/AreaPage';
@@ -42,11 +43,12 @@ export default class App extends Component {
   render() {
     const scenes = Actions.create(
       <Scene key="root">
-        <Scene key="Main" component={ MainPage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="Main" initial={ true } component={ MainPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="Register" component={ RegisterPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyAds" component={ MyAdsPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyWishList" component={ MyWishListPage } hideNavBar={ true } panHandlers={null} />
         <Scene key="Package" component={ PackagePage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="MyPackage" component={ MyPackagePage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="PackageDetail" component={ PackageDetailPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="ProfileEdit" component={ ProfileEditPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="Area" component={ AreaPage } hideNavBar={ true } panHandlers={null}/>
@@ -54,7 +56,7 @@ export default class App extends Component {
         <Scene key="SupportAdvertisement" component={ SupportAdvertisementPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="ProductList" component={ ProductListPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="ProductDetail" component={ ProductDetailPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="PostNewVideo" initial={ true } component={ PostNewVideoPage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="PostNewVideo" component={ PostNewVideoPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="PostNewVideoPreview" component={ PostNewVideoPreviewPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyMessage" component={ MyMessagePage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="ChatRoom" component={ ChatRoomPage } hideNavBar={ true } panHandlers={null}/>

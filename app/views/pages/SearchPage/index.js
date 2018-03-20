@@ -289,7 +289,7 @@ export default class SearchPage extends Component {
                   <CheckBox
                     label={I18n.t('post_video.furniture')}
                     labelBefore={true}
-                    labelStyle={{color: commonColors.placeholderText, fontFamily: commonStyles.boldFont}}
+                    labelStyle={{color: commonColors.placeholderText, fontFamily: commonStyles.boldFont, fontWeight: 'bold'}}
                     onChange={(checked) => this.setState({furniture: checked})}
                   />
                 </View>
@@ -321,7 +321,7 @@ export default class SearchPage extends Component {
                   <CheckBox
                     label={I18n.t('post_video.ownership')}
                     labelBefore={true}
-                    labelStyle={{color: commonColors.placeholderText, fontFamily: commonStyles.boldFont}}
+                    labelStyle={{color: commonColors.placeholderText, fontFamily: commonStyles.boldFont, fontWeight: 'bold'}}
                     onChange={(checked) => this.setState({ownership: checked})}
                   />
                 </View>

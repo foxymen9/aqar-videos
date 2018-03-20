@@ -45,8 +45,9 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   textPrice: {
-    fontFamily: commonStyles.boldFont,
-    fontSize: 13,
+    fontFamily: commonStyles.normalFont,
+    fontWeight: 'bold',
+    fontSize: 12,
     color: commonColors.darkGrayColor,
   },
   footerView: {
@@ -63,11 +64,12 @@ export const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   favorite: {
-    fontSize: 30,
+    fontSize: 20,
     color: commonColors.darkGrayColor,
   },
   textTitle: {
-    fontFamily: commonStyles.boldFont,
+    fontFamily: commonStyles.normalFont,
+    fontWeight: 'bold',
     color: 'white',
     fontSize: 15,
   },
@@ -81,7 +83,8 @@ export const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
   eye: {
-    fontSize: 14,
+    marginTop: 10,
+    fontSize: 13,
     color: commonColors.darkGrayColor,
     marginLeft: 5,
   }

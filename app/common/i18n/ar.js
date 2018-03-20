@@ -20,6 +20,7 @@ export default {
     my_messages: 'رسائلي',
     my_location: 'موقعي',
     packages: 'حزم',
+    my_packages: "حزمة بلدي",
     my_profile: 'ملفي',
     support_advertisement: 'دعم الاعلان',
     signout: 'تسجيل الخروج',

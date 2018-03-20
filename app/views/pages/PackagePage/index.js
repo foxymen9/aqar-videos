@@ -46,11 +46,10 @@ class PackagePage extends Component {
   }
 
   _renderRow (rowData, sectionID, rowID, highlightRow) {
-    console.log('PACKAGE_INFO', rowData);
     return (
       <TouchableOpacity 
         activeOpacity={0.6}
-        onPress={()=>{this.onItemSelect(rowData)}}
+        // onPress={()=>{this.onItemSelect(rowData)}}
       >
         <View style={styles.listItem}>
           <View style={styles.imageView}>

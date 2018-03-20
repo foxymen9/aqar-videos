@@ -109,6 +109,10 @@
 		F5E9BC21903E461AB1F59332 /* Swissra Normal 11.07.50 AM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5EE1A7AC9C3347EE9DA1DDEA /* Swissra Normal 11.07.50 AM.otf */; };
 		E3083EF3F0C446C79319784D /* Swissra Thin 11.07.50 AM.otf in Resources */ = {isa = PBXBuildFile; fileRef = E6DBF26389974F70A94865FE /* Swissra Thin 11.07.50 AM.otf */; };
 		93AF71D98BB8499BB7DAA8D2 /* Swissra Ultra Light 11.07.50 AM.otf in Resources */ = {isa = PBXBuildFile; fileRef = A386DEC6ADDB49389827F355 /* Swissra Ultra Light 11.07.50 AM.otf */; };
+		AC5CA02FEB404AF7BD1296B3 /* NotoSansKannada-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2947EF4153674DD2A5E27C13 /* NotoSansKannada-Bold.ttf */; };
+		5AB927BA33704121A7CD7418 /* NotoSansKannada-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED50D77DB5EF4474BF3061A9 /* NotoSansKannada-Regular.ttf */; };
+		C4D97062823E4020B86C424C /* NotoKufiArabic-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64D38C36D7BF4A4791B6C8A1 /* NotoKufiArabic-Bold.ttf */; };
+		02CABC483FA740B4AC64CFA8 /* NotoKufiArabic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD40E3AE7EC84C09ACE88926 /* NotoKufiArabic-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -561,6 +565,10 @@
 		5EE1A7AC9C3347EE9DA1DDEA /* Swissra Normal 11.07.50 AM.otf */ = {isa = PBXFileReference; name = "Swissra Normal 11.07.50 AM.otf"; path = "../app/common/assets/fonts/Swissra Normal 11.07.50 AM.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		E6DBF26389974F70A94865FE /* Swissra Thin 11.07.50 AM.otf */ = {isa = PBXFileReference; name = "Swissra Thin 11.07.50 AM.otf"; path = "../app/common/assets/fonts/Swissra Thin 11.07.50 AM.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		A386DEC6ADDB49389827F355 /* Swissra Ultra Light 11.07.50 AM.otf */ = {isa = PBXFileReference; name = "Swissra Ultra Light 11.07.50 AM.otf"; path = "../app/common/assets/fonts/Swissra Ultra Light 11.07.50 AM.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2947EF4153674DD2A5E27C13 /* NotoSansKannada-Bold.ttf */ = {isa = PBXFileReference; name = "NotoSansKannada-Bold.ttf"; path = "../app/common/assets/fonts/NotoSansKannada-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		ED50D77DB5EF4474BF3061A9 /* NotoSansKannada-Regular.ttf */ = {isa = PBXFileReference; name = "NotoSansKannada-Regular.ttf"; path = "../app/common/assets/fonts/NotoSansKannada-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		64D38C36D7BF4A4791B6C8A1 /* NotoKufiArabic-Bold.ttf */ = {isa = PBXFileReference; name = "NotoKufiArabic-Bold.ttf"; path = "../app/common/assets/fonts/NotoKufiArabic-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AD40E3AE7EC84C09ACE88926 /* NotoKufiArabic-Regular.ttf */ = {isa = PBXFileReference; name = "NotoKufiArabic-Regular.ttf"; path = "../app/common/assets/fonts/NotoKufiArabic-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -796,6 +804,10 @@
 				5EE1A7AC9C3347EE9DA1DDEA /* Swissra Normal 11.07.50 AM.otf */,
 				E6DBF26389974F70A94865FE /* Swissra Thin 11.07.50 AM.otf */,
 				A386DEC6ADDB49389827F355 /* Swissra Ultra Light 11.07.50 AM.otf */,
+				2947EF4153674DD2A5E27C13 /* NotoSansKannada-Bold.ttf */,
+				ED50D77DB5EF4474BF3061A9 /* NotoSansKannada-Regular.ttf */,
+				64D38C36D7BF4A4791B6C8A1 /* NotoKufiArabic-Bold.ttf */,
+				AD40E3AE7EC84C09ACE88926 /* NotoKufiArabic-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1566,6 +1578,10 @@
 				F5E9BC21903E461AB1F59332 /* Swissra Normal 11.07.50 AM.otf in Resources */,
 				E3083EF3F0C446C79319784D /* Swissra Thin 11.07.50 AM.otf in Resources */,
 				93AF71D98BB8499BB7DAA8D2 /* Swissra Ultra Light 11.07.50 AM.otf in Resources */,
+				AC5CA02FEB404AF7BD1296B3 /* NotoSansKannada-Bold.ttf in Resources */,
+				5AB927BA33704121A7CD7418 /* NotoSansKannada-Regular.ttf in Resources */,
+				C4D97062823E4020B86C424C /* NotoKufiArabic-Bold.ttf in Resources */,
+				02CABC483FA740B4AC64CFA8 /* NotoKufiArabic-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

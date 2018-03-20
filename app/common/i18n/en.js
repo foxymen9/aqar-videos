@@ -20,6 +20,7 @@ export default {
     my_messages: "My Messages",
     my_location: "My Location",
     packages: "Packages",
+    my_packages: "My Packages",
     my_profile: "My Profile",
     support_advertisement: "Support Advertisement",
     signout: "Sign Out",

@@ -42,26 +42,29 @@ export const styles = StyleSheet.create({
   titleView: {
     position: 'absolute',
     right: commonStyles.padding,
-    bottom: 30,
+    top: 10,
     backgroundColor: 'transparent',
   },
   remainDay: {
-    fontFamily: commonStyles.boldFont,
+    fontFamily: commonStyles.normalFont,
+    fontWeight: 'bold',
     color: 'white',
-    fontSize: 20,
+    fontSize: 15,
     textAlign: 'right',
-    marginBottom: 40,
+    marginBottom: 10,
   },
   titleDay: {
-    fontFamily: commonStyles.boldFont,
+    fontFamily: commonStyles.normalFont,
+    fontWeight: 'bold',
     color: 'white',
-    fontSize: 30,
+    fontSize: 15,
     textAlign: 'right'
   },
   titleDesc: {
     fontFamily: commonStyles.normalFont,
     color: 'white',
-    fontSize: 30,
+    marginTop: 10,
+    fontSize: 20,
     textAlign: 'right'
   },
   description: {
@@ -74,7 +77,7 @@ export const styles = StyleSheet.create({
   },
   textDescription: {
     fontFamily: commonStyles.normalFont,
-    fontSize: 14,
+    fontSize: 12,
     color: commonColors.placeholderText,
     textAlign: 'right'
   },
@@ -90,7 +93,8 @@ export const styles = StyleSheet.create({
     lineHeight: 0.3,
   },
   bold: {
-    fontFamily: commonStyles.boldFont,
+    fontFamily: commonStyles.normalFont,
+    fontWeight: 'bold',
   },
   imgClose: {
     marginTop: 30,

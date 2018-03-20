@@ -50,7 +50,8 @@ export const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   textName: {
-    fontFamily: commonStyles.boldFont,
+    fontFamily: commonStyles.normalFont,
+    fontWeight: 'bold',
     color: commonColors.placeholderText,
     fontSize: commonStyles.normalFontSize,
     textAlign: 'right',
@@ -72,7 +73,8 @@ export const styles = StyleSheet.create({
     marginBottom: 5,
   },
   textCount: {
-    fontFamily: commonStyles.boldFont,
+    fontFamily: commonStyles.normalFont,
+    fontWeight: 'bold',
     color: 'white',
     fontSize: 11,
     backgroundColor: 'transparent'

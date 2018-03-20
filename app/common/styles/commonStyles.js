@@ -49,8 +49,8 @@ export const screenSubWidth = screenWidth * 0.9;
 export const padding = screenWidth * 0.05;
 
 export const buttonBottomHeight = 40;
-export const normalFontSize = 16;
+export const normalFontSize = 13;
 export const buttonHeight = 50;
 
-export const normalFont = 'Scheherazade-Regular';
-export const boldFont = 'Scheherazade-Bold';
+export const normalFont = 'NotoKufiArabic';
+export const boldFont = 'NotoKufiArabic';
