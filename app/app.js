@@ -21,6 +21,7 @@ import MyWishListPage from './views/pages/MyWishListPage';
 import PackagePage from './views/pages/PackagePage';
 import MyPackagePage from './views/pages/MyPackagePage';
 import PackageDetailPage from './views/pages/PackageDetailPage';
+import MyPackageDetailPage from './views/pages/MyPackageDetailPage';
 import ProfileEditPage from './views/pages/ProfileEditPage';
 import AreaPage from './views/pages/AreaPage';
 import MyLocationPage from './views/pages/MyLocationPage';
@@ -50,6 +51,7 @@ export default class App extends Component {
         <Scene key="Package" component={ PackagePage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyPackage" component={ MyPackagePage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="PackageDetail" component={ PackageDetailPage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="MyPackageDetail" component={ MyPackageDetailPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="ProfileEdit" component={ ProfileEditPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="Area" component={ AreaPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyLocation" component={ MyLocationPage } hideNavBar={ true } panHandlers={null}/>

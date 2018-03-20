@@ -36,7 +36,7 @@ class MyPackagePage extends Component {
   }
 
   onItemSelect(rowData, rowID) {
-    Actions.PackageDetail({data: rowData});
+    Actions.MyPackageDetail({data: rowData});
   }
 
   _renderRow (rowData, sectionID, rowID, highlightRow) {

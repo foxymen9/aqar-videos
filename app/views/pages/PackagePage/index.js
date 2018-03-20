@@ -49,7 +49,7 @@ class PackagePage extends Component {
     return (
       <TouchableOpacity 
         activeOpacity={0.6}
-        // onPress={()=>{this.onItemSelect(rowData)}}
+        onPress={()=>{this.onItemSelect(rowData)}}
       >
         <View style={styles.listItem}>
           <View style={styles.imageView}>
