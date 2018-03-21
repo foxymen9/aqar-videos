@@ -25,7 +25,7 @@ export default class MapButtonListComponent extends Component {
   }
 
   onDirectMessage() {
-    Actions.DirectMessage();
+    Actions.MyMessage();
   }
 
   render() {

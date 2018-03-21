@@ -65,6 +65,7 @@ class Login extends Component {
       email: this.state.email,
       password:  this.state.password
     };
+
     this.props.userSignIn(data, this.props.tokenInfo.token);
   }
 
@@ -125,15 +126,18 @@ class Login extends Component {
         />
 
         <KeyboardAwareScrollView>
-          <View style={styles.fieldContainer}>
+          <View style={styles.fieldContainerLogin}>
             <View style={styles.inputView}>
+              <View style={styles.iconView}>
+                <Icon name='envelope' style={styles.inputIcon}></Icon>
+              </View>
               <TextInput
                 ref="email"
                 autoCapitalize="none"
                 autoCorrect={ false }
                 placeholder={I18n.t('profile.ph_email')}
                 placeholderTextColor={ commonColors.placeholderText }
-                textAlign="right"
+                textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
@@ -142,18 +146,18 @@ class Login extends Component {
                 onChangeText={ (text) => this.setState({ email: text }) }
                 onSubmitEditing={ () => this.refs.password.focus() }
               />
-              <View style={styles.iconView}>
-                <Icon name='envelope' style={styles.inputIcon}></Icon>
-              </View>
             </View>
             <View style={styles.inputView}>
+              <View style={styles.iconView}>
+                <Icon name='lock' style={styles.inputIcon}></Icon>
+              </View>
               <TextInput
                 ref="password"
                 autoCapitalize="none"
                 autoCorrect={ false }
                 placeholder={I18n.t('profile.ph_password')}
                 placeholderTextColor={ commonColors.placeholderText }
-                textAlign="right"
+                textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
@@ -161,24 +165,21 @@ class Login extends Component {
                 value={ this.state.password }
                 onChangeText={ (text) => this.setState({ password: text }) }
               />
-              <View style={styles.iconView}>
-                <Icon name='lock' style={styles.inputIcon}></Icon>
-              </View>
             </View>   
             <View style={styles.forgotPasswordView}>
               <TouchableOpacity onPress={()=>this.onForgotPassword()}>
                 <Text style={styles.forgotPasswordText}>{I18n.t('profile.forgot_password')}</Text>
               </TouchableOpacity>
-            </View>       
+            </View>
+            <View style={styles.btnViewLogin}>
+              <TouchableOpacity onPress={()=>this.onLogin()} activeOpacity={0.5}>
+                <View style={styles.btnWrapper}>
+                  <Text style={styles.btnText}>{I18n.t('login')}</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
           </View>
         </KeyboardAwareScrollView>
-        <View style={styles.btnView}>
-          <TouchableOpacity onPress={()=>this.onLogin()} activeOpacity={0.5}>
-            <View style={styles.btnWrapper}>
-              <Text style={styles.btnText}>{I18n.t('login')}</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
       </View>
     );
   }

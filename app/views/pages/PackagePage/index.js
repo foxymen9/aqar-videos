@@ -12,7 +12,7 @@ import {
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import LoadingSpinner from '@components/LoadingSpinner';
-
+import CustomAlert from '@components/CustomAlert';
 import I18n from '@i18n';
 import Container from '@layout/Container';
 import { styles } from './styles';
@@ -25,6 +25,7 @@ class PackagePage extends Component {
     super(props);
     this.state = {
       loading: false,
+      errorLoading: false,
       colorData: ['#88AC40', '#2A90B6', '#F19100', commonColors.pinkColor, '#88AC40', '#2A90B6', '#F19100', commonColors.pinkColor],
     }
   }
@@ -37,7 +38,10 @@ class PackagePage extends Component {
   componentWillReceiveProps(nextProps) {
     const {packageInfo} = nextProps;
     if (packageInfo) {
-      this.setState({loading: false});;
+      this.setState({ loading: false });
+      if (packageInfo.error) {
+        this.setState({ errorLoading: true });
+      }
     }
   }
 
@@ -68,27 +72,39 @@ class PackagePage extends Component {
   _renderSeparator (sectionID, rowID, adjacentRowHighlighted) {
     return (
       <View
-          key={`${sectionID}-${rowID}`}
+          key={rowID}
           style={{ height: 15, backgroundColor: 'transparent', flex:1}}
       />
     );
   }
 
   render() {
-    const {packageInfo} = this.props;
+    const { packageInfo } = this.props;
     let dataSource;
     
     if (packageInfo) {
-      let listData = packageInfo.package;
-      const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-      dataSource = ds.cloneWithRows(listData);
+      if (!packageInfo.error) {
+        let listData = packageInfo.package;
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        dataSource = ds.cloneWithRows(listData);
+      }
     }
 
     return (
       <Container title={I18n.t('sidebar.packages')}>
         <LoadingSpinner visible={this.state.loading } />
+
+        {packageInfo && packageInfo.error && (
+          <CustomAlert 
+            title={'Warning'}
+            message={packageInfo.error.warning} 
+            visible={this.state.errorLoading} 
+            closeAlert={()=>this.setState({errorLoading: false})}
+          />
+        )}
+
         <View style={styles.container}>
-          {packageInfo && (
+          {packageInfo && !packageInfo.error && (
           <ListView
               ref='listview'
               dataSource={dataSource}

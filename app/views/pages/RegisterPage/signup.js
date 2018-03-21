@@ -89,6 +89,7 @@ class Signup extends Component {
 
   checkCodeResult() {
     this.setState({isAlert: false});
+    console.log('PPPP', this.props.verifyCodeInfo)
     if (this.props.verifyCodeInfo.status == 101)
       this.setState({verifyStep: 0});
     else
@@ -161,13 +162,16 @@ class Signup extends Component {
           {this.state.verifyStep == 2 && (
           <View style={styles.fieldContainer}>
             <View style={styles.inputView}>
+              <View style={styles.iconView}>
+                <Icon name='user' style={styles.inputIcon}></Icon>
+              </View>
               <TextInput
                 ref="firstName"
                 autoCapitalize="none"
                 autoCorrect={ true }
                 placeholder={I18n.t('profile.ph_firstname')}
                 placeholderTextColor={ commonColors.placeholderText }
-                textAlign="right"
+                textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
@@ -175,18 +179,18 @@ class Signup extends Component {
                 onChangeText={ (text) => this.setState({ firstName: text }) }
                 onSubmitEditing={ () => this.refs.lastName.focus() }
               />
+            </View>
+            <View style={styles.inputView}>
               <View style={styles.iconView}>
                 <Icon name='user' style={styles.inputIcon}></Icon>
               </View>
-            </View>
-            <View style={styles.inputView}>
               <TextInput
                 ref="Last Name"
                 autoCapitalize="none"
                 autoCorrect={ true }
                 placeholder={I18n.t('profile.ph_lastname')}
                 placeholderTextColor={ commonColors.placeholderText }
-                textAlign="right"
+                textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
@@ -194,18 +198,18 @@ class Signup extends Component {
                 onChangeText={ (text) => this.setState({ lastName: text }) }
                 onSubmitEditing={ () => this.refs.mobileNumber.focus() }
               />
-              <View style={styles.iconView}>
-                <Icon name='user' style={styles.inputIcon}></Icon>
-              </View>
             </View>
             <View style={styles.inputView}>
+              <View style={styles.iconView}>
+                <Icon name='envelope' style={styles.inputIcon}></Icon>
+              </View>
               <TextInput
                 ref="email"
                 autoCapitalize="none"
                 autoCorrect={ false }
                 placeholder={I18n.t('profile.ph_email')}
                 placeholderTextColor={ commonColors.placeholderText }
-                textAlign="right"
+                textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
@@ -214,11 +218,11 @@ class Signup extends Component {
                 onChangeText={ (text) => this.setState({ email: text }) }
                 onSubmitEditing={ () => this.refs.password.focus() }
               />
-              <View style={styles.iconView}>
-                <Icon name='envelope' style={styles.inputIcon}></Icon>
-              </View>
             </View>
             <View style={styles.inputView}>
+              <View style={styles.iconView}>
+                <Icon name='screen-tablet' style={styles.inputIcon}></Icon>
+              </View>
               <TextInputMask 
                 mask={"+[00000000000000]"} 
                 ref="mobileNumber"
@@ -226,7 +230,7 @@ class Signup extends Component {
                 autoCorrect={ false }
                 placeholder={I18n.t('profile.ph_mobile_number')}
                 placeholderTextColor={ commonColors.placeholderText }
-                textAlign="right"
+                textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
@@ -234,18 +238,18 @@ class Signup extends Component {
                 value={ this.state.mobile }
                 onChangeText={ (text) => this.setState({ mobile: text }) }
               />
-              <View style={styles.iconView}>
-                <Icon name='screen-tablet' style={styles.inputIcon}></Icon>
-              </View>
             </View>
             <View style={styles.inputView}>
+              <View style={styles.iconView}>
+                <Icon name='lock' style={styles.inputIcon}></Icon>
+              </View>
               <TextInput
                 ref="password"
                 autoCapitalize="none"
                 autoCorrect={ false }
                 placeholder={I18n.t('profile.ph_password')}
                 placeholderTextColor={ commonColors.placeholderText }
-                textAlign="right"
+                textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
@@ -254,18 +258,18 @@ class Signup extends Component {
                 onChangeText={ (text) => this.setState({ password: text }) }
                 onSubmitEditing={ () => this.refs.confirmPassword.focus() }
               />
+            </View>
+            <View style={styles.inputView}>
               <View style={styles.iconView}>
                 <Icon name='lock' style={styles.inputIcon}></Icon>
               </View>
-            </View>
-            <View style={styles.inputView}>
               <TextInput
                 ref="confirmPassword"
                 autoCapitalize="none"
                 autoCorrect={ false }
                 placeholder={I18n.t('profile.ph_confirm_password')}
                 placeholderTextColor={ commonColors.placeholderText }
-                textAlign="right"
+                textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
@@ -273,15 +277,15 @@ class Signup extends Component {
                 value={ this.state.confirmPassword }
                 onChangeText={ (text) => this.setState({ confirmPassword: text }) }
               />
-              <View style={styles.iconView}>
-                <Icon name='lock' style={styles.inputIcon}></Icon>
-              </View>
             </View> 
           </View>)}
 
           {this.state.verifyStep == 1 && (
           <View style={styles.fieldContainer}>
             <View style={styles.inputView}>
+              <View style={styles.iconView}>
+                <Icon name='screen-tablet' style={styles.inputIcon}></Icon>
+              </View>
               <TextInputMask 
                 mask={"+[00000000000000]"} 
                 ref="mobileNumber"
@@ -289,7 +293,7 @@ class Signup extends Component {
                 autoCorrect={ false }
                 placeholder={I18n.t('profile.ph_mobile_number')}
                 placeholderTextColor={ commonColors.placeholderText }
-                textAlign="right"
+                textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
@@ -297,18 +301,18 @@ class Signup extends Component {
                 value={ this.state.mobile }
                 onChangeText={ (text) => this.setState({ mobile: text }) }
               />
-              <View style={styles.iconView}>
-                <Icon name='screen-tablet' style={styles.inputIcon}></Icon>
-              </View>
             </View>
             <View style={styles.inputView}>
+              <View style={styles.iconView}>
+                <Icon name='eye' style={styles.inputIcon}></Icon>
+              </View>
               <TextInput
                 ref="confirmCode"
                 autoCapitalize="none"
                 autoCorrect={ false }
                 placeholder={I18n.t('profile.ph_confirm_code')}
                 placeholderTextColor={ commonColors.placeholderText }
-                textAlign="right"
+                textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
@@ -317,15 +321,15 @@ class Signup extends Component {
                 onChangeText={ (text) => this.setState({ code: text }) }
                 onSubmitEditing={ () => this.refs.email.focus() }
               />
-              <View style={styles.iconView}>
-                <Icon name='eye' style={styles.inputIcon}></Icon>
-              </View>
             </View>
           </View>)}
 
           {this.state.verifyStep == 0 && (
           <View style={styles.fieldContainer}>
             <View style={styles.inputView}>
+              <View style={styles.iconView}>
+                <Icon name='screen-tablet' style={styles.inputIcon}></Icon>
+              </View>
               <TextInputMask 
                 mask={"+[00000000000000]"} 
                 ref="mobileNumber"
@@ -333,7 +337,7 @@ class Signup extends Component {
                 autoCorrect={ false }
                 placeholder={I18n.t('profile.ph_mobile_number')}
                 placeholderTextColor={ commonColors.placeholderText }
-                textAlign="right"
+                textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
@@ -341,9 +345,6 @@ class Signup extends Component {
                 value={ this.state.mobile }
                 onChangeText={ (text) => this.setState({ mobile: text }) }
               />
-              <View style={styles.iconView}>
-                <Icon name='screen-tablet' style={styles.inputIcon}></Icon>
-              </View>
             </View>
           </View>)}
         </KeyboardAwareScrollView>

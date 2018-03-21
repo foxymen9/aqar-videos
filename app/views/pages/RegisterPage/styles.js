@@ -40,8 +40,14 @@ export const styles = StyleSheet.create({
     width: '100%',
     height: commonStyles.buttonHeight,
     backgroundColor: commonColors.greenColor,
-    position: 'absolute',
     bottom: commonStyles.buttonBottomHeight,
+    position: 'absolute',
+  },
+  btnViewLogin: {
+    width: '100%',
+    height: commonStyles.buttonHeight,
+    backgroundColor: commonColors.greenColor,
+    marginTop: 20,
   },
   btnWrapper: {
     width: '100%',
@@ -60,13 +66,20 @@ export const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems: 'center',
   },
+  fieldContainerLogin: {
+    width: '100%',
+    height: commonStyles.screenSubHeight - 200,
+    justifyContent:'center',
+    alignItems: 'center',
+    width: commonStyles.screenSubWidth,
+  },
   inputView: {
     width: '100%',
     borderBottomWidth: 0.5,
     borderColor: commonColors.borderColor,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-start',
     paddingHorizontal: commonStyles.padding,
     height: 50,
   },
@@ -78,8 +91,7 @@ export const styles = StyleSheet.create({
   },
   iconView: {
     width: 50,
-    alignItems: 'flex-end',
-    marginRight: 5,
+    alignItems: 'flex-start',
   },
   inputIcon: {
     color: '#EC33AA',

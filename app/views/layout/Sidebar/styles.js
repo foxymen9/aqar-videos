@@ -32,8 +32,8 @@ export const styles = StyleSheet.create({
   },
   menuItemTitle: {
     fontFamily: commonStyles.normalFont,
-    fontSize: commonStyles.normalFontSize,
-    color: '#868686',
+    fontSize: 15,
+    color: commonColors.darkGrayColor,
   },
   iconView: {
     width: 40,

@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   textTitle: {
-    fontFamily: commonStyles.boldFont,
+    fontFamily: commonStyles.normalFont,
     fontWeight: 'bold',
     fontSize: commonStyles.normalFontSize,
     textAlign: 'right',
@@ -43,7 +43,7 @@ export const styles = StyleSheet.create({
     textAlign: 'right'
   },
   bold: {
-    fontFamily: commonStyles.boldFont,
+    fontFamily: commonStyles.normalFont,
     fontWeight: 'bold',
   },
   itemView: {
@@ -105,7 +105,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 5,
   },
   inputPrice: {
-    fontFamily: commonStyles.boldFont,
+    fontFamily: commonStyles.normalFont,
     fontWeight: 'bold',
     width: '100%',
     fontSize: 17,
@@ -113,7 +113,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   },
   input: {
-    fontFamily: commonStyles.boldFont,
+    fontFamily: commonStyles.normalFont,
     fontWeight: 'bold',
     width: '100%',
     fontSize: 17,
