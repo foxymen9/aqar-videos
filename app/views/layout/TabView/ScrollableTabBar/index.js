@@ -2,6 +2,8 @@ const React = require('react');
 const { ViewPropTypes } = ReactNative = require('react-native');
 const PropTypes = require('prop-types');
 const createReactClass = require('create-react-class');
+import InvertibleScrollView from 'react-native-invertible-scroll-view';
+
 const {
   View,
   Animated,
@@ -16,26 +18,25 @@ const Button = require('./Button');
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
-const icon_building = require('@common/assets/images/tab/building.png');
-const icon_villa = require('@common/assets/images/tab/villa.png');
-const icon_apartment = require('@common/assets/images/tab/flat.png');
-const icon_office = require('@common/assets/images/tab/office.png');
-const icon_gallery = require('@common/assets/images/tab/galleries_and_shops.png');
-const icon_land = require('@common/assets/images/tab/area.png');
-const icon_chalet = require('@common/assets/images/tab/chalet.png');
 const icon_real_estate = require('@common/assets/images/tab/realestate.png');
-
+const icon_factor = require('@common/assets/images/tab/area.png');
+const icon_gallery = require('@common/assets/images/tab/galleries_and_shops.png');
+const icon_factory = require('@common/assets/images/tab/realestate.png');
+const icon_office = require('@common/assets/images/tab/office.png');
+const icon_firm = require('@common/assets/images/tab/villa.png');
+const icon_chalet = require('@common/assets/images/tab/chalet.png');
+const icon_apartment = require('@common/assets/images/tab/building.png');
 import * as commonStyles from '@common/styles/commonStyles';
 
 const icons = [
-  icon_building,
-  icon_villa,
-  icon_apartment,
-  icon_office,
+  icon_factor,
   icon_gallery,
-  icon_land,
+  icon_factory,
+  icon_office,
+  icon_firm,
   icon_chalet,
-  icon_real_estate
+  icon_apartment,
+  // icon_villa,  
 ];
 
 const ScrollableTabBar = createReactClass({
@@ -165,10 +166,10 @@ const ScrollableTabBar = createReactClass({
       onLayout={onLayoutHandler}
     >
       <View style={[styles.tab, this.props.tabStyle ]}>
-        <Image source={icons[page]} style={styles.tabItemIcon} />
         <Text style={[{color: textColor, fontWeight, fontSize: 15, fontFamily: commonStyles.normalFont}, textStyle]}>
           {name}
         </Text>
+        <Image source={icons[page]} style={styles.tabItemIcon} />
       </View>
     </Button>;
   },
@@ -196,7 +197,7 @@ const ScrollableTabBar = createReactClass({
       style={[styles.container, {backgroundColor: this.props.backgroundColor, }, this.props.style, ]}
       onLayout={this.onContainerLayout}
     >
-      <ScrollView
+      <InvertibleScrollView
         ref={(scrollView) => { this._scrollView = scrollView; }}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
@@ -204,6 +205,7 @@ const ScrollableTabBar = createReactClass({
         directionalLockEnabled={true}
         bounces={false}
         scrollsToTop={false}
+        inverted
       >
         <View
           style={[styles.tabs, {width: this.state._containerWidth, }, this.props.tabsContainerStyle, ]}
@@ -217,7 +219,7 @@ const ScrollableTabBar = createReactClass({
           })}
           <Animated.View style={[tabUnderlineStyle, dynamicTabUnderline, this.props.underlineStyle, ]} />
         </View>
-      </ScrollView>
+      </InvertibleScrollView>
     </View>;
   },
 
@@ -243,6 +245,7 @@ const ScrollableTabBar = createReactClass({
     this.updateView({value: this.props.scrollValue._value, });
   },
 });
+
 
 module.exports = ScrollableTabBar;
 
@@ -275,6 +278,6 @@ const styles = StyleSheet.create({
   tabItemIcon: {
     width: 18,
     height: 18,
-    marginRight: commonStyles.padding/2,
+    marginLeft: commonStyles.padding/2,
   }
 });

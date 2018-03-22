@@ -78,7 +78,7 @@ export default class PostNewVideoPage extends Component {
         chooseFromLibraryButtonTitle: I18n.t('choose_library'),
         mediaType: 'video',
         allowsEditing: true,
-        durationLimit: 180, //limit 3mins
+        durationLimit: 300, //limit 5mins
         // noData: true,
         storageOptions: {
           skipBackup: true,
@@ -290,25 +290,7 @@ export default class PostNewVideoPage extends Component {
             <View style={styles.priceView}>
               <View style={styles.priceBox}>
                 <TextInput
-                  ref="maxPrice"
-                  autoCapitalize="none"
-                  autoCorrect={ false }
-                  multiline={true}
-                  placeholder={I18n.t('post_video.max_price')}
-                  placeholderTextColor={ commonColors.placeholderSubText }
-                  textAlign="right"
-                  style={styles.inputPrice}
-                  underlineColorAndroid="transparent"
-                  returnKeyType={ 'done' }
-                  keyboardType="numbers-and-punctuation"
-                  value={ this.state.maxPrice }
-                  onChangeText={ (text) => this.setState({ maxPrice: text }) }
-                />
-              </View>
-              <Text style={styles.linebar}>-</Text>
-              <View style={styles.priceBox}>
-                <TextInput
-                  ref="minPrice"
+                  ref="price"
                   autoCapitalize="none"
                   autoCorrect={ false }
                   multiline={true}
@@ -319,9 +301,8 @@ export default class PostNewVideoPage extends Component {
                   underlineColorAndroid="transparent"
                   returnKeyType={ 'next' }
                   keyboardType="numbers-and-punctuation"
-                  value={ this.state.minPrice }
-                  onChangeText={ (text) => this.setState({ minPrice: text }) }
-                  onSubmitEditing={ () => this.refs.maxPrice.focus() }
+                  value={ this.state.price }
+                  onChangeText={ (text) => this.setState({ price: text }) }
                 />
               </View>
             </View>)}
@@ -330,25 +311,7 @@ export default class PostNewVideoPage extends Component {
             <View style={styles.priceView}>
               <View style={styles.squareMeterBox}>
                 <TextInput
-                  ref="maxSquareMeter"
-                  autoCapitalize="none"
-                  autoCorrect={ false }
-                  multiline={true}
-                  placeholder={I18n.t('post_video.max_squaremeter')}
-                  placeholderTextColor={ commonColors.placeholderSubText }
-                  textAlign="right"
-                  style={styles.inputPrice}
-                  underlineColorAndroid="transparent"
-                  returnKeyType={ 'done' }
-                  keyboardType="numbers-and-punctuation"
-                  value={ this.state.maxSquareMeter }
-                  onChangeText={ (text) => this.setState({ maxSquareMeter: text }) }
-                />
-              </View>
-              <Text style={styles.linebar}>-</Text>
-              <View style={styles.squareMeterBox}>
-                <TextInput
-                  ref="minSquareMeter"
+                  ref="squareMeter"
                   autoCapitalize="none"
                   autoCorrect={ false }
                   multiline={true}
@@ -359,9 +322,8 @@ export default class PostNewVideoPage extends Component {
                   underlineColorAndroid="transparent"
                   returnKeyType={ 'next' }
                   keyboardType="numbers-and-punctuation"
-                  value={ this.state.minSquareMeter }
-                  onChangeText={ (text) => this.setState({ minSquareMeter: text }) }
-                  onSubmitEditing={ () => this.refs.maxPrice.focus() }
+                  value={ this.state.squareMeter }
+                  onChangeText={ (text) => this.setState({ squareMeter: text }) }
                 />
               </View>
             </View>)}
@@ -397,7 +359,7 @@ export default class PostNewVideoPage extends Component {
                   <CheckBox
                     label={I18n.t('post_video.furniture')}
                     labelBefore={true}
-                    labelStyle={{color: commonColors.placeholderText, fontFamily: commonStyles.normalFont, fontWeight: 'bold'}}
+                    labelStyle={{color: commonColors.placeholderText, fontSize: 14, fontFamily: commonStyles.normalFont, fontWeight: 'bold'}}
                     onChange={(checked) => this.setState({furniture: checked})}
                   />
                 </View>
@@ -429,7 +391,7 @@ export default class PostNewVideoPage extends Component {
                   <CheckBox
                     label={I18n.t('post_video.ownership')}
                     labelBefore={true}
-                    labelStyle={{color: commonColors.placeholderText, fontFamily: commonStyles.normalFont, fontWeight: 'bold'}}
+                    labelStyle={{color: commonColors.placeholderText, fontSize: 14, fontFamily: commonStyles.normalFont, fontWeight: 'bold'}}
                     onChange={(checked) => this.setState({ownership: checked})}
                   />
                 </View>

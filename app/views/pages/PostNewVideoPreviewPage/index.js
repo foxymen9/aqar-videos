@@ -22,6 +22,7 @@ import I18n from '@i18n';
 import Container from '@layout/Container';
 import { styles } from './styles';
 import * as commonColors from '@common/styles/commonColors';
+import * as commonStyles from '@common/styles/commonStyles';
 import ModalShare from '@components/ModalShare';
 
 const icon_building = require('@common/assets/images/product_detail/building.png');
@@ -222,7 +223,7 @@ export default class PostNewVideoPreviewPage extends Component {
 
             <View style={styles.titleView}>
               <View style={styles.iconView}>
-                <Image source={icon} style={styles.iconOffice} resizeMode="cover" />
+                <Image source={icon} style={styles.iconOffice} resizeMode="contain" />
                 <Text style={styles.textDescription}>
                   {data.category}
                 </Text>
@@ -232,7 +233,7 @@ export default class PostNewVideoPreviewPage extends Component {
               <CheckBox
                 label={I18n.t('terms_conditions')}
                 labelBefore={true}
-                labelStyle={{color: commonColors.placeholderText}}
+                labelStyle={{color: commonColors.placeholderText, fontSize: 14, fontFamily: commonStyles.normalFont, fontWeight: 'bold'}}
                 onChange={(checked) => this.setState({terms: checked})}
               />
             </View>

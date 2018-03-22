@@ -188,27 +188,27 @@ class TabView extends Component {
           contentProps={{bounces: true, keyboardDismissMode: 'on-drag'}}
           tabBarUnderlineStyle={{backgroundColor:'#DC754C'}}
           onChangeTab = {(index)=>this.changeTab(index)}
-          renderTabBar={() => <ScrollableTabBar/>}
+          renderTabBar={() => <ScrollableTabBar />}
         >
-          <ScrollView tabLabel={I18n.t('category.building')}>
+          <ScrollView tabLabel={I18n.t('category.factor')}>
             {btnStatus == 'map' && (
-              <MapPage page="building" locationData={buildingData} region={region} />
+              <MapPage page="factor" locationData={apartmentData} region={region} />
             )}
             {btnStatus == 'list' && (
               <ProductListPage />
             )}
           </ScrollView>
-          <ScrollView tabLabel={I18n.t('category.villa')}>
+          <ScrollView tabLabel={I18n.t('category.store')}>
             {btnStatus == 'map' && (
-              <MapPage page="villa" locationData={apartmentData} region={region} />
+              <MapPage page="store" locationData={buildingData} region={region} />
             )}
             {btnStatus == 'list' && (
               <ProductListPage />
             )}
           </ScrollView>
-          <ScrollView tabLabel={I18n.t('category.apartment')}>
+          <ScrollView tabLabel={I18n.t('category.factory')}>
             {btnStatus == 'map' && (
-              <MapPage page="apartment" locationData={apartmentData} region={region} />
+              <MapPage page="factory" locationData={buildingData} region={region} />
             )}
             {btnStatus == 'list' && (
               <ProductListPage />
@@ -222,17 +222,9 @@ class TabView extends Component {
               <ProductListPage />
             )}
           </ScrollView>
-          <ScrollView tabLabel={I18n.t('category.gallery')}>
+          <ScrollView tabLabel={I18n.t('category.firm')}>
             {btnStatus == 'map' && (
-              <MapPage page="gallery" locationData={buildingData} region={region} />
-            )}
-            {btnStatus == 'list' && (
-              <ProductListPage />
-            )}
-          </ScrollView>
-          <ScrollView tabLabel={I18n.t('category.land')}>
-            {btnStatus == 'map' && (
-              <MapPage page="land" locationData={buildingData} region={region} />
+              <MapPage page="firm" locationData={buildingData} region={region} />
             )}
             {btnStatus == 'list' && (
               <ProductListPage />
@@ -240,20 +232,28 @@ class TabView extends Component {
           </ScrollView>
           <ScrollView tabLabel={I18n.t('category.chalet')}>
             {btnStatus == 'map' && (
-              <MapPage page="chalets" locationData={buildingData} region={region} />
+              <MapPage page="chalet" locationData={buildingData} region={region} />
             )}
             {btnStatus == 'list' && (
               <ProductListPage />
             )}
           </ScrollView>
-          <ScrollView tabLabel={I18n.t('category.real_estate')}>
+          <ScrollView tabLabel={I18n.t('category.apartment')}>
+            {btnStatus == 'map' && (
+              <MapPage page="apartment" locationData={apartmentData} region={region} />
+            )}
+            {btnStatus == 'list' && (
+              <ProductListPage />
+            )}
+          </ScrollView>
+          {/* <ScrollView tabLabel={I18n.t('category.real_estate')}>
             {btnStatus == 'map' && (
               <MapPage page="real_estate" locationData={buildingData} region={region} />
             )}
             {btnStatus == 'list' && (
               <ProductListPage />
             )}
-          </ScrollView>
+          </ScrollView> */}
         </ScrollableTabView>
       </View>
     );

@@ -6,7 +6,7 @@ const initialState = {
   menuIndex: 0,
 
   userInfo: null,
-  userLogin: false,
+  userLogin: true,
   
   verifyPhoneInfo: null,
   verifyCodeInfo: null,
