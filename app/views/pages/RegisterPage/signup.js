@@ -33,8 +33,8 @@ class Signup extends Component {
     super(props);
     this.state = {
       loading: false,
-      mobile: '+8618841565317',
-      code: '1234567',
+      mobile: '+966',
+      code: '',
       password: '111111',
       confirmPassword: '111111',
       email: 'test1@test1.com',  
@@ -58,6 +58,9 @@ class Signup extends Component {
     if (userSignupInfo) {
       this.setState({loading: false});
       this.setState({isAlert: true});
+      
+      this.props.changeMenu(0);
+      Actions.Main();
     }
   }
   
@@ -89,7 +92,6 @@ class Signup extends Component {
 
   checkCodeResult() {
     this.setState({isAlert: false});
-    console.log('PPPP', this.props.verifyCodeInfo)
     if (this.props.verifyCodeInfo.status == 101)
       this.setState({verifyStep: 0});
     else
@@ -107,8 +109,6 @@ class Signup extends Component {
     }
     this.setState({loading: true});
     this.props.userSignUp(data, this.props.tokenInfo.token);
-    this.props.changeMenu(0);
-    // Actions.Main();
   }
 
   checkUserSignupResult() {

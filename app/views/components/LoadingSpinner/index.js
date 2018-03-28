@@ -10,6 +10,8 @@ import {
   Modal
 } from 'react-native';
 import IconEntypo from 'react-native-vector-icons/Entypo';
+const loading_icon = require('@common/assets/images/loading_icon/loading.gif');
+
 export default class LoadingSpinner extends Component {
   constructor(props){
     super(props);
@@ -33,11 +35,17 @@ export default class LoadingSpinner extends Component {
               borderRadius:10,
               alignSelf:'center'
             }}>
-              {/* <IconEntypo name='chevron-down' /> */}
-              <ActivityIndicator
+              {/* <ActivityIndicator
                   animating={true}
                   size={"large"}
                   color={'white'}
+              /> */}
+              <Image
+                source={loading_icon}
+                style={{
+                  width: 50,
+                  height: 50,
+                }}
               />
             </View>
             <View style={{ flex: 1 }}/>

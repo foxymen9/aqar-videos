@@ -159,5 +159,14 @@ export const styles = StyleSheet.create({
     color: commonColors.placeholderText,
     marginHorizontal: 10,
     fontSize: 30,
+  },
+  deleteVideo: {
+    position: 'absolute',
+    right: 20,
+    top: 10,
+  },
+  deleteVideoIcon: {
+    fontSize: 30,
+    color: 'white',
   }
 });

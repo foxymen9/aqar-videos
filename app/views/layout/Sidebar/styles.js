@@ -36,8 +36,9 @@ export const styles = StyleSheet.create({
     color: commonColors.darkGrayColor,
   },
   iconView: {
-    width: 40,
-    alignItems: 'flex-end'
+    width: 30,
+    alignItems: 'center',
+    marginLeft: 20,
   },
   menuItemIcon: {
   },

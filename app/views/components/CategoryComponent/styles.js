@@ -45,5 +45,7 @@ export const styles = StyleSheet.create({
   },
   icon: {
     marginBottom: 10,
+    height: 45,
+    width: 45,
   },
 });

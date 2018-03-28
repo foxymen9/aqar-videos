@@ -18,7 +18,7 @@ export default function token(state = initialState, action = {}) {
           loading: true,
       };
     case types.TOKEN_SUCCESS:
-    // console.log('TOKEN_DATA', action);
+    console.log('TOKEN_DATA', action);
       return {
         ...state,
         loading: true,

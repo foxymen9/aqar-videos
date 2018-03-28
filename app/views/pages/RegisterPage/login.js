@@ -96,14 +96,14 @@ class Login extends Component {
 
   render() {
     const { userInfo, forgotPasswordResult } = this.props;
-
+console.log(userInfo)
     return (
       <View style={styles.container}>
         <LoadingSpinner visible={this.state.loading } />
         {userInfo && (
           <CustomAlert 
             title={userInfo.status == 200 ? 'Success' : 'Error'}
-            message={userInfo.status == 200 ? userInfo.message : userInfo.err} 
+            message={userInfo.status == 200 ? userInfo.message : userInfo.error.warning} 
             visible={this.state.isLoginAlert} 
             closeAlert={()=>{this.checkUserLoginResult();}}
           />

@@ -14,6 +14,7 @@ import {
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
+import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import Video from 'react-native-video';
 import CheckBox from 'react-native-modest-checkbox';
@@ -27,15 +28,18 @@ import {RadioGroup, RadioButton} from '@components/RadioButtonGroup';
 import DropdownComponent from '@components/DropdownComponent';
 import CategoryComponent from '@components/CategoryComponent';
 import AutoSuggestComponent from '@components/AutoSuggestComponent';
+import LoadingSpinner from '@components/LoadingSpinner';
 
 import { styles } from './styles';
 import * as commonStyles from '@common/styles/commonStyles';
 import * as commonColors from '@common/styles/commonColors';
+import { getRegions } from '@redux/Region/actions';
 
-export default class PostNewVideoPage extends Component {
+class PostNewVideoPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: false,
       category: 'building',
       title: '',
       description: '',
@@ -46,16 +50,26 @@ export default class PostNewVideoPage extends Component {
       district: '',
       period: '',
       buildingType: '',
-      videoUri: null,
+      videoUri: '',
       minSquareMeter: '1000',
     }
     this.player = null;
   }
 
+  componentWillMount() {
+    // if (this.props.tokenInfo) {
+    //   this.setState({ loading: true })
+    //   this.props.getRegions(this.props.tokenInfo.token)
+    // }
+  }
+
+  componentWillReceiveProps(nextProps) {
+
+  }
   onPreview() {
     const propsData = this.state;
     
-    Actions.PostNewVideoPreview({data: propsData});
+    // Actions.PostNewVideoPreview({data: propsData});
     // if (propsData.videoUri != null) {
     //   Actions.PostNewVideoPreview({data: propsData});
     // }
@@ -70,12 +84,16 @@ export default class PostNewVideoPage extends Component {
     // this.refs.scrollContainer.scrollToEnd();
   }
 
+  onDeleteVideo() {
+    this.setState({ videoUri: null })
+  }
+
   onCamera() {
     if (this.state.videoUri == null) {
       const options = {
         title: I18n.t('post_video.record_choose_video'),
-        takePhotoButtonTitle: I18n.t('record_video'),
-        chooseFromLibraryButtonTitle: I18n.t('choose_library'),
+        takePhotoButtonTitle: I18n.t('post_video.record_video'),
+        chooseFromLibraryButtonTitle: I18n.t('post_video.choose_library'),
         mediaType: 'video',
         allowsEditing: true,
         durationLimit: 300, //limit 5mins
@@ -89,16 +107,13 @@ export default class PostNewVideoPage extends Component {
       }
       ImagePicker.showImagePicker(options, (response) => {
         if (response.didCancel) {
-          console.log('user cancelled');
         }
         else if (response.error) {
-          console.log('ERROR' + response.error);
         }
         else if (response.customButton) {
-          console.log('uer tapped' + response.customButton);
         }
         else {
-          console.log('DATA', response);
+          console.log('IMAGE DATA: ', response);
           this.setState({videoUri: response.uri});
         }
       })
@@ -115,24 +130,6 @@ export default class PostNewVideoPage extends Component {
       category, 
       videoUri
     } = this.state;  
-
-    const regionData = [
-      { value: 'Saudi Arabia' },
-      { value: 'China' },
-      { value: 'Japan' }
-    ];
-
-    const cityData = [
-      { value: 'City1' },
-      { value: 'City2' },
-      { value: 'City3' }
-    ];
-
-    const districtData = [
-      { value: 'Distrcit1' },
-      { value: 'Distrcit2' },
-      { value: 'Distrcit3' }
-    ];
 
     const periodData = [
       { value: 'Daily' },
@@ -152,23 +149,35 @@ export default class PostNewVideoPage extends Component {
 
     return (
       <Container title={I18n.t('sidebar.post_new_ads')}>
+        <LoadingSpinner visible={this.state.loading } />
+
         <View style={styles.container}>
           <KeyboardAwareScrollView ref="scrollContainer">
             <TouchableOpacity onPress={()=>this.onCamera()}>
               <View style={styles.videoView}>
-              {videoUri != null 
-              ?  <Video
-                  ref={(ref)=> {this.player = ref}}
-                  source={{uri: videoUri}}
-                  style={styles.videoThumbnail}
-                  resizeMode='cover'
-                  autoplay={false}
-                  onLoadStart={()=>this.player.presentFullscreenPlayer}
-                />
-              : <Icon name='video' style={styles.cameraIcon} />
-              }
+                {videoUri ?
+                  <Video
+                    ref={(ref)=> {this.player = ref}}
+                    source={{uri: videoUri}}
+                    style={styles.videoThumbnail}
+                    resizeMode='cover'
+                    autoplay={false}
+                    onLoadStart={()=>this.player.presentFullscreenPlayer}
+                  /> :
+                  <Icon name='video' style={styles.cameraIcon} />
+                }
+                {videoUri && (
+                  <View style={styles.deleteVideo}>
+                    <TouchableOpacity onPress={() => this.onDeleteVideo()}>
+                      <Icon name='video-off' style={styles.deleteVideoIcon} />
+                    </TouchableOpacity>
+                  </View>
+                )}
               </View>
             </TouchableOpacity>
+
+            <CategoryComponent category={(item)=>this.selectCategory(item)} />
+
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
                 {I18n.t('post_video.title')}
@@ -188,6 +197,7 @@ export default class PostNewVideoPage extends Component {
                 onSubmitEditing={ () => this.refs.description.focus() }
               />
             </View>
+
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
                 {I18n.t('post_video.description')}
@@ -208,6 +218,7 @@ export default class PostNewVideoPage extends Component {
                 onSubmitEditing={ () => this.refs.price.focus() }
               />
             </View>
+
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
                   {I18n.t('post_video.price')}
@@ -227,36 +238,6 @@ export default class PostNewVideoPage extends Component {
                 onChangeText={ (text) => this.setState({ price: text }) }
                 onSubmitEditing={ () => this.refs.password.focus() }
               />
-            </View>
-            {/* <AutoSuggestComponent
-              handleChange={text => this.setState({region: text})}
-              label={I18n.t('post_video.region')}
-            />
-            <AutoSuggestComponent
-              handleChange={text => this.setState({city: text})}
-              label={I18n.t('post_video.city')}
-            />
-            <AutoSuggestComponent
-              handleChange={text => this.setState({district: text})}
-              label={I18n.t('post_video.district')}
-            /> */}
-            <View style={styles.itemView}>
-              <Text style={styles.textTitle}>
-                {I18n.t('post_video.region')}
-              </Text>
-              <DropdownComponent selectItem={(value)=>this.setState({region: value})} item={this.state.region} data={regionData} />
-            </View>
-            <View style={styles.itemView}>
-              <Text style={styles.textTitle}>
-                {I18n.t('post_video.city')}
-              </Text>
-              <DropdownComponent selectItem={(value)=>this.setState({city: value})} item={this.state.city} data={cityData} />
-            </View>
-            <View style={styles.itemView}>
-              <Text style={styles.textTitle}>
-                {I18n.t('post_video.district')}
-              </Text>
-              <DropdownComponent selectItem={(value)=>this.setState({district: value})} item={this.state.district} data={districtData} />
             </View>
 
             <View style={styles.productOptionView}>
@@ -278,6 +259,7 @@ export default class PostNewVideoPage extends Component {
                 {I18n.t('post_video.product_option')}
               </Text>
             </View>
+
             {(category == 'building' || category == 'land') && (
               <View style={styles.itemView}>
                 <Text style={styles.textTitle}>
@@ -286,26 +268,6 @@ export default class PostNewVideoPage extends Component {
                 <DropdownComponent selectItem={(value)=>this.setState({buildingType: value})} item={this.state.buildingType} data={buildingTypeData} />
               </View>
             )}
-            {(category == 'building' || category == 'villa') && (
-            <View style={styles.priceView}>
-              <View style={styles.priceBox}>
-                <TextInput
-                  ref="price"
-                  autoCapitalize="none"
-                  autoCorrect={ false }
-                  multiline={true}
-                  placeholder={I18n.t('post_video.min_price')}
-                  placeholderTextColor={ commonColors.placeholderSubText }
-                  textAlign="right"
-                  style={styles.inputPrice}
-                  underlineColorAndroid="transparent"
-                  returnKeyType={ 'next' }
-                  keyboardType="numbers-and-punctuation"
-                  value={ this.state.price }
-                  onChangeText={ (text) => this.setState({ price: text }) }
-                />
-              </View>
-            </View>)}
 
             {category == 'villa' && (
             <View style={styles.priceView}>
@@ -327,6 +289,7 @@ export default class PostNewVideoPage extends Component {
                 />
               </View>
             </View>)}
+
             {(category == 'apartment' || category == 'chalet') && (
               <View style={styles.itemView}>
                 <Text style={styles.textTitle}>
@@ -335,6 +298,7 @@ export default class PostNewVideoPage extends Component {
                 <DropdownComponent selectItem={(value)=>this.setState({period: value})} item={this.state.period} data={periodData} />
               </View>
             )}
+
             {(category == 'apartment') && (
               <View>
                 <View style={styles.itemView}>
@@ -397,6 +361,7 @@ export default class PostNewVideoPage extends Component {
                 </View>
               </View>
             )}
+
             {(category == 'office') && (
               <View style={styles.itemView}>
                 <Text style={styles.textTitle}>
@@ -417,6 +382,7 @@ export default class PostNewVideoPage extends Component {
                 />
               </View>
             )}
+
             {(category == 'gallery') && (
               <View>
                 <View style={styles.itemView}>
@@ -463,7 +429,6 @@ export default class PostNewVideoPage extends Component {
                 {I18n.t('post_video.category')}
               </Text>
             </View>
-            <CategoryComponent category={(item)=>this.selectCategory(item)} />
 
             <TouchableOpacity onPress={()=>this.onPreview()} activeOpacity={0.5}>
               <View style={styles.previewBtnView}>
@@ -476,3 +441,8 @@ export default class PostNewVideoPage extends Component {
     );
   }
 }
+
+export default connect(state => ({
+  tokenInfo: state.token.tokenInfo,
+  regionData: state.regions.regionData
+}),{ getRegions })(PostNewVideoPage);

@@ -36,7 +36,8 @@ class MainPage extends Component {
     const { tokenInfo, userLogin } = this.props;
 
     //Check the token
-    if (tokenInfo == null) {
+    if (!tokenInfo || tokenInfo === undefined) {
+      console.log('TOKEN:', tokenInfo);
       this.props.getToken();
     }
     else {

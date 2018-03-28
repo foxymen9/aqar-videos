@@ -1,12 +1,13 @@
 import * as types from './actionTypes';
 
 const initialState = {
+  userLogin: false,
+
   loading: false,
   error:null,
   menuIndex: 0,
 
   userInfo: null,
-  userLogin: true,
   
   verifyPhoneInfo: null,
   verifyCodeInfo: null,
