@@ -36,13 +36,30 @@ import DirectMessagePage from './views/pages/DirectMessagePage';
 import SearchPage from './views/pages/SearchPage';
 import VideoRecordPage from './views/pages/VideoRecordPage';
 import PostProductLocationPage from './views/pages/PostProductLocationPage';
+import SplashScreenPage from './views/pages/SplashScreenPage';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      loading: true,
+    }
+  }
+
+  componentWillMount() {
+    setTimeout(() => {
+      this.setState({ loading: false })
+    }, 3000)
   }
 
   render() {
+
+    if (this.state.loading) {
+      return (
+        <SplashScreenPage />
+      )
+    }
+
     const scenes = Actions.create(
       <Scene key="root">
         <Scene key="Main" initial={ true } component={ MainPage } hideNavBar={ true } panHandlers={null}/>

@@ -10,7 +10,8 @@ import {
   Modal
 } from 'react-native';
 import IconEntypo from 'react-native-vector-icons/Entypo';
-const loading_icon = require('@common/assets/images/loading_icon/loading.gif');
+
+const loading_icon = require('@common/assets/images/loading_icon/splash_loading.gif');
 
 export default class LoadingSpinner extends Component {
   constructor(props){
