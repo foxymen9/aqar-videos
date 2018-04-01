@@ -75,7 +75,7 @@ class MyPackagePage extends Component {
           <View style={styles.chartView}>
             <View>
               <PercentageCircle radius={40} percent={50} color={'#e6b800'} borderWidth={3}>
-                <Text style={styles.circleTitle}>Days</Text>
+                <Text style={styles.circleTitle}>DAYS</Text>
                 <Text style={styles.circleSubTitle}>49</Text>
               </PercentageCircle>
             </View>

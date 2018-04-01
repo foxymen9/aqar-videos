@@ -63,22 +63,22 @@ class Sidebar extends Component {
         case '4':
           Actions.MyMessage();
           break;
+        // case '5':
+        //   Actions.MyLocation();
+        //   break;
         case '5':
-          Actions.MyLocation();
-          break;
-        case '6':
           Actions.Package();
           break;
-        case '7':
+        case '6':
           Actions.MyPackage();
           break;
-        case '8':
+        case '7':
           Actions.ProfileEdit();
           break;
-        case '9':
+        case '8':
           Actions.SupportAdvertisement();
           break;
-        case '10':
+        case '9':
           this.props.userSignOut();
           AsyncStorage.removeItem('loginStatus');
           this.props.changeMenu(0);
@@ -160,10 +160,10 @@ class Sidebar extends Component {
           title: I18n.t('sidebar.my_messages'),
           icon: icon_message
         },
-        {
-          title: I18n.t('sidebar.my_location'),
-          icon: icon_location
-        },
+        // {
+        //   title: I18n.t('sidebar.my_location'),
+        //   icon: icon_location
+        // },
         {
           title: I18n.t('sidebar.packages'),
           icon: icon_package

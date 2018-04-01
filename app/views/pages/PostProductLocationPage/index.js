@@ -83,17 +83,25 @@ class PostProductLocationPage extends Component {
   }
 
   onMapPress(e) {
-    this.setState({ isSelect: true })
-    this.setState({ coordinate: {
-      latitude: e.nativeEvent.coordinate.latitude,
-      longitude: e.nativeEvent.coordinate.longitude,
-    }})
-    const coordinate = {
-      lat: e.nativeEvent.coordinate.latitude,
-      lng: e.nativeEvent.coordinate.longitude,
-    }
+    if (e.nativeEvent.coordinate) {
+      this.setState({ isSelect: true })
+      this.setState({ coordinate: {
+        latitude: e.nativeEvent.coordinate.latitude,
+        longitude: e.nativeEvent.coordinate.longitude,
+      }})
+      const coordinate = {
+        lat: e.nativeEvent.coordinate.latitude,
+        lng: e.nativeEvent.coordinate.longitude,
+      }
 
-    this.getAddress(coordinate)
+      this.getAddress(coordinate)
+    } else {
+      const coordinate = {
+        lat: this.state.coordinate.latitude,
+        lng: this.state.coordinate.longitude,
+      }
+      this.getAddress(coordinate)
+    }
   }
 
   async getAddress(coordinate) {
@@ -120,12 +128,27 @@ class PostProductLocationPage extends Component {
 		const lat = geoCode.lat
 		const lng = geoCode.lng
 
-    const coordinate = {
-      lat,
-      lng
+    this.setState({
+      isSelect: true,
+      coordinate: {
+        latitude: lat,
+        longitude: lng
+      }
+    })
+    let region = {
+      latitude: lat,
+      longitude: lng,
+      latitudeDelta: 0.05,
+      longitudeDelta: 0.05,
     }
+    this.onRegionChange(region, region.latitude, region.longitude)
 
-    this.getAddress(coordinate)
+    // const coordinate = {
+    //   lat,
+    //   lng
+    // }
+
+    // this.getAddress(coordinate)
 	}
 
   render() {

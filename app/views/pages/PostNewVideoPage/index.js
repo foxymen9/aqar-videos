@@ -130,7 +130,7 @@ class PostNewVideoPage extends Component {
   }
 
   getAddress(addressArr) {
-    const address = addressArr.street + ' ' + addressArr.city + ' ' + addressArr.country;
+    const address = addressArr.street + ', ' + addressArr.city + ', ' + addressArr.country;
     this.setState({ address })
     this.setState({ coordinate: addressArr.coordinate })
   }
