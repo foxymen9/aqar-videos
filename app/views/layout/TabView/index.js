@@ -186,7 +186,7 @@ class TabView extends Component {
           tabBarBackgroundColor='#424242'
           tabBarTextStyle={{color:'#FFF'}}
           contentProps={{bounces: true, keyboardDismissMode: 'on-drag'}}
-          tabBarUnderlineStyle={{backgroundColor:'#DC754C'}}
+          tabBarUnderlineStyle={{backgroundColor:'#EB0089'}}
           onChangeTab = {(index)=>this.changeTab(index)}
           renderTabBar={() => <ScrollableTabBar/>}
         >

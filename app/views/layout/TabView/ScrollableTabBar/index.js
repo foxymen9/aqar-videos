@@ -59,7 +59,7 @@ const ScrollableTabBar = createReactClass({
   getDefaultProps() {
     return {
       scrollOffset: 52,
-      activeTextColor: 'navy',
+      activeTextColor: '#EB0089',
       inactiveTextColor: 'black',
       backgroundColor: null,
       style: {},
@@ -72,8 +72,8 @@ const ScrollableTabBar = createReactClass({
   getInitialState() {
     this._tabsMeasurements = [];
     return {
-      _leftTabUnderline: new Animated.Value(0),
-      _widthTabUnderline: new Animated.Value(0),
+      _leftTabUnderline: new Animated.Value(10),
+      _widthTabUnderline: new Animated.Value(100),
       _containerWidth: null,
     };
   },
@@ -183,7 +183,7 @@ const ScrollableTabBar = createReactClass({
     const tabUnderlineStyle = {
       position: 'absolute',
       height: 4,
-      backgroundColor: 'navy',
+      backgroundColor: '#EB0089',
       bottom: 0,
     };
 

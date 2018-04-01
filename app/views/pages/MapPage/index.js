@@ -38,6 +38,7 @@ export default class MapPage extends Component {
       this.setState({mapType: 'satellite'});
   }
 
+  // onRegionChange()
   render() {
     const { mapType } = this.state;
     const { locationData, region, page } = this.props;
@@ -66,6 +67,7 @@ export default class MapPage extends Component {
           rotateEnabled={true}
           mapType={mapType}
           region={ region }
+          onRegionChange={this.onRegionChange}
         >
           {locationData.map((marker, index) => (
             <MapView.Marker
