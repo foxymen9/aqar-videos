@@ -43,7 +43,7 @@ class TabView extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const {myLocation} = this.props;
 
     if (myLocation == null) {

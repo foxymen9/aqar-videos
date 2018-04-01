@@ -38,7 +38,6 @@ export default class MapPage extends Component {
       this.setState({mapType: 'satellite'});
   }
 
-  // onRegionChange()
   render() {
     const { mapType } = this.state;
     const { locationData, region, page } = this.props;

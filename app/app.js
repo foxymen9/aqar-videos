@@ -35,6 +35,7 @@ import ChatRoomPage from './views/pages/ChatRoomPage';
 import DirectMessagePage from './views/pages/DirectMessagePage';
 import SearchPage from './views/pages/SearchPage';
 import VideoRecordPage from './views/pages/VideoRecordPage';
+import PostProductLocationPage from './views/pages/PostProductLocationPage';
 
 export default class App extends Component {
   constructor(props) {
@@ -60,6 +61,7 @@ export default class App extends Component {
         <Scene key="ProductDetail" component={ ProductDetailPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="PostNewVideo" component={ PostNewVideoPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="PostNewVideoPreview" component={ PostNewVideoPreviewPage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="PostProductLocation" initial={ true } component={ PostProductLocationPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyMessage" component={ MyMessagePage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="ChatRoom" component={ ChatRoomPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="DirectMessage" component={ DirectMessagePage } hideNavBar={ true } panHandlers={null}/>
