@@ -29,6 +29,7 @@ import DropdownComponent from '@components/DropdownComponent';
 import CategoryComponent from '@components/CategoryComponent';
 import AutoSuggestComponent from '@components/AutoSuggestComponent';
 import LoadingSpinner from '@components/LoadingSpinner';
+import PostProductLocationPage from '../PostProductLocationPage'
 
 import { styles } from './styles';
 import * as commonStyles from '@common/styles/commonStyles';
@@ -45,13 +46,13 @@ class PostNewVideoPage extends Component {
       description: '',
       price: '',
       productOption: 'Sale',
-      region: '',
-      city: '',
-      district: '',
       period: '',
       buildingType: '',
-      videoUri: '',
+      videoUri: null,
       minSquareMeter: '1000',
+      address: I18n.t('post_video.select_address'),
+      page: 'post',
+      coordinate: null,
     }
     this.player = null;
   }
@@ -124,9 +125,22 @@ class PostNewVideoPage extends Component {
     }
   }
 
+  changePage(page) {
+    this.setState({ page })
+  }
+
+  getAddress(addressArr) {
+    const address = addressArr.street + ' ' + addressArr.city + ' ' + addressArr.country;
+    console.log('PPPPP', addressArr)
+    this.setState({ address })
+    this.setState({ coordinate: addressArr.coordinate })
+  }
+
   render() {
     // const {videoData} = this.props;
     const {
+      page,
+      coordinate,
       category, 
       videoUri
     } = this.state;  
@@ -146,6 +160,16 @@ class PostNewVideoPage extends Component {
       { value: 'Singular' },
       { value: 'Familiar' }
     ];
+
+    if (page === 'map') {
+      return (
+        <PostProductLocationPage
+          changePage={() => this.changePage('post')}
+          coordinate={coordinate}
+          getAddress={address => this.getAddress(address)}
+        />
+      )
+    }
 
     return (
       <Container title={I18n.t('sidebar.post_new_ads')}>
@@ -177,6 +201,17 @@ class PostNewVideoPage extends Component {
             </TouchableOpacity>
 
             <CategoryComponent category={(item)=>this.selectCategory(item)} />
+
+            <View style={styles.itemView}>
+              <Text style={styles.textTitle}>
+                {I18n.t('post_video.location')}
+              </Text>
+              <TouchableOpacity onPress={()=>this.changePage('map')}>
+                <View style={styles.addressView}>
+                  <Text style={styles.input}>{this.state.address}</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
 
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>

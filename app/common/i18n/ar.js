@@ -46,7 +46,7 @@ export default {
   post_video: {
     record_choose_video: 'سجل أو اختر فيديو',
     record_video: 'تسجيل فيديو',
-    choose_libray: 'اختار من المكتبة',
+    choose_library: 'اختار من المكتبة',
     ph_video_name: 'يرجى تسمية الفيديو ',
     ph_video_desc: 'يرجى إضافة وصف قصير للفيديو ',
     ph_apartment: 'يرحى إدخال موقع المبنى ',
@@ -78,6 +78,7 @@ export default {
     price:'السعر',
     description: 'الوصف',
     title: 'العنوان',
+    select_address: 'اختر العنوان من الخريطة'
   },
   profile: {
     ph_name: 'الاسم كامل',

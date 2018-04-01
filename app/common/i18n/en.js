@@ -46,7 +46,7 @@ export default {
   post_video: {
     record_choose_video: "Record or Choose the Video",
     record_video: "Record Video",
-    choose_libray: "Choose From Library",
+    choose_library: "Choose From Library",
     ph_video_name: "Please name of your video",
     ph_video_desc: "Please add short description to your video",
     ph_apartment: "Please input location of aprtment",
@@ -78,6 +78,7 @@ export default {
     price: "Price",
     description: "Description",
     title: "Title",
+    select_address: 'Select address from Map'
   },
   profile: {
     ph_name: 'User Name',

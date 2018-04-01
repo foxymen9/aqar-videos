@@ -168,5 +168,8 @@ export const styles = StyleSheet.create({
   deleteVideoIcon: {
     fontSize: 30,
     color: 'white',
+  },
+  addressView: {
+    marginTop: 5,
   }
 });
