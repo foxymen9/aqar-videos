@@ -24,5 +24,12 @@ export const styles = StyleSheet.create({
   btnMapType: {
     width: 73,
     height: 73,
+  },
+  searchView: {
+    zIndex: 99, 
+    position:'absolute', 
+    top: BOTTOM_HEIGHT,
+    width: commonStyles.screenSubWidth,
+    left: commonStyles.screenWidth * 0.05,
   }
 });

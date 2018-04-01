@@ -12,6 +12,8 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import MapView, { Callout, Marker, PROVIDER_GOOGLE, PROVIDER_DEFAULT } from 'react-native-maps';
 import Geocoder from 'react-native-geocoder';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
+import { GOOGLE_API_URL, GOOGLE_API_KEY } from '@common'
 
 const icon_bubble = require('@common/assets/images/map/speech_bubble.png');
 const icon_satellite = require('@common/assets/images/map/satellite.png');
@@ -27,13 +29,20 @@ class PostProductLocationPage extends Component {
       poi: null,
       coordinate: null,
       isSelect: false,
+      defaultAddress: '',
     }
   }
 
   componentWillMount() {
-    const { coordinate } = this.props
+    const { coordinate, address } = this.props
+
     if (coordinate) {
-      this.setState({ coordinate, isSelect: true })
+      this.setState({
+        coordinate,
+        isSelect: true,
+        defaultAddress: address,
+      })
+
       let region = {
         latitude: coordinate.latitude,
         longitude: coordinate.longitude,
@@ -73,7 +82,7 @@ class PostProductLocationPage extends Component {
       this.setState({mapType: 'satellite'});
   }
 
-  async onMapPress(e) {
+  onMapPress(e) {
     this.setState({ isSelect: true })
     this.setState({ coordinate: {
       latitude: e.nativeEvent.coordinate.latitude,
@@ -84,6 +93,10 @@ class PostProductLocationPage extends Component {
       lng: e.nativeEvent.coordinate.longitude,
     }
 
+    this.getAddress(coordinate)
+  }
+
+  async getAddress(coordinate) {
     const res = await Geocoder.geocodePosition(coordinate)
     if (res) {
       const mapAddress = {
@@ -102,12 +115,26 @@ class PostProductLocationPage extends Component {
     }
   }
 
+	_onLoad(details) {
+		const geoCode = details.geometry.location
+		const lat = geoCode.lat
+		const lng = geoCode.lng
+
+    const coordinate = {
+      lat,
+      lng
+    }
+
+    this.getAddress(coordinate)
+	}
+
   render() {
     const {
       mapType,
       mapRegion,
       isSelect,
       coordinate,
+      defaultAddress,
     } = this.state;
 
     return (
@@ -116,6 +143,79 @@ class PostProductLocationPage extends Component {
           <TouchableOpacity onPress={() => this.changeMapType(mapType)}>
             <Image source={mapType=='standard' ? icon_satellite : icon_standard} style={styles.btnMapType} />
           </TouchableOpacity>
+        </View>
+
+        <View style={styles.searchView}>
+          <GooglePlacesAutocomplete
+            ref = 'autocomplete'
+            placeholder='Search'
+            minLength={2} // minimum length of text to search
+            autoFocus={true}
+            listViewDisplayed='auto'    // true/false/undefined
+            fetchDetails={true}
+            renderDescription={(row) => row.description}
+            onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true				         
+              this._onLoad(details)
+            }}
+              
+            getDefaultValue={() => { // text input default value
+              return defaultAddress;
+            }}
+
+            query={{				         
+              key: GOOGLE_API_KEY,
+              language: 'ar', 
+              types: 'geocode',
+            }}
+
+            styles={{
+              description: {
+                fontWeight: 'bold',
+              },
+
+              textInputContainer:{
+                backgroundColor:'white'
+              },
+          
+              predefinedPlacesDescription: {
+                color: '#1faadb',
+              },
+
+              powered: {
+                height:0,
+                opacity:0
+              },
+
+              textInput: {
+                marginLeft: 0,
+                marginRight: 0,
+                height: 45,
+                color: '#5d5d5d',
+                fontSize: 16
+                },
+
+              listView:{
+                backgroundColor:'white'
+                },
+
+                separator: {
+                height: 1,
+                backgroundColor: '#c8c7cc',
+              },
+            }}
+
+            nearbyPlacesAPI='GooglePlacesSearch' // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
+            GoogleReverseGeocodingQuery={{
+              // available options for GoogleReverseGeocoding API : https://developers.google.com/maps/documentation/geocoding/intro
+            }}
+            GooglePlacesSearchQuery={{
+              // available options for GooglePlacesSearch API : https://developers.google.com/places/web-service/search
+              rankby: 'distance',
+          
+            }}
+
+            filterReverseGeocodingByTypes={['locality', 'administrative_area_level_3']} // filter the reverse geocoding results by types - ['locality', 'administrative_area_level_3'] if you want to display only cities
+          />
         </View>
         
         <MapView

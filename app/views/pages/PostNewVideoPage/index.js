@@ -131,7 +131,6 @@ class PostNewVideoPage extends Component {
 
   getAddress(addressArr) {
     const address = addressArr.street + ' ' + addressArr.city + ' ' + addressArr.country;
-    console.log('PPPPP', addressArr)
     this.setState({ address })
     this.setState({ coordinate: addressArr.coordinate })
   }
@@ -141,6 +140,7 @@ class PostNewVideoPage extends Component {
     const {
       page,
       coordinate,
+      address,
       category, 
       videoUri
     } = this.state;  
@@ -167,6 +167,7 @@ class PostNewVideoPage extends Component {
           changePage={() => this.changePage('post')}
           coordinate={coordinate}
           getAddress={address => this.getAddress(address)}
+          address={address}
         />
       )
     }
