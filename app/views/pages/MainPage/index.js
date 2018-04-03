@@ -39,9 +39,6 @@ class MainPage extends Component {
     if (!tokenInfo || tokenInfo === undefined) {
       this.props.getToken();
     }
-    else {
-      // console.log('TOKEN_NEW', tokenInfo.token);
-    }
 
     //Auto login
     if (!userLogin) {

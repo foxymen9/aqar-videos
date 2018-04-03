@@ -46,27 +46,28 @@ class Login extends Component {
     const { userInfo, forgotPasswordResult } = nextProps;
 
     if (userInfo != null) {
-      console.log('USER_INFO', userInfo);
       this.setState({isLoginAlert: true});
       this.setState({loading: false});
     }
 
     if (forgotPasswordResult != null) {
-      console.log('ForgotInfo', forgotPasswordResult);
       this.setState({loading: false});
       this.setState({isForgotResultAlert: true});
     }
   }
 
   onLogin() {
+    const { token } = this.props.tokenInfo
     this.setState({loading: true});
     
+    console.log('TOKEN_NEW', token);
+
     let data = {
       email: this.state.email,
       password:  this.state.password
     };
 
-    this.props.userSignIn(data, this.props.tokenInfo.token);
+    this.props.userSignIn(data, token);
   }
 
   checkUserLoginResult() {
@@ -96,7 +97,7 @@ class Login extends Component {
 
   render() {
     const { userInfo, forgotPasswordResult } = this.props;
-console.log(userInfo)
+
     return (
       <View style={styles.container}>
         <LoadingSpinner visible={this.state.loading } />
