@@ -96,6 +96,7 @@ class Sidebar extends Component {
           break;
         case '1':
           Actions.Register();
+          this.props.menuState();
           break;
         case '2':
           this.props.changeMenu(2);
