@@ -23,7 +23,7 @@ import Container from '@layout/Container';
 import { styles } from './styles';
 import ModalShare from '@components/ModalShare';
 
-const icon_office = require('@common/assets/images/product_detail/office2.png');
+const icon_office = require('@common/assets/images/product_detail/office.png');
 const icon_report = require('@common/assets/images/product_detail/report_ad.png');
 
 export default class ProductDetailPage extends Component {
@@ -53,7 +53,7 @@ export default class ProductDetailPage extends Component {
 
   render() {
     const { data } = this.props;
-    
+
     return (
       <Container title={data.title} type='detail'>
         <View style={styles.container}>

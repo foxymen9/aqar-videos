@@ -20,16 +20,13 @@ export const styles = StyleSheet.create({
   btnCategory: {
     backgroundColor: '#D6D6D6',
     height: categoryHeight,  
-    width: categoryHeight,  
+    // width: categoryHeight,  
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 15,
   },
   categoryBack: {
     backgroundColor: commonColors.pinkColor,
-    height: categoryHeight,  
-    width: categoryHeight,  
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   textCategory: {
     fontFamily: commonStyles.normalFont,

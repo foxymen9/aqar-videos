@@ -26,13 +26,12 @@ import * as commonStyles from '@common/styles/commonStyles';
 import ModalShare from '@components/ModalShare';
 
 const icon_building = require('@common/assets/images/product_detail/building.png');
-const icon_villa = require('@common/assets/images/product_detail/villa2.png');
-const icon_apartment = require('@common/assets/images/product_detail/flat.png');
-const icon_office = require('@common/assets/images/product_detail/office2.png');
-const icon_gallery = require('@common/assets/images/product_detail/shop.png');
-const icon_land = require('@common/assets/images/product_detail/area2.png');
-const icon_chalet = require('@common/assets/images/product_detail/chalet2.png');
-const icon_real_estate = require('@common/assets/images/product_detail/realestate2.png');
+const icon_villa = require('@common/assets/images/product_detail/villa.png');
+const icon_apartment = require('@common/assets/images/product_detail/apartment.png');
+const icon_office = require('@common/assets/images/product_detail/office.png');
+const icon_gallery = require('@common/assets/images/product_detail/gallery.png');
+const icon_land = require('@common/assets/images/product_detail/land.png');
+const icon_chalet = require('@common/assets/images/product_detail/chalet.png');
 
 export default class PostNewVideoPreviewPage extends Component {
   constructor(props) {

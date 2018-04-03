@@ -19,21 +19,29 @@ import * as commonStyles from '@common/styles/commonStyles';
 import * as commonColors from '@common/styles/commonColors';
 
 const icon_building = require('@common/assets/images/product_detail/building.png');
-const icon_building_select = require('@common/assets/images/product_detail/building2.png');
-const icon_villa = require('@common/assets/images/product_detail/villa2.png');
-const icon_villa_select = require('@common/assets/images/product_detail/villa.png');
-const icon_apartment = require('@common/assets/images/product_detail/flat.png');
-const icon_apartment_select = require('@common/assets/images/product_detail/flat2.png');
-const icon_office = require('@common/assets/images/product_detail/office2.png');
-const icon_office_select = require('@common/assets/images/product_detail/office.png');
-const icon_gallery = require('@common/assets/images/product_detail/shop.png');
-const icon_gallery_select = require('@common/assets/images/product_detail/shop2.png');
-const icon_land = require('@common/assets/images/product_detail/area2.png');
-const icon_land_select = require('@common/assets/images/product_detail/area.png');
-const icon_chalet = require('@common/assets/images/product_detail/chalet2.png');
-const icon_chalet_select = require('@common/assets/images/product_detail/chalet.png');
-const icon_real_estate = require('@common/assets/images/product_detail/realestate2.png');
-const icon_real_estate_select = require('@common/assets/images/product_detail/realestate.png');
+const icon_building_select = require('@common/assets/images/product_detail/building1.png');
+const icon_villa = require('@common/assets/images/product_detail/villa.png');
+const icon_villa_select = require('@common/assets/images/product_detail/villa1.png');
+const icon_apartment = require('@common/assets/images/product_detail/apartment.png');
+const icon_apartment_select = require('@common/assets/images/product_detail/apartment1.png');
+const icon_office = require('@common/assets/images/product_detail/office.png');
+const icon_office_select = require('@common/assets/images/product_detail/office1.png');
+const icon_chalet = require('@common/assets/images/product_detail/chalet.png');
+const icon_chalet_select = require('@common/assets/images/product_detail/chalet1.png');
+const icon_apartment_owner = require('@common/assets/images/product_detail/apartment_owner.png');
+const icon_apartment_owner_select = require('@common/assets/images/product_detail/apartment_owner1.png');
+const icon_factory = require('@common/assets/images/product_detail/factory.png');
+const icon_factory_select = require('@common/assets/images/product_detail/factory1.png');
+const icon_firms = require('@common/assets/images/product_detail/firms.png');
+const icon_firms_select = require('@common/assets/images/product_detail/firms1.png');
+const icon_office_for_sale = require('@common/assets/images/product_detail/office_for_sale.png');
+const icon_office_for_sale_select = require('@common/assets/images/product_detail/office_for_sale1.png');
+const icon_store = require('@common/assets/images/product_detail/stores.png');
+const icon_store_select = require('@common/assets/images/product_detail/stores1.png');
+const icon_gallery = require('@common/assets/images/product_detail/gallery.png');
+const icon_gallery_select = require('@common/assets/images/product_detail/gallery1.png');
+const icon_land = require('@common/assets/images/product_detail/land.png');
+const icon_land_select = require('@common/assets/images/product_detail/land1.png');
 
 export default class CategoryComponent extends Component {
   constructor(props) {
@@ -75,6 +83,7 @@ export default class CategoryComponent extends Component {
               <Text style={category == 'building' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.building')}</Text>
             </View>
           </TouchableOpacity>
+
           <TouchableOpacity onPress={()=>this.onSelectCategory('villa', 1)} activeOpacity={0.5}>
             <View style={[styles.btnCategory, category=='villa' && styles.categoryBack]}>
               {category == 'villa'
@@ -84,6 +93,7 @@ export default class CategoryComponent extends Component {
               <Text style={category == 'villa' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.villa')}</Text>
             </View>
           </TouchableOpacity>
+
           <TouchableOpacity onPress={()=>this.onSelectCategory('apartment', 2)} activeOpacity={0.5}>
             <View style={[styles.btnCategory, category=='apartment' && styles.categoryBack]}>
               {category == 'apartment'
@@ -93,6 +103,7 @@ export default class CategoryComponent extends Component {
               <Text style={category == 'apartment' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.apartment')}</Text>
             </View>
           </TouchableOpacity>
+
           <TouchableOpacity onPress={()=>this.onSelectCategory('office', 3)} activeOpacity={0.5}>
             <View style={[styles.btnCategory, category=='office' && styles.categoryBack]}>
               {category == 'office'
@@ -102,6 +113,57 @@ export default class CategoryComponent extends Component {
               <Text style={category == 'office' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.office')}</Text>
             </View> 
           </TouchableOpacity>
+
+          <TouchableOpacity onPress={()=>this.onSelectCategory('chalet', 3)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category=='chalet' && styles.categoryBack]}>
+              {category == 'chalet'
+                ? <Image source={icon_chalet_select} style={styles.icon} resizeMode='contain' />
+                : <Image source={icon_chalet} style={styles.icon} resizeMode='contain' />
+              }
+              <Text style={category == 'chalet' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.chalet')}</Text>
+            </View> 
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={()=>this.onSelectCategory('apartment_owner', 6)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category=='apartment_owner' && styles.categoryBack]}>
+              {category == 'apartment_owner'
+                ? <Image source={icon_apartment_owner_select} style={styles.icon} resizeMode='contain' />
+                : <Image source={icon_apartment_owner} style={styles.icon} resizeMode='contain' />
+              }
+              <Text style={category == 'apartment_owner' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.apartment_owner')}</Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={()=>this.onSelectCategory('factory', 6)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category=='factory' && styles.categoryBack]}>
+              {category == 'factory'
+                ? <Image source={icon_factory_select} style={styles.icon} resizeMode='contain' />
+                : <Image source={icon_factory} style={styles.icon} resizeMode='contain' />
+              }
+              <Text style={category == 'factory' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.factory')}</Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={()=>this.onSelectCategory('firms', 6)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category=='firms' && styles.categoryBack]}>
+              {category == 'firms'
+                ? <Image source={icon_firms_select} style={styles.icon} resizeMode='contain' />
+                : <Image source={icon_firms} style={styles.icon} resizeMode='contain' />
+              }
+              <Text style={category == 'firms' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.firms')}</Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={()=>this.onSelectCategory('office_for_sale', 6)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category=='office_for_sale' && styles.categoryBack]}>
+              {category == 'office_for_sale'
+                ? <Image source={icon_office_for_sale_select} style={styles.icon} resizeMode='contain' />
+                : <Image source={icon_office_for_sale} style={styles.icon} resizeMode='contain' />
+              }
+              <Text style={category == 'office_for_sale' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.office_for_sale')}</Text>
+            </View>
+          </TouchableOpacity>
+
           <TouchableOpacity onPress={()=>this.onSelectCategory('gallery', 4)} activeOpacity={0.5}>
             <View style={[styles.btnCategory, category=='gallery' && styles.categoryBack]}>
               {category == 'gallery'
@@ -111,6 +173,7 @@ export default class CategoryComponent extends Component {
               <Text style={category == 'gallery' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.gallery')}</Text>
             </View>
           </TouchableOpacity>
+
           <TouchableOpacity onPress={()=>this.onSelectCategory('land', 5)} activeOpacity={0.5}>
             <View style={[styles.btnCategory, category=='land' && styles.categoryBack]}>
               {category == 'land'
@@ -120,24 +183,7 @@ export default class CategoryComponent extends Component {
               <Text style={category == 'land' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.land')}</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>this.onSelectCategory('chalet', 6)} activeOpacity={0.5}>
-            <View style={[styles.btnCategory, category=='chalet' && styles.categoryBack]}>
-              {category == 'chalet'
-                ? <Image source={icon_chalet_select} style={styles.icon} resizeMode='contain' />
-                : <Image source={icon_chalet} style={styles.icon} resizeMode='contain' />
-              }
-              <Text style={category == 'chalet' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.chalet')}</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={()=>this.onSelectCategory('real_estate', 7)} activeOpacity={0.5}>
-            <View style={[styles.btnCategory, category=='real_estate' && styles.categoryBack]}>
-              {category == 'real_estate'
-                ? <Image source={icon_real_estate_select} style={styles.icon} resizeMode='contain' />
-                : <Image source={icon_real_estate} style={styles.icon} resizeMode='contain' />
-              }
-              <Text style={category == 'real_estate' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.real_estate')}</Text>
-            </View>
-          </TouchableOpacity>
+
         </View>
       </ScrollView>
     )

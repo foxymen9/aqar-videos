@@ -460,11 +460,11 @@ class PostNewVideoPage extends Component {
               </View>
             )}
 
-            <View style={styles.titleView}>
+            {/* <View style={styles.titleView}>
               <Text style={styles.textTitle}>
                 {I18n.t('post_video.category')}
               </Text>
-            </View>
+            </View> */}
 
             <TouchableOpacity onPress={()=>this.onPreview()} activeOpacity={0.5}>
               <View style={styles.previewBtnView}>

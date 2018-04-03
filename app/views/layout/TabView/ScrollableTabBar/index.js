@@ -18,12 +18,16 @@ const WINDOW_WIDTH = Dimensions.get('window').width;
 
 const icon_building = require('@common/assets/images/tab/building.png');
 const icon_villa = require('@common/assets/images/tab/villa.png');
-const icon_apartment = require('@common/assets/images/tab/flat.png');
+const icon_apartment = require('@common/assets/images/tab/apartment.png');
 const icon_office = require('@common/assets/images/tab/office.png');
-const icon_gallery = require('@common/assets/images/tab/galleries_and_shops.png');
-const icon_land = require('@common/assets/images/tab/area.png');
 const icon_chalet = require('@common/assets/images/tab/chalet.png');
-const icon_real_estate = require('@common/assets/images/tab/realestate.png');
+const icon_apartment_owner = require('@common/assets/images/tab/apartment_owner.png');
+const icon_factory = require('@common/assets/images/tab/factory.png');
+const icon_firms = require('@common/assets/images/tab/firms.png');
+const icon_office_for_sale = require('@common/assets/images/tab/office_for_sale.png');
+const icon_stores = require('@common/assets/images/tab/stores.png');
+const icon_gallery = require('@common/assets/images/tab/gallery.png');
+const icon_land = require('@common/assets/images/tab/land.png');
 
 import * as commonStyles from '@common/styles/commonStyles';
 
@@ -32,10 +36,14 @@ const icons = [
   icon_villa,
   icon_apartment,
   icon_office,
+  icon_chalet,
+  icon_apartment_owner,
+  icon_factory,
+  icon_firms,
+  icon_stores,
   icon_gallery,
   icon_land,
-  icon_chalet,
-  icon_real_estate
+  icon_office_for_sale,
 ];
 
 const ScrollableTabBar = createReactClass({

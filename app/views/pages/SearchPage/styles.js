@@ -70,39 +70,20 @@ export const styles = StyleSheet.create({
   radioGroup: {
     flexDirection: 'row',
   },
-  sendBtnView: {
+  searchBtnView: {
     marginVertical: 40,
     height: commonStyles.buttonHeight,
     backgroundColor: commonColors.greenColor,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  textSend: {
+  textSearch: {
     fontFamily: commonStyles.normalFont,
     fontSize: commonStyles.normalFontSize,
     color: 'white',
   },
   icon: {
     marginBottom: 10,
-  },
-  //PriceView
-  priceView: {
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    paddingVertical: 20,
-    borderBottomWidth: 0.5,
-    borderColor: commonColors.borderColor,
-  },
-  priceBox: {
-    width: 120,
-    borderWidth: 2,
-    borderColor: commonColors.placeholderText,
-    height: 45,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 5,
   },
   inputPrice: {
     fontFamily: commonStyles.normalFont,
