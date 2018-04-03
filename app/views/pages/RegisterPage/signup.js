@@ -17,7 +17,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import TextInputMask from 'react-native-text-input-mask';
-import StepIndicator from 'react-native-step-indicator';
+import StepIndicator from '@components/StepIndicator';
 
 import CustomAlert from '@components/CustomAlert';
 import LoadingSpinner from '@components/LoadingSpinner';
