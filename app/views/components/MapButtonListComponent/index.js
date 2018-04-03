@@ -41,6 +41,9 @@ export default class MapButtonListComponent extends Component {
         <View>
           <TouchableOpacity onPress={()=>this.onDirectMessage()}  activeOpacity={0.8}>
             <Image source={icon_mail} style={styles.btnIcon} />
+            <View style={styles.badgeView}>
+              <Text style={styles.badgeText}>10</Text>
+            </View>
           </TouchableOpacity>
         </View>
         <View>

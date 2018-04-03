@@ -40,7 +40,7 @@ class Signup extends Component {
       email: 'test1@test1.com',  
       firstName: 'test1',
       lastName: 'test2',
-      verifyStep: 0,
+      verifyStep: 2,
     }
   }
 
@@ -93,9 +93,9 @@ class Signup extends Component {
   checkCodeResult() {
     this.setState({isAlert: false});
     if (this.props.verifyCodeInfo.status == 101)
-      this.setState({verifyStep: 0});
-    else
       this.setState({verifyStep: 2});
+    else
+      this.setState({verifyStep: 0});
   }
 
   onSignUp() {
@@ -153,13 +153,13 @@ class Signup extends Component {
           <StepIndicator
               customStyles={wizardStyle}
               currentPosition={this.state.verifyStep}
-              labels={[I18n.t('profile.wizard_phone'), I18n.t('profile.wizard_code'), I18n.t('profile.wizard_signup')]}
+              labels={[I18n.t('profile.wizard_signup'), I18n.t('profile.wizard_code'), I18n.t('profile.wizard_phone')]}
               stepCount={3}
           />
         </View>
 
         <KeyboardAwareScrollView>
-          {this.state.verifyStep == 2 && (
+          {this.state.verifyStep == 0 && (
           <View style={styles.fieldContainer}>
             <View style={styles.inputView}>
               <View style={styles.iconView}>
@@ -324,7 +324,7 @@ class Signup extends Component {
             </View>
           </View>)}
 
-          {this.state.verifyStep == 0 && (
+          {this.state.verifyStep == 2 && (
           <View style={styles.fieldContainer}>
             <View style={styles.inputView}>
               <View style={styles.iconView}>
@@ -351,9 +351,9 @@ class Signup extends Component {
 
         {this.state.verifyStep == 2 && (
         <View style={styles.btnView}>
-          <TouchableOpacity onPress={()=>this.onSignUp()} activeOpacity={0.5}>
+          <TouchableOpacity onPress={()=>this.onVerifyPhone()} activeOpacity={0.5}>
             <View style={styles.btnWrapper}>
-              <Text style={styles.btnText}>{I18n.t('signup')}</Text>
+              <Text style={styles.btnText}>{I18n.t('profile.confirm_phone')}</Text>
             </View>
           </TouchableOpacity>
         </View>)}
@@ -369,9 +369,9 @@ class Signup extends Component {
 
         {this.state.verifyStep == 0 && (
         <View style={styles.btnView}>
-          <TouchableOpacity onPress={()=>this.onVerifyPhone()} activeOpacity={0.5}>
+          <TouchableOpacity onPress={()=>this.onSignUp()} activeOpacity={0.5}>
             <View style={styles.btnWrapper}>
-              <Text style={styles.btnText}>{I18n.t('profile.confirm_phone')}</Text>
+              <Text style={styles.btnText}>{I18n.t('signup')}</Text>
             </View>
           </TouchableOpacity>
         </View>)}
