@@ -2,6 +2,7 @@ const React = require('react');
 const { ViewPropTypes } = ReactNative = require('react-native');
 const PropTypes = require('prop-types');
 const createReactClass = require('create-react-class');
+
 const {
   View,
   Animated,
@@ -46,6 +47,8 @@ const icons = [
   icon_office_for_sale,
 ];
 
+let _isStart = true
+
 const ScrollableTabBar = createReactClass({
   propTypes: {
     goToPage: PropTypes.func,
@@ -78,10 +81,11 @@ const ScrollableTabBar = createReactClass({
   },
 
   getInitialState() {
+    _isStart = true;
     this._tabsMeasurements = [];
     return {
-      _leftTabUnderline: new Animated.Value(10),
-      _widthTabUnderline: new Animated.Value(100),
+      _leftTabUnderline: new Animated.Value(1150),
+      _widthTabUnderline: new Animated.Value(120),
       _containerWidth: null,
     };
   },
@@ -90,7 +94,14 @@ const ScrollableTabBar = createReactClass({
     this.props.scrollValue.addListener(this.updateView);
   },
 
+  componentWillUnmount() {
+    _isStart = true;
+  },
+
   updateView(offset) {
+    if (_isStart) {
+      this._scrollView.scrollToEnd()
+    }
     const position = Math.floor(offset.value);
     const pageOffset = offset.value % 1;
     const tabCount = this.props.tabs.length;
@@ -169,7 +180,7 @@ const ScrollableTabBar = createReactClass({
       accessible={true}
       accessibilityLabel={name}
       accessibilityTraits='button'
-      onPress={() => onPressHandler(page)}
+      onPress={() => {_isStart = false, onPressHandler(page)}}
       onLayout={onLayoutHandler}
     >
       <View style={[styles.tab, this.props.tabStyle ]}>
@@ -212,6 +223,7 @@ const ScrollableTabBar = createReactClass({
         directionalLockEnabled={true}
         bounces={false}
         scrollsToTop={false}
+        // style={{flexDirection: 'row-reverse'}}
       >
         <View
           style={[styles.tabs, {width: this.state._containerWidth, }, this.props.tabsContainerStyle, ]}
@@ -266,10 +278,7 @@ const styles = StyleSheet.create({
   },
   container: {
     height: commonStyles.tabBarHieght,
-    borderWidth: 1,
-    borderTopWidth: 0,
-    borderLeftWidth: 0,
-    borderRightWidth: 0,
+    borderBottomWidth: 1,
     borderColor: '#ccc',
     shadowOffset: { width:0, height:2 },
     shadowOpacity: 0.4,

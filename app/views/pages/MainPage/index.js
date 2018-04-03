@@ -40,7 +40,7 @@ class MainPage extends Component {
       this.props.getToken();
     }
     else {
-      console.log('TOKEN_NEW', tokenInfo.token);
+      // console.log('TOKEN_NEW', tokenInfo.token);
     }
 
     //Auto login
