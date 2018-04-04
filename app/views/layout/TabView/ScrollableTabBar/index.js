@@ -48,6 +48,7 @@ const icons = [
 ];
 
 let _isStart = true
+let _isArabic = true
 
 const ScrollableTabBar = createReactClass({
   propTypes: {
@@ -83,11 +84,19 @@ const ScrollableTabBar = createReactClass({
   getInitialState() {
     _isStart = true;
     this._tabsMeasurements = [];
-    return {
-      _leftTabUnderline: new Animated.Value(1150),
-      _widthTabUnderline: new Animated.Value(120),
-      _containerWidth: null,
-    };
+    if (_isArabic) {
+      return {
+        _leftTabUnderline: new Animated.Value(1150),
+        _widthTabUnderline: new Animated.Value(120),
+        _containerWidth: null,
+      };
+    } else {
+      return {
+        _leftTabUnderline: new Animated.Value(10),
+        _widthTabUnderline: new Animated.Value(100),
+        _containerWidth: null,
+      };
+    }
   },
 
   componentDidMount() {
@@ -99,9 +108,12 @@ const ScrollableTabBar = createReactClass({
   },
 
   updateView(offset) {
-    if (_isStart) {
-      this._scrollView.scrollToEnd()
+    if (_isArabic) {
+      if (_isStart) {
+        this._scrollView.scrollToEnd()
+      }
     }
+
     const position = Math.floor(offset.value);
     const pageOffset = offset.value % 1;
     const tabCount = this.props.tabs.length;
@@ -208,11 +220,18 @@ const ScrollableTabBar = createReactClass({
 
     let dynamicTabUnderline = {}
 
-    if (_isStart) {
-      dynamicTabUnderline = {
-        right: 10,
-        width: this.state._widthTabUnderline,
-      };
+    if (_isArabic) {
+      if (_isStart) {
+        dynamicTabUnderline = {
+          right: 10,
+          width: this.state._widthTabUnderline,
+        };
+      } else {
+        dynamicTabUnderline = {
+          left: this.state._leftTabUnderline,
+          width: this.state._widthTabUnderline,
+        };
+      }
     } else {
       dynamicTabUnderline = {
         left: this.state._leftTabUnderline,
@@ -232,7 +251,6 @@ const ScrollableTabBar = createReactClass({
         directionalLockEnabled={true}
         bounces={false}
         scrollsToTop={false}
-        // style={{flexDirection: 'row-reverse'}}
       >
         <View
           style={[styles.tabs, {width: this.state._containerWidth, }, this.props.tabsContainerStyle, ]}

@@ -31,6 +31,8 @@ const ASPECT_RATIO = commonStyles.screenWidth / commonStyles.screenHeight
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
+const _isArabic = true
+
 class TabView extends Component {
   constructor(props) {
     super(props);
@@ -189,6 +191,7 @@ class TabView extends Component {
           tabBarUnderlineStyle={{backgroundColor:'#EB0089'}}
           onChangeTab = {(index)=>this.changeTab(index)}
           renderTabBar={() => <ScrollableTabBar/>}
+          initialPage={_isArabic ? 11 : 0}
         >
           <ScrollView tabLabel={I18n.t('category.building')}>
             {btnStatus == 'map' && (
