@@ -18,7 +18,7 @@ import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import TextInputMask from 'react-native-text-input-mask';
 import StepIndicator from '@components/StepIndicator';
-
+``
 import CustomAlert from '@components/CustomAlert';
 import LoadingSpinner from '@components/LoadingSpinner';
 
@@ -27,6 +27,8 @@ import * as commonStyles from '@common/styles/commonStyles';
 import * as commonColors from '@common/styles/commonColors';
 import { styles, wizardStyle } from './styles';
 import { verifyPhone, verifyCode, userSignUp, changeMenu } from '@redux/User/actions';
+
+const _isArabic = true
 
 class Signup extends Component {
   constructor(props) {
@@ -40,7 +42,7 @@ class Signup extends Component {
       email: 'test1@test1.com',  
       firstName: 'test1',
       lastName: 'test2',
-      verifyStep: 2,
+      verifyStep: _isArabic ? 2 : 0,
     }
   }
 
@@ -159,7 +161,7 @@ class Signup extends Component {
         </View>
 
         <KeyboardAwareScrollView>
-          {this.state.verifyStep == 0 && (
+          {this.state.verifyStep == (_isArabic ? 0 : 2) && (
           <View style={styles.fieldContainer}>
             <View style={styles.inputView}>
               <View style={styles.iconView}>
@@ -324,7 +326,7 @@ class Signup extends Component {
             </View>
           </View>)}
 
-          {this.state.verifyStep == 2 && (
+          {this.state.verifyStep == (_isArabic ? 2 : 0) && (
           <View style={styles.fieldContainer}>
             <View style={styles.inputView}>
               <View style={styles.iconView}>

@@ -33,19 +33,19 @@ const icon_land = require('@common/assets/images/tab/land.png');
 import * as commonStyles from '@common/styles/commonStyles';
 
 const icons = [
-  icon_building,
-  icon_villa,
-  icon_apartment,
-  icon_office,
+  icon_land,
+  icon_gallery,
+  icon_stores,
+  icon_factory,
+  icon_office_for_sale,
+  icon_firms,
   icon_chalet,
   icon_apartment_owner,
-  icon_factory,
-  icon_firms,
-  icon_stores,
-  icon_gallery,
-  icon_land,
-  icon_office_for_sale,
-];
+  icon_office,
+  icon_apartment,
+  icon_villa,
+  icon_building,
+]
 
 let _isStart = true
 let _isArabic = true
@@ -87,7 +87,7 @@ const ScrollableTabBar = createReactClass({
     if (_isArabic) {
       return {
         _leftTabUnderline: new Animated.Value(1150),
-        _widthTabUnderline: new Animated.Value(120),
+        _widthTabUnderline: new Animated.Value(100),
         _containerWidth: null,
       };
     } else {

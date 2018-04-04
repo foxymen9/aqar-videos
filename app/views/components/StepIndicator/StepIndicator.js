@@ -3,6 +3,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { View,Text,StyleSheet, Animated, TouchableWithoutFeedback } from 'react-native';
 
+const _isArabic = true
+
 const STEP_STATUS = {
   CURRENT:'current',
   FINISHED:'finished',
@@ -232,7 +234,10 @@ export default class StepIndicator extends PureComponent {
 
       return (
         <Animated.View key={'step-indicator'} removeClippedSubviews style={[styles.step , stepStyle ]}>
-          <Text style={indicatorLabelStyle}>{ 3 - position }</Text>
+          {_isArabic ?
+            <Text style={indicatorLabelStyle}>{ 3 - position }</Text> :
+            <Text style={indicatorLabelStyle}>{ 1 + position }</Text>
+          }
         </Animated.View>
       );
     }
