@@ -3,7 +3,6 @@ import {
 } from 'react-native';
 import * as commonStyles from '@common/styles/commonStyles';
 import * as commonColors from '@common/styles/commonColors';
-import { tabBarHieght } from '@common/styles/commonStyles';
 
 export const styles = StyleSheet.create({
   container: {
@@ -13,10 +12,33 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
+  fieldContainer: {
+    width: '100%',
+    height: commonStyles.screenNormalHeight - commonStyles.buttonHeight - commonStyles.buttonBottomHeight,
+    justifyContent:'center',
+    alignItems: 'center',
+  },
+  inputView: {
+    width: '100%',
+    borderBottomWidth: 0.5,
+    borderColor: commonColors.borderColor,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    paddingHorizontal: commonStyles.padding,
+    height: 60,
+  },
+  input: {
+    fontFamily: commonStyles.normalFont,
+    color: commonColors.darkGrayColor,
+    width: commonStyles.screenWidth - 80,
+    fontSize: commonStyles.normalFontSize,
+    textAlign: 'right',
+  },
   btnView: {
     width: '100%',
     height: commonStyles.buttonHeight,
-    backgroundColor: commonColors.pinkColor,
+    backgroundColor: commonColors.greenColor,
     position: 'absolute',
     bottom: commonStyles.buttonBottomHeight,
   },
@@ -31,74 +53,4 @@ export const styles = StyleSheet.create({
     color: 'white',
     fontSize: commonStyles.normalFontSize,
   },
-  thumbnailView: {
-    width: '100%',
-    height: 200,
-  },
-  thumbnail: {
-    height: '100%',
-    width:'100%'
-  },
-  titleView: {
-    position: 'absolute',
-    right: commonStyles.padding,
-    top: 10,
-    backgroundColor: 'transparent',
-  },
-  remainDay: {
-    fontFamily: commonStyles.normalFont,
-    fontWeight: 'bold',
-    color: 'white',
-    fontSize: 15,
-    textAlign: 'right',
-    marginBottom: 10,
-  },
-  titleDay: {
-    fontFamily: commonStyles.normalFont,
-    fontWeight: 'bold',
-    color: 'white',
-    fontSize: 15,
-    textAlign: 'right'
-  },
-  titleDesc: {
-    fontFamily: commonStyles.normalFont,
-    color: 'white',
-    marginTop: 10,
-    fontSize: 20,
-    textAlign: 'right'
-  },
-  description: {
-    marginTop: 20,
-    height: commonStyles.screenNormalHeight - 320,
-  },
-  descriptionScrollView: {
-    width: '100%',
-    paddingHorizontal: commonStyles.padding,
-  },
-  textDescription: {
-    fontFamily: commonStyles.normalFont,
-    fontSize: 12,
-    color: commonColors.placeholderText,
-    textAlign: 'right'
-  },
-  //Success page
-  successTextWrapper: {
-    padding: 30,
-  },
-  textSuccess: {
-    fontFamily: commonStyles.normalFont,
-    fontSize: 20,
-    textAlign: 'center',
-    color: commonColors.darkGrayColor,
-    lineHeight: 0.3,
-  },
-  bold: {
-    fontFamily: commonStyles.normalFont,
-    fontWeight: 'bold',
-  },
-  imgClose: {
-    marginTop: 30,
-    width: 50,
-    height: 50,
-  }
 });

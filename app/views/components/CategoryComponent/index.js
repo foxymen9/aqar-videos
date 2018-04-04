@@ -42,6 +42,8 @@ const icon_gallery = require('@common/assets/images/product_detail/gallery.png')
 const icon_gallery_select = require('@common/assets/images/product_detail/gallery1.png');
 const icon_land = require('@common/assets/images/product_detail/land.png');
 const icon_land_select = require('@common/assets/images/product_detail/land1.png');
+const icon_esteraha = require('@common/assets/images/product_detail/land.png');
+const icon_esteraha_select = require('@common/assets/images/product_detail/land1.png');
 
 export default class CategoryComponent extends Component {
   constructor(props) {
@@ -123,6 +125,16 @@ export default class CategoryComponent extends Component {
                 : <Image source={icon_firms} style={styles.icon} resizeMode='contain' />
               }
               <Text style={category == 'firms' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.firms')}</Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={()=>this.onSelectCategory('esteraha', 6)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category=='esteraha' && styles.categoryBack]}>
+              {category == 'esteraha'
+                ? <Image source={icon_esteraha_select} style={styles.icon} resizeMode='contain' />
+                : <Image source={icon_esteraha} style={styles.icon} resizeMode='contain' />
+              }
+              <Text style={category == 'esteraha' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.esteraha')}</Text>
             </View>
           </TouchableOpacity>
 

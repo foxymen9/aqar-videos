@@ -29,6 +29,7 @@ const icon_office_for_sale = require('@common/assets/images/tab/office_for_sale.
 const icon_stores = require('@common/assets/images/tab/stores.png');
 const icon_gallery = require('@common/assets/images/tab/gallery.png');
 const icon_land = require('@common/assets/images/tab/land.png');
+const icon_esteraha = require('@common/assets/images/tab/land.png');
 
 import * as commonStyles from '@common/styles/commonStyles';
 
@@ -38,6 +39,7 @@ const icons = [
   icon_factory,
   icon_office_for_sale,
   icon_firms,
+  icon_esteraha,
   icon_chalet,
   icon_apartment_owner,
   icon_office,

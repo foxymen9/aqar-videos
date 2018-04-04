@@ -240,6 +240,15 @@ class TabView extends Component {
             )}
           </ScrollView>
 
+          <ScrollView tabLabel={I18n.t('category.esteraha')}>
+            {btnStatus == 'map' && (
+              <MapPage page="esteraha" locationData={buildingData} region={region} />
+            )}
+            {btnStatus == 'list' && (
+              <ProductListPage />
+            )}
+          </ScrollView>
+
           <ScrollView tabLabel={I18n.t('category.chalet')}>
             {btnStatus == 'map' && (
               <MapPage page="chalets" locationData={buildingData} region={region} />
