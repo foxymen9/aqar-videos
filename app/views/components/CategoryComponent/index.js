@@ -76,16 +76,6 @@ export default class CategoryComponent extends Component {
       >
         <View style={styles.categoryView}>
 
-          <TouchableOpacity onPress={()=>this.onSelectCategory('land', 5)} activeOpacity={0.5}>
-            <View style={[styles.btnCategory, category=='land' && styles.categoryBack]}>
-              {category == 'land'
-                ? <Image source={icon_land_select} style={styles.icon} resizeMode='contain' />
-                : <Image source={icon_land} style={styles.icon} resizeMode='contain' />
-              }
-              <Text style={category == 'land' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.land')}</Text>
-            </View>
-          </TouchableOpacity>
-
           <TouchableOpacity onPress={()=>this.onSelectCategory('gallery', 4)} activeOpacity={0.5}>
             <View style={[styles.btnCategory, category=='gallery' && styles.categoryBack]}>
               {category == 'gallery'
@@ -164,6 +154,16 @@ export default class CategoryComponent extends Component {
               }
               <Text style={category == 'office' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.office')}</Text>
             </View> 
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={()=>this.onSelectCategory('land', 5)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category=='land' && styles.categoryBack]}>
+              {category == 'land'
+                ? <Image source={icon_land_select} style={styles.icon} resizeMode='contain' />
+                : <Image source={icon_land} style={styles.icon} resizeMode='contain' />
+              }
+              <Text style={category == 'land' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.land')}</Text>
+            </View>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={()=>this.onSelectCategory('apartment', 2)} activeOpacity={0.5}>

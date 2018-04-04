@@ -193,14 +193,7 @@ class TabView extends Component {
           renderTabBar={() => <ScrollableTabBar/>}
           initialPage={_isArabic ? 11 : 0}
         >
-          <ScrollView tabLabel={I18n.t('category.land')}>
-            {btnStatus == 'map' && (
-              <MapPage page="land" locationData={buildingData} region={region} />
-            )}
-            {btnStatus == 'list' && (
-              <ProductListPage />
-            )}
-          </ScrollView>
+
           <ScrollView tabLabel={I18n.t('category.gallery')}>
             {btnStatus == 'map' && (
               <MapPage page="gallery" locationData={buildingData} region={region} />
@@ -274,6 +267,15 @@ class TabView extends Component {
             )}
           </ScrollView>
           
+          <ScrollView tabLabel={I18n.t('category.land')}>
+            {btnStatus == 'map' && (
+              <MapPage page="land" locationData={buildingData} region={region} />
+            )}
+            {btnStatus == 'list' && (
+              <ProductListPage />
+            )}
+          </ScrollView>
+
           <ScrollView tabLabel={I18n.t('category.apartment')}>
             {btnStatus == 'map' && (
               <MapPage page="apartment" locationData={apartmentData} region={region} />

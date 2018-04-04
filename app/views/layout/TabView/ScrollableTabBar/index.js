@@ -33,7 +33,6 @@ const icon_land = require('@common/assets/images/tab/land.png');
 import * as commonStyles from '@common/styles/commonStyles';
 
 const icons = [
-  icon_land,
   icon_gallery,
   icon_stores,
   icon_factory,
@@ -42,6 +41,7 @@ const icons = [
   icon_chalet,
   icon_apartment_owner,
   icon_office,
+  icon_land,
   icon_apartment,
   icon_villa,
   icon_building,
