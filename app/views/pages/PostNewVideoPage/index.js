@@ -49,6 +49,7 @@ class PostNewVideoPage extends Component {
       period: '',
       buildingType: '',
       videoUri: null,
+      videoFileName: null,
       minSquareMeter: '1000',
       address: I18n.t('post_video.select_address'),
       page: 'post',
@@ -67,13 +68,14 @@ class PostNewVideoPage extends Component {
   componentWillReceiveProps(nextProps) {
 
   }
+
   onPreview() {
     const propsData = this.state;
     
-    // Actions.PostNewVideoPreview({data: propsData});
-    // if (propsData.videoUri != null) {
-    //   Actions.PostNewVideoPreview({data: propsData});
-    // }
+    Actions.PostNewVideoPreview({data: propsData});
+    if (propsData.videoUri && propsData.videoFileName) {
+      Actions.PostNewVideoPreview({data: propsData});
+    }
   }
 
   onSelectProductOption(index, value) {
@@ -82,11 +84,10 @@ class PostNewVideoPage extends Component {
 
   selectCategory(item) {
     this.setState({category: item});
-    // this.refs.scrollContainer.scrollToEnd();
   }
 
   onDeleteVideo() {
-    this.setState({ videoUri: null })
+    this.setState({ videoUri: null, videoFileName: null })
   }
 
   onCamera() {
@@ -114,11 +115,7 @@ class PostNewVideoPage extends Component {
         else if (response.customButton) {
         }
         else {
-          console.log('IMAGE DATA: ', response);
-          this.setState({ videoUri: response.uri });
-          uploadResponse = this.uploadFileAsync(response.uri, response.fileName)
-          uploadResult = uploadResponse.json();
-          console.log('UPLOAD RESULT: ', uploadResult)
+          this.setState({ videoUri: response.uri, videoFileName: response.fileName });
         }
       })
     }
@@ -126,32 +123,6 @@ class PostNewVideoPage extends Component {
       this.player.presentFullscreenPlayer();
       this.player.seek(0);
     }
-  }
-
-  async uploadFileAsync(uri, fileName) {
-		// let apiUrl = UPLOAD_CONFIG.API_URL;
-		let apiUrl = 'https://file-upload-example-backend-dkhqoilqqn.now.sh/upload';
-
-		let uriParts = uri.split('.');
-    let fileType = uriParts[uriParts.length - 1];
-    
-		let formData = new FormData();
-		formData.append('videoFile', {
-			uri,
-			name: fileName,
-			type: `video/quicktime`,
-		});
-	
-		let options = {
-			method: 'POST',
-			body: formData,
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'multipart/form-data',
-			},
-		};
-	
-		return await fetch(apiUrl, options);
   }
 
   changePage(page) {
