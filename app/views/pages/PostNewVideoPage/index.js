@@ -116,6 +116,9 @@ class PostNewVideoPage extends Component {
         else {
           console.log('IMAGE DATA: ', response);
           this.setState({videoUri: response.uri});
+          uploadResponse = this.uploadFileAsync(response.uri)
+          uploadResult = uploadResponse.json();
+          console.log('UPLOAD RESULT: ', uploadResult)
         }
       })
     }
@@ -123,6 +126,32 @@ class PostNewVideoPage extends Component {
       this.player.presentFullscreenPlayer();
       this.player.seek(0);
     }
+  }
+
+  async uploadFileAsync(uri) {
+		// let apiUrl = UPLOAD_CONFIG.API_URL;
+		let apiUrl = 'https://file-upload-example-backend-dkhqoilqqn.now.sh/upload';
+
+		let uriParts = uri.split('.');
+		let fileType = uriParts[uriParts.length - 1];
+    console.log('fileType: ', fileType)
+		let formData = new FormData();
+		formData.append('videoFile', {
+			uri,
+			name: `aqar_video_${Math.random()*99999999999}.${fileType}`,
+			type: `video/${fileType}`,
+		});
+	
+		let options = {
+			method: 'POST',
+			body: formData,
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'multipart/form-data',
+			},
+		};
+	
+		return await fetch(apiUrl, options);
   }
 
   changePage(page) {
@@ -194,7 +223,9 @@ class PostNewVideoPage extends Component {
                 {videoUri && (
                   <View style={styles.deleteVideo}>
                     <TouchableOpacity onPress={() => this.onDeleteVideo()}>
-                      <Icon name='video-off' style={styles.deleteVideoIcon} />
+                      <View style={styles.deleteVideoInner}>
+                        <Icon name='video-off' style={styles.deleteVideoIcon} />
+                      </View>
                     </TouchableOpacity>
                   </View>
                 )}

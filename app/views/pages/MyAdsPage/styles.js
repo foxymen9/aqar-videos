@@ -60,6 +60,8 @@ export const styles = StyleSheet.create({
   },
   viewWrapper: {
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   textViewCount: {
     fontFamily: commonStyles.normalFont,

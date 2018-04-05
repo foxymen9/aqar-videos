@@ -154,8 +154,10 @@ class PostProductLocationPage extends Component {
   }
   
   onBack() {
-    this.props.changePage()
-    this.props.getAddress(this.state.mapAddress)
+    if (this.state.isSelect) {
+      this.props.changePage()
+      this.props.getAddress(this.state.mapAddress)
+    }
   }
 
   render() {

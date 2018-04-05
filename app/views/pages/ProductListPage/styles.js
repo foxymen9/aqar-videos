@@ -75,6 +75,8 @@ export const styles = StyleSheet.create({
   },
   viewWrapper: {
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   textViewCount: {
     fontFamily: commonStyles.normalFont,
@@ -83,7 +85,6 @@ export const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
   eye: {
-    marginTop: 10,
     fontSize: 13,
     color: commonColors.darkGrayColor,
     marginLeft: 5,

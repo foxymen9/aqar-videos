@@ -162,12 +162,21 @@ export const styles = StyleSheet.create({
   },
   deleteVideo: {
     position: 'absolute',
-    right: 20,
-    top: 10,
+    right: 0,
+    top: 0,
+    width: 60,
+    height: 60,
+  },
+  deleteVideoInner: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   deleteVideoIcon: {
     fontSize: 30,
     color: 'white',
+    backgroundColor: 'transparent',
   },
   addressView: {
     marginTop: 5,
