@@ -115,8 +115,8 @@ class PostNewVideoPage extends Component {
         }
         else {
           console.log('IMAGE DATA: ', response);
-          this.setState({videoUri: response.uri});
-          uploadResponse = this.uploadFileAsync(response.uri)
+          this.setState({ videoUri: response.uri });
+          uploadResponse = this.uploadFileAsync(response.uri, response.fileName)
           uploadResult = uploadResponse.json();
           console.log('UPLOAD RESULT: ', uploadResult)
         }
@@ -128,18 +128,18 @@ class PostNewVideoPage extends Component {
     }
   }
 
-  async uploadFileAsync(uri) {
+  async uploadFileAsync(uri, fileName) {
 		// let apiUrl = UPLOAD_CONFIG.API_URL;
 		let apiUrl = 'https://file-upload-example-backend-dkhqoilqqn.now.sh/upload';
 
 		let uriParts = uri.split('.');
-		let fileType = uriParts[uriParts.length - 1];
-    console.log('fileType: ', fileType)
+    let fileType = uriParts[uriParts.length - 1];
+    
 		let formData = new FormData();
 		formData.append('videoFile', {
 			uri,
-			name: `aqar_video_${Math.random()*99999999999}.${fileType}`,
-			type: `video/${fileType}`,
+			name: fileName,
+			type: `video/quicktime`,
 		});
 	
 		let options = {

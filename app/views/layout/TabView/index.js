@@ -191,7 +191,7 @@ class TabView extends Component {
           tabBarUnderlineStyle={{backgroundColor:'#EB0089'}}
           onChangeTab = {(index)=>this.changeTab(index)}
           renderTabBar={() => <ScrollableTabBar/>}
-          initialPage={_isArabic ? 11 : 0}
+          initialPage={_isArabic ? 12 : 0}
         >
 
           <ScrollView tabLabel={I18n.t('category.gallery')}>

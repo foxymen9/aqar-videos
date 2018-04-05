@@ -400,7 +400,7 @@ class SearchPage extends Component {
 
             <TouchableOpacity onPress={()=>this.onPreview()} activeOpacity={0.5}>
               <View style={styles.searchBtnView}>
-                <Text style={styles.searchPreview}>{I18n.t('search')}</Text>
+                <Text style={styles.searchBtn}>{I18n.t('search')}</Text>
               </View>
             </TouchableOpacity>
           </KeyboardAwareScrollView>

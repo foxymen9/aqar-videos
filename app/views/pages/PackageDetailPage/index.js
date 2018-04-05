@@ -29,20 +29,30 @@ export default class ProfileEditPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      date: '2018-02',
     }
   }
 
   onTry() {
+    const { date } = this.state
+    const expYear = date.split('-')[0]
+    const expMonth = date.split('-')[1]
     const data = {
       platform: Platform.OS === 'ios' ? 'iOS' : 'Android',
+      deviceID: '36C0EC49-AA2F-47DC-A4D7-D9927A739F5E',
       storeID: '20040 - Lens Company',
       authorizeKey: 'W75df^Kr6v-Gk64T',
       tran: {
         amount: this.state.totalAmount,
+        currency: 'SAR',
       },
       card: {
         cardNumber: '4111 1111 1111 1111',
         cvv: 123,
+        expiry: {
+          month: expMonth,
+          year: expYear,
+        }
       }
     }
     TELR_PAYMENT.start(data)
@@ -68,9 +78,9 @@ export default class ProfileEditPage extends Component {
       <Container title={data.detail['1'].title} type='detail'>
         <View style={styles.container}>
           <Image source={img_detail} style={ styles.thumbnail } />    
-          <KeyboardAwareScrollView>
-            <View style={styles.fieldContainer}>
 
+          <View style={styles.fieldContainer}>
+            <KeyboardAwareScrollView>
               <View style={styles.inputView}>
                 <TextInput
                   ref="totalAmount"
@@ -204,7 +214,7 @@ export default class ProfileEditPage extends Component {
                   date={this.state.date}
                   mode="date"
                   placeholder={I18n.t('packages.date')}
-                  format="YYYY-MM-DD"
+                  format="YYYY-MM"
                   minDate="2015-01-01"
                   maxDate="2050-12-31"
                   confirmBtnText={I18n.t('packages.confirm')}
@@ -225,9 +235,8 @@ export default class ProfileEditPage extends Component {
                   onDateChange={date => this.onChange(date)}
                 />
               </View>
-                
-            </View>
-          </KeyboardAwareScrollView>
+            </KeyboardAwareScrollView>
+          </View>
 
           <View style={styles.btnView}>
             <TouchableOpacity onPress={()=>this.onTry()} activeOpacity={0.5}>

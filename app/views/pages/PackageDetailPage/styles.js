@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
   fieldContainer: {
     width: '100%',
     height: commonStyles.screenNormalHeight - commonStyles.buttonHeight - commonStyles.buttonBottomHeight,
-    justifyContent:'center',
+    justifyContent:'flex-start',
     alignItems: 'center',
   },
   inputView: {

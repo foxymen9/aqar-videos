@@ -124,10 +124,10 @@ export function start(data) {
 
 	var mobileRequest = new RootRequest(
 		new MobileRequest(data.storeID, data.authorizeKey, 
-			new Device("36C0EC49-AA2F-47DC-A4D7-D9927A739F5E", data.platform),
+			new Device(data.deviceID, data.platform),
 			new App("123456789","Video Aqar","123456","0.0.1"), 
-			new Tran("1", "sale", "cont", Math.random()*100000000000000000, "Test Mobile API", "SAR", amountValue), 
-			new Card(data.card.cardNumber, new Expiry(12, 2018), data.card.cvv),
+			new Tran("1", "sale", "moto", Math.random()*100000000000000000, "Test AQAR Mobile API", data.tran.currency, amountValue), 
+			new Card(data.card.cardNumber, new Expiry(data.card.expiry.month, data.card.expiry.year), data.card.cvv),
 			new Billing(new Name("john","Sakr","Mrs"), new Address("SIT", "Dubai", "Dubai", "AE"), "test@test.com")
 		)
 	);

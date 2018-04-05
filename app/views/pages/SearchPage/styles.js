@@ -77,7 +77,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  textSearch: {
+  searchBtn: {
     fontFamily: commonStyles.normalFont,
     fontSize: commonStyles.normalFontSize,
     color: 'white',
