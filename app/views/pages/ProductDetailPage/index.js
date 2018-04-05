@@ -58,14 +58,19 @@ export default class ProductDetailPage extends Component {
       <Container title={data.title} type='detail'>
         <View style={styles.container}>
           <ScrollView>
-            <Image source={{ uri: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg'}} style={ styles.thumbnail } />    
+            <Image
+              source={{ uri: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg' }}
+              style={ styles.thumbnail }
+            />
             <View style={styles.titleView}>
               <Text style={styles.textTitle}>
                 Office in the city center for rent
               </Text>
             </View>
             <View style={styles.description}>
-              <Text style={styles.textDescription}>he following * Begin with the words **ROR Engineer** * Include links to your Github, Stack Overflow and Linked In profiles * Include a link to your blog (if you have one)</Text>
+              <Text style={styles.textDescription}>
+                he following * Begin with the words **ROR Engineer** * Include links to your Github, Stack Overflow and Linked In profiles * Include a link to your blog (if you have one)
+              </Text>
             </View>
             <View style={styles.titleView}>
               <Text style={styles.textPhone}>

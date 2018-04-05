@@ -42,8 +42,8 @@ const icon_gallery = require('@common/assets/images/product_detail/gallery.png')
 const icon_gallery_select = require('@common/assets/images/product_detail/gallery1.png');
 const icon_land = require('@common/assets/images/product_detail/land.png');
 const icon_land_select = require('@common/assets/images/product_detail/land1.png');
-const icon_esteraha = require('@common/assets/images/product_detail/land.png');
-const icon_esteraha_select = require('@common/assets/images/product_detail/land1.png');
+const icon_esteraha = require('@common/assets/images/product_detail/esteraha.png');
+const icon_esteraha_select = require('@common/assets/images/product_detail/esteraha1.png');
 
 export default class CategoryComponent extends Component {
   constructor(props) {

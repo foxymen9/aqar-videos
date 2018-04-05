@@ -15,6 +15,7 @@ import Geocoder from 'react-native-geocoder';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import { GOOGLE_API_URL, GOOGLE_API_KEY } from '@common'
 
+import Icon from 'react-native-vector-icons/Feather';
 const icon_bubble = require('@common/assets/images/map/speech_bubble.png');
 const icon_satellite = require('@common/assets/images/map/satellite.png');
 const icon_standard = require('@common/assets/images/map/standard.png');
@@ -84,7 +85,6 @@ class PostProductLocationPage extends Component {
 
   onMapPress(e) {
     if (e.nativeEvent.coordinate) {
-      this.setState({ isSelect: true })
       this.setState({ coordinate: {
         latitude: e.nativeEvent.coordinate.latitude,
         longitude: e.nativeEvent.coordinate.longitude,
@@ -95,6 +95,7 @@ class PostProductLocationPage extends Component {
       }
 
       this.getAddress(coordinate)
+      this.setState({ isSelect: true })
     } else {
       const coordinate = {
         lat: this.state.coordinate.latitude,
@@ -118,8 +119,8 @@ class PostProductLocationPage extends Component {
           longitude: coordinate.lng,
         }
       }
-      this.props.changePage()
-      this.props.getAddress(mapAddress)
+
+      this.setState({ mapAddress })
     }
   }
 
@@ -128,12 +129,14 @@ class PostProductLocationPage extends Component {
 		const lat = geoCode.lat
 		const lng = geoCode.lng
 
+    const coordinate = {
+      latitude: lat,
+      longitude: lng
+    }
+
     this.setState({
       isSelect: true,
-      coordinate: {
-        latitude: lat,
-        longitude: lng
-      }
+      coordinate,
     })
     let region = {
       latitude: lat,
@@ -143,13 +146,17 @@ class PostProductLocationPage extends Component {
     }
     this.onRegionChange(region, region.latitude, region.longitude)
 
-    // const coordinate = {
-    //   lat,
-    //   lng
-    // }
-
-    // this.getAddress(coordinate)
-	}
+    const new_coordinate = {
+      lat: coordinate.latitude,
+      lng: coordinate.longitude,
+    }
+    this.getAddress(new_coordinate)
+  }
+  
+  onBack() {
+    this.props.changePage()
+    this.props.getAddress(this.state.mapAddress)
+  }
 
   render() {
     const {
@@ -162,6 +169,11 @@ class PostProductLocationPage extends Component {
 
     return (
       <View style={styles.container}>
+        <View style={styles.backIconWrapper}>
+          <TouchableOpacity onPress={()=>this.onBack()}>
+            <Icon name='arrow-left' style={styles.backIcon_detail}></Icon>
+          </TouchableOpacity>
+        </View>
         <View style={styles.btnMapTypeView}>
           <TouchableOpacity onPress={() => this.changeMapType(mapType)}>
             <Image source={mapType=='standard' ? icon_satellite : icon_standard} style={styles.btnMapType} />

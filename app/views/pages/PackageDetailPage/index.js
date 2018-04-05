@@ -8,12 +8,16 @@ import {
   TouchableOpacity,
   Image,
   TextInput,
+  Platform,
 } from 'react-native';
+
+import * as TELR_PAYMENT from '@common/payment_telr/telr_payment'
 
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import DatePicker from 'react-native-datepicker';
+const img_detail = require('@common/assets/images/my_message/picture.png');
 
 import I18n from '@i18n';
 import Container from '@layout/Container';
@@ -28,8 +32,20 @@ export default class ProfileEditPage extends Component {
     }
   }
 
-  onUpdate() {
-    
+  onTry() {
+    const data = {
+      platform: Platform.OS === 'ios' ? 'iOS' : 'Android',
+      storeID: '20040 - Lens Company',
+      authorizeKey: 'W75df^Kr6v-Gk64T',
+      tran: {
+        amount: this.state.totalAmount,
+      },
+      card: {
+        cardNumber: '4111 1111 1111 1111',
+        cvv: 123,
+      }
+    }
+    TELR_PAYMENT.start(data)
   }
 
   onChange(date) {
@@ -51,12 +67,14 @@ export default class ProfileEditPage extends Component {
     return (
       <Container title={data.detail['1'].title} type='detail'>
         <View style={styles.container}>
+          <Image source={img_detail} style={ styles.thumbnail } />    
           <KeyboardAwareScrollView>
             <View style={styles.fieldContainer}>
 
               <View style={styles.inputView}>
                 <TextInput
                   ref="totalAmount"
+                  id="amount"
                   autoCapitalize="none"
                   autoCorrect={ true }
                   placeholder={I18n.t('packages.total_amount')}
@@ -212,7 +230,7 @@ export default class ProfileEditPage extends Component {
           </KeyboardAwareScrollView>
 
           <View style={styles.btnView}>
-            <TouchableOpacity onPress={()=>this.onUpdate()} activeOpacity={0.5}>
+            <TouchableOpacity onPress={()=>this.onTry()} activeOpacity={0.5}>
               <View style={styles.btnWrapper}>
                 <Text style={styles.btnText}>{I18n.t('packages.try')}</Text>
               </View>

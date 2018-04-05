@@ -59,7 +59,7 @@ class MyPackagePage extends Component {
                 borderRadius: 5,
                 backgroundColor: '#eee'
               }}
-              digitBgColor="#222"
+              digitBgColor={commonColors.pinkColor}
               digitTxtColor="#fff"
               timeTxtColor="#888"
               until={99000}

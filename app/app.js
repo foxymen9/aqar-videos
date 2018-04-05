@@ -62,13 +62,13 @@ export default class App extends Component {
 
     const scenes = Actions.create(
       <Scene key="root">
-        <Scene key="Main" initial={ true } component={ MainPage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="Main" component={ MainPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="Register" component={ RegisterPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyAds" component={ MyAdsPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyWishList" component={ MyWishListPage } hideNavBar={ true } panHandlers={null} />
         <Scene key="Package" component={ PackagePage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyPackage" component={ MyPackagePage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="PackageDetail" initial={ true } component={ PackageDetailPage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="PackageDetail" component={ PackageDetailPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyPackageDetail" component={ MyPackageDetailPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="ProfileEdit" component={ ProfileEditPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="Area" component={ AreaPage } hideNavBar={ true } panHandlers={null}/>
@@ -76,7 +76,7 @@ export default class App extends Component {
         <Scene key="SupportAdvertisement" component={ SupportAdvertisementPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="ProductList" component={ ProductListPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="ProductDetail" component={ ProductDetailPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="PostNewVideo" component={ PostNewVideoPage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="PostNewVideo" initial={ true } component={ PostNewVideoPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="PostNewVideoPreview" component={ PostNewVideoPreviewPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="PostProductLocation" component={ PostProductLocationPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyMessage" component={ MyMessagePage } hideNavBar={ true } panHandlers={null}/>

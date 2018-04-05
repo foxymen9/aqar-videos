@@ -12,6 +12,13 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
+  thumbnail: {
+    width: '100%',
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    opacity: 0.1,
+  },
   fieldContainer: {
     width: '100%',
     height: commonStyles.screenNormalHeight - commonStyles.buttonHeight - commonStyles.buttonBottomHeight,
