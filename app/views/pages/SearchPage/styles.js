@@ -13,6 +13,10 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
+  inputContainer: {
+    height: commonStyles.screenNormalHeight - 40 - commonStyles.buttonBottomHeight,
+    width: '100%',
+  },
   thumbnail: {
     width: '100%',
     height: 200,
@@ -70,18 +74,6 @@ export const styles = StyleSheet.create({
   radioGroup: {
     flexDirection: 'row',
   },
-  searchBtnView: {
-    marginVertical: 40,
-    height: commonStyles.buttonHeight,
-    backgroundColor: commonColors.greenColor,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  searchBtn: {
-    fontFamily: commonStyles.normalFont,
-    fontSize: commonStyles.normalFontSize,
-    color: 'white',
-  },
   icon: {
     marginBottom: 10,
   },
@@ -103,11 +95,12 @@ export const styles = StyleSheet.create({
   },
   squareMeterView: {
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
+    flexDirection: 'row',
     marginTop: 20,
   },
   squareMeterBox: {
-    width: 160,
+    width: 150,
     borderWidth: 2,
     borderColor: commonColors.placeholderText,
     height: 45,
@@ -119,5 +112,18 @@ export const styles = StyleSheet.create({
     color: commonColors.placeholderText,
     marginHorizontal: 10,
     fontSize: 30,
-  }
+  },
+  searchBtnView: {
+    marginBottom: commonStyles.buttonBottomHeight,
+    width: commonStyles.screenWidth,
+    height: 40,
+    backgroundColor: commonColors.greenColor,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  searchBtn: {
+    fontFamily: commonStyles.normalFont,
+    fontSize: commonStyles.normalFontSize,
+    color: 'white',
+  },
 });

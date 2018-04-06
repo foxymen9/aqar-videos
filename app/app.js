@@ -68,7 +68,7 @@ export default class App extends Component {
         <Scene key="MyWishList" component={ MyWishListPage } hideNavBar={ true } panHandlers={null} />
         <Scene key="Package" component={ PackagePage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyPackage" component={ MyPackagePage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="PackageDetail" initial={ true } component={ PackageDetailPage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="PackageDetail" component={ PackageDetailPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="MyPackageDetail" component={ MyPackageDetailPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="ProfileEdit" component={ ProfileEditPage } hideNavBar={ true } panHandlers={null}/>
         <Scene key="Area" component={ AreaPage } hideNavBar={ true } panHandlers={null}/>

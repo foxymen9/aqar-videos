@@ -17,6 +17,8 @@ import FontAwesome, {Icons} from 'react-native-fontawesome';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import DatePicker from 'react-native-datepicker';
+var DeviceInfo = require('react-native-device-info');
+
 const img_detail = require('@common/assets/images/my_message/picture.png');
 
 import I18n from '@i18n';
@@ -29,7 +31,7 @@ export default class ProfileEditPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: '2018-02',
+      date: '2018-05',
     }
   }
 
@@ -37,22 +39,43 @@ export default class ProfileEditPage extends Component {
     const { date } = this.state
     const expYear = date.split('-')[0]
     const expMonth = date.split('-')[1]
+
+    const device_uuid = DeviceInfo.getUniqueID();
+    const device_version = DeviceInfo.getVersion();
+
     const data = {
       platform: Platform.OS === 'ios' ? 'iOS' : 'Android',
-      deviceID: '36C0EC49-AA2F-47DC-A4D7-D9927A739F5E',
+      deviceID: device_uuid,
+      deviceVersion: device_version,
       storeID: '20040 - Lens Company',
       authorizeKey: 'W75df^Kr6v-Gk64T',
       tran: {
+        mode: 1, // 0: live
         amount: this.state.totalAmount,
         currency: 'SAR',
+        description: 'Test AQAR Mobile API',
       },
       card: {
-        cardNumber: '4111 1111 1111 1111',
+        cardNumber: '4111111111111111',
         cvv: 123,
         expiry: {
           month: expMonth,
           year: expYear,
         }
+      },
+      billing: {
+        name: {
+          first: 'Jone',
+          last: 'Done',
+          title: 'Mr',
+        },
+        address: {
+          line1: 'SIT',
+          city: 'Dubai',
+          region: 'Dubai',
+          country: 'AE',
+        },
+        email: 'test@test.com',
       }
     }
     TELR_PAYMENT.start(data)

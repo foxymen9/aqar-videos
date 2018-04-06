@@ -75,7 +75,7 @@ export default {
     max_price: "Max.Price",
     min_price: "Min.Price",
     max_squaremeter: "Max.SqareMeter",
-    min_squaremeter: "Mib.SquareMeter",
+    min_squaremeter: "Min.SquareMeter",
     period: "Period",
     location: "Location",
     furniture: "Furniture",

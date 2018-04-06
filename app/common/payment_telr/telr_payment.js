@@ -93,7 +93,7 @@ var errorMessage;
 
 function initiatePayment(xml){
 	var parser = new xml2js.Parser()
-
+	console.log('XML_RESPONSE: ', xml.response)
 	parser.parseString(xml.response, function(err, data) {
 		console.log('PAYMENT_RESPONSE: ', data)
 	})
@@ -118,25 +118,33 @@ function initiatePayment(xml){
 // }
 
 export function start(data) {
-	
-	// var amountValue = document.getElementById("amount").value;
-	var amountValue = data.tran.amount
 
 	var mobileRequest = new RootRequest(
 		new MobileRequest(data.storeID, data.authorizeKey, 
 			new Device(data.deviceID, data.platform),
-			new App("123456789","Video Aqar","123456","0.0.1"), 
-			new Tran("1", "sale", "moto", Math.random()*100000000000000000, "Test AQAR Mobile API", data.tran.currency, amountValue), 
+			new App("123456789", "Video Aqar", "123456", data.deviceVersion), 
+			new Tran(
+				data.tran.mode,
+				"paypage",
+				"moto",
+				Math.random()*100000000000000000,
+				data.tran.description,
+				data.tran.currency,
+				data.tran.amount
+			),
 			new Card(data.card.cardNumber, new Expiry(data.card.expiry.month, data.card.expiry.year), data.card.cvv),
-			new Billing(new Name("john","Sakr","Mrs"), new Address("SIT", "Dubai", "Dubai", "AE"), "test@test.com")
+			new Billing(
+				new Name(data.billing.name.first,data.billing.name.last,data.billing.name.title),
+				new Address(data.billing.address.line1, data.billing.address.city, data.billing.address.region, data.billing.address.country),
+				data.billing.email,
+			)
 		)
 	);
-
-	console.log('REQUEST', mobileRequest)
 
 	var builder = new xml2js.Builder();
 	var xmlRequest = builder.buildObject(mobileRequest)
 
+	// console.log('REQUEST', xmlRequest)
 	//console.log("<?xml version=\"1.0\" encoding=\"UTF-8\"?> "+xmlRequest);	
 
 	var xhttp = new XMLHttpRequest();

@@ -15,4 +15,8 @@ target 'VideoAqar' do
 
   pod 'react-native-geocoder', :path => '../node_modules/react-native-geocoder'
 
+  pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
+
+  pod 'react-native-fetch-blob', :path => '../node_modules/react-native-fetch-blob'
+
 end
