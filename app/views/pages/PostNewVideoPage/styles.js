@@ -146,6 +146,11 @@ export const styles = StyleSheet.create({
     color: commonColors.placeholderText,
     textAlign: 'right',
   },
+  squareMeterView: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
+  },
   squareMeterBox: {
     width: 160,
     borderWidth: 2,

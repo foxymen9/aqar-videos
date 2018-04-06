@@ -308,7 +308,7 @@ class PostNewVideoPage extends Component {
             )}
 
             {category == 'villa' && (
-            <View style={styles.priceView}>
+            <View style={styles.squareMeterView}>
               <View style={styles.squareMeterBox}>
                 <TextInput
                   ref="squareMeter"
@@ -339,7 +339,7 @@ class PostNewVideoPage extends Component {
 
             {(category == 'apartment') && (
               <View>
-                <View style={styles.itemView}>
+                {/* <View style={styles.itemView}>
                   <Text style={styles.textTitle}>
                     {I18n.t('post_video.location')}
                   </Text>
@@ -356,7 +356,7 @@ class PostNewVideoPage extends Component {
                     value={ this.state.location }
                     onChangeText={ (text) => this.setState({ location: text }) }
                   />
-                </View>
+                </View> */}
                 <View style={styles.itemView}>
                   <CheckBox
                     label={I18n.t('post_video.furniture')}
