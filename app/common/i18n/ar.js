@@ -72,8 +72,10 @@ export default {
     rent:  'إيجار',
     product_option:  'اختيار المنتج',
     type: 'النوع',
+    price: "السعر",
     max_price: 'أعلى سعر',
     min_price:  'أقل سعر',
+    squaremeter: "متر مربع",
     max_squaremeter: 'أقصى متر مربع',
     min_squaremeter:'أدنى متر مربع',
     period: 'الفترة',
@@ -85,7 +87,6 @@ export default {
     street_size: 'حجم الشارع',
     area_space: 'مساحة المكان',
     ownership: 'المالك',
-    price: 'السعر',
     description: 'الوصف',
     title: 'العنوان',
     select_address: 'اختر العنوان من الخريطة'

@@ -81,7 +81,7 @@ export const styles = StyleSheet.create({
     fontFamily: commonStyles.normalFont,
     fontWeight: 'bold',
     width: '100%',
-    fontSize: 17,
+    fontSize: commonStyles.normalFontSize,
     color: commonColors.placeholderText,
     textAlign: 'center',
   },

@@ -49,7 +49,7 @@ class SearchPage extends Component {
       period: '',
       buildingType: '',
       videoUri: null,
-      minSquareMeter: '1000',
+      minSquareMeter: '',
       address: I18n.t('post_video.select_address'),
       page: 'post',
       coordinate: null,
@@ -76,12 +76,8 @@ class SearchPage extends Component {
     this.setState({category: item});
   }
 
-  onDeleteVideo() {
-    this.setState({ videoUri: null })
-  }
-
-  changePage(page) {
-    this.setState({ page })
+  onSearch() {
+    
   }
 
   getAddress(addressArr) {
@@ -147,6 +143,35 @@ class SearchPage extends Component {
                 </TouchableOpacity>
               </View>
 
+              <View style={styles.productOptionView}>
+                <RadioGroup 
+                  color='#7D7D7D' 
+                  style={styles.radioGroup} 
+                  thickness={2}
+                  selectedIndex={0}
+                  onSelect={(index, value)=> this.onSelectProductOption(index, value)}
+                >
+                  <RadioButton value={'Sale'}>
+                    <Text style={styles.textDescription}>{I18n.t('post_video.sale')}</Text>
+                  </RadioButton>
+                  <RadioButton value={'Rent'}>
+                    <Text style={styles.textDescription}>{I18n.t('post_video.rent')}</Text>
+                  </RadioButton>
+                </RadioGroup>
+                <Text style={styles.textTitle}>
+                  {I18n.t('post_video.product_option')}
+                </Text>
+              </View>
+
+              {(category == 'building' || category == 'land') && (
+                <View style={styles.itemView}>
+                  <Text style={styles.textTitle}>
+                    {I18n.t('post_video.type')}
+                  </Text>
+                  <DropdownComponent selectItem={(value)=>this.setState({buildingType: value})} item={this.state.buildingType} data={buildingTypeData} />
+                </View>
+              )}
+
               <View style={styles.squareMeterView}>
                 <View style={styles.squareMeterBox}>
                   <TextInput
@@ -183,35 +208,6 @@ class SearchPage extends Component {
                   />
                 </View>
               </View>
-
-              <View style={styles.productOptionView}>
-                <RadioGroup 
-                  color='#7D7D7D' 
-                  style={styles.radioGroup} 
-                  thickness={2}
-                  selectedIndex={0}
-                  onSelect={(index, value)=> this.onSelectProductOption(index, value)}
-                >
-                  <RadioButton value={'Sale'}>
-                    <Text style={styles.textDescription}>{I18n.t('post_video.sale')}</Text>
-                  </RadioButton>
-                  <RadioButton value={'Rent'}>
-                    <Text style={styles.textDescription}>{I18n.t('post_video.rent')}</Text>
-                  </RadioButton>
-                </RadioGroup>
-                <Text style={styles.textTitle}>
-                  {I18n.t('post_video.product_option')}
-                </Text>
-              </View>
-
-              {(category == 'building' || category == 'land') && (
-                <View style={styles.itemView}>
-                  <Text style={styles.textTitle}>
-                    {I18n.t('post_video.type')}
-                  </Text>
-                  <DropdownComponent selectItem={(value)=>this.setState({buildingType: value})} item={this.state.buildingType} data={buildingTypeData} />
-                </View>
-              )}
 
               {category == 'villa' && (
               <View style={styles.squareMeterView}>
@@ -388,7 +384,7 @@ class SearchPage extends Component {
             </KeyboardAwareScrollView>
           </View>
 
-          <TouchableOpacity onPress={()=>this.onPreview()} activeOpacity={0.5}>
+          <TouchableOpacity onPress={()=>this.onSearch()} activeOpacity={0.5}>
             <View style={styles.searchBtnView}>
               <Text style={styles.searchBtn}>{I18n.t('search')}</Text>
             </View>

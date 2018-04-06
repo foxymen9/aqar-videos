@@ -308,24 +308,23 @@ class PostNewVideoPage extends Component {
             )}
 
             {category == 'villa' && (
-            <View style={styles.squareMeterView}>
-              <View style={styles.squareMeterBox}>
-                <TextInput
-                  ref="squareMeter"
-                  autoCapitalize="none"
-                  autoCorrect={ false }
-                  multiline={true}
-                  placeholder={I18n.t('post_video.min_squaremeter')}
-                  placeholderTextColor={ commonColors.placeholderSubText }
-                  textAlign="right"
-                  style={styles.inputPrice}
-                  underlineColorAndroid="transparent"
-                  returnKeyType={ 'next' }
-                  keyboardType="numbers-and-punctuation"
-                  value={ this.state.squareMeter }
-                  onChangeText={ (text) => this.setState({ squareMeter: text }) }
-                />
-              </View>
+            <View style={styles.itemView}>
+              <Text style={styles.textTitle}>
+                {I18n.t('post_video.squaremeter')}
+              </Text>
+              <TextInput
+                ref="squareMeter"
+                autoCapitalize="none"
+                autoCorrect={ true }
+                placeholder={I18n.t('post_video.squaremeter')}
+                placeholderTextColor={ commonColors.placeholderSubText }
+                textAlign="right"
+                style={styles.input}
+                underlineColorAndroid="transparent"
+                returnKeyType={ 'next' }
+                value={ this.state.squareMeter }
+                onChangeText={ (text) => this.setState({ squareMeter: text }) }
+              />
             </View>)}
 
             {(category == 'apartment' || category == 'chalet') && (
