@@ -160,7 +160,7 @@ class Signup extends Component {
           />
         </View>
 
-        <KeyboardAwareScrollView>
+        <KeyboardScrollView>
           {this.state.verifyStep == (_isArabic ? 0 : 2) && (
           <View style={styles.fieldContainer}>
             <View style={styles.inputView}>
@@ -349,7 +349,7 @@ class Signup extends Component {
               />
             </View>
           </View>)}
-        </KeyboardAwareScrollView>
+        </KeyboardScrollView>
 
         {this.state.verifyStep == 2 && (
         <View style={styles.btnView}>
