@@ -79,14 +79,12 @@ export default class MapPage extends Component {
                 </Image>
                 <Text style={styles.markerText}>{marker.data.price}</Text>
               </View>
-              <MapView.Callout>
-                <TouchableOpacity onPress={()=>this.gotoDetailPage(marker)}>
-                  <View style={styles.markerDetailView}>
-                    <Image source={{uri: marker.data.image}} style={styles.markerDetailImage} resizeMode="cover">
-                    </Image>
-                    <Text style={styles.markerDetailText}>{marker.data.title}</Text>
-                  </View>
-                </TouchableOpacity>
+              <MapView.Callout onPress={() => this.gotoDetailPage(marker)}>
+                <View style={styles.markerDetailView}>
+                  <Image source={{uri: marker.data.image}} style={styles.markerDetailImage} resizeMode="cover">
+                  </Image>
+                  <Text style={styles.markerDetailText}>{marker.data.title}</Text>
+                </View>
               </MapView.Callout>
             </MapView.Marker>
           ))}

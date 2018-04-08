@@ -32,7 +32,8 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: 150,
-    height: 100,
+    paddingVertical: 5,
+    zIndex: 99,
   },
   markerDetailImage: {
     marginBottom: 10,

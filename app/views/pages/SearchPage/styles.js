@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   inputContainer: {
-    height: commonStyles.screenNormalHeight - 40 - commonStyles.buttonBottomHeight,
+    height: commonStyles.screenNormalHeight - commonStyles.buttonHeight - commonStyles.buttonBottomHeight,
     width: '100%',
   },
   thumbnail: {
@@ -116,7 +116,7 @@ export const styles = StyleSheet.create({
   searchBtnView: {
     marginBottom: commonStyles.buttonBottomHeight,
     width: commonStyles.screenWidth,
-    height: 40,
+    height: commonStyles.buttonHeight,
     backgroundColor: commonColors.greenColor,
     justifyContent: 'center',
     alignItems: 'center',

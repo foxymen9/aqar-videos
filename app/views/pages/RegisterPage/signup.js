@@ -18,7 +18,7 @@ import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import TextInputMask from 'react-native-text-input-mask';
 import StepIndicator from '@components/StepIndicator';
-``
+
 import CustomAlert from '@components/CustomAlert';
 import LoadingSpinner from '@components/LoadingSpinner';
 
@@ -62,7 +62,7 @@ class Signup extends Component {
       this.setState({isAlert: true});
       
       this.props.changeMenu(0);
-      Actions.Main();
+      Actions.Package();
     }
   }
   

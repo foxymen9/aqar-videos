@@ -7,7 +7,6 @@ import {
   ListView,
   TouchableOpacity,
   Image,
-  Modal,
   TouchableWithoutFeedback,
   TextInput,
 } from 'react-native';
@@ -23,7 +22,6 @@ import Icon from 'react-native-vector-icons/Feather';
 
 import I18n from '@i18n';
 import Container from '@layout/Container';
-import ModalShare from '@components/ModalShare';
 import {RadioGroup, RadioButton} from '@components/RadioButtonGroup';
 import DropdownComponent from '@components/DropdownComponent';
 import CategoryComponent from '@components/CategoryComponent';
