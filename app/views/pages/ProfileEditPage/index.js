@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 
 import FontAwesome, {Icons} from 'react-native-fontawesome';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import KeyboardScrollView from '@components/KeyboardView';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 import I18n from '@i18n';
@@ -41,7 +41,7 @@ export default class ProfileEditPage extends Component {
     return (
       <Container title={I18n.t('sidebar.my_profile')}>
         <View style={styles.container}>
-          <KeyboardAwareScrollView>
+          <KeyboardScrollView>
             <View style={styles.fieldContainer}>
               <View style={styles.inputView}>
                 <TextInput
@@ -143,7 +143,7 @@ export default class ProfileEditPage extends Component {
                 </View>
               </View>     
             </View>
-          </KeyboardAwareScrollView>
+          </KeyboardScrollView>
           <View style={styles.btnView}>
             <TouchableOpacity onPress={()=>this.onUpdate()} activeOpacity={0.5}>
               <View style={styles.btnWrapper}>

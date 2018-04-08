@@ -14,7 +14,7 @@ import {
 import * as TELR_PAYMENT from '@common/payment_telr/telr_payment'
 
 import FontAwesome, {Icons} from 'react-native-fontawesome';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import KeyboardScrollView from '@components/KeyboardView';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import DatePicker from 'react-native-datepicker';
 var DeviceInfo = require('react-native-device-info');
@@ -103,7 +103,7 @@ export default class ProfileEditPage extends Component {
           <Image source={img_detail} style={ styles.thumbnail } />    
 
           <View style={styles.fieldContainer}>
-            <KeyboardAwareScrollView>
+            <KeyboardScrollView>
               <View style={styles.inputView}>
                 <TextInput
                   ref="totalAmount"
@@ -258,7 +258,7 @@ export default class ProfileEditPage extends Component {
                   onDateChange={date => this.onChange(date)}
                 />
               </View>
-            </KeyboardAwareScrollView>
+            </KeyboardScrollView>
           </View>
 
           <View style={styles.btnView}>

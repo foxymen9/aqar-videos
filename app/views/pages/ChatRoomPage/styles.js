@@ -15,9 +15,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
-  scrollView: {
-    backgroundColor: 'white',
-  },
   messageContainer: {
     width: '100%',
     height: commonStyles.screenNormalHeight - inputHeight,

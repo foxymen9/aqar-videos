@@ -12,7 +12,7 @@ import {
   TextInput,
 } from 'react-native';
 
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import KeyboardScrollView from '@components/KeyboardView';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';

@@ -15,7 +15,7 @@ import {
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import KeyboardScrollView from '@components/KeyboardView';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import TextInputMask from 'react-native-text-input-mask';
@@ -126,7 +126,7 @@ class Login extends Component {
           closeAlert={()=>this.setState({isForgotAlert: false})}
         />
 
-        <KeyboardAwareScrollView>
+        <KeyboardScrollView>
           <View style={styles.fieldContainerLogin}>
             <View style={styles.inputView}>
               <View style={styles.iconView}>
@@ -180,7 +180,7 @@ class Login extends Component {
               </TouchableOpacity>
             </View>
           </View>
-        </KeyboardAwareScrollView>
+        </KeyboardScrollView>
       </View>
     );
   }

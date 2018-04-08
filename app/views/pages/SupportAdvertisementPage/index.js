@@ -10,8 +10,7 @@ import {
   TextInput,
 } from 'react-native';
 
-import FontAwesome, {Icons} from 'react-native-fontawesome';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import KeyboardScrollView from '@components/KeyboardView';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 import I18n from '@i18n';
@@ -47,9 +46,9 @@ export default class SupportAdvertisementPage extends Component {
     ];
 
     return (
-      <Container title={I18n.t('sidebar.support_advertisement')} type='support'>
+      <Container title={I18n.t('sidebar.support_advertisement')}>
         <View style={styles.container}>
-          <KeyboardAwareScrollView>
+          <KeyboardScrollView>
             <View style={styles.fieldContainer}>
               <View style={styles.inputView}>
                 <TextInput
@@ -70,6 +69,7 @@ export default class SupportAdvertisementPage extends Component {
                   <Icon name='user' style={styles.inputIcon}></Icon>
                 </View>
               </View>
+
               <View style={styles.inputView}>
                 <TextInput
                   ref="mobileNumber"
@@ -90,6 +90,7 @@ export default class SupportAdvertisementPage extends Component {
                   <Icon name='screen-tablet' style={styles.inputIcon}></Icon>
                 </View>
               </View>
+
               <View style={styles.inputView}>
                 <TextInput
                   ref="email"
@@ -110,10 +111,12 @@ export default class SupportAdvertisementPage extends Component {
                   <Icon name='envelope' style={styles.inputIcon}></Icon>
                 </View>
               </View>
+
               <View style={styles.itemView}>
                 <Text style={styles.textTitle}>{I18n.t('support.subject')}</Text>
                 <DropdownComponent selectItem={(value)=>this.setState({subject: value})} item={this.state.subject} data={subjectData} />
               </View>
+
               <View style={styles.itemView}>
                 <Text style={styles.textTitle}>{I18n.t('support.message')}</Text>
                 <TextInput
@@ -132,7 +135,8 @@ export default class SupportAdvertisementPage extends Component {
                 />
               </View>
             </View>
-          </KeyboardAwareScrollView>
+          </KeyboardScrollView>
+
           <View style={styles.btnView}>
             <TouchableOpacity onPress={()=>this.onUpdate()} activeOpacity={0.5}>
               <View style={styles.btnWrapper}>
@@ -140,6 +144,7 @@ export default class SupportAdvertisementPage extends Component {
               </View>
             </TouchableOpacity>
           </View>
+
         </View>
       </Container>
     );

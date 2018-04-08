@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 
 import FontAwesome, {Icons} from 'react-native-fontawesome';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import KeyboardScrollView from '@components/KeyboardView';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 import Container from '@layout/Container';
@@ -46,7 +46,7 @@ export default class DirectMessagePage extends Component {
     return (
       <Container title={'DIRECT MESSAGE'} type='detail'>
         <View style={styles.container}>
-          <KeyboardAwareScrollView>
+          <KeyboardScrollView>
             <View style={styles.fieldContainer}>
               <View style={styles.inputView}>
                 <TextInput
@@ -89,7 +89,7 @@ export default class DirectMessagePage extends Component {
                 />
               </View>
             </View>
-          </KeyboardAwareScrollView>
+          </KeyboardScrollView>
           <View style={styles.btnView}>
             <TouchableOpacity onPress={()=>this.onSend()} activeOpacity={0.5}>
               <View style={styles.btnWrapper}>

@@ -11,7 +11,6 @@ import {
   TextInput,
 } from 'react-native';
 
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
@@ -22,6 +21,7 @@ import Icon from 'react-native-vector-icons/Feather';
 
 import I18n from '@i18n';
 import Container from '@layout/Container';
+import KeyboardScrollView from '@components/KeyboardView';
 import {RadioGroup, RadioButton} from '@components/RadioButtonGroup';
 import DropdownComponent from '@components/DropdownComponent';
 import CategoryComponent from '@components/CategoryComponent';
@@ -175,7 +175,7 @@ class PostNewVideoPage extends Component {
         <LoadingSpinner visible={this.state.loading } />
 
         <View style={styles.container}>
-          <KeyboardAwareScrollView ref="scrollContainer">
+          <KeyboardScrollView ref="scrollContainer">
             <TouchableOpacity onPress={()=>this.onCamera()}>
               <View style={styles.videoView}>
                 {videoUri ?
@@ -470,7 +470,7 @@ class PostNewVideoPage extends Component {
                 <Text style={styles.textPreview}>{I18n.t('sidebar.preview')}</Text>
               </View>
             </TouchableOpacity>
-          </KeyboardAwareScrollView>
+          </KeyboardScrollView>
         </View>
       </Container>
     );

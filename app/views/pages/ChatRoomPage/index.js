@@ -11,11 +11,11 @@ import {
 } from 'react-native';
 
 import FontAwesome, {Icons} from 'react-native-fontawesome';
-import { KeyboardAwareScrollView, KeyboardAwareListView } from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import I18n from '@i18n';
 import Container from '@layout/Container';
+import KeyboardScrollView from '@components/KeyboardView';
 import SendMessageComponent from '@components/MessageComponent/SendMessageComponent';
 import ReceiveMessageComponent from '@components/MessageComponent/ReceiveMessageComponent';
 
@@ -27,42 +27,12 @@ export default class ChatRoomPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      messageData: [],
     }
   }
 
-  onItemSelect(rowData, rowID) {
-    
-  }
-    
-  _renderRow (rowData, sectionID, rowID, highlightRow) {
-    if (rowData.type == 'send') {
-      return (
-        <SendMessageComponent data={rowData} />
-      )
-    }
-    else {
-      return (
-        <ReceiveMessageComponent data={rowData} />
-      )
-    }
-  }
-  _renderSeparator (sectionID, rowID, adjacentRowHighlighted) {
-    return (
-      <View
-          key={`${sectionID}-${rowID}`}
-          style={{ height: 0, backgroundColor: 'transparent', flex:1}}
-      />
-    );
-  }
-  
-  onSend() {
-    
-  }
-
-  render() {
-    const {data} = this.props;
-    
-    let listData = [
+  componentWillMount() {
+    const messageData = [
       {
         type: 'receive',
         name: 'User1',
@@ -105,48 +75,99 @@ export default class ChatRoomPage extends Component {
         message: 'testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttest',
         date: '15.Nov 13:45'
       },
-    ]
+    ];
+
+    this.setState({ messageData });
+  }
+  onItemSelect(rowData, rowID) {
+    
+  }
+    
+  _renderRow (rowData, sectionID, rowID, highlightRow) {
+    if (rowData.type == 'send') {
+      return (
+        <SendMessageComponent data={rowData} />
+      )
+    }
+    else {
+      return (
+        <ReceiveMessageComponent data={rowData} />
+      )
+    }
+  }
+  _renderSeparator (sectionID, rowID, adjacentRowHighlighted) {
+    return (
+      <View
+          key={`${sectionID}-${rowID}`}
+          style={{ height: 0, backgroundColor: 'transparent', flex:1}}
+      />
+    );
+  }
+  
+  onSend() {
+    const { messageData, message } = this.state;
+    this.setState({
+      messageData: [
+        ...messageData,
+        {
+          type: 'send',
+          name: 'Me',
+          message: message,
+          date: '15.Nov 13:45'
+        }
+      ],
+    })
+  }
+
+  render() {
+    const { data } = this.props;
+    const { messageData } = this.state;
+
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    const dataSource = ds.cloneWithRows(listData);
+    const dataSource = ds.cloneWithRows(messageData);
 
     return (
-      <Container title={data.name}  type='detail'>
-        <KeyboardAwareScrollView style={styles.scrollView}>
-          <View style={styles.container}>
-            <View style={styles.messageContainer}>
-              <ListView
-                ref='listview'
-                dataSource={dataSource}
-                renderRow={this._renderRow.bind(this)}
-                renderSeparator={this._renderSeparator}
-                contentContainerStyle={styles.listView}
-              />
-            </View>
-            <View style={styles.inputContainer}>
-              <View style={styles.inputView}>
-                <TextInput
-                  autoCapitalize="none"
-                  autoCorrect={ true }
-                  multiline={true}
-                  placeholder={I18n.t('support.ph_message')}
-                  placeholderTextColor={ commonColors.placeholderText }
-                  textAlign="right"
-                  style={styles.input}
-                  underlineColorAndroid="transparent"
-                  returnKeyType={ 'next' }
-                  value={ this.state.message }
-                  onChangeText={ (text) => this.setState({ message: text }) }
+      <Container title={data.name} type="detail">
+        <View style={styles.container}>
+          <KeyboardScrollView>
+            <View style={styles.container}>
+              <View style={styles.messageContainer}>
+                <ListView
+                  ref='listview'
+                  dataSource={dataSource}
+                  renderRow={this._renderRow.bind(this)}
+                  renderSeparator={this._renderSeparator}
+                  contentContainerStyle={styles.listView}
+                  onContentSizeChange={(width, height) => this.refs.listview.scrollToEnd()}
                 />
-                <Icon name='pencil' style={styles.iconPen} />
               </View>
-              <TouchableOpacity activeOpacity={0.5} onPress={()=>this.onSend()}>
-                <View style={styles.btnSendView}>
-                  <Icon name='send' style={styles.iconSend} />
+
+              <View style={styles.inputContainer}>
+                <View style={styles.inputView}>
+                  <TextInput
+                    autoCapitalize="none"
+                    autoCorrect={ true }
+                    multiline={true}
+                    placeholder={I18n.t('support.ph_message')}
+                    placeholderTextColor={ commonColors.placeholderText }
+                    textAlign="right"
+                    style={styles.input}
+                    underlineColorAndroid="transparent"
+                    returnKeyType={ 'next' }
+                    value={ this.state.message }
+                    onChangeText={ (text) => this.setState({ message: text }) }
+                  />
+                  <Icon name='pencil' style={styles.iconPen} />
                 </View>
-              </TouchableOpacity>
+                <TouchableOpacity activeOpacity={0.5} onPress={()=>this.onSend()}>
+                  <View style={styles.btnSendView}>
+                    <Icon name='send' style={styles.iconSend} />
+                  </View>
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
-        </KeyboardAwareScrollView>
+          </KeyboardScrollView>
+        </View>
       </Container>
     );
   }

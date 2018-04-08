@@ -25,7 +25,7 @@ export default class LoadingSpinner extends Component {
             animationType={'none'}
             transparent={true}
             visible={visible}
-            onRequestClose={this.props.onDismissLoadingCallback}>
+            onRequestClose={() => console.log('close')}>
             <View style={{ flex: 1 }}/>
             <View style={{
               height: 80,
