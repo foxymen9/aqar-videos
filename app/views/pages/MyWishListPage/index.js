@@ -118,7 +118,7 @@ export default class MyWishListPage extends Component {
             dataSource={dataSource}
             renderRow={ (rowData, secId, rowId, rowMap) => (
               <SwipeRow
-                disableRightSwipe={true}
+                disableRightSwipe
                 rightOpenValue={-50}
               >
                 <View style={styles.listRightView}>
@@ -135,7 +135,7 @@ export default class MyWishListPage extends Component {
                 <View style={styles.listStyle}>
                   <View style={styles.listItem}>
                     <View style={styles.imageView}>
-                      <Image source={{ uri: rowData.image}} style={ styles.image } />
+                      <Image source={{ uri: rowData.image}} style={styles.image} />
                     </View>
                     <View style={styles.footerView}>
                       <Text style={styles.textTitle}>{rowData.title}</Text>

@@ -45,7 +45,7 @@ export default class MyAdsPage extends Component {
         <View style={styles.listItem}>
         
           <View style={styles.imageView}>
-            <Image source={{ uri: rowData.image}} style={ styles.image } />
+            <Image source={{ uri: rowData.image}} style={styles.image} />
           </View>
           <View style={styles.footerView}>
             <Text  style={styles.textTitle}>{rowData.title}</Text>

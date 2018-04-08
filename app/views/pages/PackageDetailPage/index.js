@@ -100,7 +100,7 @@ export default class ProfileEditPage extends Component {
     return (
       <Container title={data.detail['1'].title} type='detail'>
         <View style={styles.container}>
-          <Image source={img_detail} style={ styles.thumbnail } />    
+          <Image source={img_detail} style={styles.thumbnail} />
 
           <View style={styles.fieldContainer}>
             <KeyboardScrollView>

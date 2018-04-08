@@ -155,25 +155,25 @@ class Login extends Component {
               <TextInput
                 ref="password"
                 autoCapitalize="none"
-                autoCorrect={ false }
+                autoCorrect={false}
                 placeholder={I18n.t('profile.ph_password')}
                 placeholderTextColor={ commonColors.placeholderText }
                 textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
-                returnKeyType={ 'next' }
-                secureTextEntry={true}
+                returnKeyType={'next'}
+                secureTextEntry
                 value={ this.state.password }
                 onChangeText={ (text) => this.setState({ password: text }) }
               />
             </View>   
             <View style={styles.forgotPasswordView}>
-              <TouchableOpacity onPress={()=>this.onForgotPassword()}>
+              <TouchableOpacity onPress={() => this.onForgotPassword()}>
                 <Text style={styles.forgotPasswordText}>{I18n.t('profile.forgot_password')}</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.btnViewLogin}>
-              <TouchableOpacity onPress={()=>this.onLogin()} activeOpacity={0.5}>
+              <TouchableOpacity onPress={() => this.onLogin()} activeOpacity={0.5}>
                 <View style={styles.btnWrapper}>
                   <Text style={styles.btnText}>{I18n.t('login')}</Text>
                 </View>

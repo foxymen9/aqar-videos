@@ -242,7 +242,7 @@ class PostNewVideoPage extends Component {
                 ref="description"
                 autoCapitalize="none"
                 autoCorrect={ true }
-                multiline={true}
+                multiline
                 placeholder={I18n.t('post_video.ph_video_desc')}
                 placeholderTextColor={ commonColors.placeholderSubText }
                 textAlign="right"
@@ -357,7 +357,7 @@ class PostNewVideoPage extends Component {
                 <View style={styles.itemView}>
                   <CheckBox
                     label={I18n.t('post_video.furniture')}
-                    labelBefore={true}
+                    labelBefore
                     labelStyle={{color: commonColors.placeholderText, fontSize: 14, fontFamily: commonStyles.normalFont, fontWeight: 'bold'}}
                     onChange={(checked) => this.setState({furniture: checked})}
                   />
@@ -389,7 +389,7 @@ class PostNewVideoPage extends Component {
                 <View style={styles.itemView}>
                   <CheckBox
                     label={I18n.t('post_video.ownership')}
-                    labelBefore={true}
+                    labelBefore
                     labelStyle={{color: commonColors.placeholderText, fontSize: 14, fontFamily: commonStyles.normalFont, fontWeight: 'bold'}}
                     onChange={(checked) => this.setState({ownership: checked})}
                   />

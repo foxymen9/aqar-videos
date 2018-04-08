@@ -51,21 +51,21 @@ export default class MapPage extends Component {
         </View>
         
         <MapView
-          style={ styles.mapView }
+          style={styles.mapView}
           provider={PROVIDER_GOOGLE}
-          showsScale={true}
-          showsPointsOfInterest={true}
-          showsBuildings={true}
-          showsUserLocation={true}
-          showsMyLocationButton={true}
-          showsCompass={true}
-          loadingEnabled={true}
-          toolbarEnabled={true}
-          pitchEnabled={true}
-          zoomEnabled={true}
-          rotateEnabled={true}
+          showsScale
+          showsPointsOfInterest
+          showsBuildings
+          showsUserLocation
+          showsMyLocationButton
+          showsCompass
+          loadingEnabled
+          toolbarEnabled
+          pitchEnabled
+          zoomEnabled
+          rotateEnabled
           mapType={mapType}
-          region={ region }
+          region={region}
           onRegionChange={this.onRegionChange}
         >
           {locationData.map((marker, index) => (

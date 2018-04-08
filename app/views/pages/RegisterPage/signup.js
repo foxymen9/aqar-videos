@@ -255,7 +255,7 @@ class Signup extends Component {
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
-                secureTextEntry={true}
+                secureTextEntry
                 value={ this.state.password }
                 onChangeText={ (text) => this.setState({ password: text }) }
                 onSubmitEditing={ () => this.refs.confirmPassword.focus() }
@@ -268,16 +268,16 @@ class Signup extends Component {
               <TextInput
                 ref="confirmPassword"
                 autoCapitalize="none"
-                autoCorrect={ false }
+                autoCorrect={false}
                 placeholder={I18n.t('profile.ph_confirm_password')}
-                placeholderTextColor={ commonColors.placeholderText }
+                placeholderTextColor={commonColors.placeholderText}
                 textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
-                returnKeyType={ 'next' }
-                secureTextEntry={true}
+                returnKeyType={'next'}
+                secureTextEntry
                 value={ this.state.confirmPassword }
-                onChangeText={ (text) => this.setState({ confirmPassword: text }) }
+                onChangeText={text => this.setState({ confirmPassword: text }) }
               />
             </View> 
           </View>)}

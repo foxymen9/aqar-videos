@@ -24,7 +24,7 @@ class SplashScreenPage extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.loadingIconView}>
-          <Image source={ loading_icon } style={styles.loadingIcon} resizeMode='center' />
+          <Image source={loading_icon} style={styles.loadingIcon} resizeMode='center' />
         </View>
         <View style={styles.loadingTextView}>
           <Text style={styles.loadingText}>www.videoaqar.com</Text>

@@ -147,7 +147,7 @@ export default class ChatRoomPage extends Component {
                   <TextInput
                     autoCapitalize="none"
                     autoCorrect={ true }
-                    multiline={true}
+                    multiline
                     placeholder={I18n.t('support.ph_message')}
                     placeholderTextColor={ commonColors.placeholderText }
                     textAlign="right"

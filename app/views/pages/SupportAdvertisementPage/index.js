@@ -121,7 +121,7 @@ export default class SupportAdvertisementPage extends Component {
                 <Text style={styles.textTitle}>{I18n.t('support.message')}</Text>
                 <TextInput
                   ref="message"
-                  multiline={true}
+                  multiline
                   autoCapitalize="none"
                   autoCorrect={ true }
                   placeholder={I18n.t('support.ph_message')}

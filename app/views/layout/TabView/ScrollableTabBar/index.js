@@ -191,7 +191,7 @@ const ScrollableTabBar = createReactClass({
 
     return <Button
       key={`${name}_${page}`}
-      accessible={true}
+      accessible
       accessibilityLabel={name}
       accessibilityTraits='button'
       onPress={() => {_isStart = false, onPressHandler(page)}}
@@ -247,10 +247,10 @@ const ScrollableTabBar = createReactClass({
     >
       <ScrollView
         ref={(scrollView) => { this._scrollView = scrollView; }}
-        horizontal={true}
+        horizontal
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
-        directionalLockEnabled={true}
+        directionalLockEnabled
         bounces={false}
         scrollsToTop={false}
       >

@@ -47,7 +47,7 @@ export default class MyMessagePage extends Component {
             </View>
           </View>
           <View style={styles.imageView}>
-            <Image source={icon_report} style={ styles.image } />
+            <Image source={icon_report} style={styles.image} />
           </View>
         </View>
       </TouchableOpacity>

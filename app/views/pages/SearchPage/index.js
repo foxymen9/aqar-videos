@@ -178,7 +178,7 @@ class SearchPage extends Component {
                     ref="squareMeter"
                     autoCapitalize="none"
                     autoCorrect={ false }
-                    multiline={true}
+                    multiline
                     placeholder={I18n.t('post_video.max_price')}
                     placeholderTextColor={ commonColors.placeholderSubText }
                     textAlign="right"
@@ -195,7 +195,7 @@ class SearchPage extends Component {
                     ref="squareMeter"
                     autoCapitalize="none"
                     autoCorrect={ false }
-                    multiline={true}
+                    multiline
                     placeholder={I18n.t('post_video.min_price')}
                     placeholderTextColor={ commonColors.placeholderSubText }
                     textAlign="right"
@@ -216,7 +216,7 @@ class SearchPage extends Component {
                     ref="maxSquareMeter"
                     autoCapitalize="none"
                     autoCorrect={ false }
-                    multiline={true}
+                    multiline
                     placeholder={I18n.t('post_video.max_squaremeter')}
                     placeholderTextColor={ commonColors.placeholderSubText }
                     textAlign="right"
@@ -233,7 +233,7 @@ class SearchPage extends Component {
                     ref="minSquareMeter"
                     autoCapitalize="none"
                     autoCorrect={ false }
-                    multiline={true}
+                    multiline
                     placeholder={I18n.t('post_video.min_squaremeter')}
                     placeholderTextColor={ commonColors.placeholderSubText }
                     textAlign="right"
@@ -279,7 +279,7 @@ class SearchPage extends Component {
                   <View style={styles.itemView}>
                     <CheckBox
                       label={I18n.t('post_video.furniture')}
-                      labelBefore={true}
+                      labelBefore
                       labelStyle={{color: commonColors.placeholderText, fontSize: 14, fontFamily: commonStyles.normalFont, fontWeight: 'bold'}}
                       onChange={(checked) => this.setState({furniture: checked})}
                     />
@@ -311,7 +311,7 @@ class SearchPage extends Component {
                   <View style={styles.itemView}>
                     <CheckBox
                       label={I18n.t('post_video.ownership')}
-                      labelBefore={true}
+                      labelBefore
                       labelStyle={{color: commonColors.placeholderText, fontSize: 14, fontFamily: commonStyles.normalFont, fontWeight: 'bold'}}
                       onChange={(checked) => this.setState({ownership: checked})}
                     />

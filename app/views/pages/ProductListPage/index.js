@@ -33,7 +33,7 @@ export default class ProductListPage extends Component {
           onPress={()=>{this.onItemSelect(rowData, rowID)}}
         >
           <View style={styles.imageView}>
-            <Image source={{ uri: rowData.image}} style={ styles.image } />
+            <Image source={{ uri: rowData.image}} style={styles.image} />
             <View style={styles.subView}>
               <Text style={styles.textTitle}>{rowData.title}</Text>
             </View>

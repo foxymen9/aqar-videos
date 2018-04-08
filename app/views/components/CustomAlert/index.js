@@ -25,9 +25,9 @@ export default class CustomAlert extends Component {
           showProgress={false}
           title={title}
           message={message}
-          closeOnTouchOutside={true}
+          closeOnTouchOutside
           closeOnHardwareBackPress={false}
-          showCancelButton={true}
+          showCancelButton
           cancelText="OK"
           cancelButtonColor="#DD6B55"
           alertContainerStyle={{zIndex: 100}}

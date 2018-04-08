@@ -23,7 +23,7 @@ export default class LoadingSpinner extends Component {
     return(
         <Modal
             animationType={'none'}
-            transparent={true}
+            transparent
             visible={visible}
             onRequestClose={() => console.log('close')}>
             <View style={{ flex: 1 }}/>
@@ -37,7 +37,7 @@ export default class LoadingSpinner extends Component {
               alignSelf:'center'
             }}>
               {/* <ActivityIndicator
-                  animating={true}
+                  animating
                   size={"large"}
                   color={'white'}
               /> */}

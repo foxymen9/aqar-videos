@@ -60,7 +60,7 @@ export default class ProductDetailPage extends Component {
           <ScrollView>
             <Image
               source={{ uri: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg' }}
-              style={ styles.thumbnail }
+              style={styles.thumbnail}
             />
             <View style={styles.titleView}>
               <Text style={styles.textTitle}>
@@ -112,7 +112,7 @@ export default class ProductDetailPage extends Component {
             <View style={styles.btnView}>
               <TouchableOpacity onPress={()=>this.onFavorite()} activeOpacity={0.5}>
                 <View style={styles.btnFavorite}>
-                  <FontAwesome style={ this.state.favorite ? styles.icon_select : styles.icon }>{Icons.star}</FontAwesome>
+                  <FontAwesome style={this.state.favorite ? styles.icon_select : styles.icon}>{Icons.star}</FontAwesome>
                 </View>
               </TouchableOpacity>
               <TouchableOpacity onPress={()=>this.onShare()} activeOpacity={0.5}>

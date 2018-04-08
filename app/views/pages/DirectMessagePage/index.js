@@ -75,7 +75,7 @@ export default class DirectMessagePage extends Component {
                 <Text style={styles.textTitle}>Message</Text>
                 <TextInput
                   ref="message"
-                  multiline={true}
+                  multiline
                   autoCapitalize="none"
                   autoCorrect={ true }
                   placeholder="Type your message here"

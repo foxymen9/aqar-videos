@@ -223,7 +223,7 @@ class Sidebar extends Component {
           dataSource={dataSource}
           renderRow={this._renderRow.bind(this)}
           renderSeparator={this._renderSeparator}
-          enableEmptySections={true}
+          enableEmptySections
         />
       </View>
     );

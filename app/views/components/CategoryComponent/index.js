@@ -71,7 +71,7 @@ export default class CategoryComponent extends Component {
       <ScrollView 
         ref='catoryScroll'
         style={styles.categoryScrollView} 
-        horizontal={true}
+        horizontal
         alwaysBounceHorizontal={false}
         showsHorizontalScrollIndicator={false}
         onContentSizeChange={(width, height) => this.refs.catoryScroll.scrollTo({x: width - commonStyles.screenWidth})}

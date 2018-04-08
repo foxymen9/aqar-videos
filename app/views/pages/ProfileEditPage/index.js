@@ -114,7 +114,7 @@ export default class ProfileEditPage extends Component {
                   style={styles.input}
                   underlineColorAndroid="transparent"
                   returnKeyType={ 'next' }
-                  secureTextEntry={true}
+                  secureTextEntry
                   value={ this.state.password }
                   onChangeText={ (text) => this.setState({ password: text }) }
                   onSubmitEditing={ () => this.refs.confirmPassword.focus() }
@@ -129,14 +129,14 @@ export default class ProfileEditPage extends Component {
                   autoCapitalize="none"
                   autoCorrect={ false }
                   placeholder={I18n.t('profile.ph_confirm_password')}
-                  placeholderTextColor={ commonColors.placeholderText }
+                  placeholderTextColor={commonColors.placeholderText}
                   textAlign="right"
                   style={styles.input}
                   underlineColorAndroid="transparent"
                   returnKeyType={ 'next' }
-                  secureTextEntry={true}
-                  value={ this.state.confirmPassword }
-                  onChangeText={ (text) => this.setState({ confirmPassword: text }) }
+                  secureTextEntry
+                  value={this.state.confirmPassword}
+                  onChangeText={text => this.setState({ confirmPassword: text }) }
                 />
                 <View style={styles.iconView}>
                   <Icon name='lock' style={styles.inputIcon}></Icon>
@@ -145,7 +145,7 @@ export default class ProfileEditPage extends Component {
             </View>
           </KeyboardScrollView>
           <View style={styles.btnView}>
-            <TouchableOpacity onPress={()=>this.onUpdate()} activeOpacity={0.5}>
+            <TouchableOpacity onPress={() => this.onUpdate()} activeOpacity={0.5}>
               <View style={styles.btnWrapper}>
                 <Text style={styles.btnText}>{I18n.t('update')}</Text>
               </View>

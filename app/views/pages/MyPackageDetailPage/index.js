@@ -60,7 +60,7 @@ export default class MyPackageDetailPage extends Component {
         <Container title={data.detail['1'].title} type='detail'>
           <View style={styles.container}>
             <View style={styles.thumbnailView}>
-              <Image source={img_detail} style={ styles.thumbnail } />    
+              <Image source={img_detail} style={styles.thumbnail} />
               <View style={styles.titleView}>
                 <Text style={styles.remainDay}>تاريخ البدء {data.detail['1']['start_date']}</Text>
                 <Text style={styles.remainDay}>تاريخ الانتهاء {data.detail['1']['end_date']}</Text>

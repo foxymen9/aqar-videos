@@ -187,9 +187,9 @@ class PostProductLocationPage extends Component {
             ref = 'autocomplete'
             placeholder='Search'
             minLength={2} // minimum length of text to search
-            autoFocus={true}
+            autoFocus
             listViewDisplayed='auto'    // true/false/undefined
-            fetchDetails={true}
+            fetchDetails
             renderDescription={(row) => row.description}
             onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true				         
               this._onLoad(details)
@@ -256,15 +256,15 @@ class PostProductLocationPage extends Component {
         </View>
         
         <MapView
-          style={ styles.mapView }
+          style={styles.mapView}
           provider={PROVIDER_GOOGLE}
-          showsScale={true}
-          showsPointsOfInterest={true}
-          showsBuildings={true}
-          showsUserLocation={true}
-          showsMyLocationButton={true}
+          showsScale
+          showsPointsOfInterest
+          showsBuildings
+          showsUserLocation
+          showsMyLocationButton
           mapType={mapType}
-          region={ mapRegion }
+          region={mapRegion}
           // onRegionChange={this.onRegionChange.bind(this)}
           onPress={e => this.onMapPress(e)}
           onPoiClick={e => this.onPoiClick(e)}
