@@ -175,7 +175,7 @@ class PostNewVideoPage extends Component {
         <LoadingSpinner visible={this.state.loading } />
 
         <View style={styles.container}>
-          <KeyboardScrollView ref="scrollContainer">
+          <KeyboardScrollView>
             <TouchableOpacity onPress={()=>this.onCamera()}>
               <View style={styles.videoView}>
                 {videoUri ?

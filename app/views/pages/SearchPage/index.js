@@ -129,7 +129,7 @@ class SearchPage extends Component {
 
         <View style={styles.container}>
           <View style={styles.inputContainer}>
-            <KeyboardScrollView ref="scrollContainer">
+            <KeyboardScrollView>
               <CategoryComponent category={(item)=>this.selectCategory(item)} />
 
               <View style={styles.itemView}>
