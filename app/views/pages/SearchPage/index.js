@@ -129,7 +129,7 @@ class SearchPage extends Component {
 
         <View style={styles.container}>
           <View style={styles.inputContainer}>
-            <KeyboardAwareScrollView ref="scrollContainer">
+            <KeyboardScrollView ref="scrollContainer">
               <CategoryComponent category={(item)=>this.selectCategory(item)} />
 
               <View style={styles.itemView}>
@@ -381,7 +381,7 @@ class SearchPage extends Component {
                 </View>
               )}
 
-            </KeyboardAwareScrollView>
+            </KeyboardScrollView>
           </View>
 
           <TouchableOpacity onPress={()=>this.onSearch()} activeOpacity={0.5}>
