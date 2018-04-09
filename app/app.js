@@ -62,12 +62,12 @@ export default class App extends Component {
 
     const scenes = Actions.create(
       <Scene key="root">
-        <Scene key="Main" initial={ true } component={ MainPage } hideNavBar panHandlers={null}/>
+        <Scene key="Main" initial component={ MainPage } hideNavBar panHandlers={null}/>
         <Scene key="Register" component={ RegisterPage } hideNavBar panHandlers={null}/>
         <Scene key="MyAds" component={ MyAdsPage } hideNavBar panHandlers={null}/>
         <Scene key="MyWishList" component={ MyWishListPage } hideNavBar panHandlers={null} />
         <Scene key="Package" component={ PackagePage } hideNavBar panHandlers={null}/>
-        <Scene key="PackageDetailBank" initial={ true } component={ PackageDetailBankPage } hideNavBar panHandlers={null}/>
+        <Scene key="PackageDetailBank" component={ PackageDetailBankPage } hideNavBar panHandlers={null}/>
         <Scene key="MyPackage" component={ MyPackagePage } hideNavBar panHandlers={null}/>
         {/* <Scene key="PackageDetail" component={ PackageDetailPage } hideNavBar panHandlers={null}/> */}
         <Scene key="ProfileEdit" component={ ProfileEditPage } hideNavBar panHandlers={null}/>

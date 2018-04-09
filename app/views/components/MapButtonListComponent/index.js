@@ -6,6 +6,8 @@ import {
   ScrollView,
   TouchableOpacity,
   Image,
+  Animated,
+  Easing,
 } from 'react-native';
 
 import { connect } from 'react-redux';
@@ -19,6 +21,25 @@ const icon_video = require('@common/assets/images/map/add_video.png');
 const icon_mail = require('@common/assets/images/map/mailbox.png');
 
 export default class MapButtonListComponent extends Component {
+  componentWillMount() {
+    this.animatedMapValue = new Animated.Value(170)
+    this.animatedListValue = new Animated.Value(0)
+  }
+
+  componentDidMount() {
+    Animated.timing(this.animatedMapValue, {
+      toValue: 250,
+      duration: 1500,
+      easing: Easing.bounce,
+    }).start()
+
+    Animated.timing(this.animatedListValue, {
+      toValue: 70,
+      duration: 1500,
+      easing: Easing.bounce,
+    }).start()
+  }
+
   onNewVideo() {
     // Actions.VideoRecord();
     Actions.PostNewVideo();
@@ -29,10 +50,12 @@ export default class MapButtonListComponent extends Component {
   }
 
   render() {
-    const {btnStatus} = this.props;
+    const { btnStatus } = this.props;
+    const animatedMapStyle= { bottom: this.animatedMapValue }
+    const animatedListStyle= { bottom: this.animatedListValue }
 
     return (
-      <View style={[styles.btn, this.props.btnStatus === 'map' ? styles.btnView : styles.btnViewList]}>
+      <Animated.View style={[styles.btn, btnStatus === 'list' ? animatedListStyle : animatedMapStyle]}>
         <View>
           <TouchableOpacity onPress={() => this.props.onSelectItem('list')} activeOpacity={0.8}>
             <Image source={btnStatus === 'list' ? icon_map: icon_list} style={styles.btnIcon} />
@@ -51,7 +74,7 @@ export default class MapButtonListComponent extends Component {
             <Image source={icon_video} style={styles.btnIcon} />
           </TouchableOpacity>
         </View>
-      </View>
+      </Animated.View>
     )
   }
 }

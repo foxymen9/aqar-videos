@@ -9,5 +9,5 @@ export const AWS_OPTIONS = {
   accessKey: 'AKIAJIZL4LQA3CRNAPXA',
   secretKey: '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',
   successActionStatus: 201,
-  aswUrl: 's3.console.aws.amazone.com'
+  awsUrl: 's3.console.aws.amazone.com'
 }

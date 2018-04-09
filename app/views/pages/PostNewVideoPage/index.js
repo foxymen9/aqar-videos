@@ -22,7 +22,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import I18n from '@i18n';
 import Container from '@layout/Container';
 import KeyboardScrollView from '@components/KeyboardView';
-import {RadioGroup, RadioButton} from '@components/RadioButtonGroup';
+import { RadioGroup, RadioButton } from '@components/RadioButtonGroup';
 import DropdownComponent from '@components/DropdownComponent';
 import CategoryComponent from '@components/CategoryComponent';
 import AutoSuggestComponent from '@components/AutoSuggestComponent';
