@@ -262,7 +262,7 @@ export default class ProfileEditPage extends Component {
           </View>
 
           <View style={styles.btnView}>
-            <TouchableOpacity onPress={()=>this.onTry()} activeOpacity={0.5}>
+            <TouchableOpacity onPress={() => this.onTry()} activeOpacity={0.5}>
               <View style={styles.btnWrapper}>
                 <Text style={styles.btnText}>{I18n.t('packages.try')}</Text>
               </View>

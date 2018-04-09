@@ -75,27 +75,25 @@ export default class VideoRecordPage extends Component {
             <Stopwatch laps start={this.state.isStart}
               // reset={!this.state.isStart}
               options={styles}
-              handleFinish={()=>this.handleTimerComplete()}
+              handleFinish={() => this.handleTimerComplete()}
             />
           </View>
           <View style={styles.btnView}>
-            {!isStart
-            ?  <TouchableOpacity onPress={()=>this.startRecording()} style={styles.btnRecordView}>
-                <View style={styles.btnRecord}>
-                  <View style={styles.btnRecordInnerStart} />
-                </View>
-              </TouchableOpacity>
-            :  <TouchableOpacity onPress={()=>this.stopRecording()} style={styles.btnRecordView}>
+            {isStart ?
+              <TouchableOpacity onPress={() => this.stopRecording()} style={styles.btnRecordView}>
                 <View style={styles.btnRecord}>
                   <View style={styles.btnRecordInnerStop} />
+                </View>
+              </TouchableOpacity> :
+              <TouchableOpacity onPress={() => this.startRecording()} style={styles.btnRecordView}>
+                <View style={styles.btnRecord}>
+                  <View style={styles.btnRecordInnerStart} />
                 </View>
               </TouchableOpacity>
             }
           </View>
           <Camera
-            ref={(cam) => {
-              this.camera = cam;
-            }}
+            ref={cam => this.camera = cam}
             style={styles.preview}
             aspect={this.state.aspect}
             captureTarget={this.state.captureTarget}

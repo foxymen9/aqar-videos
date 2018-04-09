@@ -110,17 +110,17 @@ export default class ProductDetailPage extends Component {
               </Text>
             </View>
             <View style={styles.btnView}>
-              <TouchableOpacity onPress={()=>this.onFavorite()} activeOpacity={0.5}>
+              <TouchableOpacity onPress={() => this.onFavorite()} activeOpacity={0.5}>
                 <View style={styles.btnFavorite}>
                   <FontAwesome style={this.state.favorite ? styles.icon_select : styles.icon}>{Icons.star}</FontAwesome>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity onPress={()=>this.onShare()} activeOpacity={0.5}>
+              <TouchableOpacity onPress={() => this.onShare()} activeOpacity={0.5}>
                 <View style={styles.btnShare}>
                   <IconEntypo name='share' style={styles.icon}></IconEntypo>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity onPress={()=>this.onSendMessage()} activeOpacity={0.5}>
+              <TouchableOpacity onPress={() => this.onSendMessage()} activeOpacity={0.5}>
                 <View style={styles.btnSend}>
                   <View style={styles.sendTextWrapper}>
                     <Text style={styles.textSend}>{I18n.t('send')}</Text>
@@ -131,7 +131,7 @@ export default class ProductDetailPage extends Component {
               </TouchableOpacity>
             </View>
             <View style={styles.btnView}>
-              <TouchableOpacity onPress={()=>this.onReportAD()} activeOpacity={0.5}>
+              <TouchableOpacity onPress={() => this.onReportAD()} activeOpacity={0.5}>
                 <View style={styles.btnAd}>
                   <Text style={[styles.textDescription, {fontStyle: 'italic'}]}>{I18n.t('report_ad')}</Text>
                   {/* <Icon name='flag' style={styles.iconAd} /> */}
@@ -139,7 +139,7 @@ export default class ProductDetailPage extends Component {
                 </View>
               </TouchableOpacity>
             </View>
-            <ModalShare showShareModal={this.state.showShareModal} hideShareModal={()=>this.setState({showShareModal: false})} />
+            <ModalShare showShareModal={this.state.showShareModal} hideShareModal={() => this.setState({showShareModal: false})} />
           </ScrollView>
         </View>
       </Container>

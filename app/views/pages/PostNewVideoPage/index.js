@@ -176,16 +176,16 @@ class PostNewVideoPage extends Component {
 
         <View style={styles.container}>
           <KeyboardScrollView>
-            <TouchableOpacity onPress={()=>this.onCamera()}>
+            <TouchableOpacity onPress={() => this.onCamera()}>
               <View style={styles.videoView}>
                 {videoUri ?
                   <Video
-                    ref={(ref)=> {this.player = ref}}
+                    ref={ref => this.player = ref}
                     source={{uri: videoUri}}
                     style={styles.videoThumbnail}
                     resizeMode='cover'
                     autoplay={false}
-                    onLoadStart={()=>this.player.presentFullscreenPlayer}
+                    onLoadStart={() => this.player.presentFullscreenPlayer}
                   /> :
                   <Icon name='video' style={styles.cameraIcon} />
                 }
@@ -201,13 +201,13 @@ class PostNewVideoPage extends Component {
               </View>
             </TouchableOpacity>
 
-            <CategoryComponent category={(item)=>this.selectCategory(item)} />
+            <CategoryComponent category={item => this.selectCategory(item)} />
 
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
                 {I18n.t('post_video.location')}
               </Text>
-              <TouchableOpacity onPress={()=>this.changePage('map')}>
+              <TouchableOpacity onPress={() => this.changePage('map')}>
                 <View style={styles.addressView}>
                   <Text style={styles.input}>{this.state.address}</Text>
                 </View>
@@ -221,16 +221,16 @@ class PostNewVideoPage extends Component {
               <TextInput
                 ref="title"
                 autoCapitalize="none"
-                autoCorrect={ true }
+                autoCorrect
                 placeholder={I18n.t('post_video.ph_video_name')}
-                placeholderTextColor={ commonColors.placeholderSubText }
+                placeholderTextColor={commonColors.placeholderSubText}
                 textAlign="right"
                 style={styles.input}
                 underlineColorAndroid="transparent"
-                returnKeyType={ 'next' }
-                value={ this.state.title }
-                onChangeText={ (text) => this.setState({ title: text }) }
-                onSubmitEditing={ () => this.refs.description.focus() }
+                returnKeyType={'next'}
+                value={this.state.title}
+                onChangeText={text => this.setState({ title: text })}
+                onSubmitEditing={() => this.refs.description.focus()}
               />
             </View>
 
@@ -241,17 +241,17 @@ class PostNewVideoPage extends Component {
               <TextInput
                 ref="description"
                 autoCapitalize="none"
-                autoCorrect={ true }
+                autoCorrect
                 multiline
                 placeholder={I18n.t('post_video.ph_video_desc')}
-                placeholderTextColor={ commonColors.placeholderSubText }
+                placeholderTextColor={commonColors.placeholderSubText}
                 textAlign="right"
                 style={styles.input}
                 underlineColorAndroid="transparent"
-                returnKeyType={ 'next' }
-                value={ this.state.description }
-                onChangeText={ (text) => this.setState({ description: text }) }
-                onSubmitEditing={ () => this.refs.price.focus() }
+                returnKeyType={'next'}
+                value={this.state.description}
+                onChangeText={text => this.setState({ description: text })}
+                onSubmitEditing={() => this.refs.price.focus()}
               />
             </View>
 
@@ -262,7 +262,7 @@ class PostNewVideoPage extends Component {
               <TextInput
                 ref="price"
                 autoCapitalize="none"
-                autoCorrect={ false }
+                autoCorrect={false}
                 placeholder={I18n.t('sar')}
                 placeholderTextColor={ commonColors.placeholderSubText }
                 textAlign="right"
@@ -270,9 +270,9 @@ class PostNewVideoPage extends Component {
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
                 keyboardType="number-pad"
-                value={ this.state.price }
-                onChangeText={ (text) => this.setState({ price: text }) }
-                onSubmitEditing={ () => this.refs.password.focus() }
+                value={this.state.price}
+                onChangeText={text => this.setState({ price: text })}
+                onSubmitEditing={() => this.refs.password.focus()}
               />
             </View>
 
@@ -282,7 +282,7 @@ class PostNewVideoPage extends Component {
                 style={styles.radioGroup} 
                 thickness={2}
                 selectedIndex={0}
-                onSelect={(index, value)=> this.onSelectProductOption(index, value)}
+                onSelect={(index, value) => this.onSelectProductOption(index, value)}
               >
                 <RadioButton value={'Sale'}>
                   <Text style={styles.textDescription}>{I18n.t('post_video.sale')}</Text>
@@ -296,16 +296,19 @@ class PostNewVideoPage extends Component {
               </Text>
             </View>
 
-            {(category == 'building' || category == 'land') && (
+            {(category === 'building' || category === 'land') && (
               <View style={styles.itemView}>
                 <Text style={styles.textTitle}>
                   {I18n.t('post_video.type')}
                 </Text>
-                <DropdownComponent selectItem={(value)=>this.setState({buildingType: value})} item={this.state.buildingType} data={buildingTypeData} />
+                <DropdownComponent
+                  selectItem={value => this.setState({buildingType: value})}
+                  item={this.state.buildingType} data={buildingTypeData}
+                />
               </View>
             )}
 
-            {category == 'villa' && (
+            {category === 'villa' && (
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
                 {I18n.t('post_video.squaremeter')}
@@ -313,60 +316,53 @@ class PostNewVideoPage extends Component {
               <TextInput
                 ref="squareMeter"
                 autoCapitalize="none"
-                autoCorrect={ true }
+                autoCorrect
                 placeholder={I18n.t('post_video.squaremeter')}
-                placeholderTextColor={ commonColors.placeholderSubText }
+                placeholderTextColor={commonColors.placeholderSubText}
                 textAlign="right"
                 style={styles.input}
                 underlineColorAndroid="transparent"
-                returnKeyType={ 'next' }
-                value={ this.state.squareMeter }
-                onChangeText={ (text) => this.setState({ squareMeter: text }) }
+                returnKeyType={'next'}
+                value={this.state.squareMeter}
+                onChangeText={text => this.setState({ squareMeter: text })}
               />
             </View>)}
 
-            {(category == 'apartment' || category == 'chalet') && (
+            {(category === 'apartment' || category === 'chalet') && (
               <View style={styles.itemView}>
                 <Text style={styles.textTitle}>
                   {I18n.t('post_video.period')}
                 </Text>
-                <DropdownComponent selectItem={(value)=>this.setState({period: value})} item={this.state.period} data={periodData} />
+                <DropdownComponent
+                  selectItem={value => this.setState({period: value})}
+                  item={this.state.period} data={periodData}
+                />
               </View>
             )}
 
-            {(category == 'apartment') && (
+            {(category === 'apartment') && (
               <View>
-                {/* <View style={styles.itemView}>
-                  <Text style={styles.textTitle}>
-                    {I18n.t('post_video.location')}
-                  </Text>
-                  <TextInput
-                    ref="location"
-                    autoCapitalize="none"
-                    autoCorrect={ true }
-                    placeholder={I18n.t('post_video.ph_apartment')}
-                    placeholderTextColor={ commonColors.placeholderSubText }
-                    textAlign="right"
-                    style={styles.input}
-                    underlineColorAndroid="transparent"
-                    returnKeyType={ 'next' }
-                    value={ this.state.location }
-                    onChangeText={ (text) => this.setState({ location: text }) }
-                  />
-                </View> */}
                 <View style={styles.itemView}>
                   <CheckBox
                     label={I18n.t('post_video.furniture')}
                     labelBefore
-                    labelStyle={{color: commonColors.placeholderText, fontSize: 14, fontFamily: commonStyles.normalFont, fontWeight: 'bold'}}
-                    onChange={(checked) => this.setState({furniture: checked})}
+                    labelStyle={{
+                      color: commonColors.placeholderText,
+                      fontSize: 14,
+                      fontFamily: commonStyles.normalFont,
+                      fontWeight: 'bold'
+                    }}
+                    onChange={checked => this.setState({furniture: checked})}
                   />
                 </View>
                 <View style={styles.itemView}>
                   <Text style={styles.textTitle}>
                     {I18n.t('post_video.room_type')}
                   </Text>
-                  <DropdownComponent selectItem={(value)=>this.setState({roomType: value})} item={this.state.roomType} data={apartmentRoomType} />
+                  <DropdownComponent
+                    selectItem={value => this.setState({roomType: value})}
+                    item={this.state.roomType} data={apartmentRoomType}
+                  />
                 </View>
                 <View style={styles.itemView}>
                   <Text style={styles.textTitle}>
@@ -375,23 +371,28 @@ class PostNewVideoPage extends Component {
                   <TextInput
                     ref="roomCount"
                     autoCapitalize="none"
-                    autoCorrect={ true }
+                    autoCorrect
                     placeholder={I18n.t('post_video.ph_room_count')}
-                    placeholderTextColor={ commonColors.placeholderSubText }
+                    placeholderTextColor={commonColors.placeholderSubText}
                     textAlign="right"
                     style={styles.input}
                     underlineColorAndroid="transparent"
-                    returnKeyType={ 'next' }
-                    value={ this.state.roomCount }
-                    onChangeText={ (text) => this.setState({ roomCount: text }) }
+                    returnKeyType={'next'}
+                    value={this.state.roomCount}
+                    onChangeText={text => this.setState({ roomCount: text })}
                   />
                 </View>
                 <View style={styles.itemView}>
                   <CheckBox
                     label={I18n.t('post_video.ownership')}
                     labelBefore
-                    labelStyle={{color: commonColors.placeholderText, fontSize: 14, fontFamily: commonStyles.normalFont, fontWeight: 'bold'}}
-                    onChange={(checked) => this.setState({ownership: checked})}
+                    labelStyle={{
+                      color: commonColors.placeholderText,
+                      fontSize: 14,
+                      fontFamily: commonStyles.normalFont,
+                      fontWeight: 'bold'
+                    }}
+                    onChange={checked => this.setState({ownership: checked})}
                   />
                 </View>
               </View>
@@ -405,20 +406,20 @@ class PostNewVideoPage extends Component {
                 <TextInput
                   ref="areaSpace"
                   autoCapitalize="none"
-                  autoCorrect={ true }
+                  autoCorrect
                   placeholder={I18n.t('post_video.ph_area_space')}
                   placeholderTextColor={ commonColors.placeholderSubText }
                   textAlign="right"
                   style={styles.input}
                   underlineColorAndroid="transparent"
-                  returnKeyType={ 'next' }
-                  value={ this.state.areaSpace }
-                  onChangeText={ (text) => this.setState({ areaSpace: text }) }
+                  returnKeyType={'next'}
+                  value={this.state.areaSpace}
+                  onChangeText={text => this.setState({ areaSpace: text })}
                 />
               </View>
             )}
 
-            {(category == 'gallery') && (
+            {(category === 'gallery') && (
               <View>
                 <View style={styles.itemView}>
                   <Text style={styles.textTitle}>
@@ -427,15 +428,15 @@ class PostNewVideoPage extends Component {
                   <TextInput
                     ref="streetSize"
                     autoCapitalize="none"
-                    autoCorrect={ true }
+                    autoCorrect
                     placeholder={I18n.t('post_video.ph_meter')}
-                    placeholderTextColor={ commonColors.placeholderSubText }
+                    placeholderTextColor={commonColors.placeholderSubText}
                     textAlign="right"
                     style={styles.input}
                     underlineColorAndroid="transparent"
-                    returnKeyType={ 'next' }
-                    value={ this.state.streetSize }
-                    onChangeText={ (text) => this.setState({ streetSize: text }) }
+                    returnKeyType={'next'}
+                    value={this.state.streetSize}
+                    onChangeText={text => this.setState({ streetSize: text })}
                   />
                 </View>
                 <View style={styles.itemView}>
@@ -445,15 +446,15 @@ class PostNewVideoPage extends Component {
                   <TextInput
                     ref="galleryNumber"
                     autoCapitalize="none"
-                    autoCorrect={ true }
+                    autoCorrect
                     placeholder={I18n.t('post_video.ph_gallery_number')}
-                    placeholderTextColor={ commonColors.placeholderSubText }
+                    placeholderTextColor={commonColors.placeholderSubText}
                     textAlign="right"
                     style={styles.input}
                     underlineColorAndroid="transparent"
-                    returnKeyType={ 'next' }
+                    returnKeyType={'next'}
                     value={ this.state.galleryNumber }
-                    onChangeText={ (text) => this.setState({ galleryNumber: text }) }
+                    onChangeText={text => this.setState({ galleryNumber: text })}
                   />
                 </View>
               </View>
@@ -465,7 +466,7 @@ class PostNewVideoPage extends Component {
               </Text>
             </View> */}
 
-            <TouchableOpacity onPress={()=>this.onPreview()} activeOpacity={0.5}>
+            <TouchableOpacity onPress={() => this.onPreview()} activeOpacity={0.5}>
               <View style={styles.previewBtnView}>
                 <Text style={styles.textPreview}>{I18n.t('sidebar.preview')}</Text>
               </View>

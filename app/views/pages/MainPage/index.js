@@ -85,11 +85,11 @@ class MainPage extends Component {
     return (
       <Container title={title}>
         <View style={styles.container}>
-          <TabView btnStatus={btnStatus} changeTab={(index)=>this.changeTab(index)}/>
+          <TabView btnStatus={btnStatus} changeTab={index => this.changeTab(index)}/>
           {isBtnList && (
-            <MapButtonListComponent  onSelectItem={(value)=>this.onSelectItem(value)} btnStatus={btnStatus} />
+            <MapButtonListComponent  onSelectItem={value => this.onSelectItem(value)} btnStatus={btnStatus} />
           )}
-          <ButtonPlusComponent isBtnList={isBtnList} btnStatus={btnStatus} onSelectItem={(value)=>this.onSelectItem(value) }/>
+          <ButtonPlusComponent isBtnList={isBtnList} btnStatus={btnStatus} onSelectItem={value => this.onSelectItem(value) }/>
         </View>
       </Container>
     );

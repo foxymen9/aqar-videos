@@ -115,7 +115,7 @@ class Sidebar extends Component {
  _renderRow (rowData, sectionID, rowID, highlightRow) {
    const { menuSelectedID } = this.props;
     return (
-      <TouchableOpacity onPress={()=>{highlightRow(sectionID, rowID); this.onItemSelect(rowData, rowID)}}>
+      <TouchableOpacity onPress={() => {highlightRow(sectionID, rowID); this.onItemSelect(rowData, rowID)}}>
         <View style={this.props.menuIndex == rowID ? styles.selectedMenuItem : styles.menuItem}>
           <Text style={styles.menuItemTitle}>{rowData.title}</Text>
           <View style={styles.iconView}>

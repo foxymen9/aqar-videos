@@ -40,7 +40,7 @@ export default class MyPackageDetailPage extends Component {
     const {data} = this.props;
 
     const refreshControl = (
-      <RefreshControl onRefresh={()=>this.onRefresh()} refreshing={this.state.refreshing} />
+      <RefreshControl onRefresh={() => this.onRefresh()} refreshing={this.state.refreshing} />
     );
 
     if (this.state.isSuccess) {
@@ -76,7 +76,7 @@ export default class MyPackageDetailPage extends Component {
               </ScrollView>
             </View>
             <View style={styles.btnView}>
-              <TouchableOpacity onPress={()=>this.onTry()} activeOpacity={0.5}>
+              <TouchableOpacity onPress={() => this.onTry()} activeOpacity={0.5}>
                 <View style={styles.btnWrapper}>
                   <Text style={styles.btnText}>{this.state.isSubscribed ? I18n.t('packages.extend') : I18n.t('packages.try')}</Text>
                 </View>

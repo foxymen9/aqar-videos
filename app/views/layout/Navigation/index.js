@@ -38,13 +38,13 @@ class Navigation extends Component {
   }
 
   render() {
-    const {title, type} = this.props;
+    const { title, type } = this.props;
 
     if (type == 'register') {
       return (
         <View style={styles.container_register}>
           <View style={styles.backIconWrapper}>
-            <TouchableOpacity onPress={()=>this.onBack()}>
+            <TouchableOpacity onPress={() => this.onBack()}>
               <Icon name='arrow-left' style={styles.backIcon}></Icon>
             </TouchableOpacity>
           </View>
@@ -55,7 +55,7 @@ class Navigation extends Component {
       return (
         <View style={styles.container_detail}>
           <View style={styles.backIconWrapper}>
-            <TouchableOpacity onPress={()=>this.onBack()}>
+            <TouchableOpacity onPress={() => this.onBack()}>
               <Icon name='arrow-left' style={styles.backIcon_detail}></Icon>
             </TouchableOpacity>
           </View>
@@ -67,11 +67,11 @@ class Navigation extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.subContainer}>  
-          <TouchableOpacity onPress={()=>this.onSearch()}>
+          <TouchableOpacity onPress={() => this.onSearch()}>
             <Image source={icon_search} style={styles.menuIcon} />
           </TouchableOpacity>
-          <Text style={type == 'support' ? styles.menuTitle_support : styles.menuTitle}>{title.toUpperCase()}</Text>
-          <TouchableOpacity onPress={()=>this.props.menuState()}>
+          <Text style={type === 'support' ? styles.menuTitle_support : styles.menuTitle}>{title.toUpperCase()}</Text>
+          <TouchableOpacity onPress={() => this.props.menuState()}>
             <Image source={icon_menu} style={styles.menuIcon} />
           </TouchableOpacity>
         </View>

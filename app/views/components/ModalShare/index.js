@@ -43,7 +43,7 @@ export default class ModalShare extends Component {
         transparent
         isVisible={this.props.showShareModal}
         backdropColor='rgba(0, 0, 0, 0.3)'
-        onBackdropPress={()=>this.props.hideShareModal()}
+        onBackdropPress={() => this.props.hideShareModal()}
       >
         <View style={styles.container}>
           <View style={styles.modalHeader}>
@@ -51,13 +51,13 @@ export default class ModalShare extends Component {
           </View>
           <View style={styles.iconList}>
             <View style={styles.iconView}>
-              <TouchableOpacity activeOpacity={0.5} onPress={()=>this.onFacebook()}>
+              <TouchableOpacity activeOpacity={0.5} onPress={() => this.onFacebook()}>
                 <IconSocial name='logo-facebook' style={[styles.icon, styles.iconFacebook]} />
               </TouchableOpacity>
               <Text style={styles.socialText}>{I18n.t('category.facebook')}</Text>
             </View>
             <View style={styles.iconView}>
-              <TouchableOpacity activeOpacity={0.5} onPress={()=>this.onTwitter()}>
+              <TouchableOpacity activeOpacity={0.5} onPress={() => this.onTwitter()}>
                 <IconTwitter name='twitter-circle' style={[styles.icon, styles.iconTwitter]} />
               </TouchableOpacity>
               <Text style={styles.socialText}>Twitter</Text>
@@ -65,13 +65,13 @@ export default class ModalShare extends Component {
           </View>
           <View style={styles.iconList}>
             <View style={styles.iconView}>
-              <TouchableOpacity activeOpacity={0.5} onPress={()=>this.onWhatsapp()}>
+              <TouchableOpacity activeOpacity={0.5} onPress={() => this.onWhatsapp()}>
                 <IconSocial name='logo-whatsapp' style={[styles.icon, styles.iconWhatsapp]} />
               </TouchableOpacity>
               <Text style={styles.socialText}>{I18n.t('category.whatsapp')}</Text>
             </View>
             <View style={styles.iconView}>
-              <TouchableOpacity activeOpacity={0.5} onPress={()=>this.onLinkedin()}>
+              <TouchableOpacity activeOpacity={0.5} onPress={() => this.onLinkedin()}>
                 <IconSocial name='logo-linkedin' style={[styles.icon, styles.iconLinkedin]} />
               </TouchableOpacity>
               <Text style={styles.socialText}>{I18n.t('category.linkedin')}</Text>

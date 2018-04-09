@@ -69,7 +69,7 @@ export default class DirectMessagePage extends Component {
               </View>
               <View style={styles.itemView}>
                 <Text style={styles.textTitle}>Subject</Text>
-                <DropdownComponent selectItem={(value)=>this.setState({subject: value})} item={this.state.subject} data={subjectData} />
+                <DropdownComponent selectItem={value => this.setState({ subject: value })} item={this.state.subject} data={subjectData} />
               </View>
               <View style={styles.itemView}>
                 <Text style={styles.textTitle}>Message</Text>
@@ -91,7 +91,7 @@ export default class DirectMessagePage extends Component {
             </View>
           </KeyboardScrollView>
           <View style={styles.btnView}>
-            <TouchableOpacity onPress={()=>this.onSend()} activeOpacity={0.5}>
+            <TouchableOpacity onPress={() => this.onSend()} activeOpacity={0.5}>
               <View style={styles.btnWrapper}>
                 <Text style={styles.btnText}>SEND</Text>
               </View>

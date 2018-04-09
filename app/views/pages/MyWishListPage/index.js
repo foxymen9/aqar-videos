@@ -125,9 +125,7 @@ export default class MyWishListPage extends Component {
                   <TouchableOpacity
                     style={styles.btnDeleteView}
                     activeOpacity={0.9}
-                    onPress={()=> {
-                      this.onItemDelete(rowData, secId, rowId, rowMap);
-                    }}
+                    onPress={() => this.onItemDelete(rowData, secId, rowId, rowMap)}
                   >
                     <FontAwesome style={styles.iconDelete}>{Icons.trash}</FontAwesome>
                   </TouchableOpacity>

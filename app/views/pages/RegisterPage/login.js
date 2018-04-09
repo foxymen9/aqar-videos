@@ -103,19 +103,19 @@ class Login extends Component {
         <LoadingSpinner visible={this.state.loading } />
         {userInfo && (
           <CustomAlert 
-            title={userInfo.status == 200 ? 'Success' : 'Error'}
-            message={userInfo.status == 200 ? userInfo.message : userInfo.error.warning} 
+            title={userInfo.status === 200 ? 'Success' : 'Error'}
+            message={userInfo.status === 200 ? userInfo.message : userInfo.error.warning} 
             visible={this.state.isLoginAlert} 
-            closeAlert={()=>{this.checkUserLoginResult();}}
+            closeAlert={() => this.checkUserLoginResult()}
           />
         )}
 
         {forgotPasswordResult && (
           <CustomAlert 
-            title={forgotPasswordResult.status == 200 ? 'Success' : 'Error'}
+            title={forgotPasswordResult.status === 200 ? 'Success' : 'Error'}
             message={forgotPasswordResult.message} 
             visible={this.state.isForgotResultAlert} 
-            closeAlert={()=>this.setState({isForgotResultAlert: false})}
+            closeAlert={() => this.setState({isForgotResultAlert: false})}
           />
         )}
         
@@ -123,7 +123,7 @@ class Login extends Component {
           title="Warning"
           message="Please input your email"
           visible={this.state.isForgotAlert} 
-          closeAlert={()=>this.setState({isForgotAlert: false})}
+          closeAlert={() => this.setState({isForgotAlert: false})}
         />
 
         <KeyboardScrollView>

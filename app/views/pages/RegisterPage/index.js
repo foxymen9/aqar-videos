@@ -35,12 +35,12 @@ export default class RegisterPage extends Component {
     return (
       <Container title={I18n.t('sidebar.register')} type='register'>
         <View style={styles.tabBar}>
-          <TouchableOpacity activeOpacity={0.8} onPress={()=>this.onTab('login')} style={styles.tbnWrapper}>
+          <TouchableOpacity activeOpacity={0.8} onPress={() => this.onTab('login')} style={styles.tbnWrapper}>
             <View style={[styles.tabBtn, {backgroundColor: tabIndex=='login' ? '#EB0089' : '#DBDBDB'}]}>
               <Text style={styles.tabText}>{I18n.t('login')}</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity activeOpacity={0.8} onPress={()=>this.onTab('signup')} style={styles.tbnWrapper}>
+          <TouchableOpacity activeOpacity={0.8} onPress={() => this.onTab('signup')} style={styles.tbnWrapper}>
             <View style={[styles.tabBtn, {backgroundColor: tabIndex=='signup' ? '#EB0089' : '#DBDBDB'}]}>
               <Text style={styles.tabText}>{I18n.t('signup')}</Text>
             </View>

@@ -45,8 +45,8 @@ export default class MapPage extends Component {
     return (
       <View style={[styles.container, page=='mylocation' ? {height: commonStyles.screenNormalHeight} : {height: commonStyles.screenSubHeight}]}>
         <View style={styles.btnMapTypeView}>
-          <TouchableOpacity onPress={()=>this.changeMapType(mapType)}>
-            <Image source={mapType=='standard' ? icon_satellite : icon_standard} style={styles.btnMapType} />
+          <TouchableOpacity onPress={() => this.changeMapType(mapType)}>
+            <Image source={mapType === 'standard' ? icon_satellite : icon_standard} style={styles.btnMapType} />
           </TouchableOpacity>
         </View>
         

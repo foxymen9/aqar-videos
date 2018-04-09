@@ -130,21 +130,21 @@ export default class PostNewVideoPreviewPage extends Component {
           title={'Warning'}
           message={this.state.videoUploadingErrorMsg} 
           visible={this.state.videoError} 
-          closeAlert={()=>this.setState({errorLoading: false})}
+          closeAlert={() => this.setState({errorLoading: false})}
         />
 
         <View style={styles.container}>
           <ScrollView>
-            <TouchableOpacity onPress={()=>this.onCamera()}>
+            <TouchableOpacity onPress={() => this.onCamera()}>
               <View style={styles.videoView}>
-                {data.videoUri != null && (
+                {data.videoUri !== null && (
                 <Video
-                  ref={(ref)=> {this.player = ref}}
+                  ref={(ref) => {this.player = ref}}
                   source={{uri: data.videoUri}}
                   style={styles.videoThumbnail}
                   resizeMode='cover'
                   autoplay={false}
-                  onLoadStart={()=>this.player.presentFullscreenPlayer}
+                  onLoadStart={() => this.player.presentFullscreenPlayer}
                 />)}
               </View>
             </TouchableOpacity>
@@ -282,17 +282,17 @@ export default class PostNewVideoPreviewPage extends Component {
               />
             </View>
 
-            <TouchableOpacity onPress={()=>this.onEdit()} activeOpacity={0.5}>
+            <TouchableOpacity onPress={() => this.onEdit()} activeOpacity={0.5}>
               <View style={[styles.buttonStyle, styles.editBtnView]}>
                 <Text style={styles.textEdit}>{I18n.t('edit')}</Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={()=>this.onPost()} activeOpacity={0.5}>
+            <TouchableOpacity onPress={() => this.onPost()} activeOpacity={0.5}>
               <View style={[styles.buttonStyle, styles.postBtnView]}>
                 <Text style={styles.textEdit}>{I18n.t('post')}</Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={()=>this.onDelete()} activeOpacity={0.5}>
+            <TouchableOpacity onPress={() => this.onDelete()} activeOpacity={0.5}>
               <View style={[styles.buttonStyle, styles.deleteBtnView]}>
                 <Text style={styles.textEdit}>{I18n.t('delete')}</Text>
               </View>

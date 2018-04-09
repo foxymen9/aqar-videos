@@ -32,14 +32,14 @@ export default class MapButtonListComponent extends Component {
     const {btnStatus} = this.props;
 
     return (
-      <View style={[styles.btn, this.props.btnStatus=='map' ? styles.btnView : styles.btnViewList]}>
+      <View style={[styles.btn, this.props.btnStatus === 'map' ? styles.btnView : styles.btnViewList]}>
         <View>
-          <TouchableOpacity onPress={()=>this.props.onSelectItem('list')} activeOpacity={0.8}>
-            <Image source={btnStatus=='list' ? icon_map: icon_list} style={styles.btnIcon} />
+          <TouchableOpacity onPress={() => this.props.onSelectItem('list')} activeOpacity={0.8}>
+            <Image source={btnStatus === 'list' ? icon_map: icon_list} style={styles.btnIcon} />
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity onPress={()=>this.onDirectMessage()}  activeOpacity={0.8}>
+          <TouchableOpacity onPress={() => this.onDirectMessage()}  activeOpacity={0.8}>
             <Image source={icon_mail} style={styles.btnIcon} />
             <View style={styles.badgeView}>
               <Text style={styles.badgeText}>10</Text>
@@ -47,7 +47,7 @@ export default class MapButtonListComponent extends Component {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity onPress={()=>this.onNewVideo()} activeOpacity={0.8}>
+          <TouchableOpacity onPress={() => this.onNewVideo()} activeOpacity={0.8}>
             <Image source={icon_video} style={styles.btnIcon} />
           </TouchableOpacity>
         </View>

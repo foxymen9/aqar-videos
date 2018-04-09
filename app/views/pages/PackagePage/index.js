@@ -53,7 +53,7 @@ class PackagePage extends Component {
     return (
       <TouchableOpacity 
         activeOpacity={0.6}
-        onPress={()=>{this.onItemSelect(rowData)}}
+        onPress={() => this.onItemSelect(rowData)}
       >
         <View style={styles.listItem}>
           <View style={styles.imageView}>
@@ -99,7 +99,7 @@ class PackagePage extends Component {
             title={'Warning'}
             message={packageInfo.error.warning} 
             visible={this.state.errorLoading} 
-            closeAlert={()=>this.setState({errorLoading: false})}
+            closeAlert={() => this.setState({errorLoading: false})}
           />
         )}
 

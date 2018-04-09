@@ -159,7 +159,7 @@ export default class ChatRoomPage extends Component {
                   />
                   <Icon name='pencil' style={styles.iconPen} />
                 </View>
-                <TouchableOpacity activeOpacity={0.5} onPress={()=>this.onSend()}>
+                <TouchableOpacity activeOpacity={0.5} onPress={() => this.onSend()}>
                   <View style={styles.btnSendView}>
                     <Icon name='send' style={styles.iconSend} />
                   </View>

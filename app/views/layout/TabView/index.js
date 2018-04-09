@@ -189,125 +189,125 @@ class TabView extends Component {
           tabBarTextStyle={{color:'#FFF'}}
           contentProps={{bounces: true, keyboardDismissMode: 'on-drag'}}
           tabBarUnderlineStyle={{backgroundColor:'#EB0089'}}
-          onChangeTab = {(index)=>this.changeTab(index)}
+          onChangeTab = {index => this.changeTab(index)}
           renderTabBar={() => <ScrollableTabBar/>}
           initialPage={_isArabic ? 12 : 0}
         >
 
           <ScrollView tabLabel={I18n.t('category.gallery')}>
-            {btnStatus == 'map' && (
+            {btnStatus === 'map' && (
               <MapPage page="gallery" locationData={buildingData} region={region} />
             )}
-            {btnStatus == 'list' && (
+            {btnStatus === 'list' && (
               <ProductListPage />
             )}
           </ScrollView>
 
 
           <ScrollView tabLabel={I18n.t('category.stores')}>
-            {btnStatus == 'map' && (
+            {btnStatus === 'map' && (
               <MapPage page="stores" locationData={buildingData} region={region} />
             )}
-            {btnStatus == 'list' && (
+            {btnStatus === 'list' && (
               <ProductListPage />
             )}
           </ScrollView>
 
           <ScrollView tabLabel={I18n.t('category.factory')}>
-            {btnStatus == 'map' && (
+            {btnStatus === 'map' && (
               <MapPage page="factory" locationData={buildingData} region={region} />
             )}
-            {btnStatus == 'list' && (
+            {btnStatus === 'list' && (
               <ProductListPage />
             )}
           </ScrollView>
 
           <ScrollView tabLabel={I18n.t('category.office_for_sale')}>
-            {btnStatus == 'map' && (
+            {btnStatus === 'map' && (
               <MapPage page="land" locationData={buildingData} region={region} />
             )}
-            {btnStatus == 'list' && (
+            {btnStatus === 'list' && (
               <ProductListPage />
             )}
           </ScrollView>
 
           <ScrollView tabLabel={I18n.t('category.firms')}>
-            {btnStatus == 'map' && (
+            {btnStatus === 'map' && (
               <MapPage page="firms" locationData={buildingData} region={region} />
             )}
-            {btnStatus == 'list' && (
+            {btnStatus === 'list' && (
               <ProductListPage />
             )}
           </ScrollView>
 
           <ScrollView tabLabel={I18n.t('category.esteraha')}>
-            {btnStatus == 'map' && (
+            {btnStatus === 'map' && (
               <MapPage page="esteraha" locationData={buildingData} region={region} />
             )}
-            {btnStatus == 'list' && (
+            {btnStatus === 'list' && (
               <ProductListPage />
             )}
           </ScrollView>
 
           <ScrollView tabLabel={I18n.t('category.chalet')}>
-            {btnStatus == 'map' && (
+            {btnStatus === 'map' && (
               <MapPage page="chalets" locationData={buildingData} region={region} />
             )}
-            {btnStatus == 'list' && (
+            {btnStatus === 'list' && (
               <ProductListPage />
             )}
           </ScrollView>
         
           <ScrollView tabLabel={I18n.t('category.apartment_owner')}>
-            {btnStatus == 'map' && (
+            {btnStatus === 'map' && (
               <MapPage page="apartment_owner" locationData={buildingData} region={region} />
             )}
-            {btnStatus == 'list' && (
+            {btnStatus === 'list' && (
               <ProductListPage />
             )}
           </ScrollView>
 
           <ScrollView tabLabel={I18n.t('category.office')}>
-            {btnStatus == 'map' && (
+            {btnStatus === 'map' && (
               <MapPage page="office" locationData={buildingData} region={region} />
             )}
-            {btnStatus == 'list' && (
+            {btnStatus === 'list' && (
               <ProductListPage />
             )}
           </ScrollView>
           
           <ScrollView tabLabel={I18n.t('category.land')}>
-            {btnStatus == 'map' && (
+            {btnStatus === 'map' && (
               <MapPage page="land" locationData={buildingData} region={region} />
             )}
-            {btnStatus == 'list' && (
+            {btnStatus === 'list' && (
               <ProductListPage />
             )}
           </ScrollView>
 
           <ScrollView tabLabel={I18n.t('category.apartment')}>
-            {btnStatus == 'map' && (
+            {btnStatus === 'map' && (
               <MapPage page="apartment" locationData={apartmentData} region={region} />
             )}
-            {btnStatus == 'list' && (
+            {btnStatus === 'list' && (
               <ProductListPage />
             )}
           </ScrollView>
 
           <ScrollView tabLabel={I18n.t('category.villa')}>
-            {btnStatus == 'map' && (
+            {btnStatus === 'map' && (
               <MapPage page="villa" locationData={apartmentData} region={region} />
             )}
-            {btnStatus == 'list' && (
+            {btnStatus === 'list' && (
               <ProductListPage />
             )}
           </ScrollView>
 
           <ScrollView tabLabel={I18n.t('category.building')}>
-            {btnStatus == 'map' && (
+            {btnStatus === 'map' && (
               <MapPage page="building" locationData={buildingData} region={region} />
             )}
-            {btnStatus == 'list' && (
+            {btnStatus === 'list' && (
               <ProductListPage />
             )}
           </ScrollView>

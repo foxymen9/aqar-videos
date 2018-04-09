@@ -54,16 +54,16 @@ export default class SupportAdvertisementPage extends Component {
                 <TextInput
                   ref="fullName"
                   autoCapitalize="none"
-                  autoCorrect={ true }
+                  autoCorrect
                   placeholder={I18n.t('profile.ph_name')}
-                  placeholderTextColor={ commonColors.placeholderText }
+                  placeholderTextColor={commonColors.placeholderText}
                   textAlign="right"
                   style={styles.input}
                   underlineColorAndroid="transparent"
-                  returnKeyType={ 'next' }
-                  value={ this.state.fullName }
-                  onChangeText={ (text) => this.setState({ fullName: text }) }
-                  onSubmitEditing={ () => this.refs.mobileNumber.focus() }
+                  returnKeyType={'next'}
+                  value={this.state.fullName}
+                  onChangeText={text => this.setState({ fullName: text })}
+                  onSubmitEditing={() => this.refs.mobileNumber.focus()}
                 />
                 <View style={styles.iconView}>
                   <Icon name='user' style={styles.inputIcon}></Icon>
@@ -74,17 +74,17 @@ export default class SupportAdvertisementPage extends Component {
                 <TextInput
                   ref="mobileNumber"
                   autoCapitalize="none"
-                  autoCorrect={ false }
+                  autoCorrect={false}
                   placeholder={I18n.t('profile.ph_mobile_number')}
-                  placeholderTextColor={ commonColors.placeholderText }
+                  placeholderTextColor={commonColors.placeholderText}
                   textAlign="right"
                   style={styles.input}
                   underlineColorAndroid="transparent"
-                  returnKeyType={ 'next' }
+                  returnKeyType={'next'}
                   keyboardType="numbers-and-punctuation"
-                  value={ this.state.mobile }
-                  onChangeText={ (text) => this.setState({ mobile: text }) }
-                  onSubmitEditing={ () => this.refs.email.focus() }
+                  value={this.state.mobile}
+                  onChangeText={text => this.setState({ mobile: text }) }
+                  onSubmitEditing={() => this.refs.email.focus()}
                 />
                 <View style={styles.iconView}>
                   <Icon name='screen-tablet' style={styles.inputIcon}></Icon>
@@ -97,15 +97,15 @@ export default class SupportAdvertisementPage extends Component {
                   autoCapitalize="none"
                   autoCorrect={ false }
                   placeholder={I18n.t('profile.ph_email')}
-                  placeholderTextColor={ commonColors.placeholderText }
+                  placeholderTextColor={commonColors.placeholderText}
                   textAlign="right"
                   style={styles.input}
                   underlineColorAndroid="transparent"
-                  returnKeyType={ 'next' }
+                  returnKeyType={'next'}
                   keyboardType="email-address"
-                  value={ this.state.email }
-                  onChangeText={ (text) => this.setState({ email: text }) }
-                  onSubmitEditing={ () => this.refs.message.focus() }
+                  value={this.state.email}
+                  onChangeText={text => this.setState({ email: text })}
+                  onSubmitEditing={() => this.refs.message.focus()}
                 />
                 <View style={styles.iconView}>
                   <Icon name='envelope' style={styles.inputIcon}></Icon>
@@ -114,7 +114,10 @@ export default class SupportAdvertisementPage extends Component {
 
               <View style={styles.itemView}>
                 <Text style={styles.textTitle}>{I18n.t('support.subject')}</Text>
-                <DropdownComponent selectItem={(value)=>this.setState({subject: value})} item={this.state.subject} data={subjectData} />
+                <DropdownComponent
+                  selectItem={value => this.setState({ subject: value })}
+                  item={this.state.subject} data={subjectData}
+                />
               </View>
 
               <View style={styles.itemView}>
@@ -123,22 +126,22 @@ export default class SupportAdvertisementPage extends Component {
                   ref="message"
                   multiline
                   autoCapitalize="none"
-                  autoCorrect={ true }
+                  autoCorrect
                   placeholder={I18n.t('support.ph_message')}
-                  placeholderTextColor={ commonColors.placeholderText }
+                  placeholderTextColor={commonColors.placeholderText}
                   textAlign="right"
                   style={styles.input}
                   underlineColorAndroid="transparent"
-                  returnKeyType={ 'next' }
-                  value={ this.state.message }
-                  onChangeText={ (text) => this.setState({ message: text }) }
+                  returnKeyType={'next'}
+                  value={this.state.message}
+                  onChangeText={text => this.setState({ message: text })}
                 />
               </View>
             </View>
           </KeyboardScrollView>
 
           <View style={styles.btnView}>
-            <TouchableOpacity onPress={()=>this.onUpdate()} activeOpacity={0.5}>
+            <TouchableOpacity onPress={() => this.onUpdate()} activeOpacity={0.5}>
               <View style={styles.btnWrapper}>
                 <Text style={styles.btnText}>{I18n.t('update')}</Text>
               </View>

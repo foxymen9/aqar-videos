@@ -30,7 +30,7 @@ export default class ProductListPage extends Component {
       <View style={styles.listItem}>
         <TouchableOpacity 
           activeOpacity={0.6}
-          onPress={()=>{this.onItemSelect(rowData, rowID)}}
+          onPress={() => this.onItemSelect(rowData, rowID)}
         >
           <View style={styles.imageView}>
             <Image source={{ uri: rowData.image}} style={styles.image} />

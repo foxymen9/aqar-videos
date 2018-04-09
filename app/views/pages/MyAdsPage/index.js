@@ -40,7 +40,7 @@ export default class MyAdsPage extends Component {
     return (
       <TouchableOpacity 
         activeOpacity={0.6}
-        onPress={()=>{this.onItemSelect(rowData, rowID)}}
+        onPress={() => this.onItemSelect(rowData, rowID)}
       >
         <View style={styles.listItem}>
         

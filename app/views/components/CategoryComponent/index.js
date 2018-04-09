@@ -78,133 +78,137 @@ export default class CategoryComponent extends Component {
       >
         <View style={styles.categoryView}>
 
-          <TouchableOpacity onPress={()=>this.onSelectCategory('gallery', 4)} activeOpacity={0.5}>
-            <View style={[styles.btnCategory, category=='gallery' && styles.categoryBack]}>
-              {category == 'gallery'
+          <TouchableOpacity onPress={() => this.onSelectCategory('gallery', 4)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category === 'gallery' && styles.categoryBack]}>
+              {category === 'gallery'
                 ? <Image source={icon_gallery_select} style={styles.icon} resizeMode='contain' />
                 : <Image source={icon_gallery} style={styles.icon} resizeMode='contain' />
               }
-              <Text style={category == 'gallery' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.gallery')}</Text>
+              <Text style={category === 'gallery' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.gallery')}</Text>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>this.onSelectCategory('store', 6)} activeOpacity={0.5}>
-            <View style={[styles.btnCategory, category=='store' && styles.categoryBack]}>
-              {category == 'store'
+          <TouchableOpacity onPress={() => this.onSelectCategory('store', 6)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category === 'store' && styles.categoryBack]}>
+              {category === 'store'
                 ? <Image source={icon_store_select} style={styles.icon} resizeMode='contain' />
                 : <Image source={icon_store} style={styles.icon} resizeMode='contain' />
               }
-              <Text style={category == 'store' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.stores')}</Text>
+              <Text style={category === 'store' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.stores')}</Text>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>this.onSelectCategory('factory', 6)} activeOpacity={0.5}>
-            <View style={[styles.btnCategory, category=='factory' && styles.categoryBack]}>
-              {category == 'factory'
+          <TouchableOpacity onPress={() => this.onSelectCategory('factory', 6)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category === 'factory' && styles.categoryBack]}>
+              {category === 'factory'
                 ? <Image source={icon_factory_select} style={styles.icon} resizeMode='contain' />
                 : <Image source={icon_factory} style={styles.icon} resizeMode='contain' />
               }
-              <Text style={category == 'factory' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.factory')}</Text>
+              <Text style={category === 'factory' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.factory')}</Text>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>this.onSelectCategory('office_for_sale', 6)} activeOpacity={0.5}>
-            <View style={[styles.btnCategory, category=='office_for_sale' && styles.categoryBack]}>
-              {category == 'office_for_sale'
+          <TouchableOpacity onPress={() => this.onSelectCategory('office_for_sale', 6)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category === 'office_for_sale' && styles.categoryBack]}>
+              {category === 'office_for_sale'
                 ? <Image source={icon_office_for_sale_select} style={styles.icon} resizeMode='contain' />
                 : <Image source={icon_office_for_sale} style={styles.icon} resizeMode='contain' />
               }
-              <Text style={category == 'office_for_sale' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.office_for_sale')}</Text>
+              <Text style={category === 'office_for_sale' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.office_for_sale')}</Text>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>this.onSelectCategory('firms', 6)} activeOpacity={0.5}>
-            <View style={[styles.btnCategory, category=='firms' && styles.categoryBack]}>
-              {category == 'firms'
+          <TouchableOpacity onPress={() => this.onSelectCategory('firms', 6)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category === 'firms' && styles.categoryBack]}>
+              {category === 'firms'
                 ? <Image source={icon_firms_select} style={styles.icon} resizeMode='contain' />
                 : <Image source={icon_firms} style={styles.icon} resizeMode='contain' />
               }
-              <Text style={category == 'firms' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.firms')}</Text>
+              <Text style={category === 'firms' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.firms')}</Text>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>this.onSelectCategory('esteraha', 6)} activeOpacity={0.5}>
-            <View style={[styles.btnCategory, category=='esteraha' && styles.categoryBack]}>
-              {category == 'esteraha'
+          <TouchableOpacity onPress={() => this.onSelectCategory('esteraha', 6)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category === 'esteraha' && styles.categoryBack]}>
+              {category === 'esteraha'
                 ? <Image source={icon_esteraha_select} style={styles.icon} resizeMode='contain' />
                 : <Image source={icon_esteraha} style={styles.icon} resizeMode='contain' />
               }
-              <Text style={category == 'esteraha' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.esteraha')}</Text>
+              <Text style={category === 'esteraha' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.esteraha')}</Text>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>this.onSelectCategory('chalet', 3)} activeOpacity={0.5}>
-            <View style={[styles.btnCategory, category=='chalet' && styles.categoryBack]}>
-              {category == 'chalet'
+          <TouchableOpacity onPress={() => this.onSelectCategory('chalet', 3)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category === 'chalet' && styles.categoryBack]}>
+              {category === 'chalet'
                 ? <Image source={icon_chalet_select} style={styles.icon} resizeMode='contain' />
                 : <Image source={icon_chalet} style={styles.icon} resizeMode='contain' />
               }
-              <Text style={category == 'chalet' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.chalet')}</Text>
+              <Text style={category === 'chalet' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.chalet')}</Text>
             </View> 
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>this.onSelectCategory('apartment_owner', 6)} activeOpacity={0.5}>
-            <View style={[styles.btnCategory, category=='apartment_owner' && styles.categoryBack]}>
-              {category == 'apartment_owner'
+          <TouchableOpacity onPress={() => this.onSelectCategory('apartment_owner', 6)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category === 'apartment_owner' && styles.categoryBack]}>
+              {category === 'apartment_owner'
                 ? <Image source={icon_apartment_owner_select} style={styles.icon} resizeMode='contain' />
                 : <Image source={icon_apartment_owner} style={styles.icon} resizeMode='contain' />
               }
-              <Text style={category == 'apartment_owner' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.apartment_owner')}</Text>
+              <Text style={category === 'apartment_owner' ? styles.textCategorySelect : styles.textCategory}>
+                {I18n.t('category.apartment_owner')}
+              </Text>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>this.onSelectCategory('office', 3)} activeOpacity={0.5}>
-            <View style={[styles.btnCategory, category=='office' && styles.categoryBack]}>
-              {category == 'office'
+          <TouchableOpacity onPress={() => this.onSelectCategory('office', 3)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category === 'office' && styles.categoryBack]}>
+              {category === 'office'
                 ? <Image source={icon_office_select} style={styles.icon} resizeMode='contain' />
                 : <Image source={icon_office} style={styles.icon} resizeMode='contain' />
               }
-              <Text style={category == 'office' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.office')}</Text>
+              <Text style={category === 'office' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.office')}</Text>
             </View> 
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>this.onSelectCategory('land', 5)} activeOpacity={0.5}>
-            <View style={[styles.btnCategory, category=='land' && styles.categoryBack]}>
-              {category == 'land'
+          <TouchableOpacity onPress={() => this.onSelectCategory('land', 5)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category === 'land' && styles.categoryBack]}>
+              {category === 'land'
                 ? <Image source={icon_land_select} style={styles.icon} resizeMode='contain' />
                 : <Image source={icon_land} style={styles.icon} resizeMode='contain' />
               }
-              <Text style={category == 'land' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.land')}</Text>
+              <Text style={category === 'land' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.land')}</Text>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>this.onSelectCategory('apartment', 2)} activeOpacity={0.5}>
-            <View style={[styles.btnCategory, category=='apartment' && styles.categoryBack]}>
-              {category == 'apartment'
+          <TouchableOpacity onPress={() => this.onSelectCategory('apartment', 2)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category === 'apartment' && styles.categoryBack]}>
+              {category === 'apartment'
                 ? <Image source={icon_apartment_select} style={styles.icon} resizeMode='contain' />
                 : <Image source={icon_apartment} style={styles.icon} resizeMode='contain' />
               }
-              <Text style={category == 'apartment' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.apartment')}</Text>
+              <Text style={category === 'apartment' ? styles.textCategorySelect : styles.textCategory}>
+                {I18n.t('category.apartment')}
+              </Text>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>this.onSelectCategory('villa', 1)} activeOpacity={0.5}>
-            <View style={[styles.btnCategory, category=='villa' && styles.categoryBack]}>
-              {category == 'villa'
+          <TouchableOpacity onPress={() => this.onSelectCategory('villa', 1)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category === 'villa' && styles.categoryBack]}>
+              {category === 'villa'
                 ? <Image source={icon_villa_select} style={styles.icon} resizeMode='contain' />
                 : <Image source={icon_villa} style={styles.icon} resizeMode='contain' />
               }
-              <Text style={category == 'villa' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.villa')}</Text>
+              <Text style={category === 'villa' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.villa')}</Text>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>this.onSelectCategory('building', 0)} activeOpacity={0.5}>
-            <View style={[styles.btnCategory, category=='building' && styles.categoryBack]}>
-              {category == 'building'
+          <TouchableOpacity onPress={() => this.onSelectCategory('building', 0)} activeOpacity={0.5}>
+            <View style={[styles.btnCategory, category === 'building' && styles.categoryBack]}>
+              {category === 'building'
                 ? <Image source={icon_building_select} style={styles.icon} resizeMode='contain' />
                 : <Image source={icon_building} style={styles.icon} resizeMode='contain' />
               }
-              <Text style={category == 'building' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.building')}</Text>
+              <Text style={category === 'building' ? styles.textCategorySelect : styles.textCategory}>{I18n.t('category.building')}</Text>
             </View>
           </TouchableOpacity>
 

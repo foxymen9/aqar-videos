@@ -76,14 +76,14 @@ class AreaPage extends Component {
     return (
       <Container title={title}>
         <View style={styles.container}>
-          {btnStatus == 'list'
+          {btnStatus === 'list'
           ? <ProductListPage />
           : <MapPage page="area" locationData={buildingData} region={region} />
           }
           {isBtnList && (
-            <MapButtonListComponent  onSelectItem={(value)=>this.onSelectItem(value)} />
+            <MapButtonListComponent  onSelectItem={value => this.onSelectItem(value)} />
           )}
-          <ButtonPlusComponent isBtnList={isBtnList} onSelectItem={(value)=>this.onSelectItem(value) }/>
+          <ButtonPlusComponent isBtnList={isBtnList} onSelectItem={value => this.onSelectItem(value) }/>
         </View>
       </Container>
     );

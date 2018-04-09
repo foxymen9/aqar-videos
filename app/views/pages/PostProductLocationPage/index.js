@@ -172,7 +172,7 @@ class PostProductLocationPage extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.backIconWrapper}>
-          <TouchableOpacity onPress={()=>this.onBack()}>
+          <TouchableOpacity onPress={() => this.onBack()}>
             <Icon name='arrow-left' style={styles.backIcon_detail}></Icon>
           </TouchableOpacity>
         </View>

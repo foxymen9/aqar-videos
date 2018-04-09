@@ -129,26 +129,26 @@ class Signup extends Component {
 
         {this.props.verifyPhoneInfo && (
           <CustomAlert 
-            title={this.props.verifyPhoneInfo.status == 200 ? 'Success' : 'Error'}
+            title={this.props.verifyPhoneInfo.status === 200 ? 'Success' : 'Error'}
             message={this.props.verifyPhoneInfo.message} 
             visible={this.state.isAlert} 
-            closeAlert={()=>{ this.checkPhoneResult(); }}
+            closeAlert={() => this.checkPhoneResult()}
           />)}
 
         {this.props.verifyCodeInfo && (
           <CustomAlert 
-            title={this.props.verifyCodeInfo.status == 200 ? 'Success' : 'Error'}
+            title={this.props.verifyCodeInfo.status === 200 ? 'Success' : 'Error'}
             message={this.props.verifyCodeInfo.message} 
             visible={this.state.isAlert} 
-            closeAlert={()=>{ this.checkCodeResult(); }}
+            closeAlert={() => this.checkCodeResult()}
           />)}
         
         {this.props.userSignupInfo && (
           <CustomAlert 
-            title={this.props.userSignupInfo.status == 200 ? 'Success' : 'Error'}
+            title={this.props.userSignupInfo.status === 200 ? 'Success' : 'Error'}
             message={this.props.userSignupInfo.message} 
             visible={this.state.isAlert} 
-            closeAlert={()=>{ this.checkUserSignupResult(); }}
+            closeAlert={() => this.checkUserSignupResult()}
           />)}
 
         <View style={styles.wizard}>      
@@ -161,7 +161,7 @@ class Signup extends Component {
         </View>
 
         <KeyboardScrollView>
-          {this.state.verifyStep == (_isArabic ? 0 : 2) && (
+          {this.state.verifyStep === (_isArabic ? 0 : 2) && (
           <View style={styles.fieldContainer}>
             <View style={styles.inputView}>
               <View style={styles.iconView}>
@@ -208,17 +208,17 @@ class Signup extends Component {
               <TextInput
                 ref="email"
                 autoCapitalize="none"
-                autoCorrect={ false }
+                autoCorrect={false}
                 placeholder={I18n.t('profile.ph_email')}
-                placeholderTextColor={ commonColors.placeholderText }
+                placeholderTextColor={commonColors.placeholderText}
                 textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
                 keyboardType="email-address"
-                value={ this.state.email }
-                onChangeText={ (text) => this.setState({ email: text }) }
-                onSubmitEditing={ () => this.refs.password.focus() }
+                value={this.state.email}
+                onChangeText={text => this.setState({ email: text })}
+                onSubmitEditing={() => this.refs.password.focus()}
               />
             </View>
             <View style={styles.inputView}>
@@ -229,16 +229,16 @@ class Signup extends Component {
                 mask={"+[00000000000000]"} 
                 ref="mobileNumber"
                 autoCapitalize="none"
-                autoCorrect={ false }
+                autoCorrect={false}
                 placeholder={I18n.t('profile.ph_mobile_number')}
-                placeholderTextColor={ commonColors.placeholderText }
+                placeholderTextColor={commonColors.placeholderText}
                 textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
                 returnKeyType={ 'next' }
                 keyboardType="phone-pad"
                 value={ this.state.mobile }
-                onChangeText={ (text) => this.setState({ mobile: text }) }
+                onChangeText={text => this.setState({ mobile: text })}
               />
             </View>
             <View style={styles.inputView}>
@@ -248,17 +248,17 @@ class Signup extends Component {
               <TextInput
                 ref="password"
                 autoCapitalize="none"
-                autoCorrect={ false }
+                autoCorrect={false}
                 placeholder={I18n.t('profile.ph_password')}
-                placeholderTextColor={ commonColors.placeholderText }
+                placeholderTextColor={commonColors.placeholderText}
                 textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
-                returnKeyType={ 'next' }
+                returnKeyType={'next'}
                 secureTextEntry
-                value={ this.state.password }
-                onChangeText={ (text) => this.setState({ password: text }) }
-                onSubmitEditing={ () => this.refs.confirmPassword.focus() }
+                value={this.state.password}
+                onChangeText={text => this.setState({ password: text })}
+                onSubmitEditing={() => this.refs.confirmPassword.focus()}
               />
             </View>
             <View style={styles.inputView}>
@@ -276,13 +276,13 @@ class Signup extends Component {
                 underlineColorAndroid="transparent"
                 returnKeyType={'next'}
                 secureTextEntry
-                value={ this.state.confirmPassword }
-                onChangeText={text => this.setState({ confirmPassword: text }) }
+                value={this.state.confirmPassword}
+                onChangeText={text => this.setState({ confirmPassword: text })}
               />
             </View> 
           </View>)}
 
-          {this.state.verifyStep == 1 && (
+          {this.state.verifyStep === 1 && (
           <View style={styles.fieldContainer}>
             <View style={styles.inputView}>
               <View style={styles.iconView}>
@@ -292,16 +292,16 @@ class Signup extends Component {
                 mask={"+[00000000000000]"} 
                 ref="mobileNumber"
                 autoCapitalize="none"
-                autoCorrect={ false }
+                autoCorrect={false}
                 placeholder={I18n.t('profile.ph_mobile_number')}
-                placeholderTextColor={ commonColors.placeholderText }
+                placeholderTextColor={commonColors.placeholderText}
                 textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
-                returnKeyType={ 'next' }
+                returnKeyType={'next'}
                 keyboardType="phone-pad"
-                value={ this.state.mobile }
-                onChangeText={ (text) => this.setState({ mobile: text }) }
+                value={this.state.mobile}
+                onChangeText={text => this.setState({ mobile: text })}
               />
             </View>
             <View style={styles.inputView}>
@@ -311,22 +311,22 @@ class Signup extends Component {
               <TextInput
                 ref="confirmCode"
                 autoCapitalize="none"
-                autoCorrect={ false }
+                autoCorrect={false}
                 placeholder={I18n.t('profile.ph_confirm_code')}
-                placeholderTextColor={ commonColors.placeholderText }
+                placeholderTextColor={commonColors.placeholderText}
                 textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
-                returnKeyType={ 'next' }
+                returnKeyType={'next'}
                 keyboardType="numbers-and-punctuation"
                 value={ this.state.code }
-                onChangeText={ (text) => this.setState({ code: text }) }
-                onSubmitEditing={ () => this.refs.email.focus() }
+                onChangeText={text => this.setState({ code: text })}
+                onSubmitEditing={() => this.refs.email.focus()}
               />
             </View>
           </View>)}
 
-          {this.state.verifyStep == (_isArabic ? 2 : 0) && (
+          {this.state.verifyStep === (_isArabic ? 2 : 0) && (
           <View style={styles.fieldContainer}>
             <View style={styles.inputView}>
               <View style={styles.iconView}>
@@ -336,42 +336,42 @@ class Signup extends Component {
                 mask={"+[00000000000000]"} 
                 ref="mobileNumber"
                 autoCapitalize="none"
-                autoCorrect={ false }
+                autoCorrect={false}
                 placeholder={I18n.t('profile.ph_mobile_number')}
-                placeholderTextColor={ commonColors.placeholderText }
+                placeholderTextColor={commonColors.placeholderText}
                 textAlign="left"
                 style={styles.input}
                 underlineColorAndroid="transparent"
-                returnKeyType={ 'next' }
+                returnKeyType={'next'}
                 keyboardType="phone-pad"
-                value={ this.state.mobile }
-                onChangeText={ (text) => this.setState({ mobile: text }) }
+                value={this.state.mobile}
+                onChangeText={text => this.setState({ mobile: text })}
               />
             </View>
           </View>)}
         </KeyboardScrollView>
 
-        {this.state.verifyStep == 2 && (
+        {this.state.verifyStep === 2 && (
         <View style={styles.btnView}>
-          <TouchableOpacity onPress={()=>this.onVerifyPhone()} activeOpacity={0.5}>
+          <TouchableOpacity onPress={() => this.onVerifyPhone()} activeOpacity={0.5}>
             <View style={styles.btnWrapper}>
               <Text style={styles.btnText}>{I18n.t('profile.confirm_phone')}</Text>
             </View>
           </TouchableOpacity>
         </View>)}
 
-        {this.state.verifyStep == 1 && (
+        {this.state.verifyStep === 1 && (
         <View style={styles.btnView}>
-          <TouchableOpacity onPress={()=>this.onVerifyCode()} activeOpacity={0.5}>
+          <TouchableOpacity onPress={() => this.onVerifyCode()} activeOpacity={0.5}>
             <View style={styles.btnWrapper}>
               <Text style={styles.btnText}>{I18n.t('profile.confirm_code')}</Text>
             </View>
           </TouchableOpacity>
         </View>)}
 
-        {this.state.verifyStep == 0 && (
+        {this.state.verifyStep === 0 && (
         <View style={styles.btnView}>
-          <TouchableOpacity onPress={()=>this.onSignUp()} activeOpacity={0.5}>
+          <TouchableOpacity onPress={() => this.onSignUp()} activeOpacity={0.5}>
             <View style={styles.btnWrapper}>
               <Text style={styles.btnText}>{I18n.t('signup')}</Text>
             </View>

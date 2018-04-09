@@ -29,7 +29,7 @@ export default class MyMessagePage extends Component {
     return (
       <TouchableOpacity 
         activeOpacity={0.6}
-        onPress={()=>{this.onItemSelect(rowData, rowID)}}
+        onPress={() => this.onItemSelect(rowData, rowID)}
       >
         <View style={styles.listItem}>
           <View style={styles.leftView}>
