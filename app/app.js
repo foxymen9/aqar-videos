@@ -62,34 +62,34 @@ export default class App extends Component {
 
     const scenes = Actions.create(
       <Scene key="root">
-        <Scene key="Main" initial={ true } component={ MainPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="Register" component={ RegisterPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="MyAds" component={ MyAdsPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="MyWishList" component={ MyWishListPage } hideNavBar={ true } panHandlers={null} />
-        <Scene key="Package" component={ PackagePage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="PackageDetailBank" initial={ true } component={ PackageDetailBankPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="MyPackage" component={ MyPackagePage } hideNavBar={ true } panHandlers={null}/>
-        {/* <Scene key="PackageDetail" component={ PackageDetailPage } hideNavBar={ true } panHandlers={null}/> */}
-        <Scene key="ProfileEdit" component={ ProfileEditPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="Area" component={ AreaPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="MyLocation" component={ MyLocationPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="SupportAdvertisement" component={ SupportAdvertisementPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="ProductList" component={ ProductListPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="ProductDetail" component={ ProductDetailPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="PostNewVideo" component={ PostNewVideoPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="PostNewVideoPreview" component={ PostNewVideoPreviewPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="PostProductLocation" component={ PostProductLocationPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="MyMessage" component={ MyMessagePage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="ChatRoom" component={ ChatRoomPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="DirectMessage" component={ DirectMessagePage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="Search" component={ SearchPage } hideNavBar={ true } panHandlers={null}/>
-        <Scene key="VideoRecord" component={ VideoRecordPage } hideNavBar={ true } panHandlers={null}/>
+        <Scene key="Main" initial={ true } component={ MainPage } hideNavBar panHandlers={null}/>
+        <Scene key="Register" component={ RegisterPage } hideNavBar panHandlers={null}/>
+        <Scene key="MyAds" component={ MyAdsPage } hideNavBar panHandlers={null}/>
+        <Scene key="MyWishList" component={ MyWishListPage } hideNavBar panHandlers={null} />
+        <Scene key="Package" component={ PackagePage } hideNavBar panHandlers={null}/>
+        <Scene key="PackageDetailBank" initial={ true } component={ PackageDetailBankPage } hideNavBar panHandlers={null}/>
+        <Scene key="MyPackage" component={ MyPackagePage } hideNavBar panHandlers={null}/>
+        {/* <Scene key="PackageDetail" component={ PackageDetailPage } hideNavBar panHandlers={null}/> */}
+        <Scene key="ProfileEdit" component={ ProfileEditPage } hideNavBar panHandlers={null}/>
+        <Scene key="Area" component={ AreaPage } hideNavBar panHandlers={null}/>
+        <Scene key="MyLocation" component={ MyLocationPage } hideNavBar panHandlers={null}/>
+        <Scene key="SupportAdvertisement" component={ SupportAdvertisementPage } hideNavBar panHandlers={null}/>
+        <Scene key="ProductList" component={ ProductListPage } hideNavBar panHandlers={null}/>
+        <Scene key="ProductDetail" component={ ProductDetailPage } hideNavBar panHandlers={null}/>
+        <Scene key="PostNewVideo" component={ PostNewVideoPage } hideNavBar panHandlers={null}/>
+        <Scene key="PostNewVideoPreview" component={ PostNewVideoPreviewPage } hideNavBar panHandlers={null}/>
+        <Scene key="PostProductLocation" component={ PostProductLocationPage } hideNavBar panHandlers={null}/>
+        <Scene key="MyMessage" component={ MyMessagePage } hideNavBar panHandlers={null}/>
+        <Scene key="ChatRoom" component={ ChatRoomPage } hideNavBar panHandlers={null}/>
+        <Scene key="DirectMessage" component={ DirectMessagePage } hideNavBar panHandlers={null}/>
+        <Scene key="Search" component={ SearchPage } hideNavBar panHandlers={null}/>
+        <Scene key="VideoRecord" component={ VideoRecordPage } hideNavBar panHandlers={null}/>
       </Scene>
     );
 
     return (
-      <Provider store={ store }>
-        <Router hideNavBar={ true } scenes={ scenes }/>
+      <Provider store={store}>
+        <Router hideNavBar scenes={scenes}/>
       </Provider>
     );
   }
