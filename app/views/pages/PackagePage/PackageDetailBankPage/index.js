@@ -27,7 +27,7 @@ import { styles } from './styles';
 import * as commonStyles from '@common/styles/commonStyles';
 import * as commonColors from '@common/styles/commonColors';
 
-export default class ProfileEditPage extends Component {
+export default class PackageDetailBankPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
