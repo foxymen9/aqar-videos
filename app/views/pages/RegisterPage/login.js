@@ -59,8 +59,6 @@ class Login extends Component {
   onLogin() {
     const { token } = this.props.tokenInfo
     this.setState({loading: true});
-    
-    console.log('TOKEN_NEW', token);
 
     let data = {
       email: this.state.email,
@@ -104,7 +102,7 @@ class Login extends Component {
         {userInfo && (
           <CustomAlert 
             title={userInfo.status === 200 ? 'Success' : 'Error'}
-            message={userInfo.status === 200 ? userInfo.message : userInfo.error.warning} 
+            message={userInfo.status === 200 ? userInfo.message : (userInfo.err ? userInfo.err : userInfo.error.warning)}
             visible={this.state.isLoginAlert} 
             closeAlert={() => this.checkUserLoginResult()}
           />

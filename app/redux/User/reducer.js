@@ -1,7 +1,7 @@
 import * as types from './actionTypes';
 
 const initialState = {
-  userLogin: true,
+  userLogin: false,
 
   loading: false,
   error:null,
@@ -28,6 +28,7 @@ export default function user(state = initialState, action = {}) {
         loading: true,
       };
     case types.USER_SIGN_IN_SUCCESS:
+    console.log('USER: ', action.result)
       return {
         ...state,
         loading: false,
