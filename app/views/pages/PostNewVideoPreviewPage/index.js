@@ -10,9 +10,10 @@ import {
   Modal,
   TouchableWithoutFeedback
 } from 'react-native';
-
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types'
 import Video from 'react-native-video';
-import FontAwesome, {Icons} from 'react-native-fontawesome';
+import FontAwesome, { Icons } from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/Feather';
 import IconEntypo from 'react-native-vector-icons/Entypo';
 import { Actions } from 'react-native-router-flux';
@@ -27,42 +28,16 @@ import Container from '@layout/Container';
 import { styles } from './styles';
 import * as commonColors from '@common/styles/commonColors';
 import * as commonStyles from '@common/styles/commonStyles';
+import { CATEGORY_ICON_LIST } from '@common/category';
+
 import ModalShare from '@components/ModalShare';
 
 import LoadingSpinner from '@components/LoadingSpinner';
 import CustomAlert from '@components/CustomAlert';
 
-const icon_building = require('@common/assets/images/product_detail/building.png');
-const icon_villa = require('@common/assets/images/product_detail/villa.png');
-const icon_apartment = require('@common/assets/images/product_detail/apartment.png');
-const icon_office = require('@common/assets/images/product_detail/office.png');
-const icon_chalet = require('@common/assets/images/product_detail/chalet.png');
-const icon_apartment_owner = require('@common/assets/images/product_detail/apartment_owner.png');
-const icon_factory = require('@common/assets/images/product_detail/factory.png');
-const icon_firms = require('@common/assets/images/product_detail/firms.png');
-const icon_office_for_sale = require('@common/assets/images/product_detail/office_for_sale.png');
-const icon_store = require('@common/assets/images/product_detail/stores.png');
-const icon_gallery = require('@common/assets/images/product_detail/gallery.png');
-const icon_land = require('@common/assets/images/product_detail/land.png');
-const icon_esteraha = require('@common/assets/images/product_detail/esteraha.png');
+import { addProduct } from '@redux/Product/actions';
 
-const iconList = {
-  'building': icon_building,
-  'villa': icon_villa,
-  'apartment': icon_apartment,
-  'office': icon_office,
-  'chalet': icon_chalet,
-  'apartent_owner': icon_apartment_owner,
-  'factory': icon_factory,
-  'firms': icon_firms,
-  'office_for_sale': icon_office_for_sale,
-  'store': icon_store,
-  'gallery': icon_gallery,
-  'land': icon_land,
-  'esteraha': icon_esteraha,
-}
-
-export default class PostNewVideoPreviewPage extends Component {
+class PostNewVideoPreviewPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -70,43 +45,74 @@ export default class PostNewVideoPreviewPage extends Component {
       terms: false,
       loading: false,
       videoError: false,
-      icon: icon_building,
+      icon: CATEGORY_ICON_LIST['building'],
     }
   }
 
-  componentWillMount() {
-    const { data } = this.props;
+  componentWillReceiveProps(nextProps) {
+    const { products } = nextProps
 
-    const icon = pickBy(iconList, data.category)
-    this.setState({ icon })
+    if (products.loading && this.props.products.loading === 'ADD_PRODUCT_REQUEST' && products.loading === 'ADD_PRODUCT_SUCCESS' ) {
+      this.setState({ loading: false })
+    }
   }
-
 
   onEdit() {
     Actions.PostNewVideo();
   }
 
   onPost() {
-    const { videoUri, videoFileName } = this.props.data
+    const {
+      data,
+      token,
+      user,
+      addProduct,
+    } = this.props
+
     const file = {
-      uri: videoUri,
-      name: videoFileName,
+      uri: data.videoUri,
+      name: data.videoFileName,
       type: 'video/quicktime',
     }
 
     this.setState({ loading: true })
-    RNS3.put(file, AWS_OPTIONS).then(response => {
-      this.setState({ loading: false })
-      if (response.status !== 201) {
-        this.setState({ videoError: true, videoUploadingErrorMsg: 'Failed to upload video file to server' })
-        throw new Error("Failed to upload video file to server")
-      } else {
-        this.setState({ videoError: false })
-        responseUrl = response.body.postResponse.location
 
-        console.log(responseUrl)
-      }
-    })
+    // RNS3.put(file, AWS_OPTIONS).then(response => {
+    //   this.setState({ loading: false })
+    //   if (response.status !== 201) {
+    //     this.setState({ videoError: true, videoUploadingErrorMsg: 'Failed to upload video file to server' })
+    //     throw new Error("Failed to upload video file to server")
+    //   } else {
+    //     this.setState({ videoError: false })
+    //     uploadUrl = response.body.postResponse.location
+
+    //     console.log(uploadUrl)
+    //   }
+    // })
+
+    const uploadUrl = 'https://videoaqar.s3.amazonaws.com/upload%2FIMG_7189.MOV'
+    const params = {
+      // customer_id: user.userInfo.user.customer_id,
+      customer_id: 1,
+      product_description: {
+        1: {
+          name: data.title,
+          description: data.description,
+        }
+      },
+      price: data.price,
+      category: data.category,
+      // latitude: data.coordinate.latitude,
+      // longitude: data.coordinate.longitude,
+      latitude: 38.9140,
+      longitude: 121.6147,
+      video_url: uploadUrl,
+      address: data.address,
+      product_type: data.productOption,
+      status: data.buildingType, 
+    }
+
+    addProduct(token.tokenInfo.token, params)
   }
 
   onDelete() {
@@ -137,15 +143,16 @@ export default class PostNewVideoPreviewPage extends Component {
           <ScrollView>
             <TouchableOpacity onPress={() => this.onCamera()}>
               <View style={styles.videoView}>
-                {data.videoUri !== null && (
-                <Video
-                  ref={(ref) => {this.player = ref}}
-                  source={{uri: data.videoUri}}
-                  style={styles.videoThumbnail}
-                  resizeMode='cover'
-                  autoplay={false}
-                  onLoadStart={() => this.player.presentFullscreenPlayer}
-                />)}
+                {data.videoUri && (
+                  <Video
+                    ref={(ref) => {this.player = ref}}
+                    source={{uri: data.videoUri}}
+                    style={styles.videoThumbnail}
+                    resizeMode='cover'
+                    autoplay={false}
+                    paused
+                    onLoadStart={() => this.player.presentFullscreenPlayer}
+                  />)}
               </View>
             </TouchableOpacity>
 
@@ -204,7 +211,7 @@ export default class PostNewVideoPreviewPage extends Component {
               </View>
             )}
 
-            {(data.category == 'apartment') && (
+            {(data.category === 'apartment') && (
               <View style={styles.itemView}>
                 <Text style={styles.textTitle}>
                   {data.period}
@@ -212,7 +219,7 @@ export default class PostNewVideoPreviewPage extends Component {
               </View>
             )}
 
-            {(data.category == 'apartment') && (
+            {(data.category === 'apartment') && (
               <View>
                 <View style={styles.itemView}>
                   <Text style={styles.textTitle}>
@@ -242,14 +249,15 @@ export default class PostNewVideoPreviewPage extends Component {
               </View>
             )}
 
-            {(data.category == 'office') && (
+            {(data.category === 'office') && (
               <View style={styles.itemView}>
                 <Text style={styles.textTitle}>
                   {data.areaSpace}
                 </Text>
               </View>
             )}
-            {(data.category == 'gallery') && (
+
+            {(data.category === 'gallery') && (
               <View>
                 <View style={styles.itemView}>
                   <Text style={styles.textTitle}>
@@ -266,7 +274,7 @@ export default class PostNewVideoPreviewPage extends Component {
 
             <View style={styles.titleView}>
               <View style={styles.iconView}>
-                <Image source={icon} style={styles.iconOffice} resizeMode="contain" />
+                <Image source={CATEGORY_ICON_LIST[data.category]} style={styles.iconOffice} resizeMode="contain" />
                 <Text style={styles.textDescription}>
                   {data.category}
                 </Text>
@@ -303,3 +311,22 @@ export default class PostNewVideoPreviewPage extends Component {
     );
   }
 }
+
+const mapStateToProps = ({ user, token, products }) => ({
+  user,
+  token,
+  products,
+})
+
+const mapDispatchToProps = dispatch => ({
+  addProduct: (token, data) => dispatch(addProduct(token, data)),
+})
+
+PostNewVideoPreviewPage.propTypes = {
+  addProduct: PropTypes.func.isRequired,
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(PostNewVideoPreviewPage)

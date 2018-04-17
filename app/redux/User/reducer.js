@@ -28,11 +28,11 @@ export default function user(state = initialState, action = {}) {
         loading: true,
       };
     case types.USER_SIGN_IN_SUCCESS:
-    console.log('USER: ', action.result)
+      console.log('USER_INFO: ', action.result)
       return {
         ...state,
         loading: false,
-        userLogin: action.result.data.status == 200 ? true : false,
+        userLogin: action.result.data.status === 200 ? true : false,
         userInfo: action.result.data,
       }
     case types.USER_SIGN_IN_FAILED:

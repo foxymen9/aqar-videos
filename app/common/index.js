@@ -12,3 +12,19 @@ export const AWS_OPTIONS = {
   // awsUrl: 's3.console.aws.amazon.com'
   awsUrl: 's3.amazonaws.com'
 }
+
+export const PERIOD_DATA = [
+  { value: 'Daily' },
+  { value: 'Monthly' },
+  { value: 'Yearly' }
+];
+
+export const BUILDING_TYPE_DATA = [
+  { value: 'Residential' },
+  { value: 'Commercial' }
+];
+
+export const APARTMENT_ROOM_TYPE = [
+  { value: 'Singular' },
+  { value: 'Familiar' }
+];

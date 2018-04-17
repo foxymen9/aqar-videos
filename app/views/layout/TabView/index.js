@@ -14,14 +14,15 @@ import {
 import ScrollableTabView from 'react-native-scrollable-tab-view'
 import ScrollableTabBar from './ScrollableTabBar';
 
-
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
 import { styles } from './styles';
 import * as commonStyles from '@common/styles/commonStyles';
-
+import LoadingSpinner from '@components/LoadingSpinner';
 import { saveMyLocation } from '@redux/Map/actions';
+import { getProductsByCategory } from '@redux/Product/actions';
 
 import MapPage from '@pages/MapPage';
 import ProductListPage from '@pages/ProductListPage';
@@ -42,11 +43,21 @@ class TabView extends Component {
       tabIndex: 0,
       region: null,
       currentLocation: null,
+      allProduct: null,
+      loading: false,
     }
   }
 
   componentWillMount() {
-    const {myLocation} = this.props;
+    const { token, category, map, getProductsByCategory, products } = this.props
+    const { myLocation } = map;
+
+    if (products.allProduct) {
+      this.setState({ allProduct: products.allProduct })
+    } else {
+      this.setState({ loading: true })
+      getProductsByCategory(token.tokenInfo.token, category)
+    }
 
     if (myLocation == null) {
       this.watchID = navigator.geolocation.watchPosition((position) => {
@@ -71,11 +82,21 @@ class TabView extends Component {
           currentLocation: currentLocation
         });
       })
-    }
-    else {
+    } else {
       this.setState({
         region: myLocation.region,
         currentLocation: myLocation.currentLocation
+      })
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { products } = nextProps
+
+    if (products.loading && this.props.products.loading === 'GET_PRODUCT_BY_CATEGORY_REQUEST' && products.loading === 'GET_PRODUCT_BY_CATEGORY_SUCCESS' ) {
+      this.setState({
+        loading: false,
+        allProduct: products.allProduct,
       })
     }
   }
@@ -92,7 +113,7 @@ class TabView extends Component {
 
   render() {
     const { btnStatus } = this.props;
-    let { tabIndex, region, currentLocation } = this.state;
+    let { tabIndex, region, currentLocation, allProduct, loading } = this.state;
     
     if (currentLocation == null) {
       currentLocation = {
@@ -108,216 +129,162 @@ class TabView extends Component {
         longitudeDelta: 0.05,
       }
     }
-    
-    let buildingData = [
-      {
-        coordinates: {
-          latitude: currentLocation.latitude - 0.02,
-          longitude: currentLocation.longitude
-        },
-        data: {
-          price: '100K',
-          image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
-          title: 'Test Title1'
-        }
-      },
-      {
-        coordinates: {
-          latitude: currentLocation.latitude + 0.01,
-          longitude: currentLocation.longitude - 0.01
-        },
-        data: {
-          price: '90K',
-          image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
-          title: 'Test Title2'
-        }
-      },
-      {
-        coordinates: {
-          latitude: currentLocation.latitude - 0.01,
-          longitude: currentLocation.longitude + 0.01
-        },
-        data: {
-          price: '80K',
-          image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
-          title: 'Test Title3'
-        }
-      }
-    ];
-
-    let apartmentData = [
-      {
-        coordinates: {
-          latitude: currentLocation.latitude - 0.02,
-          longitude: currentLocation.longitude - 0.01
-        },
-        data: {
-          price: '100K',
-          image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
-          title: 'Test Title1'
-        }
-      },
-      {
-        coordinates: {
-          latitude: currentLocation.latitude + 0.01,
-          longitude: currentLocation.longitude + 0.01
-        },
-        data: {
-          price: '90K',
-          image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
-          title: 'Test Title2'
-        }
-      },
-      {
-        coordinates: {
-          latitude: currentLocation.latitude + 0.02,
-          longitude: currentLocation.longitude - 0.01
-        },
-        data: {
-          price: '80K',
-          image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
-          title: 'Test Title3'
-        }
-      }
-    ];
 
     return (
       <View style={styles.container}>
-        <ScrollableTabView
-          style={{backgroundColor:'#FFF'}}
-          tabBarBackgroundColor='#424242'
-          tabBarTextStyle={{color:'#FFF'}}
-          contentProps={{bounces: true, keyboardDismissMode: 'on-drag'}}
-          tabBarUnderlineStyle={{backgroundColor:'#EB0089'}}
-          onChangeTab = {index => this.changeTab(index)}
-          renderTabBar={() => <ScrollableTabBar/>}
-          initialPage={_isArabic ? 12 : 0}
-        >
+        <LoadingSpinner visible={loading } />
 
-          <ScrollView tabLabel={I18n.t('category.gallery')}>
-            {btnStatus === 'map' && (
-              <MapPage page="gallery" locationData={buildingData} region={region} />
-            )}
-            {btnStatus === 'list' && (
-              <ProductListPage />
-            )}
-          </ScrollView>
+        {allProduct && (
+          <ScrollableTabView
+            style={{backgroundColor:'#FFF'}}
+            tabBarBackgroundColor='#424242'
+            tabBarTextStyle={{color:'#FFF'}}
+            contentProps={{bounces: true, keyboardDismissMode: 'on-drag'}}
+            tabBarUnderlineStyle={{backgroundColor:'#EB0089'}}
+            onChangeTab = {index => this.changeTab(index)}
+            renderTabBar={() => <ScrollableTabBar/>}
+            initialPage={_isArabic ? 12 : 0}
+          >
+            <ScrollView tabLabel={I18n.t('category.gallery')}>
+              {btnStatus === 'map' && (
+                <MapPage category="gallery" allProduct={allProduct} region={region} />
+              )}
+              {btnStatus === 'list' && (
+                <ProductListPage category="gallery" allProduct={allProduct} />
+              )}
+            </ScrollView>
 
 
-          <ScrollView tabLabel={I18n.t('category.stores')}>
-            {btnStatus === 'map' && (
-              <MapPage page="stores" locationData={buildingData} region={region} />
-            )}
-            {btnStatus === 'list' && (
-              <ProductListPage />
-            )}
-          </ScrollView>
+            <ScrollView tabLabel={I18n.t('category.stores')}>
+              {btnStatus === 'map' && (
+                <MapPage category="stores" allProduct={allProduct} region={region} />
+              )}
+              {btnStatus === 'list' && (
+                <ProductListPage category="stores" allProduct={allProduct} />
+              )}
+            </ScrollView>
 
-          <ScrollView tabLabel={I18n.t('category.factory')}>
-            {btnStatus === 'map' && (
-              <MapPage page="factory" locationData={buildingData} region={region} />
-            )}
-            {btnStatus === 'list' && (
-              <ProductListPage />
-            )}
-          </ScrollView>
+            <ScrollView tabLabel={I18n.t('category.factory')}>
+              {btnStatus === 'map' && (
+                <MapPage category="factory" allProduct={allProduct} region={region} />
+              )}
+              {btnStatus === 'list' && (
+                <ProductListPage category="factory" allProduct={allProduct} />
+              )}
+            </ScrollView>
 
-          <ScrollView tabLabel={I18n.t('category.office_for_sale')}>
-            {btnStatus === 'map' && (
-              <MapPage page="land" locationData={buildingData} region={region} />
-            )}
-            {btnStatus === 'list' && (
-              <ProductListPage />
-            )}
-          </ScrollView>
+            <ScrollView tabLabel={I18n.t('category.office_for_sale')}>
+              {btnStatus === 'map' && (
+                <MapPage category="land" allProduct={allProduct} region={region} />
+              )}
+              {btnStatus === 'list' && (
+                <ProductListPage category="office_for_sale" allProduct={allProduct} />
+              )}
+            </ScrollView>
 
-          <ScrollView tabLabel={I18n.t('category.firms')}>
-            {btnStatus === 'map' && (
-              <MapPage page="firms" locationData={buildingData} region={region} />
-            )}
-            {btnStatus === 'list' && (
-              <ProductListPage />
-            )}
-          </ScrollView>
+            <ScrollView tabLabel={I18n.t('category.firms')}>
+              {btnStatus === 'map' && (
+                <MapPage category="firms" allProduct={allProduct} region={region} />
+              )}
+              {btnStatus === 'list' && (
+                <ProductListPage category="firms" allProduct={allProduct} />
+              )}
+            </ScrollView>
 
-          <ScrollView tabLabel={I18n.t('category.esteraha')}>
-            {btnStatus === 'map' && (
-              <MapPage page="esteraha" locationData={buildingData} region={region} />
-            )}
-            {btnStatus === 'list' && (
-              <ProductListPage />
-            )}
-          </ScrollView>
+            <ScrollView tabLabel={I18n.t('category.esteraha')}>
+              {btnStatus === 'map' && (
+                <MapPage category="esteraha" allProduct={allProduct} region={region} />
+              )}
+              {btnStatus === 'list' && (
+                <ProductListPage category="esteraha" allProduct={allProduct} />
+              )}
+            </ScrollView>
 
-          <ScrollView tabLabel={I18n.t('category.chalet')}>
-            {btnStatus === 'map' && (
-              <MapPage page="chalets" locationData={buildingData} region={region} />
-            )}
-            {btnStatus === 'list' && (
-              <ProductListPage />
-            )}
-          </ScrollView>
-        
-          <ScrollView tabLabel={I18n.t('category.apartment_owner')}>
-            {btnStatus === 'map' && (
-              <MapPage page="apartment_owner" locationData={buildingData} region={region} />
-            )}
-            {btnStatus === 'list' && (
-              <ProductListPage />
-            )}
-          </ScrollView>
-
-          <ScrollView tabLabel={I18n.t('category.office')}>
-            {btnStatus === 'map' && (
-              <MapPage page="office" locationData={buildingData} region={region} />
-            )}
-            {btnStatus === 'list' && (
-              <ProductListPage />
-            )}
-          </ScrollView>
+            <ScrollView tabLabel={I18n.t('category.chalet')}>
+              {btnStatus === 'map' && (
+                <MapPage category="chalets" allProduct={allProduct} region={region} />
+              )}
+              {btnStatus === 'list' && (
+                <ProductListPage category="chalet" allProduct={allProduct} />
+              )}
+            </ScrollView>
           
-          <ScrollView tabLabel={I18n.t('category.land')}>
-            {btnStatus === 'map' && (
-              <MapPage page="land" locationData={buildingData} region={region} />
-            )}
-            {btnStatus === 'list' && (
-              <ProductListPage />
-            )}
-          </ScrollView>
+            <ScrollView tabLabel={I18n.t('category.apartment_owner')}>
+              {btnStatus === 'map' && (
+                <MapPage category="apartment_owner" allProduct={allProduct} region={region} />
+              )}
+              {btnStatus === 'list' && (
+                <ProductListPage category="apartment_owner" allProduct={allProduct} />
+              )}
+            </ScrollView>
 
-          <ScrollView tabLabel={I18n.t('category.apartment')}>
-            {btnStatus === 'map' && (
-              <MapPage page="apartment" locationData={apartmentData} region={region} />
-            )}
-            {btnStatus === 'list' && (
-              <ProductListPage />
-            )}
-          </ScrollView>
+            <ScrollView tabLabel={I18n.t('category.office')}>
+              {btnStatus === 'map' && (
+                <MapPage category="office" allProduct={allProduct} region={region} />
+              )}
+              {btnStatus === 'list' && (
+                <ProductListPage category="office" allProduct={allProduct} />
+              )}
+            </ScrollView>
+            
+            <ScrollView tabLabel={I18n.t('category.land')}>
+              {btnStatus === 'map' && (
+                <MapPage category="land" allProduct={allProduct} region={region} />
+              )}
+              {btnStatus === 'list' && (
+                <ProductListPage category="land" allProduct={allProduct} />
+              )}
+            </ScrollView>
 
-          <ScrollView tabLabel={I18n.t('category.villa')}>
-            {btnStatus === 'map' && (
-              <MapPage page="villa" locationData={apartmentData} region={region} />
-            )}
-            {btnStatus === 'list' && (
-              <ProductListPage />
-            )}
-          </ScrollView>
+            <ScrollView tabLabel={I18n.t('category.apartment')}>
+              {btnStatus === 'map' && (
+                <MapPage category="apartment" allProduct={allProduct} region={region} />
+              )}
+              {btnStatus === 'list' && (
+                <ProductListPage category="apartment" allProduct={allProduct} />
+              )}
+            </ScrollView>
 
-          <ScrollView tabLabel={I18n.t('category.building')}>
-            {btnStatus === 'map' && (
-              <MapPage page="building" locationData={buildingData} region={region} />
-            )}
-            {btnStatus === 'list' && (
-              <ProductListPage />
-            )}
-          </ScrollView>
+            <ScrollView tabLabel={I18n.t('category.villa')}>
+              {btnStatus === 'map' && (
+                <MapPage category="villa" allProduct={allProduct} region={region} />
+              )}
+              {btnStatus === 'list' && (
+                <ProductListPage category="villa" allProduct={allProduct} />
+              )}
+            </ScrollView>
 
-        </ScrollableTabView>
+            <ScrollView tabLabel={I18n.t('category.building')}>
+              {btnStatus === 'map' && (
+                <MapPage category="building" allProduct={allProduct} region={region} />
+              )}
+              {btnStatus === 'list' && (
+                <ProductListPage category="building" allProduct={allProduct} />
+              )}
+            </ScrollView>
+          </ScrollableTabView>
+        )}
       </View>
     );
   }
 }
 
-export default connect(state => ({
-  myLocation: state.map.myLocation
-}),{ saveMyLocation })(TabView);
+const mapStateToProps = ({ token, products, map }) => ({
+  token,
+  products,
+  map,
+})
+
+const mapDispatchToProps = dispatch => ({
+  getProductsByCategory: (token, category) => dispatch(getProductsByCategory(token, category)),
+  saveMyLocation: args => dispatch(saveMyLocation(args)),
+})
+
+TabView.propTypes = {
+  getProductsByCategory: PropTypes.func.isRequired,
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(TabView)

@@ -10,19 +10,36 @@ import {
 } from 'react-native';
 
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Actions } from 'react-native-router-flux';
+import { filter } from 'lodash';
+import Video from 'react-native-video';
 
 import I18n from '@i18n';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import { styles } from './styles';
 
-export default class ProductListPage extends Component {
+import LoadingSpinner from '@components/LoadingSpinner';
+
+class ProductListPage extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      categoryProduct: [],
+    }
+  }
+
+  componentWillMount() {
+    const { category, allProduct } = this.props    
+    const categoryProduct = filter(allProduct, item => item.category.toLowerCase() === category.toLowerCase())
+    console.log('categoryProduct: ', categoryProduct)
+    this.setState({
+      categoryProduct,
+    })
   }
 
   onItemSelect(rowData, rowID) {
-    Actions.ProductDetail({data: rowData});
+    Actions.ProductDetail({ data: rowData });
   }
 
   _renderRow (rowData, sectionID, rowID, highlightRow) {
@@ -33,25 +50,45 @@ export default class ProductListPage extends Component {
           onPress={() => this.onItemSelect(rowData, rowID)}
         >
           <View style={styles.imageView}>
-            <Image source={{ uri: rowData.image}} style={styles.image} />
+            {!!rowData.video_url && rowData.video_url.length > 0 && (
+              <Video
+                ref={(ref) => { this.player = ref }}
+                source={{ uri: rowData.video_url }}
+                style={styles.imageView}
+                resizeMode='cover'
+                autoplay={false}
+                paused
+              />
+            )}
+
             <View style={styles.subView}>
-              <Text style={styles.textTitle}>{rowData.title}</Text>
+              <Text style={styles.textTitle}>{rowData.name}</Text>
             </View>
           </View>
         </TouchableOpacity>
+
         <View style={styles.footerView}>
-          <FontAwesome style={styles.favorite}>{rowData.favorite ? Icons.star : Icons.starO}</FontAwesome>
+          <FontAwesome style={styles.favorite}>{rowData.status ? Icons.star : Icons.starO}</FontAwesome>
+
           <View style={styles.footerRightView}>
-            <Text style={styles.textPrice}>{rowData.price} {I18n.t('sar')}</Text>
+            {rowData.price.length > 0 && (
+              <Text style={styles.textPrice}>{`${rowData.price} ${I18n.t('sar')}`}</Text>
+            )}
+
             <View style={styles.viewWrapper}>
-              <Text  style={styles.textViewCount}>{I18n.t('number_of_view')} {rowData.viewCount}</Text>
+              {rowData.price.length > 0 ?
+                <Text  style={styles.textViewCount}>{`${I18n.t('number_of_view')} ${rowData.viewed}`}</Text> :
+                <Text  style={styles.textViewCount}>{`${I18n.t('number_of_view')} 0`}</Text>
+              }
               <FontAwesome style={styles.eye}>{Icons.eye}</FontAwesome>
             </View>
+
           </View>
         </View>
       </View>
     )
   }
+
   _renderSeparator (sectionID, rowID, adjacentRowHighlighted) {
     return (
       <View
@@ -62,53 +99,24 @@ export default class ProductListPage extends Component {
   }
 
   render() {
-    let listData = [
-      {
-        image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
-        title: 'Apartment for Rent',
-        price: '28.000',
-        capacity: '70M',
-        viewCount: '500',
-        favorite: true,
-      },
-      {
-        image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
-        title: 'Apartment for Rent',
-        price: '15.000',
-        capacity: '170M',
-        viewCount: '500',
-        favorite: false,
-      },
-      {
-        image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
-        title: 'Apartment for Rent',
-        price: '23.000',
-        capacity: '80M',
-        viewCount: '500',
-        favorite: true,
-      },
-      {
-        image: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg',
-        title: 'Apartment for Rent',
-        price: '32.000',
-        capacity: '120M',
-        viewCount: '500',
-        favorite: false,
-      },
-    ]
+    const { categoryProduct } = this.state
+
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    const dataSource = ds.cloneWithRows(listData);
+    const dataSource = ds.cloneWithRows(categoryProduct);
 
     return (
-      <View style={styles.container}>
+      <View style={styles.container}>        
         <ListView
-            ref='listview'
-            dataSource={dataSource}
-            renderRow={this._renderRow.bind(this)}
-            renderSeparator={this._renderSeparator}
-            contentContainerStyle={styles.listView}
-          />
+          ref='listview'
+          dataSource={dataSource}
+          renderRow={this._renderRow.bind(this)}
+          renderSeparator={this._renderSeparator}
+          contentContainerStyle={styles.listView}
+          enableEmptySections
+        />
       </View>
     );
   }
 }
+
+export default ProductListPage

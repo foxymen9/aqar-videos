@@ -61,7 +61,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: commonStyles.padding,
     height: 50,
   },
-  iconOffice: {
+  iconCategory: {
     width: 45,
     height: 45,
     marginVertical: 10,

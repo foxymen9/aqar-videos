@@ -99,6 +99,7 @@ class Login extends Component {
     return (
       <View style={styles.container}>
         <LoadingSpinner visible={this.state.loading } />
+        
         {userInfo && (
           <CustomAlert 
             title={userInfo.status === 200 ? 'Success' : 'Error'}

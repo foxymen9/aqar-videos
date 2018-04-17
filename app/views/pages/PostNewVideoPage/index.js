@@ -27,12 +27,14 @@ import DropdownComponent from '@components/DropdownComponent';
 import CategoryComponent from '@components/CategoryComponent';
 import AutoSuggestComponent from '@components/AutoSuggestComponent';
 import LoadingSpinner from '@components/LoadingSpinner';
+import CustomAlert from '@components/CustomAlert';
 import PostProductLocationPage from '../PostProductLocationPage'
 
 import { styles } from './styles';
+
 import * as commonStyles from '@common/styles/commonStyles';
 import * as commonColors from '@common/styles/commonColors';
-import { getRegions } from '@redux/Region/actions';
+import { PERIOD_DATA, BUILDING_TYPE_DATA, APARTMENT_ROOM_TYPE } from '@common';
 
 class PostNewVideoPage extends Component {
   constructor(props) {
@@ -52,6 +54,8 @@ class PostNewVideoPage extends Component {
       address: I18n.t('post_video.select_address'),
       page: 'post',
       coordinate: null,
+      errorFlag: false,
+      errorText: '',
     }
     this.player = null;
   }
@@ -69,11 +73,25 @@ class PostNewVideoPage extends Component {
 
   onPreview() {
     const propsData = this.state;
-    
-    Actions.PostNewVideoPreview({data: propsData});
-    if (propsData.videoUri && propsData.videoFileName) {
-      Actions.PostNewVideoPreview({data: propsData});
+
+    // if (!propsData.videoUri || !propsData.videoFileName) {
+    //   this.setState({ errorFlag: true })
+    //   this.setState({ errorText: 'Please select video' })
+    //   return
+    // }
+    // if (!propsData.coordinate) {
+    //   this.setState({ errorFlag: true })
+    //   this.setState({ errorText: 'Please select address' })
+    //   return
+    // }
+    if (propsData.title.length === 0) {
+      this.setState({ errorFlag: true })
+      this.setState({ errorText: 'Please input title' })
+      return
     }
+
+    this.setState({ errorFlag: false })
+    Actions.PostNewVideoPreview({data: propsData});
   }
 
   onSelectProductOption(index, value) {
@@ -107,17 +125,15 @@ class PostNewVideoPage extends Component {
       }
       ImagePicker.showImagePicker(options, (response) => {
         if (response.didCancel) {
-        }
-        else if (response.error) {
-        }
-        else if (response.customButton) {
-        }
-        else {
+        } else if (response.error) {
+          console.log('error')
+        } else if (response.customButton) {
+          console.log('error')
+        } else {
           this.setState({ videoUri: response.uri, videoFileName: response.fileName });
         }
       })
-    }
-    else {
+    } else {
       this.player.presentFullscreenPlayer();
       this.player.seek(0);
     }
@@ -128,36 +144,23 @@ class PostNewVideoPage extends Component {
   }
 
   getAddress(addressArr) {
-    const address = addressArr.street + ', ' + addressArr.city + ', ' + addressArr.country;
+    const address = `${addressArr.street}, ${addressArr.city}, ${addressArr.country}`;
     this.setState({ address })
     this.setState({ coordinate: addressArr.coordinate })
+    this.setState({ errorFlag: false })
   }
 
   render() {
     // const {videoData} = this.props;
     const {
+      errorFlag,
+      errorText,
       page,
       coordinate,
       address,
       category, 
       videoUri
-    } = this.state;  
-
-    const periodData = [
-      { value: 'Daily' },
-      { value: 'Monthly' },
-      { value: 'Yearly' }
-    ];
-
-    const buildingTypeData = [
-      { value: 'Residential' },
-      { value: 'Commercial' }
-    ];
-
-    const apartmentRoomType = [
-      { value: 'Singular' },
-      { value: 'Familiar' }
-    ];
+    } = this.state;
 
     if (page === 'map') {
       return (
@@ -174,6 +177,13 @@ class PostNewVideoPage extends Component {
       <Container title={I18n.t('sidebar.post_new_ads')}>
         <LoadingSpinner visible={this.state.loading } />
 
+        <CustomAlert 
+          title="Error"
+          message={errorText}
+          visible={this.state.errorFlag} 
+          closeAlert={() => this.setState({ errorFlag: false })}
+        />
+
         <View style={styles.container}>
           <KeyboardScrollView>
             <TouchableOpacity onPress={() => this.onCamera()}>
@@ -181,7 +191,7 @@ class PostNewVideoPage extends Component {
                 {videoUri ?
                   <Video
                     ref={ref => this.player = ref}
-                    source={{uri: videoUri}}
+                    source={{ uri: videoUri }}
                     style={styles.videoThumbnail}
                     resizeMode='cover'
                     autoplay={false}
@@ -302,31 +312,31 @@ class PostNewVideoPage extends Component {
                   {I18n.t('post_video.type')}
                 </Text>
                 <DropdownComponent
-                  selectItem={value => this.setState({buildingType: value})}
-                  item={this.state.buildingType} data={buildingTypeData}
+                  selectItem={value => this.setState({ buildingType: value })}
+                  item={this.state.buildingType} data={BUILDING_TYPE_DATA}
                 />
               </View>
             )}
 
             {category === 'villa' && (
-            <View style={styles.itemView}>
-              <Text style={styles.textTitle}>
-                {I18n.t('post_video.squaremeter')}
-              </Text>
-              <TextInput
-                ref="squareMeter"
-                autoCapitalize="none"
-                autoCorrect
-                placeholder={I18n.t('post_video.squaremeter')}
-                placeholderTextColor={commonColors.placeholderSubText}
-                textAlign="right"
-                style={styles.input}
-                underlineColorAndroid="transparent"
-                returnKeyType={'next'}
-                value={this.state.squareMeter}
-                onChangeText={text => this.setState({ squareMeter: text })}
-              />
-            </View>)}
+              <View style={styles.itemView}>
+                <Text style={styles.textTitle}>
+                  {I18n.t('post_video.squaremeter')}
+                </Text>
+                <TextInput
+                  ref="squareMeter"
+                  autoCapitalize="none"
+                  autoCorrect
+                  placeholder={I18n.t('post_video.squaremeter')}
+                  placeholderTextColor={commonColors.placeholderSubText}
+                  textAlign="right"
+                  style={styles.input}
+                  underlineColorAndroid="transparent"
+                  returnKeyType={'next'}
+                  value={this.state.squareMeter}
+                  onChangeText={text => this.setState({ squareMeter: text })}
+                />
+              </View>)}
 
             {(category === 'apartment' || category === 'chalet') && (
               <View style={styles.itemView}>
@@ -335,7 +345,7 @@ class PostNewVideoPage extends Component {
                 </Text>
                 <DropdownComponent
                   selectItem={value => this.setState({period: value})}
-                  item={this.state.period} data={periodData}
+                  item={this.state.period} data={PERIOD_DATA}
                 />
               </View>
             )}
@@ -361,7 +371,7 @@ class PostNewVideoPage extends Component {
                   </Text>
                   <DropdownComponent
                     selectItem={value => this.setState({roomType: value})}
-                    item={this.state.roomType} data={apartmentRoomType}
+                    item={this.state.roomType} data={APARTMENT_ROOM_TYPE}
                   />
                 </View>
                 <View style={styles.itemView}>
@@ -398,7 +408,7 @@ class PostNewVideoPage extends Component {
               </View>
             )}
 
-            {(category == 'office') && (
+            {(category === 'office') && (
               <View style={styles.itemView}>
                 <Text style={styles.textTitle}>
                   {I18n.t('post_video.area_space')}
@@ -478,7 +488,4 @@ class PostNewVideoPage extends Component {
   }
 }
 
-export default connect(state => ({
-  tokenInfo: state.token.tokenInfo,
-  regionData: state.regions.regionData
-}),{ getRegions })(PostNewVideoPage);
+export default PostNewVideoPage

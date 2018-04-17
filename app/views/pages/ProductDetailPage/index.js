@@ -14,6 +14,7 @@ import {
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
+import Video from 'react-native-video';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
 import Icon from 'react-native-vector-icons/Feather';
 import IconEntypo from 'react-native-vector-icons/Entypo';
@@ -22,6 +23,7 @@ import I18n from '@i18n';
 import Container from '@layout/Container';
 import { styles } from './styles';
 import ModalShare from '@components/ModalShare';
+import { CATEGORY_ICON_LIST } from '@common/category';
 
 const icon_office = require('@common/assets/images/product_detail/office.png');
 const icon_report = require('@common/assets/images/product_detail/report_ad.png');
@@ -40,7 +42,7 @@ export default class ProductDetailPage extends Component {
   }
 
   onShare() {
-    this.setState({showShareModal : true});
+    this.setState({ showShareModal : true });
   }
 
   onSendMessage() {
@@ -51,64 +53,90 @@ export default class ProductDetailPage extends Component {
 
   }
 
+
+  onCamera() {
+    this.player.presentFullscreenPlayer();
+    this.player.seek(0);
+  }
+
   render() {
     const { data } = this.props;
 
     return (
-      <Container title={data.title} type='detail'>
+      <Container title={data.name} type='detail'>
         <View style={styles.container}>
           <ScrollView>
-            <Image
-              source={{ uri: 'https://ar.rdcpix.com/1310744609/3d220b868bac74f582f666970f984894c-f0xd-w1020_h770_q80.jpg' }}
-              style={styles.thumbnail}
-            />
+            {!!data.video_url && data.video_url.length > 0 && (
+              <TouchableOpacity onPress={() => this.onCamera()}>
+                <Video
+                  ref={(ref) => { this.player = ref }}
+                  source={{ uri: data.video_url }}
+                  style={styles.thumbnail}
+                  resizeMode='cover'
+                  autoplay={false}
+                  paused
+                  onLoadStart={() => this.player.presentFullscreenPlayer}
+                />
+              </TouchableOpacity>
+            )}
+            
             <View style={styles.titleView}>
               <Text style={styles.textTitle}>
-                Office in the city center for rent
+                {data.name}
               </Text>
             </View>
+            
             <View style={styles.description}>
               <Text style={styles.textDescription}>
-                he following * Begin with the words **ROR Engineer** * Include links to your Github, Stack Overflow and Linked In profiles * Include a link to your blog (if you have one)
+                {data.description}
               </Text>
             </View>
+            
             <View style={styles.titleView}>
               <Text style={styles.textPhone}>
                 + 123 567 45 45 90
               </Text>
             </View>
+            
             <View style={styles.separate} />
+            
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
-                5.000 SAR
+                {`${data.price} ${I18n.t('sar')}`} 
               </Text>
             </View>
+            
             <View style={styles.itemView}>
               <Text style={styles.textDescription}>
                 Ar Riyadh
               </Text>
             </View>
+            
             <View style={styles.itemView}>
               <Text style={styles.textDescription}>
                 Riyadg
               </Text>
             </View>
+            
             <View style={styles.itemView}>
               <Text style={styles.textDescription}>
                 North - East
               </Text>
             </View>
+            
             <View style={styles.itemView}>
               <Text style={styles.textTitle}>
-                Rent
+                {data.product_type}
               </Text>
             </View>
+            
             <View style={styles.titleView}>
-              <Image source={icon_office} style={styles.iconOffice} resizeMode="cover" />
+              <Image source={CATEGORY_ICON_LIST[data.category.toLowerCase()]} style={styles.iconCategory} resizeMode="contain" />
               <Text style={styles.textDescription}>
-                Office
+                {data.category}
               </Text>
             </View>
+            
             <View style={styles.btnView}>
               <TouchableOpacity onPress={() => this.onFavorite()} activeOpacity={0.5}>
                 <View style={styles.btnFavorite}>
@@ -130,6 +158,7 @@ export default class ProductDetailPage extends Component {
                 </View>
               </TouchableOpacity>
             </View>
+            
             <View style={styles.btnView}>
               <TouchableOpacity onPress={() => this.onReportAD()} activeOpacity={0.5}>
                 <View style={styles.btnAd}>

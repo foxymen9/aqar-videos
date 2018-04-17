@@ -26,7 +26,7 @@ class MainPage extends Component {
     super(props);
     this.state ={
       isBtnList: false,
-      tabIndex: 0,
+      tabIndex: 11,
       btnItem: null,
       btnStatus: 'map',
     }
@@ -43,7 +43,7 @@ class MainPage extends Component {
     //Auto login
     if (!userLogin) {
       AsyncStorage.getItem('loginStatus').then((value) => {
-        if (value == 'true') {
+        if (value === 'true') {
           this.props.setLoginStatus(true);
           this.props.changeMenu(0);
         }
@@ -52,7 +52,7 @@ class MainPage extends Component {
   }
 
   onSelectItem(index) {
-    const {btnStatus} = this.state;
+    const { btnStatus } = this.state;
 
     switch(index) {
       case 'plus':
@@ -75,20 +75,26 @@ class MainPage extends Component {
   }
 
   changeTab(index) {
-    this.setState({btnStatus: 'map'})
+    this.setState({ tabIndex: index })
+    this.setState({ btnStatus: 'map' })
   }
 
   render() {
-    const {tabIndex, isBtnList, btnItem, btnStatus} = this.state;
+    const { tokenInfo } = this.props
+    const { tabIndex, isBtnList, btnItem, btnStatus } = this.state;
     const title = btnStatus == 'list' ? I18n.t('main.list') : I18n.t('main.map');
 
     return (
       <Container title={title}>
         <View style={styles.container}>
-          <TabView btnStatus={btnStatus} changeTab={index => this.changeTab(index)}/>
-          {isBtnList && (
-            <MapButtonListComponent  onSelectItem={value => this.onSelectItem(value)} btnStatus={btnStatus} />
+          {tokenInfo && (
+            <TabView btnStatus={btnStatus} changeTab={index => this.changeTab(index)}/>
           )}
+
+          {isBtnList && (
+            <MapButtonListComponent onSelectItem={value => this.onSelectItem(value)} btnStatus={btnStatus} />
+          )}
+
           <ButtonPlusComponent isBtnList={isBtnList} btnStatus={btnStatus} onSelectItem={value => this.onSelectItem(value) }/>
         </View>
       </Container>

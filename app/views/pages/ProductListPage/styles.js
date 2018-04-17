@@ -29,10 +29,6 @@ export const styles = StyleSheet.create({
     width: commonStyles.screenSubWidth,
     height: listItemHeight
   },
-  image: {
-    width: '100%',
-    height: '100%',
-  },
   subView: {
     position: 'absolute',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
